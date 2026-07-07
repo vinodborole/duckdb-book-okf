@@ -1,0 +1,15 @@
+# /pages/docs/current/clients/c — directory listing
+
+- [Complete API – DuckDB](/pages/docs/current/clients/c/api.md)
+- [Appender – DuckDB](/pages/docs/current/clients/c/appender.md)
+- [Configuration – DuckDB](/pages/docs/current/clients/c/config.md)
+- [Startup & Shutdown – DuckDB](/pages/docs/current/clients/c/connect.md)
+- [Data Chunks – DuckDB](/pages/docs/current/clients/c/data_chunk.md)
+- [Overview – DuckDB](/pages/docs/current/clients/c/overview.md)
+- [Prepared Statements – DuckDB](/pages/docs/current/clients/c/prepared.md)
+- [Query – DuckDB](/pages/docs/current/clients/c/query.md)
+- [Replacement Scans – DuckDB](/pages/docs/current/clients/c/replacement_scans.md)
+- [Table Functions – DuckDB](/pages/docs/current/clients/c/table_functions.md)
+- [Types – DuckDB](/pages/docs/current/clients/c/types.md)
+- [Values – DuckDB](/pages/docs/current/clients/c/value.md)
+- [Vectors – DuckDB](/pages/docs/current/clients/c/vector.md)
