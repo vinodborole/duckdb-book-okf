@@ -9,13 +9,18 @@ description: Dot commands are available in the DuckDB CLI client. To use one of 
   on a single line, and no whitespace may occur before the period. No semicolon is
   required at the end of the line. To see available commands, use the .help command.…
 resource: https://duckdb.org/docs/current/clients/cli/dot_commands
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
 Dot commands are available in the DuckDB CLI client. To use one of these commands, begin the line with a period (`.`) immediately followed by the name of the command you wish to execute. Additional arguments to the command are entered, space separated, after the command. If an argument must contain a space, either single or double quotes may be used to wrap that parameter. Dot commands must be entered on a single line, and no whitespace may occur before the period. No semicolon is required at the end of the line. To see available commands, use the `.help` command.
 
-## List of Dot Commands
+## 
+        
+        [List of Dot Commands](#list-of-dot-commands)
+        
+      
 
+    
 | Command | Description | 
 |---|---|
 | `.bail on/off` | Stop after hitting an error. Default: `off` | 
@@ -26,15 +31,15 @@ Dot commands are available in the DuckDB CLI client. To use one of these command
 | `.constant COLOR` | Sets the syntax highlighting color used for constant values | 
 | `.constantcode CODE` | Sets the syntax highlighting terminal code used for constant values | 
 | `.databases` | List names and files of attached databases | 
-| `.dump TABLE` | Render database content as SQL. `TABLE`is a`LIKE`pattern for the tables to dump | 
+| `.dump TABLE` | Render database content as SQL. `TABLE`is afor the tables to dump`LIKE`pattern | 
 | `.echo on/off` | Turn command echo `on`or`off` | 
 | `.exit CODE` | Exit this program with return-code `CODE` | 
 | `.headers on/off` | Turn display of headers `on`or`off`. Does not apply to duckbox mode | 
 | `.help -all PATTERN` | Show help text for `PATTERN`. Use`.help shortcuts`to display keyboard shortcuts | 
-| `.highlight on/off` | Toggle syntax highlighting in the shell `on`/`off`. See the query syntax highlighting section for more details | 
-| `.highlight_colors COMPONENT COLOR` | Configure the color of each component in (duckbox only). See the result syntax highlighting section for more details | 
-| `.highlight_mode mixed/dark/light` | Toggle the highlight mode. See the dark/light mode section for details | 
-| `.highlight_results on/off` | Toggle highlighting in result tables `on`/`off`(duckbox only). See the result syntax highlighting section for more details | 
+| `.highlight on/off` | Toggle syntax highlighting in the shell `on`/`off`. See the[query syntax highlighting section](#configuring-the-query-syntax-highlighter)for more details | 
+| `.highlight_colors COMPONENT COLOR` | Configure the color of each component in (duckbox only). See the [result syntax highlighting section](#configuring-the-query-syntax-highlighter)for more details | 
+| `.highlight_mode mixed/dark/light` | Toggle the highlight mode. See the [dark/light mode section](/docs/current/clients/cli/friendly_cli.html#darklight-mode)for details | 
+| `.highlight_results on/off` | Toggle highlighting in result tables `on`/`off`(duckbox only). See the[result syntax highlighting section](#configuring-the-query-syntax-highlighter)for more details | 
 | `.import FILE TABLE` | Import data from `FILE`into`TABLE`. Supports`--csv`,`--json`,`--parquet`options | 
 | `.indexes TABLE` | Show names of indexes | 
 | `.keyword COLOR` | Sets the syntax highlighting color used for keywords | 
@@ -42,22 +47,22 @@ Dot commands are available in the DuckDB CLI client. To use one of these command
 | `.large_number_rendering all/footer/off` | Toggle readable rendering of large numbers (duckbox only, default: `footer`) | 
 | `.last` | Render the last result without truncating. Useful for navigating with the pager | 
 | `.log FILE/off` | Turn logging `on`or`off`.`FILE`can be`stderr`/`stdout` | 
-| `.maxrows COUNT` | Sets the maximum number of rows for display. Only for duckbox mode | 
-| `.maxwidth COUNT` | Sets the maximum width in characters. 0 defaults to terminal width. Only for duckbox mode | 
-| `.mode MODE TABLE` | Set output mode | 
+| `.maxrows COUNT` | Sets the maximum number of rows for display. Only for [duckbox mode](/docs/current/clients/cli/output_formats.html) | 
+| `.maxwidth COUNT` | Sets the maximum width in characters. 0 defaults to terminal width. Only for [duckbox mode](/docs/current/clients/cli/output_formats.html) | 
+| `.mode MODE TABLE` | Set [output mode](/docs/current/clients/cli/output_formats.html) | 
 | `.multiline` | Set multi-line mode (default) | 
 | `.nullvalue STRING` | Use `STRING`in place of`NULL`values. Default:`NULL` | 
 | `.once OPTIONS FILE` | Output for the next SQL command only to `FILE` | 
 | `.open OPTIONS FILE` | Close existing database and reopen `FILE`. Options:`--new`,`--nofollow`,`--readonly`,`--sql` | 
 | `.output FILE` | Send output to `FILE`or`stdout`if`FILE`is omitted | 
-| `.pager OPTIONS` | Control pager usage for output. See the paging section for details | 
+| `.pager OPTIONS` | Control pager usage for output. See the [paging section](/docs/current/clients/cli/output_formats.html#paging)for details | 
 | `.print STRING...` | Print literal `STRING` | 
 | `.progress_bar COMPONENT ` | Set the progress bar component styles | 
 | `.prompt OPTIONS CONTINUE` | Replace the standard prompts | 
 | `.quit` | Exit this program | 
 | `.read FILE` | Read input from `FILE` | 
 | `.rows` | Row-wise rendering of query results (default) | 
-| `.safe_mode` | Activates safe mode | 
+| `.safe_mode` | Activates [safe mode](/docs/current/clients/cli/safe_mode.html) | 
 | `.schema PATTERN` | Show the `CREATE`statements matching`PATTERN` | 
 | `.separator COL ROW` | Change the column and row separators | 
 | `.shell CMD ARGS...` | Run `CMD`with`ARGS...`in a system shell | 
@@ -65,18 +70,18 @@ Dot commands are available in the DuckDB CLI client. To use one of these command
 | `.singleline` | Set single-line mode | 
 | `.startup_text none/version/all` | Controls the start-up text displayed when launching the CLI. Set this as the first line in `~/.duckdbrc` | 
 | `.system CMD ARGS...` | Run `CMD`with`ARGS...`in a system shell | 
-| `.tables TABLE` | List tables matching `LIKE`pattern`TABLE`with column names, types and row counts, grouped by database and schema | 
+| `.tables TABLE` | List tables [matching ](/docs/current/sql/functions/pattern_matching.html)`LIKE`pattern`TABLE`with column names, types and row counts, grouped by database and schema | 
 | `.timer on/off` | Turn SQL timer `on`or`off`. SQL statements separated by`;`butnotseparated via newline are measured together | 
 | `.width NUM1 NUM2 ...` | Set minimum column widths for columnar output | 
 
 ## 
         
-        Using the `.help` Command
+        [Using the ](#using-the-help-command)`.help` Command
         
       
 
     
-The `.help` text may be filtered by passing in a text string as the first argument.
+`.help` CommandThe `.help` text may be filtered by passing in a text string as the first argument.
 
 ```
 .help m
@@ -89,11 +94,9 @@ The `.help` text may be filtered by passing in a text string as the first argume
 ## 
         
         `.output`: Writing Results to a File
-        
-      
 
     
-By default, the DuckDB CLI sends results to the terminal's standard output. However, this can be modified using either the `.output` or `.once` commands. Pass in the desired output file location as a parameter. The `.once` command will only output the next set of results and then revert to standard out, but `.output` will redirect all subsequent output to that file location. Note that each result will overwrite the entire file at that destination. To revert back to standard output, enter `.output` with no file parameter.
+`.output`: Writing Results to a FileBy default, the DuckDB CLI sends results to the terminal's standard output. However, this can be modified using either the `.output` or `.once` commands. Pass in the desired output file location as a parameter. The `.once` command will only output the next set of results and then revert to standard out, but `.output` will redirect all subsequent output to that file location. Note that each result will overwrite the entire file at that destination. To revert back to standard output, enter `.output` with no file parameter.
 
 In this example, the output format is changed to `markdown`, the destination is identified as a Markdown file, and then DuckDB will write the output of the SQL statement to that file. Output is then reverted to standard output using `.output` with no parameter.
 
@@ -118,7 +121,7 @@ The terminal will then display:
 | -------------------- |
 | back to the terminal |
 ```
-A common output format is CSV, or comma separated values. DuckDB supports SQL syntax to export data as CSV or Parquet, but the CLI-specific commands may be used to write a CSV instead if desired.
+A common output format is CSV, or comma separated values. DuckDB supports [SQL syntax to export data as CSV or Parquet](/docs/current/sql/statements/copy.html#copy-to), but the CLI-specific commands may be used to write a CSV instead if desired.
 
 ```
 .mode csv
@@ -144,14 +147,19 @@ The results then open in the default text file editor of the system, for example
 
 Tip macOS users can copy the results to their clipboards using
 
-`pbcopy`by using`.once`to output to`pbcopy`via a pipe:`.once |pbcopy`Combining this with the
+[by using](https://ss64.com/mac/pbcopy.html)`pbcopy``.once`to output to`pbcopy`via a pipe:`.once |pbcopy`Combining this with the
 
 `.headers off`and`.mode lines`options can be particularly effective.
 
-## Querying the Database Schema
+## 
+        
+        [Querying the Database Schema](#querying-the-database-schema)
+        
+      
 
-All DuckDB clients support querying the database schema with SQL, but the CLI has additional dot commands that can make it easier to understand the contents of a database.
-The `.tables` command will return a list of tables in the database. It has an optional argument that will filter the results according to a `LIKE` pattern.
+    
+All DuckDB clients support [querying the database schema with SQL](/docs/current/sql/meta/information_schema.html), but the CLI has additional [dot commands](/docs/current/clients/cli/dot_commands.html) that can make it easier to understand the contents of a database.
+The `.tables` command will return a list of tables in the database. It has an optional argument that will filter the results according to a [ LIKE pattern](/docs/current/sql/functions/pattern_matching.html#like).
 
 ```
 CREATE TABLE swimmers AS SELECT 'duck' AS animal;
@@ -180,14 +188,19 @@ CREATE TABLE fliers (animal VARCHAR);
 CREATE TABLE swimmers (animal VARCHAR);
 CREATE TABLE walkers (animal VARCHAR);
 ```
-## Dumping Database Content as SQL
+## 
+        
+        [Dumping Database Content as SQL](#dumping-database-content-as-sql)
+        
+      
 
+    
 The `.dump` command renders the database content as SQL statements, including both schema definitions and data. This is useful for creating backups or migrating data.
 
 ```
 .dump
 ```
-An optional `TABLE` argument filters the output using a `LIKE` pattern. Multiple patterns can be provided as additional arguments.
+An optional `TABLE` argument filters the output using a [ LIKE pattern](/docs/current/sql/functions/pattern_matching.html#like). Multiple patterns can be provided as additional arguments.
 
 ```
 .dump %swim%
@@ -197,16 +210,26 @@ The `--newlines` option allows unescaped newline characters in the output:
 ```
 .dump --newlines
 ```
-## Progress Bar
+## 
+        
+        [Progress Bar](#progress-bar)
+        
+      
 
+    
 The DuckDB CLI client's progress bar supports customization through components.
 
 The `.progress_bar` command supports `--add` and `--clear` parameters for adding and removing components.
 
 For details on specific usage, see the examples below.
 
-### Configuring the Progress Bar Display
+### 
+        
+        [Configuring the Progress Bar Display](#configuring-the-progress-bar-display)
+        
+      
 
+    
 To check if the progress bar is enabled:
 
 ```
@@ -240,12 +263,22 @@ To reset all existing progress bar components:
 ```
 .progress_bar --clear
 ```
-## Syntax Highlighters
+## 
+        
+        [Syntax Highlighters](#syntax-highlighters)
+        
+      
 
+    
 The DuckDB CLI client has a syntax highlighter for the SQL queries and another for the duckbox-formatted result tables.
 
-### Configuring the Query Syntax Highlighter
+### 
+        
+        [Configuring the Query Syntax Highlighter](#configuring-the-query-syntax-highlighter)
+        
+      
 
+    
 By default the shell includes support for syntax highlighting. The CLI's syntax highlighter can be configured using the following commands.
 
 To turn off the highlighter:
@@ -284,8 +317,13 @@ For example:
 ```
 .keywordcode 033[31m
 ```
-### Configuring the Result Syntax Highlighter
+### 
+        
+        [Configuring the Result Syntax Highlighter](#configuring-the-result-syntax-highlighter)
+        
+      
 
+    
 By default, the result highlighting makes a few small modifications:
 
 - Bold column names.
@@ -306,8 +344,13 @@ For example:
 ```
 The result highlighting can be disabled using `.highlight_results off`.
 
-## Shorthands
+## 
+        
+        [Shorthands](#shorthands)
+        
+      
 
+    
 DuckDB's CLI allows using shorthands for dot commands. Once a sequence of characters can be unambiguously completed to a dot command or an argument, the CLI (silently) autocompletes them. For example:
 
 ```
@@ -320,8 +363,13 @@ Is equivalent to:
 ```
 Tip Avoid using shorthands in SQL scripts to improve readability and ensure that the scripts are future-proof.
 
-## Importing Data
+## 
+        
+        [Importing Data](#importing-data)
+        
+      
 
+    
 The `.import` command imports data from a file into a DuckDB table. It uses DuckDB's reader functions (`read_csv`, `read_json`, `read_parquet`) and supports automatic schema detection. If the target table does not exist, it is automatically created.
 
 The file format can be specified explicitly using `--csv`, `--json`, or `--parquet`. If no format is specified, the format is inferred from the file extension.

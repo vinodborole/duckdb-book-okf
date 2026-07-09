@@ -10,21 +10,31 @@ description: Vectors represent a horizontal slice of a column. They hold a numbe
   data type. The logical type of a vector can be obtained using duckdb_vector_get_column_type.
   The type id of the…
 resource: https://duckdb.org/docs/current/clients/c/vector
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
-Vectors represent a horizontal slice of a column. They hold a number of values of a specific type, similar to an array. Vectors are the core data representation used in DuckDB. Vectors are typically stored within data chunks.
+Vectors represent a horizontal slice of a column. They hold a number of values of a specific type, similar to an array. Vectors are the core data representation used in DuckDB. Vectors are typically stored within [data chunks](/docs/current/clients/c/data_chunk.html).
 
 The vector and data chunk interfaces are the most efficient way of interacting with DuckDB, allowing for the highest performance. However, the interfaces are also difficult to use and care must be taken when using them.
 
-## Vector Format
+## 
+        
+        [Vector Format](#vector-format)
+        
+      
 
+    
 Vectors are arrays of a specific data type. The logical type of a vector can be obtained using `duckdb_vector_get_column_type`. The type id of the logical type can then be obtained using `duckdb_get_type_id`.
 
 Vectors themselves do not have sizes. Instead, the parent data chunk has a size (that can be obtained through `duckdb_data_chunk_get_size`). All vectors that belong to a data chunk have the same size.
 
-### Primitive Types
+### 
+        
+        [Primitive Types](#primitive-types)
+        
+      
 
+    
 For primitive types, the underlying array can be obtained using the `duckdb_vector_get_data` method. The array can then be accessed using the correct native type. Below is a table that contains a mapping of the `duckdb_type` to the native type of the array.
 
 | duckdb_type | NativeType | 
@@ -58,18 +68,21 @@ For primitive types, the underlying array can be obtained using the `duckdb_vect
 ### 
         
         `NULL` Values
-        
-      
 
     
-Any value in a vector can be `NULL`. When a value is `NULL`, the values contained within the primary array at that index is undefined (and can be uninitialized). The validity mask is a bitmask consisting of `uint64_t` elements. For every `64` values in the vector, one `uint64_t` element exists (rounded up). The validity mask has its bit set to 1 if the value is valid, or set to 0 if the value is invalid (i.e., `NULL`).
+`NULL` ValuesAny value in a vector can be `NULL`. When a value is `NULL`, the values contained within the primary array at that index is undefined (and can be uninitialized). The validity mask is a bitmask consisting of `uint64_t` elements. For every `64` values in the vector, one `uint64_t` element exists (rounded up). The validity mask has its bit set to 1 if the value is valid, or set to 0 if the value is invalid (i.e., `NULL`).
 
 The bits of the bitmask can be read directly, or the slower helper method `duckdb_validity_row_is_valid` can be used to check whether or not a value is `NULL`.
 
 The `duckdb_vector_get_validity` returns a pointer to the validity mask. Note that if all values in a vector are valid, this function **might** return `nullptr` in which case the validity mask does not need to be checked.
 
-### Strings
+### 
+        
+        [Strings](#strings)
+        
+      
 
+    
 String values are stored as a `duckdb_string_t`. This is a special struct that stores the string inline (if it is short, i.e., `<= 12 bytes`) or a pointer to the string data if it is longer than `12` bytes.
 
 ```
@@ -89,8 +102,13 @@ typedef struct {
 ```
 The length can either be accessed directly, or the `duckdb_string_is_inlined` can be used to check if a string is inlined.
 
-### Decimals
+### 
+        
+        [Decimals](#decimals)
+        
+      
 
+    
 Decimals are stored as integer values internally. The exact native type depends on the `width` of the decimal type, as shown in the following table:
 
 | Width | NativeType | 
@@ -104,8 +122,13 @@ The `duckdb_decimal_internal_type` can be used to obtain the internal type of th
 
 Decimals are stored as integer values multiplied by `10^scale`. The scale of a decimal can be obtained using `duckdb_decimal_scale`. For example, a decimal value of `10.5` with type `DECIMAL(8, 3)` is stored internally as an `int32_t` value of `10500`. In order to obtain the correct decimal value, the value should be divided by the appropriate power-of-ten.
 
-### Enums
+### 
+        
+        [Enums](#enums)
+        
+      
 
+    
 Enums are stored as unsigned integer values internally. The exact native type depends on the size of the enum dictionary, as shown in the following table:
 
 | Dictionary size | NativeType | 
@@ -118,14 +141,24 @@ The `duckdb_enum_internal_type` can be used to obtain the internal type of the e
 
 In order to obtain the actual string value of the enum, the `duckdb_enum_dictionary_value` function must be used to obtain the enum value that corresponds to the given dictionary entry. Note that the enum dictionary is the same for the entire column – and so only needs to be constructed once.
 
-### Structs
+### 
+        
+        [Structs](#structs)
+        
+      
 
+    
 Structs are nested types that contain any number of child types. Think of them like a `struct` in C. The way to access struct data using vectors is to access the child vectors recursively using the `duckdb_struct_vector_get_child` method.
 
 The struct vector itself does not have any data (i.e., you should not use `duckdb_vector_get_data` method on the struct). **However**, the struct vector itself **does** have a validity mask. The reason for this is that the child elements of a struct can be `NULL`, but the struct **itself** can also be `NULL`.
 
-### Lists
+### 
+        
+        [Lists](#lists)
+        
+      
 
+    
 Lists are nested types that contain a single child type, repeated `x` times per row. Think of them like a variable-length array in C. The way to access list data using vectors is to access the child vector using the `duckdb_list_vector_get_child` method.
 
 The `duckdb_vector_get_data` must be used to get the offsets and lengths of the lists stored as `duckdb_list_entry`, that can then be applied to the child vector.
@@ -138,24 +171,34 @@ typedef struct {
 ```
 Note that both list entries itself **and** any children stored in the lists can also be `NULL`. This must be checked using the validity mask again.
 
-### Arrays
-
-Arrays are nested types that contain a single child type, repeated exactly `array_size` times per row. Think of them like a fixed-size array in C. Arrays work exactly the same as lists, **except** the length and offset of each entry is fixed. The fixed array size can be obtained by using `duckdb_array_type_array_size`. The data for entry `n` then resides at `offset = n * array_size` and always has `length = array_size`.
-
-Note that much like lists, arrays can still be `NULL`, which must be checked using the validity mask.
-
-## Examples
-
-Below are several full end-to-end examples of how to interact with vectors.
-
 ### 
         
-        Example: Reading an int64 Vector with `NULL` Values
+        [Arrays](#arrays)
         
       
 
     
-```
+Arrays are nested types that contain a single child type, repeated exactly `array_size` times per row. Think of them like a fixed-size array in C. Arrays work exactly the same as lists, **except** the length and offset of each entry is fixed. The fixed array size can be obtained by using `duckdb_array_type_array_size`. The data for entry `n` then resides at `offset = n * array_size` and always has `length = array_size`.
+
+Note that much like lists, arrays can still be `NULL`, which must be checked using the validity mask.
+
+## 
+        
+        [Examples](#examples)
+        
+      
+
+    
+Below are several full end-to-end examples of how to interact with vectors.
+
+### 
+        
+        [Example: Reading an int64 Vector with ](#example-reading-an-int64-vector-with-null-values)`NULL` Values
+        
+      
+
+    
+`NULL` Values```
 duckdb_database db;
 duckdb_connection con;
 duckdb_open(nullptr, &db);
@@ -191,8 +234,13 @@ duckdb_destroy_result(&res);
 duckdb_disconnect(&con);
 duckdb_close(&db);
 ```
-### Example: Reading a String Vector
+### 
+        
+        [Example: Reading a String Vector](#example-reading-a-string-vector)
+        
+      
 
+    
 ```
 duckdb_database db;
 duckdb_connection con;
@@ -236,8 +284,13 @@ duckdb_destroy_result(&res);
 duckdb_disconnect(&con);
 duckdb_close(&db);
 ```
-### Example: Reading a Struct Vector
+### 
+        
+        [Example: Reading a Struct Vector](#example-reading-a-struct-vector)
+        
+      
 
+    
 ```
 duckdb_database db;
 duckdb_connection con;
@@ -295,8 +348,13 @@ duckdb_destroy_result(&res);
 duckdb_disconnect(&con);
 duckdb_close(&db);
 ```
-### Example: Reading a List Vector
+### 
+        
+        [Example: Reading a List Vector](#example-reading-a-list-vector)
+        
+      
 
+    
 ```
 duckdb_database db;
 duckdb_connection con;
@@ -351,142 +409,193 @@ duckdb_destroy_result(&res);
 duckdb_disconnect(&con);
 duckdb_close(&db);
 ```
-## API Reference Overview
-
-```
-duckdb_vector duckdb_create_vector(duckdb_logical_type type, idx_t capacity);
-void duckdb_destroy_vector(duckdb_vector *vector);
-duckdb_logical_type duckdb_vector_get_column_type(duckdb_vector vector);
-void *duckdb_vector_get_data(duckdb_vector vector);
-uint64_t *duckdb_vector_get_validity(duckdb_vector vector);
-void duckdb_vector_ensure_validity_writable(duckdb_vector vector);
-void duckdb_vector_assign_string_element(duckdb_vector vector, idx_t index, const char *str);
-void duckdb_vector_assign_string_element_len(duckdb_vector vector, idx_t index, const char *str, idx_t str_len);
-duckdb_vector duckdb_list_vector_get_child(duckdb_vector vector);
-idx_t duckdb_list_vector_get_size(duckdb_vector vector);
-duckdb_state duckdb_list_vector_set_size(duckdb_vector vector, idx_t size);
-duckdb_state duckdb_list_vector_reserve(duckdb_vector vector, idx_t required_capacity);
-duckdb_vector duckdb_struct_vector_get_child(duckdb_vector vector, idx_t index);
-duckdb_vector duckdb_array_vector_get_child(duckdb_vector vector);
-void duckdb_slice_vector(duckdb_vector vector, duckdb_selection_vector sel, idx_t len);
-void duckdb_vector_copy_sel(duckdb_vector src, duckdb_vector dst, duckdb_selection_vector sel, idx_t src_count, idx_t src_offset, idx_t dst_offset);
-void duckdb_vector_reference_value(duckdb_vector vector, duckdb_value value);
-void duckdb_vector_reference_vector(duckdb_vector to_vector, duckdb_vector from_vector);
-```
-### Validity Mask Functions
-
-```
-bool duckdb_validity_row_is_valid(uint64_t *validity, idx_t row);
-void duckdb_validity_set_row_validity(uint64_t *validity, idx_t row, bool valid);
-void duckdb_validity_set_row_invalid(uint64_t *validity, idx_t row);
-void duckdb_validity_set_row_valid(uint64_t *validity, idx_t row);
-```
-#### 
+## 
         
-        `duckdb_create_vector`
+        [API Reference Overview](#api-reference-overview)
         
       
 
     
-Creates a flat vector. Must be destroyed with `duckdb_destroy_vector`.
+`duckdb_vector `[duckdb_create_vector](#duckdb_create_vector)(duckdb_logical_type type, idx_t capacity);
+void [duckdb_destroy_vector](#duckdb_destroy_vector)(duckdb_vector *vector);
+duckdb_logical_type [duckdb_vector_get_column_type](#duckdb_vector_get_column_type)(duckdb_vector vector);
+void *[duckdb_vector_get_data](#duckdb_vector_get_data)(duckdb_vector vector);
+uint64_t *[duckdb_vector_get_validity](#duckdb_vector_get_validity)(duckdb_vector vector);
+void [duckdb_vector_ensure_validity_writable](#duckdb_vector_ensure_validity_writable)(duckdb_vector vector);
+void [duckdb_vector_assign_string_element](#duckdb_vector_assign_string_element)(duckdb_vector vector, idx_t index, const char *str);
+void [duckdb_vector_assign_string_element_len](#duckdb_vector_assign_string_element_len)(duckdb_vector vector, idx_t index, const char *str, idx_t str_len);
+duckdb_vector [duckdb_list_vector_get_child](#duckdb_list_vector_get_child)(duckdb_vector vector);
+idx_t [duckdb_list_vector_get_size](#duckdb_list_vector_get_size)(duckdb_vector vector);
+duckdb_state [duckdb_list_vector_set_size](#duckdb_list_vector_set_size)(duckdb_vector vector, idx_t size);
+duckdb_state [duckdb_list_vector_reserve](#duckdb_list_vector_reserve)(duckdb_vector vector, idx_t required_capacity);
+duckdb_vector [duckdb_struct_vector_get_child](#duckdb_struct_vector_get_child)(duckdb_vector vector, idx_t index);
+duckdb_vector [duckdb_array_vector_get_child](#duckdb_array_vector_get_child)(duckdb_vector vector);
+void [duckdb_slice_vector](#duckdb_slice_vector)(duckdb_vector vector, duckdb_selection_vector sel, idx_t len);
+void [duckdb_vector_copy_sel](#duckdb_vector_copy_sel)(duckdb_vector src, duckdb_vector dst, duckdb_selection_vector sel, idx_t src_count, idx_t src_offset, idx_t dst_offset);
+void [duckdb_vector_reference_value](#duckdb_vector_reference_value)(duckdb_vector vector, duckdb_value value);
+void [duckdb_vector_reference_vector](#duckdb_vector_reference_vector)(duckdb_vector to_vector, duckdb_vector from_vector);
+### 
+        
+        [Validity Mask Functions](#validity-mask-functions)
+        
+      
 
-##### Syntax
+    
+`bool `[duckdb_validity_row_is_valid](#duckdb_validity_row_is_valid)(uint64_t *validity, idx_t row);
+void [duckdb_validity_set_row_validity](#duckdb_validity_set_row_validity)(uint64_t *validity, idx_t row, bool valid);
+void [duckdb_validity_set_row_invalid](#duckdb_validity_set_row_invalid)(uint64_t *validity, idx_t row);
+void [duckdb_validity_set_row_valid](#duckdb_validity_set_row_valid)(uint64_t *validity, idx_t row);
+#### 
+        
+        `duckdb_create_vector`
 
+    
+`duckdb_create_vector`Creates a flat vector. Must be destroyed with `duckdb_destroy_vector`.
+
+##### 
+        
+        [Syntax](#syntax)
+        
+      
+
+    
 ```
 duckdb_vector duckdb_create_vector(
   duckdb_logical_type type,
   idx_t capacity
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters)
+        
+      
 
+    
 - `type`: The logical type of the vector.
 - `capacity`: The capacity of the vector.
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value)
+        
+      
 
+    
 The vector.
 
 #### 
         
         `duckdb_destroy_vector`
+
+    
+`duckdb_destroy_vector`Destroys the vector and de-allocates its memory.
+
+##### 
+        
+        [Syntax](#syntax-1)
         
       
 
     
-Destroys the vector and de-allocates its memory.
-
-##### Syntax
-
 ```
 void duckdb_destroy_vector(
   duckdb_vector *vector
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-1)
+        
+      
 
+    
 - `vector`: A pointer to the vector.
 
 #### 
         
         `duckdb_vector_get_column_type`
+
+    
+`duckdb_vector_get_column_type`Retrieves the column type of the specified vector.
+
+The result must be destroyed with `duckdb_destroy_logical_type`.
+
+##### 
+        
+        [Syntax](#syntax-2)
         
       
 
     
-Retrieves the column type of the specified vector.
-
-The result must be destroyed with `duckdb_destroy_logical_type`.
-
-##### Syntax
-
 ```
 duckdb_logical_type duckdb_vector_get_column_type(
   duckdb_vector vector
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-2)
+        
+      
 
+    
 - `vector`: The vector get the data from
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value-1)
+        
+      
 
+    
 The type of the vector
 
 #### 
         
         `duckdb_vector_get_data`
+
+    
+`duckdb_vector_get_data`Retrieves the data pointer of the vector.
+
+The data pointer can be used to read or write values from the vector. How to read or write values depends on the type of the vector.
+
+##### 
+        
+        [Syntax](#syntax-3)
         
       
 
     
-Retrieves the data pointer of the vector.
-
-The data pointer can be used to read or write values from the vector. How to read or write values depends on the type of the vector.
-
-##### Syntax
-
 ```
 void *duckdb_vector_get_data(
   duckdb_vector vector
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-3)
+        
+      
 
+    
 - `vector`: The vector to get the data from
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value-2)
+        
+      
 
+    
 The data pointer
 
 #### 
         
         `duckdb_vector_get_validity`
-        
-      
 
     
-Retrieves the validity mask pointer of the specified vector.
+`duckdb_vector_get_validity`Retrieves the validity mask pointer of the specified vector.
 
 If all values are valid, this function MIGHT return NULL!
 
@@ -498,55 +607,81 @@ idx_t entry_idx = row_idx / 64; idx_t idx_in_entry = row_idx % 64; bool is_valid
 
 Alternatively, the (slower) duckdb_validity_row_is_valid function can be used.
 
-##### Syntax
+##### 
+        
+        [Syntax](#syntax-4)
+        
+      
 
+    
 ```
 uint64_t *duckdb_vector_get_validity(
   duckdb_vector vector
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-4)
+        
+      
 
+    
 - `vector`: The vector to get the data from
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value-3)
+        
+      
 
+    
 The pointer to the validity mask, or NULL if no validity mask is present
 
 #### 
         
         `duckdb_vector_ensure_validity_writable`
-        
-      
 
     
-Ensures the validity mask is writable by allocating it.
+`duckdb_vector_ensure_validity_writable`Ensures the validity mask is writable by allocating it.
 
 After this function is called, `duckdb_vector_get_validity` will ALWAYS return non-NULL.
 This allows NULL values to be written to the vector, regardless of whether a validity mask was present before.
 
-##### Syntax
+##### 
+        
+        [Syntax](#syntax-5)
+        
+      
 
+    
 ```
 void duckdb_vector_ensure_validity_writable(
   duckdb_vector vector
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-5)
+        
+      
 
+    
 - `vector`: The vector to alter
 
 #### 
         
         `duckdb_vector_assign_string_element`
+
+    
+`duckdb_vector_assign_string_element`Assigns a string element in the vector at the specified location.
+
+##### 
+        
+        [Syntax](#syntax-6)
         
       
 
     
-Assigns a string element in the vector at the specified location.
-
-##### Syntax
-
 ```
 void duckdb_vector_assign_string_element(
   duckdb_vector vector,
@@ -554,8 +689,13 @@ void duckdb_vector_assign_string_element(
   const char *str
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-6)
+        
+      
 
+    
 - `vector`: The vector to alter
 - `index`: The row position in the vector to assign the string to
 - `str`: The null-terminated string
@@ -563,14 +703,17 @@ void duckdb_vector_assign_string_element(
 #### 
         
         `duckdb_vector_assign_string_element_len`
+
+    
+`duckdb_vector_assign_string_element_len`Assigns a string element in the vector at the specified location. You may also use this function to assign BLOBs.
+
+##### 
+        
+        [Syntax](#syntax-7)
         
       
 
     
-Assigns a string element in the vector at the specified location. You may also use this function to assign BLOBs.
-
-##### Syntax
-
 ```
 void duckdb_vector_assign_string_element_len(
   duckdb_vector vector,
@@ -579,8 +722,13 @@ void duckdb_vector_assign_string_element_len(
   idx_t str_len
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-7)
+        
+      
 
+    
 - `vector`: The vector to alter
 - `index`: The row position in the vector to assign the string to
 - `str`: The string
@@ -589,169 +737,250 @@ void duckdb_vector_assign_string_element_len(
 #### 
         
         `duckdb_list_vector_get_child`
+
+    
+`duckdb_list_vector_get_child`Retrieves the child vector of a list vector.
+
+The resulting vector is valid as long as the parent vector is valid.
+
+##### 
+        
+        [Syntax](#syntax-8)
         
       
 
     
-Retrieves the child vector of a list vector.
-
-The resulting vector is valid as long as the parent vector is valid.
-
-##### Syntax
-
 ```
 duckdb_vector duckdb_list_vector_get_child(
   duckdb_vector vector
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-8)
+        
+      
 
+    
 - `vector`: The vector
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value-4)
+        
+      
 
+    
 The child vector
 
 #### 
         
         `duckdb_list_vector_get_size`
+
+    
+`duckdb_list_vector_get_size`Returns the size of the child vector of the list.
+
+##### 
+        
+        [Syntax](#syntax-9)
         
       
 
     
-Returns the size of the child vector of the list.
-
-##### Syntax
-
 ```
 idx_t duckdb_list_vector_get_size(
   duckdb_vector vector
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-9)
+        
+      
 
+    
 - `vector`: The vector
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value-5)
+        
+      
 
+    
 The size of the child list
 
 #### 
         
         `duckdb_list_vector_set_size`
+
+    
+`duckdb_list_vector_set_size`Sets the total size of the underlying child-vector of a list vector.
+
+##### 
+        
+        [Syntax](#syntax-10)
         
       
 
     
-Sets the total size of the underlying child-vector of a list vector.
-
-##### Syntax
-
 ```
 duckdb_state duckdb_list_vector_set_size(
   duckdb_vector vector,
   idx_t size
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-10)
+        
+      
 
+    
 - `vector`: The list vector.
 - `size`: The size of the child list.
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value-6)
+        
+      
 
+    
 The duckdb state. Returns DuckDBError if the vector is nullptr.
 
 #### 
         
         `duckdb_list_vector_reserve`
-        
-      
 
     
-Sets the total capacity of the underlying child-vector of a list.
+`duckdb_list_vector_reserve`Sets the total capacity of the underlying child-vector of a list.
 
 After calling this method, you must call `duckdb_vector_get_validity` and `duckdb_vector_get_data` to obtain current
 data and validity pointers
 
-##### Syntax
+##### 
+        
+        [Syntax](#syntax-11)
+        
+      
 
+    
 ```
 duckdb_state duckdb_list_vector_reserve(
   duckdb_vector vector,
   idx_t required_capacity
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-11)
+        
+      
 
+    
 - `vector`: The list vector.
 - `required_capacity`: the total capacity to reserve.
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value-7)
+        
+      
 
+    
 The duckdb state. Returns DuckDBError if the vector is nullptr.
 
 #### 
         
         `duckdb_struct_vector_get_child`
+
+    
+`duckdb_struct_vector_get_child`Retrieves the child vector of a struct vector. The resulting vector is valid as long as the parent vector is valid.
+
+##### 
+        
+        [Syntax](#syntax-12)
         
       
 
     
-Retrieves the child vector of a struct vector. The resulting vector is valid as long as the parent vector is valid.
-
-##### Syntax
-
 ```
 duckdb_vector duckdb_struct_vector_get_child(
   duckdb_vector vector,
   idx_t index
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-12)
+        
+      
 
+    
 - `vector`: The vector
 - `index`: The child index
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value-8)
+        
+      
 
+    
 The child vector
 
 #### 
         
         `duckdb_array_vector_get_child`
+
+    
+`duckdb_array_vector_get_child`Retrieves the child vector of an array vector. The resulting vector is valid as long as the parent vector is valid. The resulting vector has the size of the parent vector multiplied by the array size.
+
+##### 
+        
+        [Syntax](#syntax-13)
         
       
 
     
-Retrieves the child vector of an array vector. The resulting vector is valid as long as the parent vector is valid. The resulting vector has the size of the parent vector multiplied by the array size.
-
-##### Syntax
-
 ```
 duckdb_vector duckdb_array_vector_get_child(
   duckdb_vector vector
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-13)
+        
+      
 
+    
 - `vector`: The vector
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value-9)
+        
+      
 
+    
 The child vector
 
 #### 
         
         `duckdb_slice_vector`
+
+    
+`duckdb_slice_vector`Slice a vector with a selection vector. The length of the selection vector must be less than or equal to the length of the vector. Turns the vector into a dictionary vector.
+
+##### 
+        
+        [Syntax](#syntax-14)
         
       
 
     
-Slice a vector with a selection vector. The length of the selection vector must be less than or equal to the length of the vector. Turns the vector into a dictionary vector.
-
-##### Syntax
-
 ```
 void duckdb_slice_vector(
   duckdb_vector vector,
@@ -759,8 +988,13 @@ void duckdb_slice_vector(
   idx_t len
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-14)
+        
+      
 
+    
 - `vector`: The vector to slice.
 - `sel`: The selection vector.
 - `len`: The length of the selection vector.
@@ -768,14 +1002,17 @@ void duckdb_slice_vector(
 #### 
         
         `duckdb_vector_copy_sel`
+
+    
+`duckdb_vector_copy_sel`Copy the src vector to the dst with a selection vector that identifies which indices to copy.
+
+##### 
+        
+        [Syntax](#syntax-15)
         
       
 
     
-Copy the src vector to the dst with a selection vector that identifies which indices to copy.
-
-##### Syntax
-
 ```
 void duckdb_vector_copy_sel(
   duckdb_vector src,
@@ -786,8 +1023,13 @@ void duckdb_vector_copy_sel(
   idx_t dst_offset
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-15)
+        
+      
 
+    
 - `src`: The vector to copy from.
 - `dst`: The vector to copy to.
 - `sel`: The selection vector. The length of the selection vector should not be more than the length of the src vector
@@ -798,87 +1040,119 @@ void duckdb_vector_copy_sel(
 #### 
         
         `duckdb_vector_reference_value`
+
+    
+`duckdb_vector_reference_value`Copies the value from `value` to `vector`.
+
+##### 
+        
+        [Syntax](#syntax-16)
         
       
 
     
-Copies the value from `value` to `vector`.
-
-##### Syntax
-
 ```
 void duckdb_vector_reference_value(
   duckdb_vector vector,
   duckdb_value value
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-16)
+        
+      
 
+    
 - `vector`: The receiving vector.
 - `value`: The value to copy into the vector.
 
 #### 
         
         `duckdb_vector_reference_vector`
+
+    
+`duckdb_vector_reference_vector`Changes `to_vector` to reference `from_vector. After, the vectors share ownership of the data.
+
+##### 
+        
+        [Syntax](#syntax-17)
         
       
 
     
-Changes `to_vector` to reference `from_vector. After, the vectors share ownership of the data.
-
-##### Syntax
-
 ```
 void duckdb_vector_reference_vector(
   duckdb_vector to_vector,
   duckdb_vector from_vector
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-17)
+        
+      
 
+    
 - `to_vector`: The receiving vector.
 - `from_vector`: The vector to reference.
 
 #### 
         
         `duckdb_validity_row_is_valid`
+
+    
+`duckdb_validity_row_is_valid`Returns whether or not a row is valid (i.e., not NULL) in the given validity mask.
+
+##### 
+        
+        [Syntax](#syntax-18)
         
       
 
     
-Returns whether or not a row is valid (i.e., not NULL) in the given validity mask.
-
-##### Syntax
-
 ```
 bool duckdb_validity_row_is_valid(
   uint64_t *validity,
   idx_t row
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-18)
+        
+      
 
+    
 - `validity`: The validity mask, as obtained through- `duckdb_vector_get_validity`
 - `row`: The row index
 
-##### Return Value
+##### 
+        
+        [Return Value](#return-value-10)
+        
+      
 
+    
 true if the row is valid, false otherwise
 
 #### 
         
         `duckdb_validity_set_row_validity`
-        
-      
 
     
-In a validity mask, sets a specific row to either valid or invalid.
+`duckdb_validity_set_row_validity`In a validity mask, sets a specific row to either valid or invalid.
 
 Note that `duckdb_vector_ensure_validity_writable` should be called before calling `duckdb_vector_get_validity`,
 to ensure that there is a validity mask to write to.
 
-##### Syntax
+##### 
+        
+        [Syntax](#syntax-19)
+        
+      
 
+    
 ```
 void duckdb_validity_set_row_validity(
   uint64_t *validity,
@@ -886,8 +1160,13 @@ void duckdb_validity_set_row_validity(
   bool valid
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-19)
+        
+      
 
+    
 - `validity`: The validity mask, as obtained through- `duckdb_vector_get_validity`.
 - `row`: The row index
 - `valid`: Whether or not to set the row to valid, or invalid
@@ -895,48 +1174,64 @@ void duckdb_validity_set_row_validity(
 #### 
         
         `duckdb_validity_set_row_invalid`
+
+    
+`duckdb_validity_set_row_invalid`In a validity mask, sets a specific row to invalid.
+
+Equivalent to `duckdb_validity_set_row_validity` with valid set to false.
+
+##### 
+        
+        [Syntax](#syntax-20)
         
       
 
     
-In a validity mask, sets a specific row to invalid.
-
-Equivalent to `duckdb_validity_set_row_validity` with valid set to false.
-
-##### Syntax
-
 ```
 void duckdb_validity_set_row_invalid(
   uint64_t *validity,
   idx_t row
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-20)
+        
+      
 
+    
 - `validity`: The validity mask
 - `row`: The row index
 
 #### 
         
         `duckdb_validity_set_row_valid`
+
+    
+`duckdb_validity_set_row_valid`In a validity mask, sets a specific row to valid.
+
+Equivalent to `duckdb_validity_set_row_validity` with valid set to true.
+
+##### 
+        
+        [Syntax](#syntax-21)
         
       
 
     
-In a validity mask, sets a specific row to valid.
-
-Equivalent to `duckdb_validity_set_row_validity` with valid set to true.
-
-##### Syntax
-
 ```
 void duckdb_validity_set_row_valid(
   uint64_t *validity,
   idx_t row
 );
 ```
-##### Parameters
+##### 
+        
+        [Parameters](#parameters-21)
+        
+      
 
+    
 - `validity`: The validity mask
 - `row`: The row index
 

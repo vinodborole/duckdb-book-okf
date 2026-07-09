@@ -10,10 +10,10 @@ description: 'When using read_csv, the system tries to automatically infer how t
   However, options can be individually overridden by the user. This can be useful
   in case the system makes a mistake.…'
 resource: https://duckdb.org/docs/current/data/csv/auto_detection
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
-When using `read_csv`, the system tries to automatically infer how to read the CSV file using the CSV sniffer.
+When using `read_csv`, the system tries to automatically infer how to read the CSV file using the [CSV sniffer](/2023/10/27/csv-sniffer.html).
 This step is necessary because CSV files are not self-describing and come in many different dialects. The auto-detection works roughly as follows:
 
 - Detect the dialect of the CSV file (delimiter, quoting rule, escape).
@@ -22,8 +22,13 @@ This step is necessary because CSV files are not self-describing and come in man
 
 By default the system will try to auto-detect all options. However, options can be individually overridden by the user. This can be useful in case the system makes a mistake. For example, if the delimiter is chosen incorrectly, we can override it by calling the `read_csv` with an explicit delimiter (e.g., `read_csv('file.csv', delim = '|')`).
 
-## Sample Size
+## 
+        
+        [Sample Size](#sample-size)
+        
+      
 
+    
 The type detection works by operating on a sample of the file.
 The size of the sample can be modified by setting the `sample_size` parameter.
 The default sample size is 20,480 rows.
@@ -38,11 +43,9 @@ If we are reading from a file in which we cannot jump – such as a `.gz` compre
 ## 
         
         `sniff_csv` Function
-        
-      
 
     
-It is possible to run the CSV sniffer as a separate step using the `sniff_csv(filename)` function, which returns the detected CSV properties as a table with a single row.
+`sniff_csv` FunctionIt is possible to run the CSV sniffer as a separate step using the `sniff_csv(filename)` function, which returns the detected CSV properties as a table with a single row.
 The `sniff_csv` function accepts an optional `sample_size` parameter to configure the number of rows sampled.
 
 ```
@@ -64,8 +67,13 @@ FROM sniff_csv('my_file.csv', sample_size = 1000);
 | `UserArguments` | Arguments used to invoke `sniff_csv` | `sample_size = 1000` | 
 | `Prompt` | Prompt ready to be used to read the CSV | `FROM read_csv('my_file.csv', auto_detect=false, delim=',', ...)` | 
 
-### Prompt
+### 
+        
+        [Prompt](#prompt)
+        
+      
 
+    
 The `Prompt` column contains a SQL command with the configurations detected by the sniffer.
 
 ```
@@ -76,10 +84,20 @@ SELECT Prompt FROM sniff_csv('my_file.csv');
 ```
 Prompt = FROM read_csv('my_file.csv', auto_detect=false, delim=',', quote='"', escape='"', new_line='\n', skip=0, header=true, columns={...});
 ```
-## Detection Steps
+## 
+        
+        [Detection Steps](#detection-steps)
+        
+      
 
-### Dialect Detection
+    
+      ### 
+        
+        [Dialect Detection](#dialect-detection)
+        
+      
 
+    
 Dialect detection works by attempting to parse the samples using the set of considered values. The detected dialect is the dialect that has (1) a consistent number of columns for each row, and (2) the highest number of columns for each row.
 
 The following dialects are considered for automatic dialect detection.
@@ -90,7 +108,7 @@ The following dialects are considered for automatic dialect detection.
 | `quote` | `"``'`(empty) | 
 | `escape` | `"``'``\`(empty) | 
 
-Consider the example file `flights.csv`:
+Consider the example file [ flights.csv](/data/flights.csv):
 
 ```
 FlightDate|UniqueCarrier|OriginCityName|DestCityName
@@ -107,8 +125,13 @@ In this file, the dialect detection works as follows:
 
 In this example – the system selects the `|` as the delimiter. All rows are split into the same amount of columns, and there is more than one column per row meaning the delimiter was actually found in the CSV file.
 
-### Type Detection
+### 
+        
+        [Type Detection](#type-detection)
+        
+      
 
+    
 After detecting the dialect, the system will attempt to figure out the types of each of the columns. Note that this step is only performed if we are calling `read_csv`. In case of the `COPY` statement the types of the table that we are copying into will be used instead.
 
 The type detection works by attempting to convert the values in each column to the candidate types. If the conversion is unsuccessful, the candidate type is removed from the set of candidate types for that column. After all samples have been handled – the remaining candidate type with the highest priority is chosen. The default set of candidate types is given below, in order of priority:
@@ -126,11 +149,11 @@ The type detection works by attempting to convert the values in each column to t
 | VARCHAR | 
 
 Everything can be cast to `VARCHAR`, therefore, this type has the lowest priority meaning that all columns are converted to `VARCHAR` as a fallback if they cannot be cast to anything else.
-In `flights.csv` the `FlightDate` column will be cast to a `DATE`, while the other columns will be cast to `VARCHAR`.
+In [ flights.csv](/data/flights.csv) the 
 
-The set of candidate types that should be considered by the CSV reader can be specified explicitly using the `auto_type_candidates` option. `VARCHAR` as the fallback type will always be considered as a candidate type whether you specify it or not.
+`FlightDate` column will be cast to a `DATE`, while the other columns will be cast to `VARCHAR`.The set of candidate types that should be considered by the CSV reader can be specified explicitly using the [ auto_type_candidates](/docs/current/data/csv/overview.html#auto_type_candidates-details) option. 
 
-Here are all additional candidate types that may be specified using the `auto_type_candidates` option, in order of priority:
+`VARCHAR` as the fallback type will always be considered as a candidate type whether you specify it or not.Here are all additional candidate types that may be specified using the `auto_type_candidates` option, in order of priority:
 
 | Types | 
 |---|
@@ -147,28 +170,45 @@ Type detection can be entirely disabled by using the `all_varchar` option. If th
 Note that using quote characters vs. no quote characters (e.g., `"42"` and `42`) does not make a difference for type detection.
 Quoted fields will not be converted to `VARCHAR`, instead, the sniffer will try to find the type candidate with the highest priority.
 
-#### Overriding Type Detection
+#### 
+        
+        [Overriding Type Detection](#overriding-type-detection)
+        
+      
 
+    
 The detected types can be individually overridden using the `types` option. This option takes either of two options:
 
 - A list of type definitions (e.g., `types = ['INTEGER', 'VARCHAR', 'DATE']`). This overrides the types of the columns in-order of occurrence in the CSV file.
 - Alternatively, `types`takes a`name`→`type`map which overrides options of individual columns (e.g.,`types = {'quarter': 'INTEGER'}`).
 
-The set of column types that may be specified using the `types` option is not as limited as the types available for the `auto_type_candidates` option: any valid type definition is acceptable to the `types`-option. (To get a valid type definition, use the `typeof()` function, or use the `column_type` column of the `DESCRIBE` result.)
+The set of column types that may be specified using the `types` option is not as limited as the types available for the `auto_type_candidates` option: any valid type definition is acceptable to the `types`-option. (To get a valid type definition, use the [ typeof()](/docs/current/sql/functions/utility.html#typeofexpression) function, or use the 
 
-The `sniff_csv()` function's `Column` field returns a struct with column names and types that can be used as a basis for overriding types.
+`column_type` column of the [result.)](/docs/current/guides/meta/describe.html)
 
-## Header Detection
+`DESCRIBE`The `sniff_csv()` function's `Column` field returns a struct with column names and types that can be used as a basis for overriding types.
 
-Header detection works by checking if the candidate header row deviates from the other rows in the file in terms of types. For example, in `flights.csv`, we can see that the header row consists of only `VARCHAR` columns – whereas the values contain a `DATE` value for the `FlightDate` column. As such – the system defines the first row as the header row and extracts the column names from the header row.
+## 
+        
+        [Header Detection](#header-detection)
+        
+      
 
-In files that do not have a header row, the column names are generated as `column0`, `column1`, etc.
+    
+Header detection works by checking if the candidate header row deviates from the other rows in the file in terms of types. For example, in [ flights.csv](/data/flights.csv), we can see that the header row consists of only 
+
+`VARCHAR` columns – whereas the values contain a `DATE` value for the `FlightDate` column. As such – the system defines the first row as the header row and extracts the column names from the header row.In files that do not have a header row, the column names are generated as `column0`, `column1`, etc.
 
 Note that headers cannot be detected correctly if all columns are of type `VARCHAR` – as in this case the system cannot distinguish the header row from the other rows in the file. In this case, the system assumes the file has a header. This can be overridden by setting the `header` option to `false`.
 
-### Dates and Timestamps
+### 
+        
+        [Dates and Timestamps](#dates-and-timestamps)
+        
+      
 
-DuckDB supports the ISO 8601 format by default for timestamps, dates and times. Unfortunately, not all dates and times are formatted using this standard. For that reason, the CSV reader also supports the `dateformat` and `timestampformat` options. Using this format the user can specify a format string that specifies how the date or timestamp should be read.
+    
+DuckDB supports the [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601) by default for timestamps, dates and times. Unfortunately, not all dates and times are formatted using this standard. For that reason, the CSV reader also supports the `dateformat` and `timestampformat` options. Using this format the user can specify a [format string](/docs/current/sql/functions/dateformat.html) that specifies how the date or timestamp should be read.
 
 As part of the auto-detection, the system tries to figure out if dates and times are stored in a different representation. This is not always possible – as there are ambiguities in the representation. For example, the date `01-02-2000` can be parsed as either January 2nd or February 1st. Often these ambiguities can be resolved. For example, if we later encounter the date `21-02-2000` then we know that the format must have been `DD-MM-YYYY`. `MM-DD-YYYY` is no longer possible as there is no 21st month.
 

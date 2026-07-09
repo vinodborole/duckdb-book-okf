@@ -11,19 +11,26 @@ description: 'Installation To use the DuckDB Node.js client, visit the Node.js i
   data types Appending default values row-by-row User-defined types & functions Profiling
   info Table description APIs…'
 resource: https://duckdb.org/docs/current/clients/node_neo/overview
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
-Installation To use the DuckDB Node.js client, visit the Node.js installation page.
+Installation To use the DuckDB Node.js client, visit the
 
-The latest stable version of the DuckDB Node.js (Neo) client is 1.5.4.
+[Node.js installation page](/install/?environment=nodejs).The latest stable version of the DuckDB Node.js (Neo) client is 1.5.4.
 
-An API for using DuckDB in Node.js.
+An API for using [DuckDB](/) in [Node.js](https://nodejs.org/).
 
-The primary package, @duckdb/node-api, is a high-level API meant for applications. It depends on low-level bindings that adhere closely to DuckDB's C API, available separately as @duckdb/node-bindings.
+The primary package, [@duckdb/node-api](https://www.npmjs.com/package/@duckdb/node-api), is a high-level API meant for applications.
+It depends on low-level bindings that adhere closely to [DuckDB's C API](/docs/current/clients/c/overview.html),
+available separately as [@duckdb/node-bindings](https://www.npmjs.com/package/@duckdb/node-bindings).
 
-## Roadmap
+## 
+        
+        [Roadmap](#roadmap)
+        
+      
 
+    
 Some features are not yet complete:
 
 - Binding and appending the MAP and UNION data types
@@ -33,11 +40,17 @@ Some features are not yet complete:
 - Table description
 - APIs for Arrow
 
-See the issues list on GitHub for the most up-to-date roadmap.
+See the [issues list on GitHub](https://github.com/duckdb/duckdb-node-neo/issues)
+for the most up-to-date roadmap.
 
-## Platforms
+## 
+        
+        [Platforms](#platforms)
+        
+      
 
-The Node.js (Neo) client supports the following platforms:
+    
+The Node.js (Neo) client supports the following [platforms](/docs/current/dev/building/overview.html#supported-platforms):
 
 - `linux_amd64`
 - `linux_arm64`
@@ -47,25 +60,45 @@ The Node.js (Neo) client supports the following platforms:
 
 The `windows_arm64` platform is currently not supported.
 
-## Examples
+## 
+        
+        [Examples](#examples)
+        
+      
 
-### Get Basic Information
+    
+      ### 
+        
+        [Get Basic Information](#get-basic-information)
+        
+      
 
+    
 ```
 import duckdb from '@duckdb/node-api';
 console.log(duckdb.version());
 console.log(duckdb.configurationOptionDescriptions());
 ```
-### Connect
+### 
+        
+        [Connect](#connect)
+        
+      
 
+    
 ```
 import { DuckDBConnection } from '@duckdb/node-api';
 const connection = await DuckDBConnection.create();
 ```
 This uses the default instance. For advanced usage, you can create instances explicitly.
 
-### Create Instance
+### 
+        
+        [Create Instance](#create-instance)
+        
+      
 
+    
 ```
 import { DuckDBInstance } from '@duckdb/node-api';
 ```
@@ -89,8 +122,13 @@ const instance = await DuckDBInstance.create('my_duckdb.db', {
   threads: '4'
 });
 ```
-### Instance Cache
+### 
+        
+        [Instance Cache](#instance-cache)
+        
+      
 
+    
 Multiple instances in the same process should not attach the same database.
 
 To prevent this, an instance cache can be used:
@@ -105,13 +143,23 @@ import { DuckDBInstanceCache } from '@duckdb/node-api';
 const cache = new DuckDBInstanceCache();
 const instance = await cache.getOrCreateInstance('my_duckdb.db');
 ```
-### Connect to Instance
+### 
+        
+        [Connect to Instance](#connect-to-instance)
+        
+      
 
+    
 ```
 const connection = await instance.connect();
 ```
-### Disconnect
+### 
+        
+        [Disconnect](#disconnect)
+        
+      
 
+    
 Connections will be disconnected automatically soon after their reference is dropped, but you can also disconnect explicitly if and when you want:
 
 ```
@@ -122,13 +170,23 @@ or, equivalently:
 ```
 connection.closeSync();
 ```
-### Run SQL
+### 
+        
+        [Run SQL](#run-sql)
+        
+      
 
+    
 ```
 const result = await connection.run('from test_all_types()');
 ```
-### Parameterize SQL
+### 
+        
+        [Parameterize SQL](#parameterize-sql)
+        
+      
 
+    
 ```
 const prepared = await connection.prepare('select $1, $2, $3');
 prepared.bindVarchar(1, 'duck');
@@ -173,8 +231,13 @@ const result = await connection.run('select $a, $b, $c', {
   'c': listValue([10, 11, 12]),
 });
 ```
-### Specifying Values
+### 
+        
+        [Specifying Values](#specifying-values)
+        
+      
 
+    
 Values of many data types are represented using one of the JS primitives
 `boolean`, `number`, `bigint`, or `string`.
 Also, any type can have `null` values.
@@ -202,23 +265,38 @@ Values of some data types need to be constructed using special functions. These 
 | `UNION` | `unionValue` | 
 | `UUID` | `uuidValue` | 
 
-### Stream Results
+### 
+        
+        [Stream Results](#stream-results)
+        
+      
 
+    
 Streaming results evaluate lazily when rows are read.
 
 ```
 const result = await connection.stream('from range(10_000)');
 ```
-### Inspect Result Metadata
+### 
+        
+        [Inspect Result Metadata](#inspect-result-metadata)
+        
+      
 
+    
 Get column names and types:
 
 ```
 const columnNames = result.columnNames();
 const columnTypes = result.columnTypes();
 ```
-### Read Result Data
+### 
+        
+        [Read Result Data](#read-result-data)
+        
+      
 
+    
 Run and read all data:
 
 ```
@@ -250,8 +328,13 @@ reader.readUntil(6000);
 // reader.currentRowCount === 5000
 // reader.done === true
 ```
-### Get Result Data
+### 
+        
+        [Get Result Data](#get-result-data)
+        
+      
 
+    
 Result data can be retrieved in a variety of forms:
 
 ```
@@ -267,8 +350,13 @@ const columns = reader.getColumns();
 const columnsObject = reader.getColumnsObject();
 // { i: [0, 1, 2], n: [10, 11, 12] }
 ```
-### Convert Result Data
+### 
+        
+        [Convert Result Data](#convert-result-data)
+        
+      
 
+    
 By default, data values that cannot be represented as JS built-ins
 are returned as specialized JS objects; see `Inspect Data Values` below.
 
@@ -276,7 +364,10 @@ To retrieve data in a different form, such as JS built-ins or values that
 can be losslessly serialized to JSON, use the `JS` or `Json` forms of the
 above result data methods.
 
-Custom converters can be supplied as well. See the implementations of JSDuckDBValueConverter and JsonDuckDBValueConverters for how to do this.
+Custom converters can be supplied as well. See the implementations of
+[JSDuckDBValueConverter](https://github.com/duckdb/duckdb-node-neo/blob/main/api/src/JSDuckDBValueConverter.ts)
+and [JsonDuckDBValueConverters](https://github.com/duckdb/duckdb-node-neo/blob/main/api/src/JsonDuckDBValueConverter.ts)
+for how to do this.
 
 Examples (using the `Json` forms):
 
@@ -536,8 +627,13 @@ const columnNameAndTypeObjects = reader.columnNameAndTypeObjectsJson();
 //   }
 // ]
 ```
-### Fetch Chunks
+### 
+        
+        [Fetch Chunks](#fetch-chunks)
+        
+      
 
+    
 Fetch all chunks:
 
 ```
@@ -591,8 +687,13 @@ for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
   columns.push(columnValues);
 }
 ```
-### Inspect Data Types
+### 
+        
+        [Inspect Data Types](#inspect-data-types)
+        
+      
 
+    
 ```
 import { DuckDBTypeId } from '@duckdb/node-api';
 if (columnType.typeId === DuckDBTypeId.ARRAY) {
@@ -631,8 +732,13 @@ Every type implements toString. The result is both human-friendly and readable b
 ```
 const typeString = columnType.toString();
 ```
-### Inspect Data Values
+### 
+        
+        [Inspect Data Values](#inspect-data-values)
+        
+      
 
+    
 ```
 import { DuckDBTypeId } from '@duckdb/node-api';
 if (columnType.typeId === DuckDBTypeId.ARRAY) {
@@ -733,8 +839,13 @@ if (columnType.typeId === DuckDBTypeId.UUID) {
 }
 // other possible values are: null, boolean, number, bigint, or string
 ```
-### Displaying Timezones
+### 
+        
+        [Displaying Timezones](#displaying-timezones)
+        
+      
 
+    
 Converting a TIMESTAMP_TZ value to a string depends on a timezone offset. By default, this is set to the offset for the local timezone when the Node process is started.
 
 To change it, set the `timezoneOffsetInMinutes`
@@ -760,8 +871,13 @@ const reader = await connection.runAndReadAll(
 DuckDBTimestampTZValue.timezoneOffsetInMinutes =
   reader.getColumns()[0][0];
 ```
-### Append To Table
+### 
+        
+        [Append To Table](#append-to-table)
+        
+      
 
+    
 ```
 await connection.run(
   `create or replace table target_table(i integer, v varchar)`
@@ -779,8 +895,13 @@ appender.appendVarchar('goose');
 appender.endRow();
 appender.closeSync(); // also flushes
 ```
-### Append Data Chunk
+### 
+        
+        [Append Data Chunk](#append-data-chunk)
+        
+      
 
+    
 ```
 await connection.run(
   `create or replace table target_table(i integer, v varchar)`
@@ -802,8 +923,13 @@ appender.flushSync();
 ```
 See "Specifying Values" above for how to supply values to the appender.
 
-### Extract Statements
+### 
+        
+        [Extract Statements](#extract-statements)
+        
+      
 
+    
 ```
 const extractedStatements = await connection.extractStatements(`
   create or replace table numbers as from range(?);
@@ -822,8 +948,13 @@ for (let stmtIndex = 0; stmtIndex < statementCount; stmtIndex++) {
   // ...
 }
 ```
-### Control Evaluation of Tasks
+### 
+        
+        [Control Evaluation of Tasks](#control-evaluation-of-tasks)
+        
+      
 
+    
 ```
 import { DuckDBPendingResultState } from '@duckdb/node-api';
 async function sleep(ms) {
@@ -841,8 +972,13 @@ console.log('ready');
 const result = await pending.getResult();
 // ...
 ```
-### Ways to Run SQL
+### 
+        
+        [Ways to Run SQL](#ways-to-run-sql)
+        
+      
 
+    
 ```
 // Run to completion but don't yet retrieve any rows.
 // Optionally take values to bind to SQL parameters,
@@ -925,8 +1061,13 @@ const reader = await pending.read();
 const reader = await pending.readAll();
 const reader = await pending.readUntil(targetRowCount);
 ```
-### Ways to Get Result Data
+### 
+        
+        [Ways to Get Result Data](#ways-to-get-result-data)
+        
+      
 
+    
 ```
 // From a result
 // Asynchronously retrieve data for all rows:

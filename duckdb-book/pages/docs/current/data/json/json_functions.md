@@ -10,13 +10,18 @@ description: JSON Extraction Functions There are two extraction functions, which
   path. If path is a LIST, the result will be a LIST of JSON. json_extract_string(json,
   path) json_extract_path_text ->> Extracts VARCHAR from json at the given path. If…
 resource: https://duckdb.org/docs/current/data/json/json_functions
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
-## JSON Extraction Functions
+## 
+        
+        [JSON Extraction Functions](#json-extraction-functions)
+        
+      
 
+    
 There are two extraction functions, which have their respective operators. The operators can only be used if the string is stored as the `JSON` logical type.
-These functions support the same two location notations as JSON Scalar functions.
+These functions support the same two location notations as [JSON Scalar functions](#json-scalar-functions).
 
 | Function | Alias | Operator | Description | 
 |---|---|---|---|
@@ -25,13 +30,15 @@ These functions support the same two location notations as JSON Scalar functions
 | `json_extract_string(json, path)` | `json_extract_path_text` | `->>` | Extracts `VARCHAR`from`json`at the given`path`. If`path`is a`LIST`, the result will be a`LIST`of`VARCHAR`. | 
 | `json_value(json, path)` | Extracts `JSON`from`json`at the given`path`. If the`json`at the supplied path is not a scalar value, it will return`NULL`. | 
 
-Note that the arrow operator `->`, which is used for JSON extracts, has a low precedence as it is also used in lambda functions. Therefore, you need to surround the `->` operator with parentheses when expressing operations such as equality comparisons (`=`).
+Note that the arrow operator `->`, which is used for JSON extracts, has a low precedence as it is also used in [lambda functions](/docs/current/sql/functions/lambda.html). Therefore, you need to surround the `->` operator with parentheses when expressing operations such as equality comparisons (`=`).
 For example:
 
 ```
 SELECT ((JSON '{"field": 42}')->'field') = 42;
 ```
-Warning DuckDB's JSON data type uses 0-based indexing.
+Warning DuckDB's JSON data type uses
+
+[0-based indexing](/docs/current/data/json/overview.html#indexing).
 
 Examples:
 
@@ -112,7 +119,7 @@ SELECT j->'species'->>['/0', '/1'] FROM example;
 ```
 [duck, goose]
 ```
-Note that DuckDB's JSON data type uses 0-based indexing.
+Note that DuckDB's JSON data type uses [0-based indexing](/docs/current/data/json/overview.html#indexing).
 
 If multiple values need to be extracted from the same JSON, it is more efficient to extract a list of paths:
 
@@ -142,12 +149,17 @@ SELECT
     extracted_list[2] AS species
 FROM extracted;
 ```
-## JSON Scalar Functions
+## 
+        
+        [JSON Scalar Functions](#json-scalar-functions)
+        
+      
 
+    
 The following scalar JSON functions can be used to gain information about the stored JSON values.
 With the exception of `json_valid(json)`, all JSON functions produce an error when invalid JSON is supplied.
 
-We support two kinds of notations to describe locations within JSON: JSON Pointer and JSONPath.
+We support two kinds of notations to describe locations within JSON: [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) and JSONPath.
 
 | Function | Description | 
 |---|---|
@@ -176,7 +188,7 @@ SELECT json_extract('{"duck": [1, 2, 3]}', '$.duck[0]');
 ```
 1
 ```
-Note that DuckDB's JSON data type uses 0-based indexing.
+Note that DuckDB's JSON data type uses [0-based indexing](/docs/current/data/json/overview.html#indexing).
 
 JSONPath is more expressive, and can also access from the back of lists:
 
@@ -194,7 +206,7 @@ SELECT json_extract('{"duck.goose": [1, 2, 3]}', '$."duck.goose"[1]');
 ```
 2
 ```
-Examples using the anatidae biological family:
+Examples using the [anatidae biological family](https://en.wikipedia.org/wiki/Anatidae):
 
 ```
 CREATE TABLE example (j JSON);
@@ -303,8 +315,13 @@ SELECT json_contains('{"top_key": {"key": "value"}}', '{"key": "value"}');
 ```
 true
 ```
-## JSON Aggregate Functions
+## 
+        
+        [JSON Aggregate Functions](#json-aggregate-functions)
+        
+      
 
+    
 There are three JSON aggregate functions.
 
 | Function | Description | 
@@ -343,8 +360,13 @@ SELECT json_group_structure(j) FROM example2;
 ```
 {"family":"VARCHAR","species":["VARCHAR"],"coolness":"DOUBLE","hair":"BOOLEAN"}
 ```
-## Transforming JSON to Nested Types
+## 
+        
+        [Transforming JSON to Nested Types](#transforming-json-to-nested-types)
+        
+      
 
+    
 In many cases, it is inefficient to extract values from JSON one-by-one.
 Instead, we can “extract” all values at once, transforming JSON to the nested types `LIST` and `STRUCT`.
 
@@ -388,8 +410,13 @@ SELECT json_transform_strict(j, '{"family": "TINYINT", "coolness": "DOUBLE"}') F
 Invalid Input Error:
 Failed to cast value: "anatidae"
 ```
-## JSON Table Functions
+## 
+        
+        [JSON Table Functions](#json-table-functions)
+        
+      
 
+    
 DuckDB implements two JSON table functions that take a JSON value and produce a table from it.
 
 | Function | Description | 
@@ -416,8 +443,8 @@ The resulting table has the following columns:
 | `root` | `TEXT`(Virtual) | The `path`parameter | 
 | `rowid` | `BIGINT`(Virtual) | The row identifier | 
 
-These functions are analogous to SQLite's functions with the same name.
-Note that, because the `json_each` and `json_tree` functions refer to previous subqueries in the same FROM clause, they are *lateral joins*.
+These functions are analogous to [SQLite's functions with the same name](https://www.sqlite.org/json1.html#jeach).
+Note that, because the `json_each` and `json_tree` functions refer to previous subqueries in the same FROM clause, they are [ lateral joins](/docs/current/sql/query_syntax/from.html#lateral-joins).
 
 Examples:
 

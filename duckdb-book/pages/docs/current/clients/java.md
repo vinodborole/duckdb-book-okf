@@ -10,25 +10,40 @@ description: Installation To use the DuckDB Java (JDBC) client, visit the Java i
   API, version 4.1. Describing JDBC is beyond the scope of this page, see the official
   documentation for details. Below we focus on the DuckDB-specific parts. Refer…
 resource: https://duckdb.org/docs/current/clients/java
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
-Installation To use the DuckDB Java (JDBC) client, visit the Java installation page.
+Installation To use the DuckDB Java (JDBC) client, visit the
 
-The latest stable version of the DuckDB Java (JDBC) client is 1.5.4.
+[Java installation page](/install/?environment=java).The latest stable version of the DuckDB Java (JDBC) client is 1.5.4.
 
-## Installation
+## 
+        
+        [Installation](#installation)
+        
+      
 
-The DuckDB Java JDBC API can be installed from Maven Central. Please see the installation page for details.
+    
+The DuckDB Java JDBC API can be installed from [Maven Central](https://search.maven.org/artifact/org.duckdb/duckdb_jdbc). Please see the [installation page](/install/?environment=java) for details.
 
-## Basic API Usage
+## 
+        
+        [Basic API Usage](#basic-api-usage)
+        
+      
 
-DuckDB's JDBC API implements the main parts of the standard Java Database Connectivity (JDBC) API, version 4.1. Describing JDBC is beyond the scope of this page, see the official documentation for details. Below we focus on the DuckDB-specific parts.
+    
+DuckDB's JDBC API implements the main parts of the standard Java Database Connectivity (JDBC) API, version 4.1. Describing JDBC is beyond the scope of this page, see the [official documentation](https://docs.oracle.com/javase/tutorial/jdbc/basics/index.html) for details. Below we focus on the DuckDB-specific parts.
 
-Refer to the externally hosted API Reference for more information about our extensions to the JDBC specification, or the below Arrow Methods.
+Refer to the externally hosted [API Reference](https://javadoc.io/doc/org.duckdb/duckdb_jdbc) for more information about our extensions to the JDBC specification, or the below [Arrow Methods](#arrow-methods).
 
-### Startup & Shutdown
+### 
+        
+        [Startup & Shutdown](#startup--shutdown)
+        
+      
 
+    
 In JDBC, database connections are created through the standard `java.sql.DriverManager` class.
 The driver should auto-register in the `DriverManager`, if that does not work for some reason, you can enforce registration using the following statement:
 
@@ -42,7 +57,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 Connection conn = DriverManager.getConnection("jdbc:duckdb:");
 ```
-To use DuckDB-specific features such as the Appender, cast the object to a `DuckDBConnection`:
+To use DuckDB-specific features such as the [Appender](#appender), cast the object to a `DuckDBConnection`:
 
 ```
 import java.sql.DriverManager;
@@ -65,21 +80,33 @@ Connection conn2 = ((DuckDBConnection) conn).duplicate();
 ```
 Multiple connections are allowed, but mixing read-write and read-only connections is unsupported.
 
-### Configuring Connections
+### 
+        
+        [Configuring Connections](#configuring-connections)
+        
+      
 
+    
 Configuration options can be provided to change different settings of the database system. Note that many of these
-settings can be changed later on using `PRAGMA` statements as well.
+settings can be changed later on using [ PRAGMA statements](/docs/current/configuration/pragmas.html) as well.
 
 ```
 Properties connectionProperties = new Properties();
 connectionProperties.setProperty("temp_directory", "/path/to/temp/dir/");
 Connection conn = DriverManager.getConnection("jdbc:duckdb:/tmp/my_database", connectionProperties);
 ```
-### Querying
+### 
+        
+        [Querying](#querying)
+        
+      
 
-DuckDB supports the standard JDBC methods to send queries and retrieve result sets. First a `Statement` object has to be created from the `Connection`, this object can then be used to send queries using `execute` and `executeQuery`. `execute()` is meant for queries where no results are expected like `CREATE TABLE` or `UPDATE` etc. and `executeQuery()` is meant to be used for queries that produce results (e.g., `SELECT`). Below two examples. See also the JDBC `Statement` and `ResultSet` documentations.
+    
+DuckDB supports the standard JDBC methods to send queries and retrieve result sets. First a `Statement` object has to be created from the `Connection`, this object can then be used to send queries using `execute` and `executeQuery`. `execute()` is meant for queries where no results are expected like `CREATE TABLE` or `UPDATE` etc. and `executeQuery()` is meant to be used for queries that produce results (e.g., `SELECT`). Below two examples. See also the JDBC [ Statement](https://docs.oracle.com/javase/7/docs/api/java/sql/Statement.html) and 
 
-```
+[documentations.](https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html)
+
+`ResultSet````
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -119,14 +146,24 @@ try (PreparedStatement stmt = conn.prepareStatement("INSERT INTO items VALUES (?
 ```
 Warning Do
 
-notuse prepared statements to insert large amounts of data into DuckDB. See the data import documentation for better options.
+notuse prepared statements to insert large amounts of data into DuckDB. See the[data import documentation](/docs/current/data/overview.html)for better options.
 
-### Arrow Methods
+### 
+        
+        [Arrow Methods](#arrow-methods)
+        
+      
 
-Refer to the API Reference for type signatures
+    
+Refer to the [API Reference](https://javadoc.io/doc/org.duckdb/duckdb_jdbc/latest/org/duckdb/DuckDBResultSet.html#arrowExportStream(java.lang.Object,long)) for type signatures
 
-#### Arrow Export
+#### 
+        
+        [Arrow Export](#arrow-export)
+        
+      
 
+    
 The following demonstrates exporting an arrow stream and consuming it using the java arrow bindings
 
 ```
@@ -145,8 +182,13 @@ try (var conn = DriverManager.getConnection("jdbc:duckdb:");
     stmt.close();
 }
 ```
-#### Arrow Import
+#### 
+        
+        [Arrow Import](#arrow-import)
+        
+      
 
+    
 The following demonstrates consuming an Arrow stream from the Java Arrow bindings.
 
 ```
@@ -171,8 +213,13 @@ try (var allocator = new RootAllocator();
     }
 }
 ```
-### Streaming Results
+### 
+        
+        [Streaming Results](#streaming-results)
+        
+      
 
+    
 Result streaming is opt-in in the JDBC driver – by setting the `jdbc_stream_results` config to `true` before running a query. The easiest way to do that is to pass it in the `Properties` object.
 
 ```
@@ -180,9 +227,14 @@ Properties props = new Properties();
 props.setProperty(DuckDBDriver.JDBC_STREAM_RESULTS, String.valueOf(true));
 Connection conn = DriverManager.getConnection("jdbc:duckdb:", props);
 ```
-### Appender
+### 
+        
+        [Appender](#appender)
+        
+      
 
-The Appender is available in the DuckDB JDBC driver via the `org.duckdb.DuckDBAppender` class.
+    
+The [Appender](/docs/current/data/appender.html) is available in the DuckDB JDBC driver via the `org.duckdb.DuckDBAppender` class.
 The constructor of the class requires the schema name and the table name it is applied to.
 The Appender is flushed when the `close()` method is called.
 
@@ -210,14 +262,26 @@ try (var appender = conn.createAppender(DuckDBConnection.DEFAULT_SCHEMA, "tbl"))
     appender.endRow();
 }
 ```
-### Batch Writer
+### 
+        
+        [Batch Writer](#batch-writer)
+        
+      
 
+    
 The DuckDB JDBC driver offers batch write functionality. The batch writer supports prepared statements to mitigate the overhead of query parsing.
 
-The preferred method for bulk inserts is to use the Appender due to its higher performance. However, when using the Appender is not possible, the batch writer is available as alternative.
+The preferred method for bulk inserts is to use the
 
-#### Batch Writer with Prepared Statements
+[Appender](#appender)due to its higher performance. However, when using the Appender is not possible, the batch writer is available as alternative.
 
+#### 
+        
+        [Batch Writer with Prepared Statements](#batch-writer-with-prepared-statements)
+        
+      
+
+    
 ```
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -235,8 +299,13 @@ stmt.addBatch();
 stmt.executeBatch();
 stmt.close();
 ```
-#### Batch Writer with Vanilla Statements
+#### 
+        
+        [Batch Writer with Vanilla Statements](#batch-writer-with-vanilla-statements)
+        
+      
 
+    
 The batch writer also supports vanilla SQL statements:
 
 ```
@@ -251,10 +320,20 @@ stmt.addBatch("INSERT INTO test (x, y, z) VALUES (4, 5, 6);");
 stmt.executeBatch();
 stmt.close();
 ```
-## Troubleshooting
+## 
+        
+        [Troubleshooting](#troubleshooting)
+        
+      
 
-### Driver Class Not Found
+    
+      ### 
+        
+        [Driver Class Not Found](#driver-class-not-found)
+        
+      
 
+    
 If the Java application is unable to find the DuckDB driver, it may throw the following error:
 
 ```

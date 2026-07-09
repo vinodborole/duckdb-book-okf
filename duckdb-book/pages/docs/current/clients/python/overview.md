@@ -11,22 +11,32 @@ description: 'Installation To use the DuckDB Python client, visit the Python ins
   duckdb.sql("SELECT 42").show() This will run queries using an in-memory database
   that is stored…'
 resource: https://duckdb.org/docs/current/clients/python/overview
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
-Installation To use the DuckDB Python client, visit the Python installation page.
+Installation To use the DuckDB Python client, visit the
 
-The latest stable version of the DuckDB Python client is 1.5.4.
+[Python installation page](/install/?environment=python).The latest stable version of the DuckDB Python client is 1.5.4.
 
-## Installation
+## 
+        
+        [Installation](#installation)
+        
+      
 
-The DuckDB Python API can be installed using pip: `pip install duckdb`. Please see the installation page for details. It is also possible to install DuckDB using conda: `conda install python-duckdb -c conda-forge`.
+    
+The DuckDB Python API can be installed using [pip](https://pip.pypa.io): `pip install duckdb`. Please see the [installation page](/install/?environment=python) for details. It is also possible to install DuckDB using [conda](https://docs.conda.io): `conda install python-duckdb -c conda-forge`.
 
 **Python version:**
 DuckDB requires Python 3.9 or newer.
 
-## Basic API Usage
+## 
+        
+        [Basic API Usage](#basic-api-usage)
+        
+      
 
+    
 The most straight-forward manner of running SQL queries using DuckDB is using the `duckdb.sql` command.
 
 ```
@@ -42,9 +52,14 @@ import duckdb
 r1 = duckdb.sql("SELECT 42 AS i")
 duckdb.sql("SELECT i * 2 AS k FROM r1").show()
 ```
-## Data Input
+## 
+        
+        [Data Input](#data-input)
+        
+      
 
-DuckDB can ingest data from a wide variety of formats – both on-disk and in-memory. See the data ingestion page for more information.
+    
+DuckDB can ingest data from a wide variety of formats – both on-disk and in-memory. See the [data ingestion page](/docs/current/clients/python/data_ingestion.html) for more information.
 
 ```
 import duckdb
@@ -55,13 +70,25 @@ duckdb.sql("SELECT * FROM 'example.csv'")     # directly query a CSV file
 duckdb.sql("SELECT * FROM 'example.parquet'") # directly query a Parquet file
 duckdb.sql("SELECT * FROM 'example.json'")    # directly query a JSON file
 ```
-### DataFrames
+### 
+        
+        [DataFrames](#dataframes)
+        
+      
 
+    
 DuckDB can directly query Pandas DataFrames, Polars DataFrames and Arrow tables.
-Note that these are read-only, i.e., editing these tables via `INSERT` or `UPDATE` statements is not possible.
+Note that these are read-only, i.e., editing these tables via [ INSERT](/docs/current/sql/statements/insert.html) or 
 
-#### Pandas
+[is not possible.](/docs/current/sql/statements/update.html)
 
+`UPDATE` statements#### 
+        
+        [Pandas](#pandas)
+        
+      
+
+    
 To directly query a Pandas DataFrame, run:
 
 ```
@@ -78,8 +105,13 @@ duckdb.sql("SELECT * FROM pandas_df")
 │    42 │
 └───────┘
 ```
-#### Polars
+#### 
+        
+        [Polars](#polars)
+        
+      
 
+    
 To directly query a Polars DataFrame, run:
 
 ```
@@ -96,8 +128,13 @@ duckdb.sql("SELECT * FROM polars_df")
 │    42 │
 └───────┘
 ```
-#### PyArrow
+#### 
+        
+        [PyArrow](#pyarrow)
+        
+      
 
+    
 To directly query a PyArrow table, run:
 
 ```
@@ -114,9 +151,14 @@ duckdb.sql("SELECT * FROM arrow_table")
 │    42 │
 └───────┘
 ```
-## Result Conversion
+## 
+        
+        [Result Conversion](#result-conversion)
+        
+      
 
-DuckDB supports converting query results efficiently to a variety of formats. See the result conversion page for more information.
+    
+DuckDB supports converting query results efficiently to a variety of formats. See the [result conversion page](/docs/current/clients/python/conversion.html) for more information.
 
 ```
 import duckdb
@@ -126,9 +168,14 @@ duckdb.sql("SELECT 42").pl()         # Polars DataFrame
 duckdb.sql("SELECT 42").arrow()      # Arrow Table
 duckdb.sql("SELECT 42").fetchnumpy() # NumPy Arrays
 ```
-## Writing Data to Disk
+## 
+        
+        [Writing Data to Disk](#writing-data-to-disk)
+        
+      
 
-DuckDB supports writing Relation objects directly to disk in a variety of formats. The `COPY` statement can be used to write data to disk using SQL as an alternative.
+    
+DuckDB supports writing Relation objects directly to disk in a variety of formats. The [ COPY statement](/docs/current/sql/statements/copy.html) can be used to write data to disk using SQL as an alternative.
 
 ```
 import duckdb
@@ -136,12 +183,22 @@ duckdb.sql("SELECT 42").write_parquet("out.parquet") # Write to a Parquet file
 duckdb.sql("SELECT 42").write_csv("out.csv")         # Write to a CSV file
 duckdb.sql("COPY (SELECT 42) TO 'out.parquet'")      # Copy to a Parquet file
 ```
-## Connection Options
+## 
+        
+        [Connection Options](#connection-options)
+        
+      
 
+    
 Applications can open a new DuckDB connection via the `duckdb.connect()` method.
 
-### Using an In-Memory Database
+### 
+        
+        [Using an In-Memory Database](#using-an-in-memory-database)
+        
+      
 
+    
 When using DuckDB through `duckdb.sql()`, it operates on an **in-memory** database, i.e., no tables are persisted on disk.
 Invoking the `duckdb.connect()` method without arguments returns a connection, which also uses an in-memory database:
 
@@ -150,8 +207,13 @@ import duckdb
 con = duckdb.connect()
 con.sql("SELECT 42 AS x").show()
 ```
-### Persistent Storage
+### 
+        
+        [Persistent Storage](#persistent-storage)
+        
+      
 
+    
 The `duckdb.connect(dbname)` creates a connection to a **persistent** database.
 Any data written to that connection will be persisted, and can be reloaded by reconnecting to the same file, both from Python and from other DuckDB clients.
 
@@ -178,38 +240,53 @@ with duckdb.connect("file.db") as con:
     con.table("test").show()
     # the context manager closes the connection automatically
 ```
-### Configuration
+### 
+        
+        [Configuration](#configuration)
+        
+      
 
-The `duckdb.connect()` accepts a `config` dictionary, where configuration options can be specified. For example:
+    
+The `duckdb.connect()` accepts a `config` dictionary, where [configuration options](/docs/current/configuration/overview.html#configuration-reference) can be specified. For example:
 
 ```
 import duckdb
 con = duckdb.connect(config = {'threads': 1})
 ```
-To specify the storage version, pass the `storage_compatibility_version` option:
+To specify the [storage version](/docs/current/internals/storage.html), pass the `storage_compatibility_version` option:
 
 ```
 import duckdb
 con = duckdb.connect(config = {'storage_compatibility_version': 'latest'})
 ```
-### Connection Object and Module
+### 
+        
+        [Connection Object and Module](#connection-object-and-module)
+        
+      
 
+    
 The connection object and the `duckdb` module can be used interchangeably – they support the same methods. The only difference is that when using the `duckdb` module a global in-memory database is used.
 
 If you are developing a package designed for others to use, and use DuckDB in the package, it is recommended that you create connection objects instead of using the methods on the
 
 `duckdb`module. That is because the`duckdb`module uses a shared global database – which can cause hard to debug issues if used from within multiple different packages.
 
-### Using Connections in Parallel Python Programs
-
-#### 
+### 
         
-        Thread Safety of `duckdb.sql()` and the Global Connection
+        [Using Connections in Parallel Python Programs](#using-connections-in-parallel-python-programs)
         
       
 
     
-`duckdb.sql()` and `duckdb.connect(':default:')` use a shared global in-memory connection. This connection is not thread-safe, and running queries on it from multiple threads can cause issues. To run DuckDB in parallel, each thread must have its own connection:
+      #### 
+        
+        [Thread Safety of ](#thread-safety-of-duckdbsql-and-the-global-connection)`duckdb.sql()` and the Global Connection
+        
+      
+
+    
+`duckdb.sql()` and the Global Connection`duckdb.sql()` and `duckdb.connect(':default:')` use a shared global in-memory connection. This connection is not thread-safe, and running queries on it from multiple threads can cause issues. To run DuckDB in parallel, each thread must have its own connection:
 
 ```
 def good_use():
@@ -236,16 +313,21 @@ Avoid using `duckdb.sql()` or sharing a single connection across threads.
 
 #### 
         
-        About `cursor()`
+        [About ](#about-cursor)`cursor()`
         
       
 
     
-A `DuckDBPyConnection.cursor()` method creates another handle on the same connection. It does not open a new connection. Therefore, all cursors created from one connection cannot run queries at the same time.
+`cursor()`A [ DuckDBPyConnection.cursor() method](/docs/current/clients/python/reference/#duckdb.DuckDBPyConnection.cursor) creates another handle on the same connection. It does not open a new connection. Therefore, all cursors created from one connection cannot run queries at the same time.
 
-### Community Extensions
+### 
+        
+        [Community Extensions](#community-extensions)
+        
+      
 
-To load community extensions, use the `repository="community"` argument with the `install_extension` method.
+    
+To load [community extensions](/community_extensions/), use the `repository="community"` argument with the `install_extension` method.
 
 For example, install and load the `h3` community extension as follows:
 
@@ -255,14 +337,21 @@ con = duckdb.connect()
 con.install_extension("h3", repository="community")
 con.load_extension("h3")
 ```
-### Unsigned Extensions
+### 
+        
+        [Unsigned Extensions](#unsigned-extensions)
+        
+      
 
-To load unsigned extensions, use:
+    
+To load [unsigned extensions](/docs/current/extensions/overview.html#unsigned-extensions), use:
 
 ```
 con = duckdb.connect(config={"allow_unsigned_extensions": "true"})
 ```
-Warning Only load unsigned extensions from sources you trust. Avoid loading unsigned extensions over HTTP. Consult the Securing DuckDB page for guidelines on how set up DuckDB in a secure manner.
+Warning Only load unsigned extensions from sources you trust. Avoid loading unsigned extensions over HTTP. Consult the
+
+[Securing DuckDB page](/docs/current/operations_manual/securing_duckdb/securing_extensions.html)for guidelines on how set up DuckDB in a secure manner.
 
 # Citations
 

@@ -11,12 +11,17 @@ description: 'Examples The following examples use the flights.csv file. Read a C
   VARCHAR, OriginCityName VARCHAR, DestCityName VARCHAR ); COPY ontime FROM ''flights.csv'';
   Alternatively, create a table without specifying the schema manually using a…'
 resource: https://duckdb.org/docs/current/data/csv/overview
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
-## Examples
+## 
+        
+        [Examples](#examples)
+        
+      
 
-The following examples use the `flights.csv` file.
+    
+The following examples use the [ flights.csv](/data/flights.csv) file.
 
 Read a CSV file from disk, auto-infer options:
 
@@ -53,39 +58,51 @@ CREATE TABLE ontime (
 );
 COPY ontime FROM 'flights.csv';
 ```
-Alternatively, create a table without specifying the schema manually using a `CREATE TABLE ... AS SELECT` statement:
+Alternatively, create a table without specifying the schema manually using a [ CREATE TABLE ... AS SELECT statement](/docs/current/sql/statements/create_table.html#create-table--as-select-ctas):
 
 ```
 CREATE TABLE ontime AS
     SELECT * FROM 'flights.csv';
 ```
-We can use the `FROM`-first syntax to omit `SELECT *`.
+We can use the [ FROM-first syntax](/docs/current/sql/query_syntax/from.html#from-first-syntax) to omit 
 
-```
+`SELECT *`.```
 CREATE TABLE ontime AS
     FROM 'flights.csv';
 ```
-## CSV Loading
+## 
+        
+        [CSV Loading](#csv-loading)
+        
+      
 
+    
 CSV loading, i.e., importing CSV files to the database, is a very common, and yet surprisingly tricky, task. While CSVs seem simple on the surface, there are a lot of inconsistencies found within CSV files that can make loading them a challenge. CSV files come in many different varieties, are often corrupt, and do not have a schema. The CSV reader needs to cope with all of these different situations.
 
-The DuckDB CSV reader can automatically infer which configuration flags to use by analyzing the CSV file using the CSV sniffer. This will work correctly in most situations, and should be the first option attempted. In rare situations where the CSV reader cannot figure out the correct configuration it is possible to manually configure the CSV reader to correctly parse the CSV file. See the auto detection page for more information.
+The DuckDB CSV reader can automatically infer which configuration flags to use by analyzing the CSV file using the [CSV sniffer](/2023/10/27/csv-sniffer.html). This will work correctly in most situations, and should be the first option attempted. In rare situations where the CSV reader cannot figure out the correct configuration it is possible to manually configure the CSV reader to correctly parse the CSV file. See the [auto detection page](/docs/current/data/csv/auto_detection.html) for more information.
 
-## Parameters
+## 
+        
+        [Parameters](#parameters)
+        
+      
 
-Below are parameters that can be passed to the `read_csv` function. Where meaningfully applicable, these parameters can also be passed to the `COPY` statement.
+    
+Below are parameters that can be passed to the [ read_csv function](#csv-functions). Where meaningfully applicable, these parameters can also be passed to the 
 
-| Name | Description | Type | Default | 
+[.](/docs/current/sql/statements/copy.html#copy-to)
+
+`COPY` statement| Name | Description | Type | Default | 
 |---|---|---|---|
 | `all_varchar` | Skip type detection and assume all columns are of type `VARCHAR`. This option is only supported by the`read_csv`function. | `BOOL` | `false` | 
 | `allow_quoted_nulls` | Allow the conversion of quoted values to `NULL`values | `BOOL` | `true` | 
-| `auto_detect` | Auto detect CSV parameters. | `BOOL` | `true` | 
-| `auto_type_candidates` | Types that the sniffer uses when detecting column types. The `VARCHAR`type is always included as a fallback option. See example. | `TYPE[]` | default types | 
+| `auto_detect` | [Auto detect CSV parameters](/docs/current/data/csv/auto_detection.html). | `BOOL` | `true` | 
+| `auto_type_candidates` | Types that the sniffer uses when detecting column types. The `VARCHAR`type is always included as a fallback option. See[example](#auto_type_candidates-details). | `TYPE[]` | [default types](#auto_type_candidates-details) | 
 | `buffer_size` | Size of the buffers used to read files, in bytes. Must be large enough to hold four lines and can significantly impact performance. | `BIGINT` | `16 * max_line_size` | 
 | `columns` | Column names and types, as a struct (e.g., `{'col1': 'INTEGER', 'col2': 'VARCHAR'}`). Using this option disables auto detection of the schema. | `STRUCT` | (empty) | 
 | `comment` | Character used to initiate comments. Lines starting with a comment character (optionally preceded by space characters) are completely ignored; other lines containing a comment character are parsed only up to that point. | `VARCHAR` | (empty) | 
 | `compression` | Method used to compress CSV files. By default this is detected automatically from the file extension (e.g., `t.csv.gz`will use gzip,`t.csv`will use`none`). Options are`none`,`gzip`,`zstd`. | `VARCHAR` | `auto` | 
-| `dateformat` | Date format used when parsing and writing dates. | `VARCHAR` | (empty) | 
+| `dateformat` | [Date format](/docs/current/sql/functions/dateformat.html)used when parsing and writing dates. | `VARCHAR` | (empty) | 
 | `date_format` | Alias for `dateformat`; only available in the`COPY`statement. | `VARCHAR` | (empty) | 
 | `decimal_separator` | Decimal separator for numbers. | `VARCHAR` | `.` | 
 | `delim` | Delimiter character used to separate columns within each line, e.g., `,``;``\t`. The delimiter character can be up to 4 bytes, e.g., 🦆. Alias for`sep`. | `VARCHAR` | `,` | 
@@ -93,45 +110,43 @@ Below are parameters that can be passed to the `read_csv` function. Where meanin
 | `escape` | String used to escape the `quote`character within quoted values. | `VARCHAR` | `"` | 
 | `encoding` | Encoding used by the CSV file. Options are `utf-8`,`utf-16`,`latin-1`. Not available in the`COPY`statement (which always uses`utf-8`). | `VARCHAR` | `utf-8` | 
 | `filename` | Add path of the containing file to each row, as a string column named `filename`. Relative or absolute paths are returned depending on the path or glob pattern provided to`read_csv`, not just filenames. Since DuckDB v1.3.0, the`filename`column is added automatically as a virtual column and this option is only kept for compatibility reasons. | `BOOL` | `false` | 
-| `files_to_sniff` | Number of files used by the CSV sniffer to detect the schema when reading multiple files. Set to `-1`to sniff all files. | `BIGINT` | `10` | 
+| `files_to_sniff` | Number of files used by the [CSV sniffer](/docs/current/data/csv/auto_detection.html)to detect the schema when reading multiple files. Set to`-1`to sniff all files. | `BIGINT` | `10` | 
 | `force_not_null` | Do not match values in the specified columns against the `NULL`string. In the default case where the`NULL`string is empty, this means that empty values are read as zero-length strings instead of`NULL`s. | `VARCHAR[]` | `[]` | 
 | `header` | First line of each file contains the column names. | `BOOL` | `false` | 
-| `hive_partitioning` | Interpret the path as a Hive partitioned path. | `BOOL` | (auto-detected) | 
+| `hive_partitioning` | Interpret the path as a [Hive partitioned path](/docs/current/data/partitioning/hive_partitioning.html). | `BOOL` | (auto-detected) | 
 | `ignore_errors` | Ignore any parsing errors encountered. | `BOOL` | `false` | 
 | `max_line_size`or`maximum_line_size`. Not available in the`COPY`statement. | Maximum line size, in bytes. | `BIGINT` | 2000000 | 
-| `names`or`column_names` | Column names, as a list. See example. | `VARCHAR[]` | (empty) | 
+| `names`or`column_names` | Column names, as a list. See [example](/docs/current/data/csv/tips.html#provide-names-if-the-file-does-not-contain-a-header). | `VARCHAR[]` | (empty) | 
 | `new_line` | New line character(s). Options are `'\r'`,`'\n'`, or`'\r\n'`. The CSV parser only distinguishes between single-character and double-character line delimiters. Therefore, it does not differentiate between`'\r'`and`'\n'`. | `VARCHAR` | (empty) | 
 | `normalize_names` | Normalize column names. This removes any non-alphanumeric characters from them. Column names that are reserved SQL keywords are prefixed with an underscore character ( `_`). | `BOOL` | `false` | 
 | `null_padding` | Pad the remaining columns on the right with `NULL`values when a line lacks columns. | `BOOL` | `false` | 
 | `nullstr`or`null` | Strings that represent a `NULL`value. | `VARCHAR`or`VARCHAR[]` | (empty) | 
 | `parallel` | Use the parallel CSV reader. | `BOOL` | `true` | 
 | `quote` | String used to quote values. | `VARCHAR` | `"` | 
-| `rejects_scan` | Name of the temporary table where information on faulty scans is stored. | `VARCHAR` | `reject_scans` | 
-| `rejects_table` | Name of the temporary table where information on faulty lines is stored. | `VARCHAR` | `reject_errors` | 
+| `rejects_scan` | Name of the [temporary table where information on faulty scans is stored](/docs/current/data/csv/reading_faulty_csv_files.html#reject-scans). | `VARCHAR` | `reject_scans` | 
+| `rejects_table` | Name of the [temporary table where information on faulty lines is stored](/docs/current/data/csv/reading_faulty_csv_files.html#reject-errors). | `VARCHAR` | `reject_errors` | 
 | `rejects_limit` | Upper limit on the number of faulty lines per file that are recorded in the rejects table. Setting this to `0`means that no limit is applied. | `BIGINT` | `0` | 
-| `sample_size` | Number of sample lines for auto detection of parameters. | `BIGINT` | 20480 | 
+| `sample_size` | Number of sample lines for [auto detection of parameters](/docs/current/data/csv/auto_detection.html). | `BIGINT` | 20480 | 
 | `sep` | Delimiter character used to separate columns within each line, e.g., `,``;``\t`. The delimiter character can be up to 4 bytes, e.g., 🦆. Alias for`delim`. | `VARCHAR` | `,` | 
 | `skip` | Number of lines to skip at the start of each file. | `BIGINT` | 0 | 
 | `store_rejects` | Skip any lines with errors and store them in the rejects table. | `BOOL` | `false` | 
 | `strict_mode` | Enforces the strictness level of the CSV Reader. When set to `true`, the parser will throw an error upon encountering any issues. When set to`false`, the parser will attempt to read structurally incorrect files. It is important to note that reading structurally incorrect files can cause ambiguity; therefore, this option should be used with caution. | `BOOL` | `true` | 
 | `thousands` | Character used to identify thousands separators in numeric values. It must be a single character and different from the `decimal_separator`option. | `VARCHAR` | (empty) | 
-| `timestampformat` | Timestamp format used when parsing and writing timestamps. | `VARCHAR` | (empty) | 
+| `timestampformat` | [Timestamp format](/docs/current/sql/functions/dateformat.html)used when parsing and writing timestamps. | `VARCHAR` | (empty) | 
 | `timestamp_format` | Alias for `timestampformat`; only available in the`COPY`statement. | `VARCHAR` | (empty) | 
-| `types`or`dtypes`or`column_types` | Column types, as either a list (by position) or a struct (by name). See example. | `VARCHAR[]`or`STRUCT` | (empty) | 
-| `union_by_name` | Align columns from different files by column name instead of position. Using this option increases memory consumption. | `BOOL` | `false` | 
+| `types`or`dtypes`or`column_types` | Column types, as either a list (by position) or a struct (by name). See [example](/docs/current/data/csv/tips.html#override-the-types-of-specific-columns). | `VARCHAR[]`or`STRUCT` | (empty) | 
+| `union_by_name` | Align columns from different files [by column name](/docs/current/data/multiple_files/combining_schemas.html#union-by-name)instead of position. Using this option increases memory consumption. | `BOOL` | `false` | 
 
 Tip DuckDB's CSV reader supports
 
-`UTF-8`(default),`UTF-16`and`Latin-1`encodings. For other encodings, you can either use the`encodings`extension or convert them e.g. using the`iconv`command-line tool:`iconv -f ISO-8859-2 -t UTF-8 input.csv > input-utf-8.csv`
+`UTF-8`(default),`UTF-16`and`Latin-1`encodings. For other encodings, you can either use[the](/docs/current/core_extensions/encodings.html)or convert them e.g. using the`encodings`extension[:](https://linux.die.net/man/1/iconv)`iconv`command-line tool`iconv -f ISO-8859-2 -t UTF-8 input.csv > input-utf-8.csv`
 
 ### 
         
         `auto_type_candidates` Details
-        
-      
 
     
-The `auto_type_candidates` option lets you specify the data types that should be considered by the CSV reader for column data type detection.
+`auto_type_candidates` DetailsThe `auto_type_candidates` option lets you specify the data types that should be considered by the CSV reader for [column data type detection](/docs/current/data/csv/auto_detection.html#type-detection).
 Usage example:
 
 ```
@@ -139,9 +154,14 @@ SELECT * FROM read_csv('csv_file.csv', auto_type_candidates = ['BIGINT', 'DATE']
 ```
 The default value for the `auto_type_candidates` option is `['NULL', 'BOOLEAN', 'BIGINT', 'DOUBLE', 'TIME', 'DATE', 'TIMESTAMP', 'VARCHAR']`.
 
-## CSV Functions
+## 
+        
+        [CSV Functions](#csv-functions)
+        
+      
 
-The `read_csv` automatically attempts to figure out the correct configuration of the CSV reader using the CSV sniffer. It also automatically deduces types of columns. If the CSV file has a header, it will use the names found in that header to name the columns. Otherwise, the columns will be named `column0, column1, column2, ...`. An example with the `flights.csv` file:
+    
+The `read_csv` automatically attempts to figure out the correct configuration of the CSV reader using the [CSV sniffer](/2023/10/27/csv-sniffer.html). It also automatically deduces types of columns. If the CSV file has a header, it will use the names found in that header to name the columns. Otherwise, the columns will be named `column0, column1, column2, ...`. An example with the [ flights.csv](/data/flights.csv) file:
 
 ```
 SELECT * FROM read_csv('flights.csv');
@@ -176,18 +196,18 @@ If we set `delim` / `sep`, `quote`, `escape`, or `header` explicitly, we can byp
 ```
 SELECT * FROM read_csv('flights.csv', header = true);
 ```
-Multiple files can be read at once by providing a glob or a list of files. Refer to the multiple files section for more information.
+Multiple files can be read at once by providing a glob or a list of files. Refer to the [multiple files section](/docs/current/data/multiple_files/overview.html) for more information.
 
 ## 
         
-        Writing Using the `COPY` Statement
+        [Writing Using the ](#writing-using-the-copy-statement)`COPY` Statement
         
       
 
     
-The `COPY` statement can be used to load data from a CSV file into a table. This statement has the same syntax as the one used in PostgreSQL. To load the data using the `COPY` statement, we must first create a table with the correct schema (which matches the order of the columns in the CSV file and uses types that fit the values in the CSV file). `COPY` detects the CSV's configuration options automatically.
+`COPY` StatementThe [ COPY statement](/docs/current/sql/statements/copy.html#copy-to) can be used to load data from a CSV file into a table. This statement has the same syntax as the one used in PostgreSQL. To load the data using the 
 
-```
+`COPY` statement, we must first create a table with the correct schema (which matches the order of the columns in the CSV file and uses types that fit the values in the CSV file). `COPY` detects the CSV's configuration options automatically.```
 CREATE TABLE ontime (
     flightdate DATE,
     uniquecarrier VARCHAR,
@@ -210,19 +230,34 @@ CREATE TABLE ontime (flightdate DATE, uniquecarrier VARCHAR, origincityname VARC
 COPY ontime FROM 'flights.csv' (DELIMITER '|', HEADER);
 SELECT * FROM ontime;
 ```
-## Reading Faulty CSV Files
+## 
+        
+        [Reading Faulty CSV Files](#reading-faulty-csv-files)
+        
+      
 
-DuckDB supports reading erroneous CSV files. For details, see the Reading Faulty CSV Files page.
+    
+DuckDB supports reading erroneous CSV files. For details, see the [Reading Faulty CSV Files page](/docs/current/data/csv/reading_faulty_csv_files.html).
 
-## Order Preservation
+## 
+        
+        [Order Preservation](#order-preservation)
+        
+      
 
-The CSV reader respects the `preserve_insertion_order` configuration option to preserve insertion order.
+    
+The CSV reader respects the `preserve_insertion_order` [configuration option](/docs/current/configuration/overview.html) to [preserve insertion order](/docs/current/sql/dialect/order_preservation.html).
 When `true` (the default), the order of the rows in the result set returned by the CSV reader is the same as the order of the corresponding lines read from the file(s).
 When `false`, there is no guarantee that the order is preserved.
 
-## Writing CSV Files
+## 
+        
+        [Writing CSV Files](#writing-csv-files)
+        
+      
 
-DuckDB can write CSV files using the `COPY ... TO` statement.
+    
+DuckDB can write CSV files using the [ COPY ... TO statement](/docs/current/sql/statements/copy.html#copy--to).
 
 # Citations
 

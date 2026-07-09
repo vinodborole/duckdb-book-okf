@@ -12,7 +12,7 @@ description: DuckDB provides functions to serialize and deserialize SELECT state
   of json serialized statements. PRAGMA json_execute_serialized_sql(varchar) Pragma
   Pragma version of the json_execute_serialized_sql function. The json_serialize_sql(varchar)…
 resource: https://duckdb.org/docs/current/data/json/sql_to_and_from_json
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
 DuckDB provides functions to serialize and deserialize `SELECT` statements between SQL and JSON, as well as executing JSON serialized statements.
@@ -30,8 +30,13 @@ If you run the `json_execute_serialized_sql(varchar)` table function inside of a
 
 Note that these functions do not preserve syntactic sugar such as `FROM * SELECT ...`, so a statement round-tripped through `json_deserialize_sql(json_serialize_sql(...))` may not be identical to the original statement, but should always be semantically equivalent and produce the same output.
 
-## Examples
+## 
+        
+        [Examples](#examples)
+        
+      
 
+    
 Simple example:
 
 ```

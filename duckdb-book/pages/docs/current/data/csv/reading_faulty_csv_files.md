@@ -10,13 +10,18 @@ description: 'CSV files can come in all shapes and forms, with some presenting m
   we will go over each error with an example. For the examples, consider the following
   table: CREATE TABLE people (name VARCHAR, birth_date DATE); DuckDB…'
 resource: https://duckdb.org/docs/current/data/csv/reading_faulty_csv_files
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
 CSV files can come in all shapes and forms, with some presenting many errors that make the process of cleanly reading them inherently difficult. To help users read these files, DuckDB supports detailed error messages, the ability to skip faulty lines and the possibility of storing faulty lines in a temporary table to assist users with a data cleaning step.
 
-## Structural Errors
+## 
+        
+        [Structural Errors](#structural-errors)
+        
+      
 
+    
 DuckDB supports the detection and skipping of several different structural errors. In this section, we will go over each error with an example. For the examples, consider the following table:
 
 ```
@@ -31,8 +36,13 @@ DuckDB detects the following error types:
 - `LINE SIZE OVER MAXIMUM`: DuckDB has a parameter that sets the maximum line size a CSV file can have, which by default is set to 2,097,152 bytes. Assuming our scanner is set to- `max_line_size = 25`, the line- `Pedro Holanda, 01-01-1992`would produce an error, as it exceeds 25 bytes.
 - `INVALID ENCODING`: DuckDB supports UTF-8 strings, UTF-16 and Latin-1 encodings. Lines containing other characters will produce an error. For example, the line- `pedro\xff\xff, 01-01-1992`would be problematic.
 
-### Anatomy of a CSV Error
+### 
+        
+        [Anatomy of a CSV Error](#anatomy-of-a-csv-error)
+        
+      
 
+    
 By default, when performing a CSV read, if any structural errors are encountered, the scanner will immediately stop the scanning process and throw the error to the user. These errors are designed to provide as much information as possible to allow users to evaluate them directly in their CSV file.
 
 This is an example for a full error message:
@@ -86,14 +96,14 @@ Finally, the last block presents some of the options used in the scanner that ca
 
 ## 
         
-        Using the `ignore_errors` Option
+        [Using the ](#using-the-ignore_errors-option)`ignore_errors` Option
         
       
 
     
-There are cases where CSV files may have multiple structural errors, and users simply wish to skip these and read the correct data. Reading erroneous CSV files is possible by utilizing the `ignore_errors` option. With this option set, rows containing data that would otherwise cause the CSV parser to generate an error will be ignored. In our example, we will demonstrate a CAST error, but note that any of the errors described in our Structural Error section would cause the faulty line to be skipped.
+`ignore_errors` OptionThere are cases where CSV files may have multiple structural errors, and users simply wish to skip these and read the correct data. Reading erroneous CSV files is possible by utilizing the `ignore_errors` option. With this option set, rows containing data that would otherwise cause the CSV parser to generate an error will be ignored. In our example, we will demonstrate a CAST error, but note that any of the errors described in our Structural Error section would cause the faulty line to be skipped.
 
-For example, consider the following CSV file, `faulty.csv`:
+For example, consider the following CSV file, [ faulty.csv](/data/faulty.csv):
 
 ```
 Pedro,31
@@ -134,8 +144,13 @@ Outputs:
 | Pedro | 
 | Oogie Boogie | 
 
-## Retrieving Faulty CSV Lines
+## 
+        
+        [Retrieving Faulty CSV Lines](#retrieving-faulty-csv-lines)
+        
+      
 
+    
 Being able to read faulty CSV files is important, but for many data cleaning operations, it is also necessary to know exactly which lines are corrupted and what errors the parser discovered on them. For scenarios like these, it is possible to use DuckDB's CSV Rejects Table feature. By default, this feature creates two temporary tables.
 
 - `reject_scans`: Stores information regarding the parameters of the CSV Scanner.
@@ -143,8 +158,13 @@ Being able to read faulty CSV files is important, but for many data cleaning ope
 
 Note that any of the errors described in our Structural Error section will be stored in the rejects tables. Also, if a line has multiple errors, multiple entries will be stored for the same line, one for each error.
 
-### Reject Scans
+### 
+        
+        [Reject Scans](#reject-scans)
+        
+      
 
+    
 The CSV Reject Scans Table returns the following information:
 
 | Column name | Description | Type | 
@@ -163,8 +183,13 @@ The CSV Reject Scans Table returns the following information:
 | `timestamp_format` | The format used for timestamp types | `VARCHAR` | 
 | `user_arguments` | Any extra scanner parameters manually set by the user | `VARCHAR` | 
 
-### Reject Errors
+### 
+        
+        [Reject Errors](#reject-errors)
+        
+      
 
+    
 The CSV Reject Errors Table returns the following information:
 
 | Column name | Description | Type | 
@@ -180,8 +205,13 @@ The CSV Reject Errors Table returns the following information:
 | `csv_line` | The original CSV line. | `VARCHAR` | 
 | `error_message` | The error message produced by DuckDB. | `VARCHAR` | 
 
-## Parameters
+## 
+        
+        [Parameters](#parameters)
+        
+      
 
+    
 The parameters listed below are used in the `read_csv` function to configure the CSV Rejects Table.
 
 | Name | Description | Type | Default | 

@@ -11,10 +11,11 @@ description: 'You can create a DuckDB user-defined function (UDF) from a Python 
   To register a Python UDF, use the create_function method from a DuckDB connection.
   Here is the syntax: import duckdb con =…'
 resource: https://duckdb.org/docs/current/clients/python/function
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
-You can create a DuckDB user-defined function (UDF) from a Python function so it can be used in SQL queries. Similarly to regular functions, they need to have a name, a return type and parameter types.
+You can create a DuckDB user-defined function (UDF) from a Python function so it can be used in SQL queries.
+Similarly to regular [functions](/docs/current/sql/functions/overview.html), they need to have a name, a return type and parameter types.
 
 Here is an example using a Python function that calls a third-party library.
 
@@ -32,8 +33,13 @@ print(res)
 ```
 [('Gerald Ashley',)]
 ```
-## Creating Functions
+## 
+        
+        [Creating Functions](#creating-functions)
+        
+      
 
+    
 To register a Python UDF, use the `create_function` method from a DuckDB connection. Here is the syntax:
 
 ```
@@ -57,9 +63,14 @@ To unregister a UDF, you can call the `remove_function` method with the UDF name
 ```
 con.remove_function(name)
 ```
-### Using Partial Functions
+### 
+        
+        [Using Partial Functions](#using-partial-functions)
+        
+      
 
-DuckDB UDFs can also be created with Python partial functions.
+    
+DuckDB UDFs can also be created with [Python partial functions](https://docs.python.org/3/library/functools.html#functools.partial).
 
 In the below example, we show how a custom logger will return the concatenation of the execution datetime in ISO format, always followed by argument passed at UDF creation and the input parameter provided to the function call:
 
@@ -125,8 +136,13 @@ with duckdb.connect() as con:
 │            10 rows             │
 └────────────────────────────────┘
 ```
-## Type Annotation
+## 
+        
+        [Type Annotation](#type-annotation)
+        
+      
 
+    
 When the function has type annotation it's often possible to leave out all of the optional parameters.
 Using `DuckDBPyType` we can implicitly convert many known types to DuckDB's type system.
 For example:
@@ -151,11 +167,9 @@ If only the parameter list types can be inferred, you'll need to pass in `None` 
 ## 
         
         `NULL` Handling
-        
-      
 
     
-By default when functions receive a `NULL` value, this instantly returns `NULL`, as part of the default `NULL`-handling.
+`NULL` HandlingBy default when functions receive a `NULL` value, this instantly returns `NULL`, as part of the default `NULL`-handling.
 When this is not desired, you need to explicitly set this parameter to `"special"`.
 
 ```
@@ -209,8 +223,13 @@ print(res)
 ```
 [(None,)]
 ```
-## Exception Handling
+## 
+        
+        [Exception Handling](#exception-handling)
+        
+      
 
+    
 By default, when an exception is thrown from the Python function, we'll forward (re-throw) the exception.
 If you want to disable this behavior, and instead return `NULL`, you'll need to set this parameter to `"return_null"`.
 
@@ -238,8 +257,13 @@ At:
 ```
 [(None,)]
 ```
-## Side Effects
+## 
+        
+        [Side Effects](#side-effects)
+        
+      
 
+    
 By default DuckDB will assume the created function is a *pure* function, meaning it will produce the same output when given the same input.
 If your function does not follow that rule, for example when your function makes use of randomness, then you will need to mark this function as having `side_effects`.
 
@@ -275,12 +299,22 @@ print(res)
 ```
 [(0,), (1,), (2,), (3,), (4,), (5,), (6,), (7,), (8,), (9,)]
 ```
-## Python Function Types
+## 
+        
+        [Python Function Types](#python-function-types)
+        
+      
 
+    
 Currently, two function types are supported, `native` (default) and `arrow`.
 
-### Arrow
+### 
+        
+        [Arrow](#arrow)
+        
+      
 
+    
 If the function is expected to receive arrow arrays, set the `type` parameter to `'arrow'`.
 
 This will let the system know to provide arrow arrays of up to `STANDARD_VECTOR_SIZE` tuples to the function, and also expect an array of the same amount of tuples to be returned from the function.
@@ -311,8 +345,13 @@ print(duckdb.sql("SELECT mirror(str, '|') FROM strings;").fetchall())
 ```
 [('hello|olleh',), ('world|dlrow',)]
 ```
-### Native
+### 
+        
+        [Native](#native)
+        
+      
 
+    
 When the function type is set to `native` the function will be provided with a single tuple at a time, and expect only a single value to be returned.
 This can be useful to interact with Python libraries that don't operate on Arrow, such as `faker`:
 

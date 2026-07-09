@@ -10,19 +10,29 @@ description: 'The Expression class represents an instance of an expression. Why 
   import pandas as pd df = pd.DataFrame({ ''a'': [1, 2, 3, 4], ''b'': [True, None,
   False, True], ''c'': [42, 21, 13,…'
 resource: https://duckdb.org/docs/current/clients/python/expression
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
-The `Expression` class represents an instance of an expression.
+The `Expression` class represents an instance of an [expression](/docs/current/sql/expressions/overview.html).
 
-## Why Would I Use the Expression API?
+## 
+        
+        [Why Would I Use the Expression API?](#why-would-i-use-the-expression-api)
+        
+      
 
+    
 Using this API makes it possible to dynamically build up expressions, which are typically created by the parser from the query string. This allows you to skip that and have more fine-grained control over the used expressions.
 
 Below is a list of currently supported expressions that can be created through the API.
 
-## Column Expression
+## 
+        
+        [Column Expression](#column-expression)
+        
+      
 
+    
 This expression references a column by name.
 
 ```
@@ -72,8 +82,13 @@ duckdb.df(df).select(*col_list).show()
 │       40 │ false       │      19 │
 └──────────┴─────────────┴─────────┘
 ```
-## Star Expression
+## 
+        
+        [Star Expression](#star-expression)
+        
+      
 
+    
 This expression selects all columns of the input source.
 
 Optionally it's possible to provide an `exclude` list to filter out columns of the table.
@@ -101,8 +116,13 @@ duckdb.df(df).select(star).show()
 │     4 │    14 │
 └───────┴───────┘
 ```
-## Constant Expression
+## 
+        
+        [Constant Expression](#constant-expression)
+        
+      
 
+    
 This expression contains a single value.
 
 ```
@@ -127,8 +147,13 @@ duckdb.df(df).select(const).show()
 │ hello   │
 └─────────┘
 ```
-## Case Expression
+## 
+        
+        [Case Expression](#case-expression)
+        
+      
 
+    
 This expression contains a `CASE WHEN (...) THEN (...) ELSE (...) END` expression.
 By default `ELSE` is `NULL` and it can be set using `.else(value = ...)`.
 Additional `WHEN (...) THEN (...)` blocks can be added with `.when(condition = ..., value = ...)`.
@@ -164,8 +189,13 @@ duckdb.df(df).select(case).show()
 │ hello                                                    │
 └──────────────────────────────────────────────────────────┘
 ```
-## Function Expression
+## 
+        
+        [Function Expression](#function-expression)
+        
+      
 
+    
 This expression contains a function call. It can be constructed by providing the function name and an arbitrary amount of Expressions as arguments.
 
 ```
@@ -195,8 +225,13 @@ duckdb.df(df).select(multiply_by_2).show()
 │              8 │
 └────────────────┘
 ```
-## SQL Expression
+## 
+        
+        [SQL Expression](#sql-expression)
+        
+      
 
+    
 This expression contains any valid SQL expression.
 
 ```
@@ -233,21 +268,31 @@ duckdb.df(df).filter(
 │      1 │                         1 │                       1 │ hello                │
 └────────┴───────────────────────────┴─────────────────────────┴──────────────────────┘
 ```
-## Common Operations
+## 
+        
+        [Common Operations](#common-operations)
+        
+      
 
+    
 The Expression class also contains many operations that can be applied to any Expression type.
 
 | Operation | Description | 
 |---|---|
 | `.alias(name: str)` | Applies an alias to the expression | 
 | `.cast(type: DuckDBPyType)` | Applies a cast to the provided type on the expression | 
-| `.isin(*exprs: Expression)` | Creates an `IN`expression against the provided expressions as the list | 
-| `.isnotin(*exprs: Expression)` | Creates a `NOT IN`expression against the provided expressions as the list | 
+| `.isin(*exprs: Expression)` | Creates an against the provided expressions as the list`IN`expression | 
+| `.isnotin(*exprs: Expression)` | Creates a against the provided expressions as the list`NOT IN`expression | 
 | `.isnotnull()` | Checks whether the expression is not `NULL` | 
 | `.isnull()` | Checks whether the expression is `NULL` | 
 
-### Order Operations
+### 
+        
+        [Order Operations](#order-operations)
+        
+      
 
+    
 When expressions are provided to `DuckDBPyRelation.order()`, the following order operations can be applied.
 
 | Operation | Description | 

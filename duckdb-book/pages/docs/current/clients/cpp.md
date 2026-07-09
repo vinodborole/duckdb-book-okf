@@ -10,25 +10,42 @@ description: Installation To use the DuckDB C++ API, download the libduckdb arch
   API Usage DuckDB implements a custom C++ API. This is built around the abstractions
   of a database…
 resource: https://duckdb.org/docs/current/clients/cpp
-timestamp: '2026-07-07T12:26:08.924159+00:00'
+timestamp: '2026-07-09T12:17:10.843759+00:00'
 ---
 
 Installation To use the DuckDB C++ API, download the
 
-`libduckdb`archive for your platform.The latest stable version of the DuckDB C++ API is 1.5.4.
+[for your platform.](/install/?environment=c)`libduckdb`archiveThe latest stable version of the DuckDB C++ API is 1.5.4.
 
-Warning DuckDB's C++ API is internal. It is not guaranteed to be stable and can change without notice. If you would like to build an application on DuckDB, we recommend using the C API.
+Warning DuckDB's C++ API is internal. It is not guaranteed to be stable and can change without notice. If you would like to build an application on DuckDB, we recommend using the
 
-## Installation
+[C API](/docs/current/clients/c/overview.html).
 
-The DuckDB C++ API can be installed as part of the `libduckdb` packages. Please see the installation page for details.
+## 
+        
+        [Installation](#installation)
+        
+      
 
-## Basic API Usage
+    
+The DuckDB C++ API can be installed as part of the `libduckdb` packages. Please see the [installation page](/install/?environment=c) for details.
 
+## 
+        
+        [Basic API Usage](#basic-api-usage)
+        
+      
+
+    
 DuckDB implements a custom C++ API. This is built around the abstractions of a database instance (`DuckDB` class), multiple `Connection`s to the database instance and `QueryResult` instances as the result of queries. The header file for the C++ API is `duckdb.hpp`.
 
-### Startup & Shutdown
+### 
+        
+        [Startup & Shutdown](#startup--shutdown)
+        
+      
 
+    
 To use DuckDB, you must first initialize a `DuckDB` instance using its constructor. `DuckDB()` takes as parameter the database file to read and write from. The special value `nullptr` can be used to create an **in-memory database**. Note that for an in-memory database no data is persisted to disk (i.e., all data is lost when you exit the process). The second parameter to the `DuckDB` constructor is an optional `DBConfig` object. In `DBConfig`, you can set various database parameters, for example the read/write mode or memory limits. The `DuckDB` constructor may throw exceptions, for example if the database file is not usable.
 
 With the `DuckDB` instance, you can create one or many `Connection` instances using the `Connection()` constructor. While connections should be thread-safe, they will be locked during querying. It is therefore recommended that each thread uses its own connection if you are in a multithreaded environment.
@@ -37,8 +54,13 @@ With the `DuckDB` instance, you can create one or many `Connection` instances us
 DuckDB db(nullptr);
 Connection con(db);
 ```
-### Querying
+### 
+        
+        [Querying](#querying)
+        
+      
 
+    
 Connections expose the `Query()` method to send a SQL query string to DuckDB from C++. `Query()` fully materializes the query result as a `MaterializedQueryResult` in memory before returning at which point the query result can be consumed. There is also a streaming API for queries, see further below.
 
 ```
@@ -83,15 +105,25 @@ std::unique_ptr<QueryResult> result = prepare->Execute(12);
 ```
 Warning Do
 
-notuse prepared statements to insert large amounts of data into DuckDB. See the data import documentation for better options.
+notuse prepared statements to insert large amounts of data into DuckDB. See the[data import documentation](/docs/current/data/overview.html)for better options.
 
-### UDF API
+### 
+        
+        [UDF API](#udf-api)
+        
+      
 
+    
 The UDF API allows the definition of user-defined functions. It is exposed in `duckdb:Connection` through the methods: `CreateScalarFunction()`, `CreateVectorizedFunction()`, and variants.
 These methods create UDFs in the temporary schema (`TEMP_SCHEMA`) of the owner connection that is the only one allowed to use and change them.
 
-#### CreateScalarFunction
+#### 
+        
+        [CreateScalarFunction](#createscalarfunction)
+        
+      
 
+    
 The user can code an ordinary scalar function and invoke the `CreateScalarFunction()` to register and afterward use the UDF in a `SELECT` statement, for instance:
 
 ```
@@ -166,8 +198,13 @@ This function checks the template types against the LogicalTypes passed as argum
 - LogicalTypeId::VARCHAR, LogicalTypeId::CHAR, LogicalTypeId::BLOB → string_t
 - LogicalTypeId::VARBINARY → blob_t
 
-#### CreateVectorizedFunction
+#### 
+        
+        [CreateVectorizedFunction](#createvectorizedfunction)
+        
+      
 
+    
 The `CreateVectorizedFunction()` methods register a vectorized UDF such as:
 
 ```
@@ -206,9 +243,9 @@ The Vectorized UDF is a pointer of the type *scalar_function_t*:
 ```
 typedef std::function<void(DataChunk &args, ExpressionState &expr, Vector &result)> scalar_function_t;
 ```
-- **args**is a DataChunk that holds a set of input vectors for the UDF that all have the same length.
-- **expr**is an ExpressionState that provides information to the query's expression state.
-- **result**is a Vector to store the result values.
+- **args**is a- [DataChunk](https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/common/types/data_chunk.hpp)that holds a set of input vectors for the UDF that all have the same length.
+- **expr**is an- [ExpressionState](https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/execution/expression_executor_state.hpp)that provides information to the query's expression state.
+- **result**is a- [Vector](https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/common/types/vector.hpp)to store the result values.
 
 There are different vector types to handle in a Vectorized UDF:
 
