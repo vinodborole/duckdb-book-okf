@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://duckdb.org/docs/stable",
-  "updated_at": "2026-07-09T12:17:11.872342+00:00",
+  "updated_at": "2026-07-13T09:35:43.805200+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 80,
@@ -20728,9 +20728,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-07-09T12:17:10.930549+00:00",
+    "synced_at": "2026-07-13T09:35:42.644442+00:00",
     "added": 0,
-    "changed": 79,
+    "changed": 0,
     "removed": 0,
     "pages": 80
   }
