@@ -6,7 +6,7 @@ description: 'DuckDB sources several data sources, including file formats, netwo
   Azure Blob Storage Blob files Cloudflare R2 CSV Delta Lake Excel httpfs Iceberg
   JSON MySQL Parquet PostgreSQL SQLite Text files'
 resource: https://duckdb.org/docs/lts/data/data_sources
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -686,96 +686,9 @@ Search Shortcut cmd + k | ctrl + k
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          / Data Import and Export
-          
-          
-          
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-          
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
 Data Sources
 
-				DuckDB sources several data sources, including file formats, network protocols and database systems:
+					DuckDB sources several data sources, including file formats, network protocols and database systems:
 
 - [AWS S3 buckets and storage with S3-compatible API](/docs/lts/core_extensions/httpfs/s3api.html)
 - [Azure Blob Storage](/docs/lts/core_extensions/azure.html)
@@ -792,8 +705,6 @@ Data Sources
 - [PostgreSQL](/docs/lts/core_extensions/postgres.html)
 - [SQLite](/docs/lts/core_extensions/sqlite.html)
 - [Text files](/docs/lts/guides/file_formats/read_file.html#read_text)
-
-##### About this page
 
 © 2026 DuckDB Foundation, Amsterdam NL
 

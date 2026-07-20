@@ -10,7 +10,7 @@ description: The linenoise-based CLI editor is available for macOS, Linux and Wi
   line. When on last line, move to next history entry Home Move to beginning of buffer
   End…
 resource: https://duckdb.org/docs/current/clients/cli/editing
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -707,151 +707,9 @@ Search Shortcut cmd + k | ctrl + k
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          / Client APIs
-          
-          
-          
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-                / CLI
-                
-                
-                
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-          
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
 Editing
 
-				The linenoise-based CLI editor is available for macOS, Linux and Windows.
+					The linenoise-based CLI editor is available for macOS, Linux and Windows.
 
 DuckDB's CLI uses a line-editing library based on [linenoise](https://github.com/antirez/linenoise), which has shortcuts that are based on [Emacs mode of readline](https://readline.kablamo.org/emacs.html). Below is a list of available commands. You can also view these shortcuts from within the CLI using `.help shortcuts`.
 
@@ -981,8 +839,6 @@ If you prefer, you can use [ rlwrap](https://github.com/hanslub42/rlwrap) to use
 `Shift`+`Enter` to insert a newline and `Enter` to execute the query:```
 rlwrap --substitute-prompt="D " duckdb -batch
 ```
-##### About this page
-
 © 2026 DuckDB Foundation, Amsterdam NL
 
 # Citations

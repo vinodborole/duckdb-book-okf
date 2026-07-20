@@ -11,7 +11,7 @@ description: 'The shell offers context-aware autocomplete of SQL queries through
   to trigger. For example: SELECT s student_id SELECT student_id F FROM SELECT student_id
   FROM g grades SELECT…'
 resource: https://duckdb.org/docs/current/clients/cli/autocomplete
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -708,151 +708,9 @@ Search Shortcut cmd + k | ctrl + k
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          / Client APIs
-          
-          
-          
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-                / CLI
-                
-                
-                
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-          
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
 Autocomplete
 
-				The shell offers context-aware autocomplete of SQL queries through the [ autocomplete extension](/docs/current/core_extensions/autocomplete.html). autocomplete is triggered by pressing 
+					The shell offers context-aware autocomplete of SQL queries through the [ autocomplete extension](/docs/current/core_extensions/autocomplete.html). autocomplete is triggered by pressing 
 
 `Tab`.Multiple autocomplete suggestions can be present. You can cycle forwards through the suggestions by repeatedly pressing `Tab`, or `Shift+Tab` to cycle backwards. autocompletion can be reverted by pressing `ESC` twice.
 
@@ -895,8 +753,6 @@ SELECT student_id FROM 'data/
 ```
 'data/grades.csv
 ```
-##### About this page
-
 © 2026 DuckDB Foundation, Amsterdam NL
 
 # Citations

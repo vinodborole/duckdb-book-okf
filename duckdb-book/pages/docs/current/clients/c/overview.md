@@ -10,7 +10,7 @@ description: Installation To use the DuckDB C API, download the libduckdb archiv
   can re-link to DuckDB and it should continue working. See the shell_helpers.cpp
   file in our source…
 resource: https://duckdb.org/docs/current/clients/c/overview
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -707,160 +707,9 @@ Search Shortcut cmd + k | ctrl + k
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          / Client APIs
-          
-          
-          
-            
-              
-              
-            
-              
-              
-            
-              
-              
-                / C
-                
-                
-                
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-          
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
 Overview
 
-				Installation To use the DuckDB C API, download the
+					Installation To use the DuckDB C API, download the
 
 [for your platform.](/install/?environment=c)`libduckdb`archiveThe latest stable version of the DuckDB C API is 1.5.4.
 
@@ -878,8 +727,6 @@ We also provide a SQLite API wrapper which means that if your application is pro
 The DuckDB C API can be installed as part of the `libduckdb` packages. Please see the [installation page](/install/?environment=c) for details.
 
 ## Pages in This Section
-
-##### About this page
 
 © 2026 DuckDB Foundation, Amsterdam NL
 

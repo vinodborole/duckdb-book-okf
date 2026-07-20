@@ -10,7 +10,7 @@ description: JSON Creation Functions The following functions are used to create 
   value, ...) Create a JSON object from key, value pairs in the argument list. Requires
   an even number of arguments. json_merge_patch(json, json) Merge two JSON…
 resource: https://duckdb.org/docs/current/data/json/creating_json
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -707,136 +707,9 @@ Search Shortcut cmd + k | ctrl + k
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          / Data Import and Export
-          
-          
-          
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-                / JSON Files
-                
-                
-                
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-          
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
 Creating JSON
 
-				## 
+					## 
         
         [JSON Creation Functions](#json-creation-functions)
         
@@ -899,8 +772,6 @@ SELECT json_merge_patch('{"duck": 42}', '{"goose": 123}');
 ```
 {"goose":123,"duck":42}
 ```
-##### About this page
-
 © 2026 DuckDB Foundation, Amsterdam NL
 
 # Citations

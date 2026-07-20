@@ -6,7 +6,7 @@ description: 'DuckDB supports several data sources, including file formats, netw
   Azure Blob Storage Blob files Cloudflare R2 CSV Delta Lake DuckLake Excel httpfs
   Iceberg JSON Lance tables MySQL Parquet PostgreSQL SQLite Text files Vortex files'
 resource: https://duckdb.org/docs/current/data/data_sources
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -703,99 +703,9 @@ Search Shortcut cmd + k | ctrl + k
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          / Data Import and Export
-          
-          
-          
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-          
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
 Data Sources
 
-				DuckDB supports several data sources, including file formats, network protocols, and database systems:
+					DuckDB supports several data sources, including file formats, network protocols, and database systems:
 
 - [AWS S3 buckets and storage with S3-compatible API](/docs/current/core_extensions/httpfs/s3api.html)
 - [Azure Blob Storage](/docs/current/core_extensions/azure.html)
@@ -815,8 +725,6 @@ Data Sources
 - [SQLite](/docs/current/core_extensions/sqlite.html)
 - [Text files](/docs/current/guides/file_formats/read_file.html#read_text)
 - [Vortex files](/docs/current/core_extensions/vortex.html)
-
-##### About this page
 
 © 2026 DuckDB Foundation, Amsterdam NL
 

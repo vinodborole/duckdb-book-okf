@@ -10,7 +10,7 @@ description: 'The DuckDB CLI client supports “safe mode”. In safe mode, the 
   is disabled. The enable_external_access option is set to false. This implies that:
   ATTACH cannot attach to a database in a file. COPY cannot read…'
 resource: https://duckdb.org/docs/current/clients/cli/safe_mode
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -707,151 +707,9 @@ Search Shortcut cmd + k | ctrl + k
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          / Client APIs
-          
-          
-          
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-                / CLI
-                
-                
-                
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-          
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
 Safe Mode
 
-				The DuckDB CLI client supports “safe mode”. In safe mode, the CLI is prevented from accessing external files other than the database file that it was initially connected to and prevented from interacting with the host file system.
+					The DuckDB CLI client supports “safe mode”. In safe mode, the CLI is prevented from accessing external files other than the database file that it was initially connected to and prevented from interacting with the host file system.
 
 This has the following effects:
 
@@ -876,8 +734,6 @@ This has the following effects:
 Once safe mode is activated, it cannot be deactivated in the same DuckDB CLI session.
 
 For more information on running DuckDB in secure environments, see the [“Securing DuckDB” page](/docs/current/operations_manual/securing_duckdb/overview.html).
-
-##### About this page
 
 © 2026 DuckDB Foundation, Amsterdam NL
 

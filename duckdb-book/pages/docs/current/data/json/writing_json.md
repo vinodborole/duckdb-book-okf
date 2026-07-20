@@ -7,7 +7,7 @@ description: 'The contents of tables or the result of queries can be written dir
   This will result in cities.json with the following content: {"name":"Amsterdam","id":1}
   {"name":"London","id":2} See the COPY statement for more information.'
 resource: https://duckdb.org/docs/current/data/json/writing_json
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -704,136 +704,9 @@ Search Shortcut cmd + k | ctrl + k
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          / Data Import and Export
-          
-          
-          
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-                / JSON Files
-                
-                
-                
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-          
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
 Writing JSON
 
-				The contents of tables or the result of queries can be written directly to a JSON file using the `COPY` statement.
+					The contents of tables or the result of queries can be written directly to a JSON file using the `COPY` statement.
 For example:
 
 ```
@@ -848,8 +721,6 @@ This will result in `cities.json` with the following content:
 {"name":"London","id":2}
 ```
 See the [ COPY statement](/docs/current/sql/statements/copy.html#copy-to) for more information.
-
-##### About this page
 
 © 2026 DuckDB Foundation, Amsterdam NL
 

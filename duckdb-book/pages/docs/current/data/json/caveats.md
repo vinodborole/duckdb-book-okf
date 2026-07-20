@@ -9,7 +9,7 @@ description: 'Equality Comparison Warning Currently, equality comparison of JSON
   d[0], -- Equality because space was removed from physical content of fields: a =
   c[0], -- Indeed, field is equal to empty list without space... b != c[0], --…'
 resource: https://duckdb.org/docs/current/data/json/caveats
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -706,136 +706,9 @@ Search Shortcut cmd + k | ctrl + k
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          / Data Import and Export
-          
-          
-          
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-                / JSON Files
-                
-                
-                
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-          
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
 Caveats
 
-				## 
+					## 
         
         [Equality Comparison](#equality-comparison)
         
@@ -864,8 +737,6 @@ FROM (
 | (a != b) | (c != d) | (c[0] = d[0]) | (a = c[0]) | (b != c[0]) | 
 |---|---|---|---|---|
 | true | true | true | true | true | 
-
-##### About this page
 
 © 2026 DuckDB Foundation, Amsterdam NL
 

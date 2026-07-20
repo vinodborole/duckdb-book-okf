@@ -6,7 +6,7 @@ description: Connecting to DuckDB DuckDB connection overview Client APIs C C++ C
   client APIs SQL Introduction Statements Other Guides Installation Building DuckDB
   Browsing offline
 resource: https://duckdb.org/docs/lts
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -685,97 +685,6 @@ Search Shortcut cmd + k | ctrl + k
 				 [Sitemap](/docs/sitemap)
 - 
 				 [Live Demo](https://shell.duckdb.org)
-
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
-Documentation
-
-				## 
-        
-        [Connecting to DuckDB](#connecting-to-duckdb)
-        
-      
-
-    
-      ## 
-        
-        [Client APIs](#client-apis)
-        
-      
-
-    
-## 
-        
-        [SQL](#sql)
-        
-      
-
-    
-      ## 
-        
-        [Other](#other)
-        
-      
-
-    
-				
-				
-				
-				
-				##### About this page
-
-© 2026 DuckDB Foundation, Amsterdam NL
 
 # Citations
 

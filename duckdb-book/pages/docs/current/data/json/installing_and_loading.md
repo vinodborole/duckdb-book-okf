@@ -5,7 +5,7 @@ description: 'The json extension is shipped by default in DuckDB builds, otherwi
   it will be transparently autoloaded on first use. If you would like to install and
   load it manually, run: INSTALL json; LOAD json;'
 resource: https://duckdb.org/docs/current/data/json/installing_and_loading
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-20T09:22:47.546237+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -702,143 +702,14 @@ Search Shortcut cmd + k | ctrl + k
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-  
-  
-  Documentation
-  
-    
-    
-  
-    
-    
-      
-        
-        
-      
-        
-        
-      
-        
-        
-          / Data Import and Export
-          
-          
-          
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-                / JSON Files
-                
-                
-                
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                    
-                    
-                  
-                
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-              
-              
-            
-          
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-        
-        
-      
-    
-  
-  
-
 Installing and Loading the JSON Extension
 
-				The `json` extension is shipped by default in DuckDB builds, otherwise, it will be transparently [autoloaded](/docs/current/extensions/overview.html#autoloading-extensions) on first use. If you would like to install and load it manually, run:
+					The `json` extension is shipped by default in DuckDB builds, otherwise, it will be transparently [autoloaded](/docs/current/extensions/overview.html#autoloading-extensions) on first use. If you would like to install and load it manually, run:
 
 ```
 INSTALL json;
 LOAD json;
 ```
-##### About this page
-
 © 2026 DuckDB Foundation, Amsterdam NL
 
 # Citations
