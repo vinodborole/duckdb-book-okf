@@ -10,7 +10,7 @@ description: Below is a collection of tips to help when attempting to import com
   by default. You can provide your own names with the names option. SELECT * FROM
   read_csv('flights.csv', names…
 resource: https://duckdb.org/docs/current/data/csv/tips
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -612,6 +612,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

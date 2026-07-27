@@ -11,7 +11,7 @@ description: 'Examples Write a table to a Hive partitioned dataset of Parquet fi
   PARTITION_BY clause is specified for the COPY statement, the files are written in
   a Hive partitioned folder hierarchy. The target is the…'
 resource: https://duckdb.org/docs/current/data/partitioning/partitioned_writes
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -613,6 +613,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

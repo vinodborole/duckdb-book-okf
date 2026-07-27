@@ -10,7 +10,7 @@ description: Connect or Create a Database To use DuckDB, you must first create a
   out-of-core-processing). Persistent Database To create or open a persistent database,
   set the path of the database file, e.g., my_database.duckdb, when creating…
 resource: https://duckdb.org/docs/lts/connect/overview
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -599,6 +599,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/lts/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/lts/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/lts/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/lts/guides/python/filesystems)
 - SQL Editors

@@ -5,7 +5,7 @@ description: DuckDB is an in-process database system and offers client APIs (“
   for several languages. Client API Maintainer Support tier Latest version C Core
   team {% include tooltip.html label="Primary" id="support_tier_primary" %} {% if
   site.current_duckdb_version != "" %}{{ site.current_duckdb_version }}{% else %}{{
-  site.lts_duckdb_version }}{% endif %} Command Line Interface (CLI) Core team {%
+  site.lts_duckdb_version }}{% endif %} CLI (command line interface) Core team {%
   include tooltip.html label="Primary" id="support_tier_primary" %} {% if site.current_duckdb_version
   != "" %}{{ site.current_duckdb_version }}{% else %}{{ site.lts_duckdb_version }}{%
   endif %} Java (JDBC) Core team {% include tooltip.html label="Primary" id="support_tier_primary"
@@ -13,7 +13,7 @@ description: DuckDB is an in-process database system and offers client APIs (“
   }}{% else %}{{ site.lts_duckdb_java_short_version }}{% endif %} Go Core team {%
   include tooltip.html…
 resource: https://duckdb.org/docs/current/clients/overview
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -616,6 +616,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
 - 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
+- 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors
 - SQL Features
@@ -711,19 +713,19 @@ DuckDB is an in-process database system and offers client APIs (“drivers”) f
 
 | Client API | Maintainer | Support tier | Latest version | 
 |---|---|---|---|
-| [C](/docs/current/clients/c/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](/install/?version=current&environment=c) | 
-| [Command Line Interface (CLI)](/docs/current/clients/cli/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](/install/?version=current&environment=cli) | 
-| [Java (JDBC)](/docs/current/clients/java.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](/install/?version=current&environment=java) | 
-| [Go](/docs/current/clients/go.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](/install/?version=current&environment=go) | 
-| [Node.js (node-neo)](/docs/current/clients/node_neo/overview.html) | [Jeff Raymakers](https://github.com/jraymakers) | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](/install/?version=current&environment=nodejs) | 
-| [ODBC](/docs/current/clients/odbc/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](/install/?version=current&environment=odbc) | 
-| [Python](/docs/current/clients/python/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](/install/?version=current&environment=python) | 
+| [C](/docs/current/clients/c/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=c) | 
+| [CLI (command line interface)](/docs/current/clients/cli/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=cli) | 
+| [Java (JDBC)](/docs/current/clients/java.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=java) | 
+| [Go](/docs/current/clients/go.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=go) | 
+| [Node.js (node-neo)](/docs/current/clients/node_neo/overview.html) | [Jeff Raymakers](https://github.com/jraymakers) | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=nodejs) | 
+| [ODBC](/docs/current/clients/odbc/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=odbc) | 
+| [Python](/docs/current/clients/python/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=python) | 
 | [R](/docs/current/clients/r.html) | [Kirill Müller](https://github.com/krlmlr) | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](/install/?version=current&environment=r) | 
-| [Rust](/docs/current/clients/rust.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](/install/?version=current&environment=rust) | 
+| [Rust](/docs/current/clients/rust.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=rust) | 
 | [WebAssembly (Wasm)](/docs/current/clients/wasm/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](https://github.com/duckdb/duckdb-wasm#readme) | 
-| [ADBC (Arrow)](/docs/current/clients/adbc.html) | Core team | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.4](/docs/current/clients/adbc.html) | 
+| [ADBC (Arrow)](/docs/current/clients/adbc.html) | Core team | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.5](/docs/current/clients/adbc.html) | 
 | [C# (.NET)](https://duckdb.net/) | [Giorgi](https://github.com/Giorgi) | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.3](https://www.nuget.org/packages?q=Tags%3A%22DuckDB%22+Author%3A%22Giorgi%22&includeComputedFrameworks=true&prerel=true&sortby=relevance) | 
-| [C++](/docs/current/clients/cpp.html) | Core team | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.4](/install/?version=current&environment=c) | 
+| [C++](/docs/current/clients/cpp.html) | Core team | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.5](/install/?version=current&environment=c) | 
 
 The table above lists the DuckDB clients with the primary and secondary [support tiers](#support-tiers).
 For a list of tertiary clients, see the [“Tertiary Clients” page](/docs/current/clients/tertiary_clients/overview.html).

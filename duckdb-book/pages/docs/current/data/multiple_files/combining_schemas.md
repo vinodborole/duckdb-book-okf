@@ -10,7 +10,7 @@ description: 'Examples Read a set of CSV files combining columns by position: SE
   and by column name. By default, DuckDB reads the schema of the first file provided,
   and then unifies columns in subsequent files by column…'
 resource: https://duckdb.org/docs/current/data/multiple_files/combining_schemas
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -612,6 +612,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

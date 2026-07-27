@@ -10,7 +10,7 @@ description: The linenoise-based CLI editor is available for macOS, Linux and Wi
   line. When on last line, move to next history entry Home Move to beginning of buffer
   End…
 resource: https://duckdb.org/docs/current/clients/cli/editing
-timestamp: '2026-07-20T09:22:47.546237+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -615,6 +615,8 @@ Search Shortcut cmd + k | ctrl + k
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

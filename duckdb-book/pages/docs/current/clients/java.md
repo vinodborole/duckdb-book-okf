@@ -10,12 +10,12 @@ description: Installation To use the DuckDB Java (JDBC) client, visit the Java i
   API, version 4.1. Describing JDBC is beyond the scope of this page, see the official
   documentation for details. Below we focus on the DuckDB-specific parts. Refer…
 resource: https://duckdb.org/docs/current/clients/java
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Installation To use the DuckDB Java (JDBC) client, visit the
 
-[Java installation page](/install/?environment=java).The latest stable version of the DuckDB Java (JDBC) client is 1.5.4.
+[Java installation page](/install/?environment=java).The latest stable version of the DuckDB Java (JDBC) client is 1.5.5.
 
 ## 
         

@@ -11,7 +11,7 @@ description: 'Handling Concurrency Single Process In in-process mode, DuckDB has
   concurrency model is to allow for the caching of data in RAM for faster analytical
   queries, rather than going…'
 resource: https://duckdb.org/docs/current/connect/concurrency
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -613,6 +613,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

@@ -12,7 +12,7 @@ description: 'Setup Using the DuckDB ODBC API on Windows requires the following 
   The archive contains the following artifacts: duckdb_odbc.dll: the DuckDB driver
   compiled for Windows. duckdb_odbc_setup.dll:…'
 resource: https://duckdb.org/docs/current/clients/odbc/windows
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -615,6 +615,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
 - 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
+- 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors
 - SQL Features
@@ -719,7 +721,7 @@ Using the DuckDB ODBC API on Windows requires the following steps:
     Microsoft Windows requires an ODBC Driver Manager to manage communication between applications and the ODBC drivers. The Driver Manager on Windows is provided in a DLL file `odbccp32.dll`, and other files and tools. For detailed information check out the[Common ODBC Component Files](https://docs.microsoft.com/en-us/previous-versions/windows/desktop/odbc/dn170563(v=vs.85)).
 - 
     
-    DuckDB releases the ODBC driver as an asset. For Windows, download it from the [Windows ODBC asset (x86_64/AMD64)](https://github.com/duckdb/duckdb-odbc/releases/download/v1.5.4.0/duckdb_odbc-windows-amd64.zip).
+    DuckDB releases the ODBC driver as an asset. For Windows, download it from the [Windows ODBC asset (x86_64/AMD64)](https://github.com/duckdb/duckdb-odbc/releases/download/v1.5.5.0/duckdb_odbc-windows-amd64.zip).
 - 
     The archive contains the following artifacts: - `duckdb_odbc.dll`: the DuckDB driver compiled for Windows.
 - `duckdb_odbc_setup.dll`: a setup DLL used by the Windows ODBC Data Source Administrator tool.

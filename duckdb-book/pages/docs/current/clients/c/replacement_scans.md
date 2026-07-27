@@ -12,7 +12,7 @@ description: The replacement scan API can be used to register a callback that is
   info, const char *function_name); void duckdb_replacement_scan_add_parameter(duckdb_replacement_scan_info
   info, duckdb_value parameter); void duckdb_replacement_scan_set_error(duckdb_replacement_scan_info…
 resource: https://duckdb.org/docs/current/clients/c/replacement_scans
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -614,6 +614,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

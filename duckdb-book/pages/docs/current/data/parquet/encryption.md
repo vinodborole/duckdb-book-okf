@@ -13,7 +13,7 @@ description: 'Starting with version 0.10.0, DuckDB supports reading and writing 
   tbl TO ''tbl.parquet'' (ENCRYPTION_CONFIG {footer_key: ''key256''}); Reading Encrypted
   Parquet Files An encrypted Parquet file using a specific key…'
 resource: https://duckdb.org/docs/current/data/parquet/encryption
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -615,6 +615,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

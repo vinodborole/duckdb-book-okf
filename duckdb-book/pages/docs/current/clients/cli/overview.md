@@ -10,12 +10,12 @@ description: Installation To use the DuckDB CLI client, visit the CLI installati
   line shell, so CLI-client-specific functionality is similar to what is described
   in the SQLite documentation (although DuckDB's SQL syntax follows…
 resource: https://duckdb.org/docs/current/clients/cli/overview
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Installation To use the DuckDB CLI client, visit the
 
-[CLI installation page](/install/?environment=cli).The latest stable version of the DuckDB command line client is 1.5.4.
+[CLI installation page](/install/?environment=cli).The latest stable version of the DuckDB command line client is 1.5.5.
 
 ## 
         
@@ -84,7 +84,7 @@ You will see DuckDB's version number, the information on the connection and a pr
 duckdb
 ```
 ```
-DuckDB v1.5.4 (Variegata) 08e34c447b
+DuckDB v1.5.5 (Variegata) d8cdaa33fd
 Enter ".help" for usage hints.
 Connected to a transient in-memory database.
 Use ".open FILENAME" to reopen on a persistent database.

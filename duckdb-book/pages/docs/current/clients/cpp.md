@@ -10,12 +10,12 @@ description: Installation To use the DuckDB C++ API, download the libduckdb arch
   API Usage DuckDB implements a custom C++ API. This is built around the abstractions
   of a database…
 resource: https://duckdb.org/docs/current/clients/cpp
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Installation To use the DuckDB C++ API, download the
 
-[for your platform.](/install/?environment=c)`libduckdb`archiveThe latest stable version of the DuckDB C++ API is 1.5.4.
+[for your platform.](/install/?environment=c)`libduckdb`archiveThe latest stable version of the DuckDB C++ API is 1.5.5.
 
 Warning DuckDB's C++ API is internal. It is not guaranteed to be stable and can change without notice. If you would like to build an application on DuckDB, we recommend using the
 

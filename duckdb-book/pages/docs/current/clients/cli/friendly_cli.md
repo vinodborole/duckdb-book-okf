@@ -11,7 +11,7 @@ description: 'Along with our Friendly SQL, we provide friendly CLI features. Dar
   indianred1 ... Dynamic Prompt The default prompts are the following: -- macOS /
   Linux {max_length:40}{color:38,5,208}{color:bold}{setting:current_database_and_schema}{color:reset}…'
 resource: https://duckdb.org/docs/current/clients/cli/friendly_cli
-timestamp: '2026-07-20T09:22:47.546237+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -616,6 +616,8 @@ Search Shortcut cmd + k | ctrl + k
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

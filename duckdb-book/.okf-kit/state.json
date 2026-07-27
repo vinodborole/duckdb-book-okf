@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://duckdb.org/docs/stable",
-  "updated_at": "2026-07-20T09:22:48.293583+00:00",
+  "updated_at": "2026-07-27T09:58:59.867659+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 80,
@@ -28,13 +28,13 @@
       "path": "pages/docs/current.md",
       "url": "https://duckdb.org/docs/current",
       "title": "Documentation – DuckDB",
-      "hash": "762f94a1772f00f2e38b80a56068a1dbea0ef7e5d01946b8042d30fac5a8ee6a"
+      "hash": "9a2adc5287164c6267fd7050ee1d067cd00f86de151d5e1ca65389aa20e4db54"
     },
     {
       "path": "pages/docs/current/clients/adbc.md",
       "url": "https://duckdb.org/docs/current/clients/adbc",
       "title": "ADBC Client – DuckDB",
-      "hash": "b86608f30840ed7086a4f839f77bf88c4def9e2d909d0d087c367e723fc9365b"
+      "hash": "f590a3c0a6101b0764e3c3080ec2622f9225193882df69cac4af7214f96d8c3c"
     },
     {
       "path": "pages/docs/current/clients/c/api.md",
@@ -52,7 +52,7 @@
       "path": "pages/docs/current/clients/c/config.md",
       "url": "https://duckdb.org/docs/current/clients/c/config",
       "title": "Configuration – DuckDB",
-      "hash": "1db4f8ff1a2eb71082fc37ffe128a2c808bac083b44a7301d82d971c86772709"
+      "hash": "feb06a518d88b4be6718192e222828254867e985a1ccda5f56f8b0a0b6205288"
     },
     {
       "path": "pages/docs/current/clients/c/connect.md",
@@ -64,13 +64,13 @@
       "path": "pages/docs/current/clients/c/data_chunk.md",
       "url": "https://duckdb.org/docs/current/clients/c/data_chunk",
       "title": "Data Chunks – DuckDB",
-      "hash": "3b4128450bba2fa562072170b4cb8e8aa35e68516eb1b20a424f23e4a75fbef3"
+      "hash": "bc3664cfe03952c9626fe7fdae763c7a3476cb39d39407dd1a078f9c802939a0"
     },
     {
       "path": "pages/docs/current/clients/c/overview.md",
       "url": "https://duckdb.org/docs/current/clients/c/overview",
       "title": "Overview – DuckDB",
-      "hash": "ee928da9c4d59cd59c6827ef8d72a496466e5f49b7ab616f99f9b1d768b14e1c"
+      "hash": "9fd847c27e6e3240d238f61d7d57d1fd440c50d8dc182f750be751df0b8cd10b"
     },
     {
       "path": "pages/docs/current/clients/c/prepared.md",
@@ -88,7 +88,7 @@
       "path": "pages/docs/current/clients/c/replacement_scans.md",
       "url": "https://duckdb.org/docs/current/clients/c/replacement_scans",
       "title": "Replacement Scans – DuckDB",
-      "hash": "d86b93d772c56a42e1ba458addc0d5b4457b2a8ed7129172e1005a664c762c9e"
+      "hash": "a6d11eca4bb1c5c1bc0048a618ac3fd6fa49de2bf416b8b333c7587ebe88fca1"
     },
     {
       "path": "pages/docs/current/clients/c/table_functions.md",
@@ -118,13 +118,13 @@
       "path": "pages/docs/current/clients/cli/arguments.md",
       "url": "https://duckdb.org/docs/current/clients/cli/arguments",
       "title": "Command Line Arguments – DuckDB",
-      "hash": "2fce4e593812d720e9fe34a6bbd7be7b57462c81578882b6803f1f697c7d2fad"
+      "hash": "dc03114ce2ab9d80134703889ad55f2e45f736cb97f044eec210f7c9a0644bc5"
     },
     {
       "path": "pages/docs/current/clients/cli/autocomplete.md",
       "url": "https://duckdb.org/docs/current/clients/cli/autocomplete",
       "title": "Autocomplete – DuckDB",
-      "hash": "a6fbae42ffed14ef371e237f71b18f1281eb8e62b7659648496ea3c0447a160d"
+      "hash": "6e7a30f1015760eceda0ba2c99178510f2ff296a58954b4f9621e047f71f56d1"
     },
     {
       "path": "pages/docs/current/clients/cli/dot_commands.md",
@@ -136,103 +136,103 @@
       "path": "pages/docs/current/clients/cli/editing.md",
       "url": "https://duckdb.org/docs/current/clients/cli/editing",
       "title": "Editing – DuckDB",
-      "hash": "69c024bc4fe6f0177abb59cff2b5204a9447cbcdfbc993001ff896561d11fa4f"
+      "hash": "72101263d78829ee09e2d189f4feef1285690f3438269bb0437fe3c572091743"
     },
     {
       "path": "pages/docs/current/clients/cli/friendly_cli.md",
       "url": "https://duckdb.org/docs/current/clients/cli/friendly_cli",
       "title": "Friendly CLI – DuckDB",
-      "hash": "f3c739d5be2c2c136d1509add79f8c91dd89c9a575ffb86f2c4b1b2bf4e5b291"
+      "hash": "91cd4b91c4b5a063197e67353ac32fa6f3ee9d6b39f09630b838e54983105fc8"
     },
     {
       "path": "pages/docs/current/clients/cli/known_issues.md",
       "url": "https://duckdb.org/docs/current/clients/cli/known_issues",
       "title": "Known Issues – DuckDB",
-      "hash": "a7292a2c2f73ec00a887d088c98e30dc27cfddfe6a4b4fb24e6c20e22b84a217"
+      "hash": "117cfe3e2536d683a7d9ab9a403a8f096c30ee724a90072fe1f0061b3163ac59"
     },
     {
       "path": "pages/docs/current/clients/cli/output_formats.md",
       "url": "https://duckdb.org/docs/current/clients/cli/output_formats",
       "title": "Output Formats – DuckDB",
-      "hash": "9d3e8087ae16e2caedb9e19269fed97e70b3eb6cc4530da7839f31ece8cf4bfc"
+      "hash": "164fa86d69fabc3145457b8558ee23536db977e3ad75067aa22fa8718750a599"
     },
     {
       "path": "pages/docs/current/clients/cli/overview.md",
       "url": "https://duckdb.org/docs/current/clients/cli/overview",
       "title": "Command Line Client – DuckDB",
-      "hash": "ce0d14b0920fc75b0b6da946958dfe0e5896b81043f643fc9de5d992dbeb75c8"
+      "hash": "41a1a6c69d03e14a67fd96ad797739bf87afaab6117152e095f4ce8ab39ca683"
     },
     {
       "path": "pages/docs/current/clients/cli/safe_mode.md",
       "url": "https://duckdb.org/docs/current/clients/cli/safe_mode",
       "title": "Safe Mode – DuckDB",
-      "hash": "1d509d53a5cb93905b6c7dcd7a71c89f7bff2de442b100b080844f643002a801"
+      "hash": "ac6f2c453e26af41321c6d7ae48f3b02aac9157eb6518c8d81bd0e03ac2cdd85"
     },
     {
       "path": "pages/docs/current/clients/cli/syntax_highlighting.md",
       "url": "https://duckdb.org/docs/current/clients/cli/syntax_highlighting",
       "title": "Syntax Highlighting – DuckDB",
-      "hash": "d2576e830f6166647e1595f60736970677bf5cb6e4eeb2a47e814f1491e12c16"
+      "hash": "f649c92fcbe99e22e9f7c2b7671f92a1d12f9624a9bb1d6da7ceaa39dbd39817"
     },
     {
       "path": "pages/docs/current/clients/cpp.md",
       "url": "https://duckdb.org/docs/current/clients/cpp",
       "title": "C++ API – DuckDB",
-      "hash": "724b88b36e473764cdf275620aa9890c0521dd4a3197338c8d7b0929f99983d5"
+      "hash": "0c1f0febc51f5bb483c917be4d5fa8c9eb842f34528cc0801dcc679831442ec6"
     },
     {
       "path": "pages/docs/current/clients/go.md",
       "url": "https://duckdb.org/docs/current/clients/go",
       "title": "Go Client – DuckDB",
-      "hash": "541d9736a78783f7abddafcdcf52fb8c80bb5419ff491d0eae7a1f2eb64ed622"
+      "hash": "c7b65bead8d86e6430dd27534ef852dbec736aedc671447e2748d65866700d5b"
     },
     {
       "path": "pages/docs/current/clients/java.md",
       "url": "https://duckdb.org/docs/current/clients/java",
       "title": "Java (JDBC) Client – DuckDB",
-      "hash": "247b4c36a3835006470ea8fb3ccb699cd10522fcf803e10dc273af37f79b7892"
+      "hash": "ebff511f58692e6f2c89ac0e1f598404dfcc0cbc03cbd8566259996dc8435f9c"
     },
     {
       "path": "pages/docs/current/clients/node_neo/overview.md",
       "url": "https://duckdb.org/docs/current/clients/node_neo/overview",
       "title": "Node.js Client (Neo) – DuckDB",
-      "hash": "a43105981963a5a6a1296ff5d7114e2dc0f4d90d1e85fe1fb7102b69bc09863e"
+      "hash": "6c0837c20adf829d66b4701ccba1e75736b380f2889c454f697e8d16828e6de0"
     },
     {
       "path": "pages/docs/current/clients/odbc/configuration.md",
       "url": "https://duckdb.org/docs/current/clients/odbc/configuration",
       "title": "ODBC Configuration – DuckDB",
-      "hash": "7979fdd76766bca7a71eaf98447dfe1e6ad791741a9bfebcd433a6ca786c618c"
+      "hash": "14c34fb3fa0209ba3806758e811b645960a4cfeb8ddc8eea3bd6cf4456c1df47"
     },
     {
       "path": "pages/docs/current/clients/odbc/linux.md",
       "url": "https://duckdb.org/docs/current/clients/odbc/linux",
       "title": "ODBC API on Linux – DuckDB",
-      "hash": "a3de8574a94ab6e4efbb8280f1e4a93ab6c524885255c57fdd9e0db02bfd7083"
+      "hash": "7d5e2090dec574cdf8c58c93b86c56851b36eaf991da2be6f12829124231eea7"
     },
     {
       "path": "pages/docs/current/clients/odbc/macos.md",
       "url": "https://duckdb.org/docs/current/clients/odbc/macos",
       "title": "ODBC API on macOS – DuckDB",
-      "hash": "d0289da1d1e7943919a3691bd1f8688242aedfe3eb1b43574a8ceb8da3d7ef3b"
+      "hash": "ae7b3fc19d609f9407f9d9d43da0b7b0d80ed9c0fe937c5145d6ca2ccf65723b"
     },
     {
       "path": "pages/docs/current/clients/odbc/overview.md",
       "url": "https://duckdb.org/docs/current/clients/odbc/overview",
       "title": "ODBC API Overview – DuckDB",
-      "hash": "1e29b610571aafdce1bb515faa086c775be684468e80a1714bf10f3b9982a227"
+      "hash": "a0ce793c3fd7a5c909d02e461a4e86673968a8cf49d23d6a17e179c1ed1b245a"
     },
     {
       "path": "pages/docs/current/clients/odbc/windows.md",
       "url": "https://duckdb.org/docs/current/clients/odbc/windows",
       "title": "ODBC API on Windows – DuckDB",
-      "hash": "3ac5b045d3ef476943a4984a8667731cfc4930e311a4da857a5bb0091b7a2d85"
+      "hash": "42771c88a0107d3b458a67eab4e4ccfca5faebe4d231de3bffc4e52e1afa9d3a"
     },
     {
       "path": "pages/docs/current/clients/overview.md",
       "url": "https://duckdb.org/docs/current/clients/overview",
       "title": "Client Overview – DuckDB",
-      "hash": "a5988a0b40375a1758dffbb7b00a8449c19f4790d08c1071f71062a483d99b2a"
+      "hash": "aed78d8ab5b2d9a37a5e27eb3d38060bfd7de4ae224b81c371f02e7b132d6cdb"
     },
     {
       "path": "pages/docs/current/clients/python/conversion.md",
@@ -244,7 +244,7 @@
       "path": "pages/docs/current/clients/python/data_ingestion.md",
       "url": "https://duckdb.org/docs/current/clients/python/data_ingestion",
       "title": "Data Ingestion – DuckDB",
-      "hash": "d5d481c195fa21d5fc1b70d7ef5c6d218d84c907e755dc40c33b12c13832811d"
+      "hash": "5fae8e558803104365e1d8075f6ec11d61661e14e5cc203d510ae3728b7bbb62"
     },
     {
       "path": "pages/docs/current/clients/python/dbapi.md",
@@ -268,7 +268,7 @@
       "path": "pages/docs/current/clients/python/overview.md",
       "url": "https://duckdb.org/docs/current/clients/python/overview",
       "title": "Python API – DuckDB",
-      "hash": "65f8e3f1804fe4e40199b4d4d7432ddf7c170eb2e058864c44d144b132917229"
+      "hash": "e1d5b06ec03862933bd29ecb96ca6ac7c15b96202018080bef9b0f1efcea88e1"
     },
     {
       "path": "pages/docs/current/clients/python/relational_api.md",
@@ -280,25 +280,25 @@
       "path": "pages/docs/current/clients/python/types.md",
       "url": "https://duckdb.org/docs/current/clients/python/types",
       "title": "Types API – DuckDB",
-      "hash": "52f6a95f8f775f5b7a43e405564b6b12093b5bd58eea191fb0755ca426459eb2"
+      "hash": "b2b8360229a76ab081aca7f5a8fb93d78eb1e6cfc71035f1d640bdd3fac3aff6"
     },
     {
       "path": "pages/docs/current/connect/concurrency.md",
       "url": "https://duckdb.org/docs/current/connect/concurrency",
       "title": "Concurrency – DuckDB",
-      "hash": "bf1fac7827d3b2ff32c3c0042f4aef63f4f8ee1cf11b8d03366c31bad8a005e7"
+      "hash": "14b020c2e392040c1dcb3b1a2bdf5746f60c2992b9063727fb5dcd569944d163"
     },
     {
       "path": "pages/docs/current/connect/overview.md",
       "url": "https://duckdb.org/docs/current/connect/overview",
       "title": "Connect – DuckDB",
-      "hash": "4d142f9157a5cd1a81f88fcd09db8ce804224fe4ae016c022dbe781777553d3c"
+      "hash": "71f8bfb1b9cc606c2f12d1d482fde2cd10a7214b5a8d38ec5af15fb65a3dad98"
     },
     {
       "path": "pages/docs/current/data/appender.md",
       "url": "https://duckdb.org/docs/current/data/appender",
       "title": "Appender – DuckDB",
-      "hash": "443d728ab9bc3d752e5d0f08fab88d1b185d372f4c9c7ce916ba67a61e694cff"
+      "hash": "4ee0f3b7425a5d2e8e2037ac43f1c9c5f0462369f13097662e92165a8d29ed77"
     },
     {
       "path": "pages/docs/current/data/csv/auto_detection.md",
@@ -322,43 +322,43 @@
       "path": "pages/docs/current/data/csv/tips.md",
       "url": "https://duckdb.org/docs/current/data/csv/tips",
       "title": "CSV Import Tips – DuckDB",
-      "hash": "06c42c1061f0efb38e8ccf0a92defad7fb0bbe4b81304819fbac7fa97565e739"
+      "hash": "80e202cd5720b12cef1ca55002423a5eb2bc13e7f61f62e2b786f1d57023f991"
     },
     {
       "path": "pages/docs/current/data/data_sources.md",
       "url": "https://duckdb.org/docs/current/data/data_sources",
       "title": "Data Sources – DuckDB",
-      "hash": "94668d8fe985fa3caf1913542fd82b743cf9ef9baf5dc63c492a4f0bb87f6717"
+      "hash": "884a47e7d42a846f65cd6501a1688411160f5734fab06a5bd54fe07968a2847b"
     },
     {
       "path": "pages/docs/current/data/insert.md",
       "url": "https://duckdb.org/docs/current/data/insert",
       "title": "INSERT Statements – DuckDB",
-      "hash": "d14b08f5162780b16c6ac78843e9c455d7e761fa6d01f43edfa80b17ba04941f"
+      "hash": "e79b9f781fe1bb228e9a9af46227afce8271086926a983270acb343eca0ab72c"
     },
     {
       "path": "pages/docs/current/data/json/caveats.md",
       "url": "https://duckdb.org/docs/current/data/json/caveats",
       "title": "Caveats – DuckDB",
-      "hash": "0cca3cd2452fb024e04a29ea4359bbaf750f012df25514bbf3b90d8f070aa8e8"
+      "hash": "af1cd57d7cb0696c4c8bbc0483a573e34f8d440cee71fbd6e3c8fdf003bae65f"
     },
     {
       "path": "pages/docs/current/data/json/creating_json.md",
       "url": "https://duckdb.org/docs/current/data/json/creating_json",
       "title": "Creating JSON – DuckDB",
-      "hash": "2e948cdae797d2af693acff27b327678abd6d0f258fb5b67f4f40935e78cb84d"
+      "hash": "800703ea57f3d430e68c34c9fdc0d9ee59a14d10456f16f080f94a36ab3a3821"
     },
     {
       "path": "pages/docs/current/data/json/format_settings.md",
       "url": "https://duckdb.org/docs/current/data/json/format_settings",
       "title": "JSON Format Settings – DuckDB",
-      "hash": "571c0ab65529fcb5b1cd3eaa550e720a0aed88dc167c2f3e1c6f0d09df8c24d7"
+      "hash": "2829622a8aa57ed0f919e79e235342fce304dfdfad8d09d48bf1ee1e9a56c6e4"
     },
     {
       "path": "pages/docs/current/data/json/installing_and_loading.md",
       "url": "https://duckdb.org/docs/current/data/json/installing_and_loading",
       "title": "Installing and Loading the JSON Extension – DuckDB",
-      "hash": "dfeb0672384fcbbed28b40fc23b9f71dc3682a1539449dccf2da10c4b6e3414d"
+      "hash": "aa06ef3e0dc7ca222882a60a029757323b871b15f250a3f8d319c35bcd888f2c"
     },
     {
       "path": "pages/docs/current/data/json/json_functions.md",
@@ -370,7 +370,7 @@
       "path": "pages/docs/current/data/json/json_type.md",
       "url": "https://duckdb.org/docs/current/data/json/json_type",
       "title": "JSON Type – DuckDB",
-      "hash": "3bbb3c1285804013289b5e7e449f1fc857b494c0ff1dd903400c6ceaab2a87c0"
+      "hash": "bdbe3d43198304c9ad0468b7438cedc123f6019bb058efbd6e63222291a0f9d6"
     },
     {
       "path": "pages/docs/current/data/json/loading_json.md",
@@ -382,7 +382,7 @@
       "path": "pages/docs/current/data/json/overview.md",
       "url": "https://duckdb.org/docs/current/data/json/overview",
       "title": "JSON Overview – DuckDB",
-      "hash": "4b16f204ea374e3130e3f4b9ecab0f34fad47900bbb3d4370806e6e14cc604e6"
+      "hash": "e88a0528619c1b7352175955bd419b80fde3ecf89afb52d52d1771f5dc713761"
     },
     {
       "path": "pages/docs/current/data/json/sql_to_and_from_json.md",
@@ -394,37 +394,37 @@
       "path": "pages/docs/current/data/json/writing_json.md",
       "url": "https://duckdb.org/docs/current/data/json/writing_json",
       "title": "Writing JSON – DuckDB",
-      "hash": "61dbdce0ff42c81b6f18aa0f54409ee8f43c8767593518f63f637ed9e2fb96e7"
+      "hash": "2368381537e0e2083f3d3f7863b4f6cc935f7383db9ab0d63a9bb204a9b8e412"
     },
     {
       "path": "pages/docs/current/data/multiple_files/combining_schemas.md",
       "url": "https://duckdb.org/docs/current/data/multiple_files/combining_schemas",
       "title": "Combining Schemas – DuckDB",
-      "hash": "0e5a070466e602b7b39f22861151af361a8d2ab7237304ff8fcc3aac99b69f35"
+      "hash": "7966dfb521bd37de58812f634f7f28a1b9047f381a1ad448f28e4b874dbad3ba"
     },
     {
       "path": "pages/docs/current/data/multiple_files/overview.md",
       "url": "https://duckdb.org/docs/current/data/multiple_files/overview",
       "title": "Reading Multiple Files – DuckDB",
-      "hash": "b507bad645721c4bb60e3ab5be3ad5b5418b9351857cf9dd053dc7140b6f9c84"
+      "hash": "1bdee62db61de69ea8a49a2570e5db8fb5f8d8dee17d0c00971d9617918aeb02"
     },
     {
       "path": "pages/docs/current/data/overview.md",
       "url": "https://duckdb.org/docs/current/data/overview",
       "title": "Importing Data – DuckDB",
-      "hash": "1f423e70141d25cb354f625955c20e3bc63339ea1164ad69261b3e8d0687dbb5"
+      "hash": "869bda21b6570ca8f1e10299a365a57ceffab71a7fb6fba3a3b4fb2f51585e2f"
     },
     {
       "path": "pages/docs/current/data/parquet/encryption.md",
       "url": "https://duckdb.org/docs/current/data/parquet/encryption",
       "title": "Parquet Encryption – DuckDB",
-      "hash": "9f9b660523058ef82b463b2ee2f6a68ee6f507731287faa4b6a23691d43ea86f"
+      "hash": "546ac11c81495f51cda4b95a2f4d957313af11e363096f76fe4877d98acc4ed2"
     },
     {
       "path": "pages/docs/current/data/parquet/metadata.md",
       "url": "https://duckdb.org/docs/current/data/parquet/metadata",
       "title": "Querying Parquet Metadata – DuckDB",
-      "hash": "e50b0bf6afd193f88912e582eec4a91371de9e0cb9d771b3cd6c3f3f6b9f92f2"
+      "hash": "1a58104b3fc5a9fd97a1fc1c30cae407389b13928573edaf964f2f01123d8c73"
     },
     {
       "path": "pages/docs/current/data/parquet/overview.md",
@@ -436,55 +436,55 @@
       "path": "pages/docs/current/data/parquet/tips.md",
       "url": "https://duckdb.org/docs/current/data/parquet/tips",
       "title": "Parquet Tips – DuckDB",
-      "hash": "279e1ed57e7cb6de5913470d19053ecc579a82fbbd1679b65c1d7d0309f6b816"
+      "hash": "9416a291a65773101d3481423f3e88577a153e8b74a98dd1c34fea419712c6e0"
     },
     {
       "path": "pages/docs/current/data/partitioning/hive_partitioning.md",
       "url": "https://duckdb.org/docs/current/data/partitioning/hive_partitioning",
       "title": "Hive Partitioning – DuckDB",
-      "hash": "abfc6ca2b3426e4f9e94853773a64c50829a0c29df0fac5e19bf72e642cee043"
+      "hash": "3a684604a9cabbeea607db0121debcf09c8b080e6e6841a0b0df83f2442e1275"
     },
     {
       "path": "pages/docs/current/data/partitioning/partitioned_writes.md",
       "url": "https://duckdb.org/docs/current/data/partitioning/partitioned_writes",
       "title": "Partitioned Writes – DuckDB",
-      "hash": "a4293e6a0f798bab8dfd7d6ed7f3b6e04c903b0e4ce00482477265cc31e65edf"
+      "hash": "28839ef3815d1496aff8d172fba540324690443fb1552510568bf34122fd5ebd"
     },
     {
       "path": "pages/docs/current/lakehouse_formats.md",
       "url": "https://duckdb.org/docs/current/lakehouse_formats",
       "title": "Lakehouse Formats – DuckDB",
-      "hash": "df8b342b16ee6b36da918007142f931cb92b4fd80330eb23801d073b37a60125"
+      "hash": "64e95082aa8825ef57aa6c91fc0bcaec703896c8ad7784a4a5723359393c56eb"
     },
     {
       "path": "pages/docs/lts.md",
       "url": "https://duckdb.org/docs/lts",
       "title": "Documentation – DuckDB",
-      "hash": "6b68462703bd81aa0a372cb972047f96c47bc622d4b1ec68107ed0c8969be16c"
+      "hash": "41032b42edf76e21b75008beab6163a7f13176f863054a12b473e7f47455a132"
     },
     {
       "path": "pages/docs/lts/connect/concurrency.md",
       "url": "https://duckdb.org/docs/lts/connect/concurrency",
       "title": "Concurrency – DuckDB",
-      "hash": "19b19d599a5ba11a5d2bf8b961b894d7a8930d40289ebf9d2c38442a07892cde"
+      "hash": "69b26d1f87ba0c6fa58dcfd31255e39b1dda7c751f30fb22ae89f67b12ff0c3c"
     },
     {
       "path": "pages/docs/lts/connect/overview.md",
       "url": "https://duckdb.org/docs/lts/connect/overview",
       "title": "Connect – DuckDB",
-      "hash": "bfb104183cf6977648174f14ca09f2657b0441299b4939c40b60ebac1168eced"
+      "hash": "34e95b025ddf134d32fe256fe5fd560b0ca7feb1e620f2caaa22e4153636d335"
     },
     {
       "path": "pages/docs/lts/data/data_sources.md",
       "url": "https://duckdb.org/docs/lts/data/data_sources",
       "title": "Data Sources – DuckDB",
-      "hash": "5125f5e86e3427403d273931873eafb83d0e677078212a6146056ab8bc66c2ff"
+      "hash": "01bac33dc4b286374dda38d86eb8e46a5c906de03f44050ea2a2cb7c4a91e590"
     },
     {
       "path": "pages/docs/lts/data/overview.md",
       "url": "https://duckdb.org/docs/lts/data/overview",
       "title": "Importing Data – DuckDB",
-      "hash": "964b4fd1c35da9a0a857a6bc8310e61de035e3b5afb3bb0f3ab3346b178be100"
+      "hash": "7e35ce52788fe6ad654c01011be81fe0ef4d5fb3f8105d52012533acdb9b31d8"
     },
     {
       "path": "pages/docs/stable.md",
@@ -20728,9 +20728,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-07-20T09:22:47.560074+00:00",
+    "synced_at": "2026-07-27T09:58:58.904247+00:00",
     "added": 0,
-    "changed": 17,
+    "changed": 55,
     "removed": 0,
     "pages": 80
   }

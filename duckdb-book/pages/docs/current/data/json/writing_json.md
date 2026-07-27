@@ -7,7 +7,7 @@ description: 'The contents of tables or the result of queries can be written dir
   This will result in cities.json with the following content: {"name":"Amsterdam","id":1}
   {"name":"London","id":2} See the COPY statement for more information.'
 resource: https://duckdb.org/docs/current/data/json/writing_json
-timestamp: '2026-07-20T09:22:47.546237+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -612,6 +612,8 @@ Search Shortcut cmd + k | ctrl + k
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

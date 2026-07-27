@@ -11,12 +11,12 @@ description: Installation To use the DuckDB ADBC client, download the libduckdb 
   Arrow to transfer data between the database system and the application. DuckDB has
   an ADBC driver, which…
 resource: https://duckdb.org/docs/current/clients/adbc
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Installation To use the DuckDB ADBC client, download the
 
-[for your platform and follow the](/install/?environment=c)`libduckdb`archive[instructions below](#installing-the-library).The latest stable version of the DuckDB ADBC client is 1.5.4.
+[for your platform and follow the](/install/?environment=c)`libduckdb`archive[instructions below](#installing-the-library).The latest stable version of the DuckDB ADBC client is 1.5.5.
 
 [Arrow Database Connectivity (ADBC)](https://arrow.apache.org/adbc/), similarly to ODBC and JDBC, is a C-style API that enables code portability between different database systems. This allows developers to effortlessly build applications that communicate with database systems without using code specific to that system. The main difference between ADBC and ODBC/JDBC is that ADBC uses [Arrow](https://arrow.apache.org/) to transfer data between the database system and the application. DuckDB has an ADBC driver, which takes advantage of the [zero-copy integration between DuckDB and Arrow](/2021/12/03/duck-arrow.html) to efficiently transfer data.
 

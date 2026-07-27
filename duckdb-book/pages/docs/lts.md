@@ -6,7 +6,7 @@ description: Connecting to DuckDB DuckDB connection overview Client APIs C C++ C
   client APIs SQL Introduction Statements Other Guides Installation Building DuckDB
   Browsing offline
 resource: https://duckdb.org/docs/lts
-timestamp: '2026-07-20T09:22:47.546237+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -598,6 +598,8 @@ Search Shortcut cmd + k | ctrl + k
 									 [Integration with Ibis](/docs/lts/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/lts/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/lts/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/lts/guides/python/filesystems)
 - SQL Editors

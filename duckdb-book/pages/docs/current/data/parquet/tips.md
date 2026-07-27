@@ -10,7 +10,7 @@ description: 'Below is a collection of tips to help when dealing with Parquet fi
   structure are good ways to transparently handle multiple files. Enabling PER_THREAD_OUTPUT
   If the final number of Parquet files is not important,…'
 resource: https://duckdb.org/docs/current/data/parquet/tips
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -612,6 +612,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

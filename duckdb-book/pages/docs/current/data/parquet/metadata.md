@@ -11,7 +11,7 @@ description: 'Parquet Metadata The parquet_metadata function can be used to quer
   Below is a table of the columns returned by parquet_metadata. Field Type file_name
   VARCHAR row_group_id BIGINT…'
 resource: https://duckdb.org/docs/current/data/parquet/metadata
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -613,6 +613,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

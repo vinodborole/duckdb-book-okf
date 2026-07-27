@@ -10,7 +10,7 @@ description: The first step to using a database system is to insert data into th
   but should be avoided for bulk loading as they have significant per-row overhead.
   INSERT INTO…
 resource: https://duckdb.org/docs/lts/data/overview
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -599,6 +599,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/lts/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/lts/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/lts/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/lts/guides/python/filesystems)
 - SQL Editors

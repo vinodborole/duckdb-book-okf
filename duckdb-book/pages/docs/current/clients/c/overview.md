@@ -10,7 +10,7 @@ description: Installation To use the DuckDB C API, download the libduckdb archiv
   can re-link to DuckDB and it should continue working. See the shell_helpers.cpp
   file in our source…
 resource: https://duckdb.org/docs/current/clients/c/overview
-timestamp: '2026-07-20T09:22:47.546237+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -616,6 +616,8 @@ Search Shortcut cmd + k | ctrl + k
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
 - 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
+- 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors
 - SQL Features
@@ -711,7 +713,7 @@ Overview
 
 					Installation To use the DuckDB C API, download the
 
-[for your platform.](/install/?environment=c)`libduckdb`archiveThe latest stable version of the DuckDB C API is 1.5.4.
+[for your platform.](/install/?environment=c)`libduckdb`archiveThe latest stable version of the DuckDB C API is 1.5.5.
 
 DuckDB implements a custom C API modeled somewhat following the SQLite C API. The API is contained in the `duckdb.h` header. Continue to [Startup & Shutdown](/docs/current/clients/c/connect.html) to get started, or check out the [Full API overview](/docs/current/clients/c/api.html).
 

@@ -11,12 +11,12 @@ description: 'Installation To use the DuckDB Python client, visit the Python ins
   duckdb.sql("SELECT 42").show() This will run queries using an in-memory database
   that is stored…'
 resource: https://duckdb.org/docs/current/clients/python/overview
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Installation To use the DuckDB Python client, visit the
 
-[Python installation page](/install/?environment=python).The latest stable version of the DuckDB Python client is 1.5.4.
+[Python installation page](/install/?environment=python).The latest stable version of the DuckDB Python client is 1.5.5.
 
 ## 
         

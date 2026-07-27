@@ -10,7 +10,7 @@ description: 'The Appender can be used to load bulk data into a DuckDB database.
   Appender appender(con, "people"); The AppendRow function is the easiest way of appending
   data. It uses recursive…'
 resource: https://duckdb.org/docs/current/data/appender
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -612,6 +612,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

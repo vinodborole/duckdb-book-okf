@@ -6,7 +6,7 @@ description: 'DuckDB sources several data sources, including file formats, netwo
   Azure Blob Storage Blob files Cloudflare R2 CSV Delta Lake Excel httpfs Iceberg
   JSON MySQL Parquet PostgreSQL SQLite Text files'
 resource: https://duckdb.org/docs/lts/data/data_sources
-timestamp: '2026-07-20T09:22:47.546237+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -598,6 +598,8 @@ Search Shortcut cmd + k | ctrl + k
 									 [Integration with Ibis](/docs/lts/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/lts/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/lts/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/lts/guides/python/filesystems)
 - SQL Editors

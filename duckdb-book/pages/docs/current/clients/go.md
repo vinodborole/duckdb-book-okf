@@ -11,7 +11,7 @@ description: 'Installation To use the DuckDB Go client, visit the Go installatio
   import ( "database/sql" _ "github.com/duckdb/duckdb-go/v2" ) Appender The DuckDB
   Go client supports the DuckDB…'
 resource: https://duckdb.org/docs/current/clients/go
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -614,6 +614,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
 - 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
+- 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors
 - SQL Features
@@ -707,7 +709,7 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 
 Installation To use the DuckDB Go client, visit the
 
-[Go installation page](/install/?environment=go).The latest stable version of the DuckDB Go client is 1.5.4.
+[Go installation page](/install/?environment=go).The latest stable version of the DuckDB Go client is 1.5.5.
 
 The DuckDB Go client, [ duckdb-go](https://github.com/duckdb/duckdb-go), allows using DuckDB via the 
 

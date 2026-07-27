@@ -11,7 +11,7 @@ description: Syntax highlighting in the CLI is currently only available for macO
   .error red Continuation .cont brightblack Continuation (Selected) .cont_sel green
   The components can be configured…
 resource: https://duckdb.org/docs/current/clients/cli/syntax_highlighting
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -613,6 +613,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

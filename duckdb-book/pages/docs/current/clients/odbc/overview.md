@@ -11,7 +11,7 @@ description: Installation To use the DuckDB ODBC client, visit the ODBC installa
   the user applications and the ODBC drivers. Typically, applications are linked against
   the DM, which…
 resource: https://duckdb.org/docs/current/clients/odbc/overview
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -614,6 +614,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
 - 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
+- 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors
 - SQL Features
@@ -707,7 +709,7 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 
 Installation To use the DuckDB ODBC client, visit the
 
-[ODBC installation page](/install/?environment=odbc).The latest stable version of the DuckDB ODBC client is 1.5.4.
+[ODBC installation page](/install/?environment=odbc).The latest stable version of the DuckDB ODBC client is 1.5.5.
 
 The ODBC (Open Database Connectivity) is a C-style API that provides access to different flavors of Database Management Systems (DBMSs). The ODBC API consists of the Driver Manager (DM) and the ODBC drivers.
 

@@ -11,7 +11,7 @@ description: 'This page contains examples for data ingestion to Python using Duc
   on how the CSV is formatted internally: duckdb.read_csv("example.csv", header =
   False, sep = ",") Override types of…'
 resource: https://duckdb.org/docs/current/clients/python/data_ingestion
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -613,6 +613,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 									 [Integration with Ibis](/docs/current/guides/python/ibis)
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
+- 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
 - 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors

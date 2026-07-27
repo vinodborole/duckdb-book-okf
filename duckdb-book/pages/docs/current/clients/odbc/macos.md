@@ -12,7 +12,7 @@ description: 'A driver manager is required to manage communication between appli
   }}{% else %}{{ site.lts_duckdb_odbc_version }}{% endif %}/duckdb_odbc-osx-universal.zip
   The archive contains the libduckdb_odbc.dylib artifact. To extract it to a directory,…'
 resource: https://duckdb.org/docs/current/clients/odbc/macos
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-07-27T09:58:58.846218+00:00'
 ---
 
 - 
@@ -615,6 +615,8 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
 - 
 									 [Integration with Polars](/docs/current/guides/python/polars)
 - 
+									 [Integration with PyTorch](/docs/current/guides/python/pytorch)
+- 
 									 [Using fsspec Filesystems](/docs/current/guides/python/filesystems)
 - SQL Editors
 - SQL Features
@@ -710,7 +712,7 @@ timestamp: '2026-07-09T12:17:10.843759+00:00'
     A driver manager is required to manage communication between applications and the ODBC driver. DuckDB supports `unixODBC`, which is a complete ODBC driver manager for macOS and Linux. Users can install it from the command line via[Homebrew](https://brew.sh/):`brew install unixodbc`
 - 
     
-    DuckDB releases a universal [ODBC driver for macOS](https://github.com/duckdb/duckdb-odbc/releases/download/v1.5.4.0/duckdb_odbc-osx-universal.zip)(supporting both Intel and Apple Silicon CPUs). To download it, run:`wget https://github.com/duckdb/duckdb-odbc/releases/download/v1.5.4.0/duckdb_odbc-osx-universal.zip`
+    DuckDB releases a universal [ODBC driver for macOS](https://github.com/duckdb/duckdb-odbc/releases/download/v1.5.5.0/duckdb_odbc-osx-universal.zip)(supporting both Intel and Apple Silicon CPUs). To download it, run:`wget https://github.com/duckdb/duckdb-odbc/releases/download/v1.5.5.0/duckdb_odbc-osx-universal.zip`
 - 
     The archive contains the `libduckdb_odbc.dylib`artifact. To extract it to a directory, run:`mkdir duckdb_odbc && unzip duckdb_odbc-osx-universal.zip -d duckdb_odbc`
 - 
