@@ -10,7 +10,7 @@ description: To use DuckDB, you must first initialize a duckdb_database handle u
   are thread-safe, they will be locked during querying. It is therefore recommended
   that each thread uses its own connection to allow for the best parallel…
 resource: https://duckdb.org/docs/current/clients/c/connect
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 To use DuckDB, you must first initialize a `duckdb_database` handle using `duckdb_open()`. `duckdb_open()` takes as parameter the database file to read and write from. The special value `NULL` (`nullptr`) can be used to create an **in-memory database**. Note that for an in-memory database no data is persisted to disk (i.e., all data is lost when you exit the process).
@@ -47,7 +47,7 @@ duckdb_close(&db);
       
 
     
-`duckdb_instance_cache `[duckdb_create_instance_cache](#duckdb_create_instance_cache)();
+`duckdb_instance_cache` [duckdb_create_instance_cache](#duckdb_create_instance_cache)();
 duckdb_state [duckdb_get_or_create_from_cache](#duckdb_get_or_create_from_cache)(duckdb_instance_cache instance_cache, const char *path, duckdb_database *out_database, duckdb_config config, char **out_error);
 void [duckdb_destroy_instance_cache](#duckdb_destroy_instance_cache)(duckdb_instance_cache *instance_cache);
 duckdb_state [duckdb_open](#duckdb_open)(const char *path, duckdb_database *out_database);
@@ -66,10 +66,13 @@ const char *[duckdb_library_version](#duckdb_library_version)();
 duckdb_value [duckdb_get_table_names](#duckdb_get_table_names)(duckdb_connection connection, const char *query, bool qualified);
 #### 
         
-        `duckdb_create_instance_cache`
+        [`duckdb_create_instance_cache`](#duckdb_create_instance_cache)
+        
+      
 
     
-`duckdb_create_instance_cache`Creates a new database instance cache. The instance cache is necessary if a client/program (re)opens multiple databases to the same file within the same process. Must be destroyed with 'duckdb_destroy_instance_cache'.
+`duckdb_create_instance_cache`
+Creates a new database instance cache. The instance cache is necessary if a client/program (re)opens multiple databases to the same file within the same process. Must be destroyed with 'duckdb_destroy_instance_cache'.
 
 ##### 
         
@@ -94,10 +97,13 @@ duckdb_instance_cache duckdb_create_instance_cache(
 ```
 #### 
         
-        `duckdb_get_or_create_from_cache`
+        [`duckdb_get_or_create_from_cache`](#duckdb_get_or_create_from_cache)
+        
+      
 
     
-`duckdb_get_or_create_from_cache`Creates a new database instance in the instance cache, or retrieves an existing database instance. Must be closed with 'duckdb_close'.
+`duckdb_get_or_create_from_cache`
+Creates a new database instance in the instance cache, or retrieves an existing database instance. Must be closed with 'duckdb_close'.
 
 ##### 
         
@@ -122,11 +128,12 @@ duckdb_state duckdb_get_or_create_from_cache(
       
 
     
-- `instance_cache`: The instance cache in which to create the database, or from which to take the database.
-- `path`: Path to the database file on disk. Both- `nullptr`and- `:memory:`open or retrieve an in-memory database.
-- `out_database`: The resulting cached database.
-- `config`: (Optional) configuration used to create the database.
-- `out_error`: If set and the function returns- `DuckDBError`, this contains the error message. Note that the error message must be freed using- `duckdb_free`.
+- `instance_cache` : The instance cache in which to create the database, or from which to take the database.
+- `path` : Path to the database file on disk. Both`nullptr` and`:memory:` open or retrieve an in-memory database.
+- `out_database` : The resulting cached database.
+- `config` : (Optional) configuration used to create the database.
+- `out_error` : If set and the function returns`DuckDBError` , this contains the error message.
+Note that the error message must be freed using`duckdb_free` .
 
 ##### 
         
@@ -139,10 +146,13 @@ duckdb_state duckdb_get_or_create_from_cache(
 
 #### 
         
-        `duckdb_destroy_instance_cache`
+        [`duckdb_destroy_instance_cache`](#duckdb_destroy_instance_cache)
+        
+      
 
     
-`duckdb_destroy_instance_cache`Destroys an existing database instance cache and de-allocates its memory.
+`duckdb_destroy_instance_cache`
+Destroys an existing database instance cache and de-allocates its memory.
 
 ##### 
         
@@ -163,14 +173,17 @@ void duckdb_destroy_instance_cache(
       
 
     
-- `instance_cache`: The instance cache to destroy.
+- `instance_cache` : The instance cache to destroy.
 
 #### 
         
-        `duckdb_open`
+        [`duckdb_open`](#duckdb_open)
+        
+      
 
     
-`duckdb_open`Creates a new database or opens an existing database file stored at the given path. If no path is given a new in-memory database is created instead. The database must be closed with 'duckdb_close'.
+`duckdb_open`
+Creates a new database or opens an existing database file stored at the given path. If no path is given a new in-memory database is created instead. The database must be closed with 'duckdb_close'.
 
 ##### 
         
@@ -192,8 +205,8 @@ duckdb_state duckdb_open(
       
 
     
-- `path`: Path to the database file on disk. Both- `nullptr`and- `:memory:`open an in-memory database.
-- `out_database`: The result database object.
+- `path` : Path to the database file on disk. Both`nullptr` and`:memory:` open an in-memory database.
+- `out_database` : The result database object.
 
 ##### 
         
@@ -206,10 +219,13 @@ duckdb_state duckdb_open(
 
 #### 
         
-        `duckdb_open_ext`
+        [`duckdb_open_ext`](#duckdb_open_ext)
+        
+      
 
     
-`duckdb_open_ext`Extended version of duckdb_open. Creates a new database or opens an existing database file stored at the given path. The database must be closed with 'duckdb_close'.
+`duckdb_open_ext`
+Extended version of duckdb_open. Creates a new database or opens an existing database file stored at the given path. The database must be closed with 'duckdb_close'.
 
 ##### 
         
@@ -233,10 +249,11 @@ duckdb_state duckdb_open_ext(
       
 
     
-- `path`: Path to the database file on disk. Both- `nullptr`and- `:memory:`open an in-memory database.
-- `out_database`: The result database object.
-- `config`: (Optional) configuration used to start up the database.
-- `out_error`: If set and the function returns- `DuckDBError`, this contains the error message. Note that the error message must be freed using- `duckdb_free`.
+- `path` : Path to the database file on disk. Both`nullptr` and`:memory:` open an in-memory database.
+- `out_database` : The result database object.
+- `config` : (Optional) configuration used to start up the database.
+- `out_error` : If set and the function returns`DuckDBError` , this contains the error message.
+Note that the error message must be freed using`duckdb_free` .
 
 ##### 
         
@@ -249,10 +266,13 @@ duckdb_state duckdb_open_ext(
 
 #### 
         
-        `duckdb_close`
+        [`duckdb_close`](#duckdb_close)
+        
+      
 
     
-`duckdb_close`Closes the specified database and de-allocates all memory allocated for that database.
+`duckdb_close`
+Closes the specified database and de-allocates all memory allocated for that database.
 This should be called after you are done with any database allocated through `duckdb_open` or `duckdb_open_ext`.
 Note that failing to call `duckdb_close` (in case of e.g., a program crash) will not cause data corruption.
 Still, it is recommended to always correctly close a database object after you are done with it.
@@ -276,14 +296,17 @@ void duckdb_close(
       
 
     
-- `database`: The database object to shut down.
+- `database` : The database object to shut down.
 
 #### 
         
-        `duckdb_connect`
+        [`duckdb_connect`](#duckdb_connect)
+        
+      
 
     
-`duckdb_connect`Opens a connection to a database. Connections are required to query the database and store transactional state associated with the connection. The instantiated connection should be closed using 'duckdb_disconnect'.
+`duckdb_connect`
+Opens a connection to a database. Connections are required to query the database and store transactional state associated with the connection. The instantiated connection should be closed using 'duckdb_disconnect'.
 
 ##### 
         
@@ -305,8 +328,8 @@ duckdb_state duckdb_connect(
       
 
     
-- `database`: The database file to connect to.
-- `out_connection`: The result connection object.
+- `database` : The database file to connect to.
+- `out_connection` : The result connection object.
 
 ##### 
         
@@ -319,10 +342,13 @@ duckdb_state duckdb_connect(
 
 #### 
         
-        `duckdb_interrupt`
+        [`duckdb_interrupt`](#duckdb_interrupt)
+        
+      
 
     
-`duckdb_interrupt`Interrupt running query
+`duckdb_interrupt`
+Interrupt running query
 
 ##### 
         
@@ -343,14 +369,17 @@ void duckdb_interrupt(
       
 
     
-- `connection`: The connection to interrupt
+- `connection` : The connection to interrupt
 
 #### 
         
-        `duckdb_query_progress`
+        [`duckdb_query_progress`](#duckdb_query_progress)
+        
+      
 
     
-`duckdb_query_progress`Get progress of the running query
+`duckdb_query_progress`
+Get progress of the running query
 
 ##### 
         
@@ -371,7 +400,7 @@ duckdb_query_progress_type duckdb_query_progress(
       
 
     
-- `connection`: The working connection
+- `connection` : The working connection
 
 ##### 
         
@@ -384,10 +413,13 @@ duckdb_query_progress_type duckdb_query_progress(
 
 #### 
         
-        `duckdb_disconnect`
+        [`duckdb_disconnect`](#duckdb_disconnect)
+        
+      
 
     
-`duckdb_disconnect`Closes the specified connection and de-allocates all memory allocated for that connection.
+`duckdb_disconnect`
+Closes the specified connection and de-allocates all memory allocated for that connection.
 
 ##### 
         
@@ -408,14 +440,17 @@ void duckdb_disconnect(
       
 
     
-- `connection`: The connection to close.
+- `connection` : The connection to close.
 
 #### 
         
-        `duckdb_connection_get_client_context`
+        [`duckdb_connection_get_client_context`](#duckdb_connection_get_client_context)
+        
+      
 
     
-`duckdb_connection_get_client_context`Retrieves the client context of the connection.
+`duckdb_connection_get_client_context`
+Retrieves the client context of the connection.
 
 ##### 
         
@@ -437,15 +472,18 @@ void duckdb_connection_get_client_context(
       
 
     
-- `connection`: The connection.
-- `out_context`: The client context of the connection. Must be destroyed with- `duckdb_destroy_client_context`.
+- `connection` : The connection.
+- `out_context` : The client context of the connection. Must be destroyed with`duckdb_destroy_client_context` .
 
 #### 
         
-        `duckdb_connection_get_arrow_options`
+        [`duckdb_connection_get_arrow_options`](#duckdb_connection_get_arrow_options)
+        
+      
 
     
-`duckdb_connection_get_arrow_options`Retrieves the arrow options of the connection.
+`duckdb_connection_get_arrow_options`
+Retrieves the arrow options of the connection.
 
 ##### 
         
@@ -467,14 +505,17 @@ void duckdb_connection_get_arrow_options(
       
 
     
-- `connection`: The connection.
+- `connection` : The connection.
 
 #### 
         
-        `duckdb_client_context_get_connection_id`
+        [`duckdb_client_context_get_connection_id`](#duckdb_client_context_get_connection_id)
+        
+      
 
     
-`duckdb_client_context_get_connection_id`Returns the connection id of the client context.
+`duckdb_client_context_get_connection_id`
+Returns the connection id of the client context.
 
 ##### 
         
@@ -495,7 +536,7 @@ idx_t duckdb_client_context_get_connection_id(
       
 
     
-- `context`: The client context.
+- `context` : The client context.
 
 ##### 
         
@@ -508,10 +549,13 @@ The connection id of the client context.
 
 #### 
         
-        `duckdb_destroy_client_context`
+        [`duckdb_destroy_client_context`](#duckdb_destroy_client_context)
+        
+      
 
     
-`duckdb_destroy_client_context`Destroys the client context and deallocates its memory.
+`duckdb_destroy_client_context`
+Destroys the client context and deallocates its memory.
 
 ##### 
         
@@ -532,14 +576,17 @@ void duckdb_destroy_client_context(
       
 
     
-- `context`: The client context to destroy.
+- `context` : The client context to destroy.
 
 #### 
         
-        `duckdb_destroy_arrow_options`
+        [`duckdb_destroy_arrow_options`](#duckdb_destroy_arrow_options)
+        
+      
 
     
-`duckdb_destroy_arrow_options`Destroys the arrow options and deallocates its memory.
+`duckdb_destroy_arrow_options`
+Destroys the arrow options and deallocates its memory.
 
 ##### 
         
@@ -560,14 +607,17 @@ void duckdb_destroy_arrow_options(
       
 
     
-- `arrow_options`: The arrow options to destroy.
+- `arrow_options` : The arrow options to destroy.
 
 #### 
         
-        `duckdb_library_version`
+        [`duckdb_library_version`](#duckdb_library_version)
+        
+      
 
     
-`duckdb_library_version`Returns the version of the linked DuckDB, with a version postfix for dev versions
+`duckdb_library_version`
+Returns the version of the linked DuckDB, with a version postfix for dev versions
 
 Usually used for developing C extensions that must return this for a compatibility check.
 
@@ -585,10 +635,13 @@ const char *duckdb_library_version(
 ```
 #### 
         
-        `duckdb_get_table_names`
+        [`duckdb_get_table_names`](#duckdb_get_table_names)
+        
+      
 
     
-`duckdb_get_table_names`Get the list of (fully qualified) table names of the query.
+`duckdb_get_table_names`
+Get the list of (fully qualified) table names of the query.
 
 ##### 
         
@@ -611,9 +664,10 @@ duckdb_value duckdb_get_table_names(
       
 
     
-- `connection`: The connection for which to get the table names.
-- `query`: The query for which to get the table names.
-- `qualified`: Returns fully qualified table names (catalog.schema.table), if set to true, else only the (not escaped) table names.
+- `connection` : The connection for which to get the table names.
+- `query` : The query for which to get the table names.
+- `qualified` : Returns fully qualified table names (catalog.schema.table), if set to true, else only the (not
+escaped) table names.
 
 ##### 
         

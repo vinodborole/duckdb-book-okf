@@ -10,7 +10,7 @@ description: 'This page documents the rules for converting Python objects to Duc
   conversion possible for ints. Instead we perform these casts in order until one
   succeeds: BIGINT INTEGER…'
 resource: https://duckdb.org/docs/current/clients/python/conversion
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 This page documents the rules for converting [Python objects to DuckDB](#object-conversion-python-object-to-duckdb) and [DuckDB results to Python](#result-conversion-duckdb-results-to-python).
@@ -24,23 +24,26 @@ This page documents the rules for converting [Python objects to DuckDB](#object-
     
 This is a mapping of Python object types to DuckDB [Logical Types](/docs/current/sql/data_types/overview.html):
 
-- `None`→- `NULL`
-- `bool`→- `BOOLEAN`
-- `datetime.timedelta`→- `INTERVAL`
-- `str`→- `VARCHAR`
-- `bytearray`→- `BLOB`
-- `memoryview`→- `BLOB`
-- `decimal.Decimal`→- `DECIMAL`/- `DOUBLE`
-- `uuid.UUID`→- `UUID`
+- `None` →`NULL`
+- `bool` →`BOOLEAN`
+- `datetime.timedelta` →`INTERVAL`
+- `str` →`VARCHAR`
+- `bytearray` →`BLOB`
+- `memoryview` →`BLOB`
+- `decimal.Decimal` →`DECIMAL` /`DOUBLE`
+- `uuid.UUID` →`UUID`
 
 The rest of the conversion rules are as follows.
 
 ### 
         
-        `int`
+        [`int`](#int)
+        
+      
 
     
-`int`Since integers can be of arbitrary size in Python, there is not a one-to-one conversion possible for ints. Instead we perform these casts in order until one succeeds:
+`int`
+Since integers can be of arbitrary size in Python, there is not a one-to-one conversion possible for ints. Instead we perform these casts in order until one succeeds:
 
 - `BIGINT`
 - `INTEGER`
@@ -52,52 +55,70 @@ When using the DuckDB Value class, it's possible to set a target type, which wil
 
 ### 
         
-        `float`
+        [`float`](#float)
+        
+      
 
     
-`float`These casts are tried in order until one succeeds:
+`float`
+These casts are tried in order until one succeeds:
 
 - `DOUBLE`
 - `FLOAT`
 
 ### 
         
-        `datetime.datetime`
+        [`datetime.datetime`](#datetimedatetime)
+        
+      
 
     
-`datetime.datetime`For `datetime` we will check `pandas.isnull` if it's available and return `NULL` if it returns `true`.
+`datetime.datetime`
+For `datetime` we will check `pandas.isnull` if it's available and return `NULL` if it returns `true`.
 We check against `datetime.datetime.min` and `datetime.datetime.max` to convert to `-inf` and `+inf` respectively.
 
 If the `datetime` has tzinfo, we will use `TIMESTAMPTZ`, otherwise it becomes `TIMESTAMP`.
 
 ### 
         
-        `datetime.time`
+        [`datetime.time`](#datetimetime)
+        
+      
 
     
-`datetime.time`If the `time` has tzinfo, we will use `TIMETZ`, otherwise it becomes `TIME`.
+`datetime.time`
+If the `time` has tzinfo, we will use `TIMETZ`, otherwise it becomes `TIME`.
 
 ### 
         
-        `datetime.date`
+        [`datetime.date`](#datetimedate)
+        
+      
 
     
-`datetime.date``date` converts to the `DATE` type.
+`datetime.date`
+`date` converts to the `DATE` type.
 We check against `datetime.date.min` and `datetime.date.max` to convert to `-inf` and `+inf` respectively.
 
 ### 
         
-        `bytes`
+        [`bytes`](#bytes)
+        
+      
 
     
-`bytes``bytes` converts to `BLOB` by default, when it's used to construct a Value object of type `BITSTRING`, it maps to `BITSTRING` instead.
+`bytes`
+`bytes` converts to `BLOB` by default, when it's used to construct a Value object of type `BITSTRING`, it maps to `BITSTRING` instead.
 
 ### 
         
-        `list`
+        [`list`](#list)
+        
+      
 
     
-`list``list` becomes a `LIST` type of the “most permissive” type of its children, for example:
+`list`
+`list` becomes a `LIST` type of the “most permissive” type of its children, for example:
 
 ```
 my_list_value = [
@@ -112,10 +133,13 @@ Will become `VARCHAR[]` because 12345 can convert to `VARCHAR` but `test` can no
 ```
 ### 
         
-        `dict`
+        [`dict`](#dict)
+        
+      
 
     
-`dict`The `dict` object can convert to either `STRUCT(...)` or `MAP(..., ...)` depending on its structure.
+`dict`
+The `dict` object can convert to either `STRUCT(...)` or `MAP(..., ...)` depending on its structure.
 If the dict has a structure similar to:
 
 ```
@@ -171,7 +195,7 @@ duckdb_conn.sql("select get_map_error()").show()
 └─────────────────────────┘
 ConversionException: Conversion Error: Type VARCHAR can't be cast as UNION(u1 VARCHAR[], u2 BIGINT[]). VARCHAR can't be implicitly cast to any of the union member types: VARCHAR[], BIGINT[]
 ```
-The names of the fields matter and the two lists need to have the same size.
+  The names of the fields matter and the two lists need to have the same size.
 
 Otherwise we'll try to convert it to a `STRUCT`.
 
@@ -236,23 +260,27 @@ duckdb_conn.sql("select get_struct()").show()
 │ {'1': one, '2': 2, 'three': [1, 2, 3], 'False': true}              │
 └────────────────────────────────────────────────────────────────────┘
 ```
-Every
-
-`key`of the dictionary is converted to string.
+  Every `key` of the dictionary is converted to string.
 
 ### 
         
-        `tuple`
+        [`tuple`](#tuple)
+        
+      
 
     
-`tuple``tuple` converts to `LIST` by default, when it's used to construct a Value object of type `STRUCT` it will convert to `STRUCT` instead.
+`tuple`
+`tuple` converts to `LIST` by default, when it's used to construct a Value object of type `STRUCT` it will convert to `STRUCT` instead.
 
 ### 
         
-        `numpy.ndarray` and `numpy.datetime64`
+        [`numpy.ndarray` and `numpy.datetime64`](#numpyndarray-and-numpydatetime64)
+        
+      
 
     
-`numpy.ndarray` and `numpy.datetime64``ndarray` and `datetime64` are converted by calling `tolist()` and converting the result of that.
+`numpy.ndarray` and `numpy.datetime64`
+`ndarray` and `datetime64` are converted by calling `tolist()` and converting the result of that.
 
 ## 
         
@@ -270,7 +298,7 @@ DuckDB's Python client provides multiple additional methods that can be used to 
       
 
     
-- `fetchnumpy()`fetches the data as a dictionary of NumPy arrays
+- `fetchnumpy()` fetches the data as a dictionary of NumPy arrays
 
 ### 
         
@@ -279,10 +307,10 @@ DuckDB's Python client provides multiple additional methods that can be used to 
       
 
     
-- `df()`fetches the data as a Pandas DataFrame
-- `fetchdf()`is an alias of- `df()`
-- `fetch_df()`is an alias of- `df()`
-- `fetch_df_chunk(vector_multiple)`fetches a portion of the results into a DataFrame. The number of rows returned in each chunk is the vector size (2048 by default) * vector_multiple (1 by default).
+- `df()` fetches the data as a Pandas DataFrame
+- `fetchdf()` is an alias of`df()`
+- `fetch_df()` is an alias of`df()`
+- `fetch_df_chunk(vector_multiple)` fetches a portion of the results into a DataFrame. The number of rows returned in each chunk is the vector size (2048 by default) * vector_multiple (1 by default).
 
 ### 
         
@@ -291,13 +319,11 @@ DuckDB's Python client provides multiple additional methods that can be used to 
       
 
     
-- `to_arrow_table()`fetches the data as an- [Arrow table](https://arrow.apache.org/docs/python/generated/pyarrow.Table.html)
-- `to_arrow_reader(chunk_size)`returns an- [Arrow record batch reader](https://arrow.apache.org/docs/python/generated/pyarrow.ipc.RecordBatchStreamReader.html)with- `chunk_size`rows per batch
-- `arrow()`returns an- [Arrow record batch reader](https://arrow.apache.org/docs/python/generated/pyarrow.ipc.RecordBatchStreamReader.html). We recommend using- `to_arrow_reader()`instead.
+- `to_arrow_table()` fetches the data as an[Arrow table](https://arrow.apache.org/docs/python/generated/pyarrow.Table.html)
+- `to_arrow_reader(chunk_size)` returns an[Arrow record batch reader](https://arrow.apache.org/docs/python/generated/pyarrow.ipc.RecordBatchStreamReader.html) with`chunk_size` rows per batch
+- `arrow()` returns an[Arrow record batch reader](https://arrow.apache.org/docs/python/generated/pyarrow.ipc.RecordBatchStreamReader.html) . We recommend using`to_arrow_reader()` instead.
 
-Deprecated
-
-`fetch_arrow_table()`and`fetch_record_batch()`are deprecated. Use`to_arrow_table()`and`to_arrow_reader()`instead.
+  Deprecated `fetch_arrow_table()` and `fetch_record_batch()` are deprecated. Use `to_arrow_table()` and `to_arrow_reader()` instead.
 
 ### 
         
@@ -306,7 +332,7 @@ Deprecated
       
 
     
-- `pl()`fetches the data as a Polars DataFrame
+- `pl()` fetches the data as a Polars DataFrame
 
 ### 
         

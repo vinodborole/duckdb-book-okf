@@ -11,7 +11,7 @@ description: 'A prepared statement is a parameterized query. The query is prepar
   prepared statements in the C API with the duckdb_prepare method. The duckdb_bind
   family of functions…'
 resource: https://duckdb.org/docs/current/clients/c/prepared
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 A prepared statement is a parameterized query. The query is prepared with question marks (`?`) or dollar symbols (`$1`) indicating the parameters of the query. Values can then be bound to these parameters, after which the prepared statement can be executed using those parameters. A single query can be prepared once and executed many times.
@@ -56,9 +56,7 @@ After calling `duckdb_prepare`, the prepared statement parameters can be inspect
 
 It is not required that the `duckdb_bind` family of functions matches the prepared statement parameter type exactly. The values will be auto-cast to the required value as required. For example, calling `duckdb_bind_int8` on a parameter type of `DUCKDB_TYPE_INTEGER` will work as expected.
 
-Warning Do
-
-notuse prepared statements to insert large amounts of data into DuckDB. Instead it is recommended to use the[Appender](/docs/current/clients/c/appender.html).
+  Warning Do **not** use prepared statements to insert large amounts of data into DuckDB. Instead it is recommended to use the [Appender](/docs/current/clients/c/appender.html).
 
 ## 
         
@@ -67,7 +65,7 @@ notuse prepared statements to insert large amounts of data into DuckDB. Instead 
       
 
     
-`duckdb_state `[duckdb_prepare](#duckdb_prepare)(duckdb_connection connection, const char *query, duckdb_prepared_statement *out_prepared_statement);
+`duckdb_state` [duckdb_prepare](#duckdb_prepare)(duckdb_connection connection, const char *query, duckdb_prepared_statement *out_prepared_statement);
 void [duckdb_destroy_prepare](#duckdb_destroy_prepare)(duckdb_prepared_statement *prepared_statement);
 const char *[duckdb_prepare_error](#duckdb_prepare_error)(duckdb_prepared_statement prepared_statement);
 idx_t [duckdb_nparams](#duckdb_nparams)(duckdb_prepared_statement prepared_statement);
@@ -82,10 +80,13 @@ duckdb_logical_type [duckdb_prepared_statement_column_logical_type](#duckdb_prep
 duckdb_type [duckdb_prepared_statement_column_type](#duckdb_prepared_statement_column_type)(duckdb_prepared_statement prepared_statement, idx_t col_idx);
 #### 
         
-        `duckdb_prepare`
+        [`duckdb_prepare`](#duckdb_prepare)
+        
+      
 
     
-`duckdb_prepare`Create a prepared statement object from a query.
+`duckdb_prepare`
+Create a prepared statement object from a query.
 
 Note that after calling `duckdb_prepare`, the prepared statement should always be destroyed using
 `duckdb_destroy_prepare`, even if the prepare fails.
@@ -113,9 +114,9 @@ duckdb_state duckdb_prepare(
       
 
     
-- `connection`: The connection object
-- `query`: The SQL query to prepare
-- `out_prepared_statement`: The resulting prepared statement object
+- `connection` : The connection object
+- `query` : The SQL query to prepare
+- `out_prepared_statement` : The resulting prepared statement object
 
 ##### 
         
@@ -128,10 +129,13 @@ duckdb_state duckdb_prepare(
 
 #### 
         
-        `duckdb_destroy_prepare`
+        [`duckdb_destroy_prepare`](#duckdb_destroy_prepare)
+        
+      
 
     
-`duckdb_destroy_prepare`Closes the prepared statement and de-allocates all memory allocated for the statement.
+`duckdb_destroy_prepare`
+Closes the prepared statement and de-allocates all memory allocated for the statement.
 
 ##### 
         
@@ -152,14 +156,17 @@ void duckdb_destroy_prepare(
       
 
     
-- `prepared_statement`: The prepared statement to destroy.
+- `prepared_statement` : The prepared statement to destroy.
 
 #### 
         
-        `duckdb_prepare_error`
+        [`duckdb_prepare_error`](#duckdb_prepare_error)
+        
+      
 
     
-`duckdb_prepare_error`Returns the error message associated with the given prepared statement.
+`duckdb_prepare_error`
+Returns the error message associated with the given prepared statement.
 If the prepared statement has no error message, this returns `nullptr` instead.
 
 The error message should not be freed. It will be de-allocated when `duckdb_destroy_prepare` is called.
@@ -183,7 +190,7 @@ const char *duckdb_prepare_error(
       
 
     
-- `prepared_statement`: The prepared statement to obtain the error from.
+- `prepared_statement` : The prepared statement to obtain the error from.
 
 ##### 
         
@@ -196,10 +203,13 @@ The error message, or `nullptr` if there is none.
 
 #### 
         
-        `duckdb_nparams`
+        [`duckdb_nparams`](#duckdb_nparams)
+        
+      
 
     
-`duckdb_nparams`Returns the number of parameters that can be provided to the given prepared statement.
+`duckdb_nparams`
+Returns the number of parameters that can be provided to the given prepared statement.
 
 Returns 0 if the query was not successfully prepared.
 
@@ -222,14 +232,17 @@ idx_t duckdb_nparams(
       
 
     
-- `prepared_statement`: The prepared statement to obtain the number of parameters for.
+- `prepared_statement` : The prepared statement to obtain the number of parameters for.
 
 #### 
         
-        `duckdb_parameter_name`
+        [`duckdb_parameter_name`](#duckdb_parameter_name)
+        
+      
 
     
-`duckdb_parameter_name`Returns the name used to identify the parameter
+`duckdb_parameter_name`
+Returns the name used to identify the parameter
 The returned string should be freed using `duckdb_free`.
 
 Returns NULL if the index is out of range for the provided prepared statement.
@@ -254,14 +267,17 @@ const char *duckdb_parameter_name(
       
 
     
-- `prepared_statement`: The prepared statement for which to get the parameter name from.
+- `prepared_statement` : The prepared statement for which to get the parameter name from.
 
 #### 
         
-        `duckdb_param_type`
+        [`duckdb_param_type`](#duckdb_param_type)
+        
+      
 
     
-`duckdb_param_type`Returns the parameter type for the parameter at the given index.
+`duckdb_param_type`
+Returns the parameter type for the parameter at the given index.
 
 Returns `DUCKDB_TYPE_INVALID` if the parameter index is out of range or the statement was not successfully prepared.
 
@@ -285,8 +301,8 @@ duckdb_type duckdb_param_type(
       
 
     
-- `prepared_statement`: The prepared statement.
-- `param_idx`: The parameter index.
+- `prepared_statement` : The prepared statement.
+- `param_idx` : The parameter index.
 
 ##### 
         
@@ -299,10 +315,13 @@ The parameter type
 
 #### 
         
-        `duckdb_param_logical_type`
+        [`duckdb_param_logical_type`](#duckdb_param_logical_type)
+        
+      
 
     
-`duckdb_param_logical_type`Returns the logical type for the parameter at the given index.
+`duckdb_param_logical_type`
+Returns the logical type for the parameter at the given index.
 
 Returns `nullptr` if the parameter index is out of range or the statement was not successfully prepared.
 
@@ -328,8 +347,8 @@ duckdb_logical_type duckdb_param_logical_type(
       
 
     
-- `prepared_statement`: The prepared statement.
-- `param_idx`: The parameter index.
+- `prepared_statement` : The prepared statement.
+- `param_idx` : The parameter index.
 
 ##### 
         
@@ -342,10 +361,13 @@ The logical type of the parameter
 
 #### 
         
-        `duckdb_clear_bindings`
+        [`duckdb_clear_bindings`](#duckdb_clear_bindings)
+        
+      
 
     
-`duckdb_clear_bindings`Clear the params bind to the prepared statement.
+`duckdb_clear_bindings`
+Clear the params bind to the prepared statement.
 
 ##### 
         
@@ -361,10 +383,13 @@ duckdb_state duckdb_clear_bindings(
 ```
 #### 
         
-        `duckdb_prepared_statement_type`
+        [`duckdb_prepared_statement_type`](#duckdb_prepared_statement_type)
+        
+      
 
     
-`duckdb_prepared_statement_type`Returns the statement type of the statement to be executed
+`duckdb_prepared_statement_type`
+Returns the statement type of the statement to be executed
 
 ##### 
         
@@ -385,7 +410,7 @@ duckdb_statement_type duckdb_prepared_statement_type(
       
 
     
-- `statement`: The prepared statement.
+- `statement` : The prepared statement.
 
 ##### 
         
@@ -398,10 +423,13 @@ duckdb_statement_type value or DUCKDB_STATEMENT_TYPE_INVALID
 
 #### 
         
-        `duckdb_prepared_statement_column_count`
+        [`duckdb_prepared_statement_column_count`](#duckdb_prepared_statement_column_count)
+        
+      
 
     
-`duckdb_prepared_statement_column_count`Returns the number of columns present in the result of the prepared statement. If any of the column types are invalid, the result will be 1.
+`duckdb_prepared_statement_column_count`
+Returns the number of columns present in the result of the prepared statement. If any of the column types are invalid, the result will be 1.
 
 ##### 
         
@@ -422,7 +450,7 @@ idx_t duckdb_prepared_statement_column_count(
       
 
     
-- `prepared_statement`: The prepared statement.
+- `prepared_statement` : The prepared statement.
 
 ##### 
         
@@ -435,10 +463,13 @@ The number of columns present in the result of the prepared statement.
 
 #### 
         
-        `duckdb_prepared_statement_column_name`
+        [`duckdb_prepared_statement_column_name`](#duckdb_prepared_statement_column_name)
+        
+      
 
     
-`duckdb_prepared_statement_column_name`Returns the name of the specified column of the result of the prepared_statement.
+`duckdb_prepared_statement_column_name`
+Returns the name of the specified column of the result of the prepared_statement.
 The returned string should be freed using `duckdb_free`.
 
 Returns `nullptr` if the column is out of range.
@@ -463,8 +494,8 @@ const char *duckdb_prepared_statement_column_name(
       
 
     
-- `prepared_statement`: The prepared statement.
-- `col_idx`: The column index.
+- `prepared_statement` : The prepared statement.
+- `col_idx` : The column index.
 
 ##### 
         
@@ -477,10 +508,13 @@ The column name of the specified column.
 
 #### 
         
-        `duckdb_prepared_statement_column_logical_type`
+        [`duckdb_prepared_statement_column_logical_type`](#duckdb_prepared_statement_column_logical_type)
+        
+      
 
     
-`duckdb_prepared_statement_column_logical_type`Returns the column type of the specified column of the result of the prepared_statement.
+`duckdb_prepared_statement_column_logical_type`
+Returns the column type of the specified column of the result of the prepared_statement.
 
 Returns `DUCKDB_TYPE_INVALID` if the column is out of range.
 The return type of this call should be destroyed with `duckdb_destroy_logical_type`.
@@ -505,8 +539,8 @@ duckdb_logical_type duckdb_prepared_statement_column_logical_type(
       
 
     
-- `prepared_statement`: The prepared statement to fetch the column type from.
-- `col_idx`: The column index.
+- `prepared_statement` : The prepared statement to fetch the column type from.
+- `col_idx` : The column index.
 
 ##### 
         
@@ -519,10 +553,13 @@ The logical type of the specified column.
 
 #### 
         
-        `duckdb_prepared_statement_column_type`
+        [`duckdb_prepared_statement_column_type`](#duckdb_prepared_statement_column_type)
+        
+      
 
     
-`duckdb_prepared_statement_column_type`Returns the column type of the specified column of the result of the prepared_statement.
+`duckdb_prepared_statement_column_type`
+Returns the column type of the specified column of the result of the prepared_statement.
 
 Returns `DUCKDB_TYPE_INVALID` if the column is out of range.
 
@@ -546,8 +583,8 @@ duckdb_type duckdb_prepared_statement_column_type(
       
 
     
-- `prepared_statement`: The prepared statement to fetch the column type from.
-- `col_idx`: The column index.
+- `prepared_statement` : The prepared statement to fetch the column type from.
+- `col_idx` : The column index.
 
 ##### 
         

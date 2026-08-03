@@ -10,7 +10,7 @@ description: 'The Relational API is an alternative API that can be used to incre
   At the moment of execution, rel does not hold any data and no data is retrieved
   from the database. By calling rel.show() or simply…'
 resource: https://duckdb.org/docs/current/clients/python/relational_api
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 The Relational API is an alternative API that can be used to incrementally construct queries. 
@@ -54,27 +54,30 @@ This section contains the details on how a relation is created.         The meth
 
 | Name | Description | 
 |---|---|
-| `from_arrow` | Create a relation object from an Arrow object | 
-| `from_csv_auto` | Create a relation object from the CSV file in 'name' | 
-| `from_df` | Create a relation object from the DataFrame in df | 
-| `from_parquet` | Create a relation object from the Parquet files | 
-| `from_query` | Run a SQL query. If it is a SELECT statement, create a relation object from the given SQL query, otherwise run the query as-is. | 
-| `query` | Run a SQL query. If it is a SELECT statement, create a relation object from the given SQL query, otherwise run the query as-is. | 
-| `read_csv` | Create a relation object from the CSV file in 'name' | 
-| `read_json` | Create a relation object from the JSON file in 'name' | 
-| `read_parquet` | Create a relation object from the Parquet files | 
-| `sql` | Run a SQL query. If it is a SELECT statement, create a relation object from the given SQL query, otherwise run the query as-is. | 
-| `table` | Create a relation object for the named table | 
-| `table_function` | Create a relation object from the named table function with given parameters | 
-| `values` | Create a relation object from the passed values | 
-| `view` | Create a relation object for the named view | 
+| [`from_arrow`](#from_arrow) | Create a relation object from an Arrow object | 
+| [`from_csv_auto`](#from_csv_auto) | Create a relation object from the CSV file in 'name' | 
+| [`from_df`](#from_df) | Create a relation object from the DataFrame in df | 
+| [`from_parquet`](#from_parquet) | Create a relation object from the Parquet files | 
+| [`from_query`](#from_query) | Run a SQL query. If it is a SELECT statement, create a relation object from the given SQL query, otherwise run the query as-is. | 
+| [`query`](#query) | Run a SQL query. If it is a SELECT statement, create a relation object from the given SQL query, otherwise run the query as-is. | 
+| [`read_csv`](#read_csv) | Create a relation object from the CSV file in 'name' | 
+| [`read_json`](#read_json) | Create a relation object from the JSON file in 'name' | 
+| [`read_parquet`](#read_parquet) | Create a relation object from the Parquet files | 
+| [`sql`](#sql) | Run a SQL query. If it is a SELECT statement, create a relation object from the given SQL query, otherwise run the query as-is. | 
+| [`table`](#table) | Create a relation object for the named table | 
+| [`table_function`](#table_function) | Create a relation object from the named table function with given parameters | 
+| [`values`](#values) | Create a relation object from the passed values | 
+| [`view`](#view) | Create a relation object for the named view | 
 
 #### 
         
-        `from_arrow`
+        [`from_arrow`](#from_arrow)
+        
+      
 
     
-      `from_arrow`##### 
+      `from_arrow`
+##### 
         
         [Signature](#signature)
         
@@ -101,7 +104,7 @@ Create a relation object from an Arrow object
 
     
 - 
-    **arrow_object**: pyarrow.Table, pyarrow.RecordBatchArrow object to create a relation from 
+    **arrow_object** : pyarrow.Table, pyarrow.RecordBatchArrow object to create a relation from
 
 ##### 
         
@@ -137,10 +140,13 @@ rel.show()
 ```
 #### 
         
-        `from_csv_auto`
+        [`from_csv_auto`](#from_csv_auto)
+        
+      
 
     
-      `from_csv_auto`##### 
+      `from_csv_auto`
+##### 
         
         [Signature](#signature-1)
         
@@ -169,81 +175,81 @@ Create a relation object from the CSV file in 'name'
 
     
 - 
-    **path_or_buffer**: Union[str, StringIO, TextIOBase]Path to the CSV file or buffer to read from. 
+    **path_or_buffer** : Union[str, StringIO, TextIOBase]Path to the CSV file or buffer to read from.
 - 
-    **header**: Optional[bool], Optional[int]Row number(s) to use as the column names, or None if no header. 
+    **header** : Optional[bool], Optional[int]Row number(s) to use as the column names, or None if no header.
 - 
-    **compression**: Optional[str]Compression type (e.g., 'gzip', 'bz2'). 
+    **compression** : Optional[str]Compression type (e.g., 'gzip', 'bz2').
 - 
-    **sep**: Optional[str]Delimiter to use; defaults to comma. 
+    **sep** : Optional[str]Delimiter to use; defaults to comma.
 - 
-    **delimiter**: Optional[str]Alternative delimiter to use. 
+    **delimiter** : Optional[str]Alternative delimiter to use.
 - 
-    **dtype**: Optional[Dict[str, str]], Optional[List[str]]Data types for columns. 
+    **dtype** : Optional[Dict[str, str]], Optional[List[str]]Data types for columns.
 - 
-    **na_values**: Optional[str], Optional[List[str]]Additional strings to recognize as NA/NaN. 
+    **na_values** : Optional[str], Optional[List[str]]Additional strings to recognize as NA/NaN.
 - 
-    **skiprows**: Optional[int]Number of rows to skip at the start. 
+    **skiprows** : Optional[int]Number of rows to skip at the start.
 - 
-    **quotechar**: Optional[str]Character used to quote fields. 
+    **quotechar** : Optional[str]Character used to quote fields.
 - 
-    **escapechar**: Optional[str]Character used to escape delimiter or quote characters. 
+    **escapechar** : Optional[str]Character used to escape delimiter or quote characters.
 - 
-    **encoding**: Optional[str]Encoding to use for UTF when reading/writing. 
+    **encoding** : Optional[str]Encoding to use for UTF when reading/writing.
 - 
-    **parallel**: Optional[bool]Enable parallel reading. 
+    **parallel** : Optional[bool]Enable parallel reading.
 - 
-    **date_format**: Optional[str]Format to parse dates. 
+    **date_format** : Optional[str]Format to parse dates.
 - 
-    **timestamp_format**: Optional[str]Format to parse timestamps. 
+    **timestamp_format** : Optional[str]Format to parse timestamps.
 - 
-    **sample_size**: Optional[int]Number of rows to sample for schema inference. 
+    **sample_size** : Optional[int]Number of rows to sample for schema inference.
 - 
-    **all_varchar**: Optional[bool]Treat all columns as VARCHAR. 
+    **all_varchar** : Optional[bool]Treat all columns as VARCHAR.
 - 
-    **normalize_names**: Optional[bool]Normalize column names to lowercase. 
+    **normalize_names** : Optional[bool]Normalize column names to lowercase.
 - 
-    **null_padding**: Optional[bool]Enable null padding for rows with missing columns. 
+    **null_padding** : Optional[bool]Enable null padding for rows with missing columns.
 - 
-    **names**: Optional[List[str]]List of column names to use. 
+    **names** : Optional[List[str]]List of column names to use.
 - 
-    **lineterminator**: Optional[str]Character to break lines on. 
+    **lineterminator** : Optional[str]Character to break lines on.
 - 
-    **columns**: Optional[Dict[str, str]]Column mapping for schema. 
+    **columns** : Optional[Dict[str, str]]Column mapping for schema.
 - 
-    **auto_type_candidates**: Optional[List[str]]List of columns for automatic type inference. 
+    **auto_type_candidates** : Optional[List[str]]List of columns for automatic type inference.
 - 
-    **max_line_size**: Optional[int]Maximum line size in bytes. 
+    **max_line_size** : Optional[int]Maximum line size in bytes.
 - 
-    **ignore_errors**: Optional[bool]Ignore parsing errors. 
+    **ignore_errors** : Optional[bool]Ignore parsing errors.
 - 
-    **store_rejects**: Optional[bool]Store rejected rows. 
+    **store_rejects** : Optional[bool]Store rejected rows.
 - 
-    **rejects_table**: Optional[str]Table name to store rejected rows. 
+    **rejects_table** : Optional[str]Table name to store rejected rows.
 - 
-    **rejects_scan**: Optional[str]Scan to use for rejects. 
+    **rejects_scan** : Optional[str]Scan to use for rejects.
 - 
-    **rejects_limit**: Optional[int]Limit number of rejects stored. 
+    **rejects_limit** : Optional[int]Limit number of rejects stored.
 - 
-    **force_not_null**: Optional[List[str]]List of columns to force as NOT NULL. 
+    **force_not_null** : Optional[List[str]]List of columns to force as NOT NULL.
 - 
-    **buffer_size**: Optional[int]Buffer size in bytes. 
+    **buffer_size** : Optional[int]Buffer size in bytes.
 - 
-    **decimal**: Optional[str]Character to recognize as decimal point. 
+    **decimal** : Optional[str]Character to recognize as decimal point.
 - 
-    **allow_quoted_nulls**: Optional[bool]Allow quoted NULL values. 
+    **allow_quoted_nulls** : Optional[bool]Allow quoted NULL values.
 - 
-    **filename**: Optional[bool], Optional[str]Add filename column or specify filename. 
+    **filename** : Optional[bool], Optional[str]Add filename column or specify filename.
 - 
-    **hive_partitioning**: Optional[bool]Enable Hive-style partitioning. 
+    **hive_partitioning** : Optional[bool]Enable Hive-style partitioning.
 - 
-    **union_by_name**: Optional[bool]Union files by column name instead of position. 
+    **union_by_name** : Optional[bool]Union files by column name instead of position.
 - 
-    **hive_types**: Optional[Dict[str, str]]Hive types for columns. 
+    **hive_types** : Optional[Dict[str, str]]Hive types for columns.
 - 
-    **hive_types_autocast**: Optional[bool]Automatically cast Hive types. 
+    **hive_types_autocast** : Optional[bool]Automatically cast Hive types.
 - 
-    **connection**: DuckDBPyConnectionDuckDB connection to use. 
+    **connection** : DuckDBPyConnectionDuckDB connection to use.
 
 ##### 
         
@@ -281,10 +287,13 @@ rel.show()
 ```
 #### 
         
-        `from_df`
+        [`from_df`](#from_df)
+        
+      
 
     
-      `from_df`##### 
+      `from_df`
+##### 
         
         [Signature](#signature-2)
         
@@ -311,7 +320,7 @@ Create a relation object from the DataFrame in df
 
     
 - 
-    **df**: pandas.DataFrameA pandas DataFrame to be converted into a DuckDB relation. 
+    **df** : pandas.DataFrameA pandas DataFrame to be converted into a DuckDB relation.
 
 ##### 
         
@@ -345,10 +354,13 @@ rel.show()
 ```
 #### 
         
-        `from_parquet`
+        [`from_parquet`](#from_parquet)
+        
+      
 
     
-      `from_parquet`##### 
+      `from_parquet`
+##### 
         
         [Signature](#signature-3)
         
@@ -382,19 +394,19 @@ Create a relation object from the Parquet files
 
     
 - 
-    **file_glob**: strFile path or glob pattern pointing to Parquet files to be read. 
+    **file_glob** : strFile path or glob pattern pointing to Parquet files to be read.
 - 
-    **binary_as_string**: bool, default: FalseInterpret binary columns as strings instead of blobs. 
+    **binary_as_string** : bool, default: FalseInterpret binary columns as strings instead of blobs.
 - 
-    **file_row_number**: bool, default: FalseAdd a column containing the row number within each file. 
+    **file_row_number** : bool, default: FalseAdd a column containing the row number within each file.
 - 
-    **filename**: bool, default: FalseAdd a column containing the name of the file each row came from. 
+    **filename** : bool, default: FalseAdd a column containing the name of the file each row came from.
 - 
-    **hive_partitioning**: bool, default: FalseEnable automatic detection of Hive-style partitions in file paths. 
+    **hive_partitioning** : bool, default: FalseEnable automatic detection of Hive-style partitions in file paths.
 - 
-    **union_by_name**: bool, default: FalseUnion Parquet files by matching column names instead of positions. 
+    **union_by_name** : bool, default: FalseUnion Parquet files by matching column names instead of positions.
 - 
-    **compression**: objectOptional compression codec to use when reading the Parquet files. 
+    **compression** : objectOptional compression codec to use when reading the Parquet files.
 
 ##### 
         
@@ -432,10 +444,13 @@ rel.show()
 ```
 #### 
         
-        `from_query`
+        [`from_query`](#from_query)
+        
+      
 
     
-      `from_query`##### 
+      `from_query`
+##### 
         
         [Signature](#signature-4)
         
@@ -454,7 +469,7 @@ from_query(self: _duckdb.DuckDBPyConnection, query: object, *, alias: str = '', 
     
 Run a SQL query. If it is a SELECT statement, create a relation object from the given SQL query, otherwise run the query as-is.
 
-Warning.Passing`params`to this method is[discouraged](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api)due to significant performance overhead. Use[for parameterized queries instead.](/docs/current/clients/python/dbapi.html#prepared-statements)`execute()`
+  **Warning.** Passing `params` to this method is [discouraged](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api) due to significant performance overhead. Use [`execute()`](/docs/current/clients/python/dbapi.html#prepared-statements) for parameterized queries instead.
 
 ##### 
         
@@ -464,11 +479,11 @@ Warning.Passing`params`to this method is[discouraged](/docs/current/clients/pyth
 
     
 - 
-    **query**: objectThe SQL query or subquery to be executed and converted into a relation. 
+    **query** : objectThe SQL query or subquery to be executed and converted into a relation.
 - 
-    **alias**: str, default: ''Optional alias name to assign to the resulting relation. 
+    **alias** : str, default: ''Optional alias name to assign to the resulting relation.
 - 
-    **params**: objectOptional query parameters. **Discouraged**due to[significant performance overhead](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api). Use`execute()`
+    **params** : objectOptional query parameters. **Discouraged** due to[significant performance overhead](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api) . Use[`execute()`](/docs/current/clients/python/dbapi.html#prepared-statements) for parameterized queries instead.
 
 ##### 
         
@@ -500,10 +515,13 @@ rel.show()
 ```
 #### 
         
-        `query`
+        [`query`](#query)
+        
+      
 
     
-      `query`##### 
+      `query`
+##### 
         
         [Signature](#signature-5)
         
@@ -522,11 +540,11 @@ query(self: _duckdb.DuckDBPyConnection, query: object, *, alias: str = '', param
     
 Run a SQL query. If it is a SELECT statement, create a relation object from the given SQL query, otherwise run the query as-is.
 
-Warning.Passing`params`to this method is[discouraged](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api)due to significant performance overhead. Use[for parameterized queries instead.](/docs/current/clients/python/dbapi.html#prepared-statements)`execute()`
+  **Warning.** Passing `params` to this method is [discouraged](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api) due to significant performance overhead. Use [`execute()`](/docs/current/clients/python/dbapi.html#prepared-statements) for parameterized queries instead.
 
-**Aliases**: [ from_query](#from_query), 
+**Aliases**: [`from_query`](#from_query), `sql`
 
-`sql`##### 
+##### 
         
         [Parameters](#parameters-5)
         
@@ -534,11 +552,11 @@ Warning.Passing`params`to this method is[discouraged](/docs/current/clients/pyth
 
     
 - 
-    **query**: objectThe SQL query or subquery to be executed and converted into a relation. 
+    **query** : objectThe SQL query or subquery to be executed and converted into a relation.
 - 
-    **alias**: str, default: ''Optional alias name to assign to the resulting relation. 
+    **alias** : str, default: ''Optional alias name to assign to the resulting relation.
 - 
-    **params**: objectOptional query parameters. **Discouraged**due to[significant performance overhead](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api). Use`execute()`
+    **params** : objectOptional query parameters. **Discouraged** due to[significant performance overhead](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api) . Use[`execute()`](/docs/current/clients/python/dbapi.html#prepared-statements) for parameterized queries instead.
 
 ##### 
         
@@ -570,10 +588,13 @@ rel.show()
 ```
 #### 
         
-        `read_csv`
+        [`read_csv`](#read_csv)
+        
+      
 
     
-      `read_csv`##### 
+      `read_csv`
+##### 
         
         [Signature](#signature-6)
         
@@ -602,81 +623,81 @@ Create a relation object from the CSV file in 'name'
 
     
 - 
-    **path_or_buffer**: Union[str, StringIO, TextIOBase]Path to the CSV file or buffer to read from. 
+    **path_or_buffer** : Union[str, StringIO, TextIOBase]Path to the CSV file or buffer to read from.
 - 
-    **header**: Optional[bool], Optional[int]Row number(s) to use as the column names, or None if no header. 
+    **header** : Optional[bool], Optional[int]Row number(s) to use as the column names, or None if no header.
 - 
-    **compression**: Optional[str]Compression type (e.g., 'gzip', 'bz2'). 
+    **compression** : Optional[str]Compression type (e.g., 'gzip', 'bz2').
 - 
-    **sep**: Optional[str]Delimiter to use; defaults to comma. 
+    **sep** : Optional[str]Delimiter to use; defaults to comma.
 - 
-    **delimiter**: Optional[str]Alternative delimiter to use. 
+    **delimiter** : Optional[str]Alternative delimiter to use.
 - 
-    **dtype**: Optional[Dict[str, str]], Optional[List[str]]Data types for columns. 
+    **dtype** : Optional[Dict[str, str]], Optional[List[str]]Data types for columns.
 - 
-    **na_values**: Optional[str], Optional[List[str]]Additional strings to recognize as NA/NaN. 
+    **na_values** : Optional[str], Optional[List[str]]Additional strings to recognize as NA/NaN.
 - 
-    **skiprows**: Optional[int]Number of rows to skip at the start. 
+    **skiprows** : Optional[int]Number of rows to skip at the start.
 - 
-    **quotechar**: Optional[str]Character used to quote fields. 
+    **quotechar** : Optional[str]Character used to quote fields.
 - 
-    **escapechar**: Optional[str]Character used to escape delimiter or quote characters. 
+    **escapechar** : Optional[str]Character used to escape delimiter or quote characters.
 - 
-    **encoding**: Optional[str]Encoding to use for UTF when reading/writing. 
+    **encoding** : Optional[str]Encoding to use for UTF when reading/writing.
 - 
-    **parallel**: Optional[bool]Enable parallel reading. 
+    **parallel** : Optional[bool]Enable parallel reading.
 - 
-    **date_format**: Optional[str]Format to parse dates. 
+    **date_format** : Optional[str]Format to parse dates.
 - 
-    **timestamp_format**: Optional[str]Format to parse timestamps. 
+    **timestamp_format** : Optional[str]Format to parse timestamps.
 - 
-    **sample_size**: Optional[int]Number of rows to sample for schema inference. 
+    **sample_size** : Optional[int]Number of rows to sample for schema inference.
 - 
-    **all_varchar**: Optional[bool]Treat all columns as VARCHAR. 
+    **all_varchar** : Optional[bool]Treat all columns as VARCHAR.
 - 
-    **normalize_names**: Optional[bool]Normalize column names to lowercase. 
+    **normalize_names** : Optional[bool]Normalize column names to lowercase.
 - 
-    **null_padding**: Optional[bool]Enable null padding for rows with missing columns. 
+    **null_padding** : Optional[bool]Enable null padding for rows with missing columns.
 - 
-    **names**: Optional[List[str]]List of column names to use. 
+    **names** : Optional[List[str]]List of column names to use.
 - 
-    **lineterminator**: Optional[str]Character to break lines on. 
+    **lineterminator** : Optional[str]Character to break lines on.
 - 
-    **columns**: Optional[Dict[str, str]]Column mapping for schema. 
+    **columns** : Optional[Dict[str, str]]Column mapping for schema.
 - 
-    **auto_type_candidates**: Optional[List[str]]List of columns for automatic type inference. 
+    **auto_type_candidates** : Optional[List[str]]List of columns for automatic type inference.
 - 
-    **max_line_size**: Optional[int]Maximum line size in bytes. 
+    **max_line_size** : Optional[int]Maximum line size in bytes.
 - 
-    **ignore_errors**: Optional[bool]Ignore parsing errors. 
+    **ignore_errors** : Optional[bool]Ignore parsing errors.
 - 
-    **store_rejects**: Optional[bool]Store rejected rows. 
+    **store_rejects** : Optional[bool]Store rejected rows.
 - 
-    **rejects_table**: Optional[str]Table name to store rejected rows. 
+    **rejects_table** : Optional[str]Table name to store rejected rows.
 - 
-    **rejects_scan**: Optional[str]Scan to use for rejects. 
+    **rejects_scan** : Optional[str]Scan to use for rejects.
 - 
-    **rejects_limit**: Optional[int]Limit number of rejects stored. 
+    **rejects_limit** : Optional[int]Limit number of rejects stored.
 - 
-    **force_not_null**: Optional[List[str]]List of columns to force as NOT NULL. 
+    **force_not_null** : Optional[List[str]]List of columns to force as NOT NULL.
 - 
-    **buffer_size**: Optional[int]Buffer size in bytes. 
+    **buffer_size** : Optional[int]Buffer size in bytes.
 - 
-    **decimal**: Optional[str]Character to recognize as decimal point. 
+    **decimal** : Optional[str]Character to recognize as decimal point.
 - 
-    **allow_quoted_nulls**: Optional[bool]Allow quoted NULL values. 
+    **allow_quoted_nulls** : Optional[bool]Allow quoted NULL values.
 - 
-    **filename**: Optional[bool], Optional[str]Add filename column or specify filename. 
+    **filename** : Optional[bool], Optional[str]Add filename column or specify filename.
 - 
-    **hive_partitioning**: Optional[bool]Enable Hive-style partitioning. 
+    **hive_partitioning** : Optional[bool]Enable Hive-style partitioning.
 - 
-    **union_by_name**: Optional[bool]Union files by column name instead of position. 
+    **union_by_name** : Optional[bool]Union files by column name instead of position.
 - 
-    **hive_types**: Optional[Dict[str, str]]Hive types for columns. 
+    **hive_types** : Optional[Dict[str, str]]Hive types for columns.
 - 
-    **hive_types_autocast**: Optional[bool]Automatically cast Hive types. 
+    **hive_types_autocast** : Optional[bool]Automatically cast Hive types.
 - 
-    **connection**: DuckDBPyConnectionDuckDB connection to use. 
+    **connection** : DuckDBPyConnectionDuckDB connection to use.
 
 ##### 
         
@@ -714,10 +735,13 @@ rel.show()
 ```
 #### 
         
-        `read_json`
+        [`read_json`](#read_json)
+        
+      
 
     
-      `read_json`##### 
+      `read_json`
+##### 
         
         [Signature](#signature-7)
         
@@ -744,45 +768,45 @@ Create a relation object from the JSON file in 'name'
 
     
 - 
-    **path_or_buffer**: objectFile path or file-like object containing JSON data to be read. 
+    **path_or_buffer** : objectFile path or file-like object containing JSON data to be read.
 - 
-    **columns**: objectOptional list of column names to project from the JSON data. 
+    **columns** : objectOptional list of column names to project from the JSON data.
 - 
-    **sample_size**: objectNumber of rows to sample for inferring JSON schema. 
+    **sample_size** : objectNumber of rows to sample for inferring JSON schema.
 - 
-    **maximum_depth**: objectMaximum depth to which JSON objects should be parsed. 
+    **maximum_depth** : objectMaximum depth to which JSON objects should be parsed.
 - 
-    **records**: strFormat string specifying whether JSON is in records mode. 
+    **records** : strFormat string specifying whether JSON is in records mode.
 - 
-    **format**: strFormat of the JSON data (e.g., 'auto', 'newline_delimited'). 
+    **format** : strFormat of the JSON data (e.g., 'auto', 'newline_delimited').
 - 
-    **date_format**: objectFormat string for parsing date fields. 
+    **date_format** : objectFormat string for parsing date fields.
 - 
-    **timestamp_format**: objectFormat string for parsing timestamp fields. 
+    **timestamp_format** : objectFormat string for parsing timestamp fields.
 - 
-    **compression**: objectCompression codec used on the JSON data (e.g., 'gzip'). 
+    **compression** : objectCompression codec used on the JSON data (e.g., 'gzip').
 - 
-    **maximum_object_size**: objectMaximum size in bytes for individual JSON objects. 
+    **maximum_object_size** : objectMaximum size in bytes for individual JSON objects.
 - 
-    **ignore_errors**: objectIf True, skip over JSON records with parsing errors. 
+    **ignore_errors** : objectIf True, skip over JSON records with parsing errors.
 - 
-    **convert_strings_to_integers**: objectIf True, attempt to convert strings to integers where appropriate. 
+    **convert_strings_to_integers** : objectIf True, attempt to convert strings to integers where appropriate.
 - 
-    **field_appearance_threshold**: objectThreshold for inferring optional fields in nested JSON. 
+    **field_appearance_threshold** : objectThreshold for inferring optional fields in nested JSON.
 - 
-    **map_inference_threshold**: objectThreshold for inferring maps from JSON object patterns. 
+    **map_inference_threshold** : objectThreshold for inferring maps from JSON object patterns.
 - 
-    **maximum_sample_files**: objectMaximum number of files to sample for schema inference. 
+    **maximum_sample_files** : objectMaximum number of files to sample for schema inference.
 - 
-    **filename**: objectIf True, include a column with the source filename for each row. 
+    **filename** : objectIf True, include a column with the source filename for each row.
 - 
-    **hive_partitioning**: objectIf True, enable Hive partitioning based on directory structure. 
+    **hive_partitioning** : objectIf True, enable Hive partitioning based on directory structure.
 - 
-    **union_by_name**: objectIf True, align JSON columns by name instead of position. 
+    **union_by_name** : objectIf True, align JSON columns by name instead of position.
 - 
-    **hive_types**: objectIf True, use Hive types from directory structure for schema. 
+    **hive_types** : objectIf True, use Hive types from directory structure for schema.
 - 
-    **hive_types_autocast**: objectIf True, automatically cast data types to match Hive types. 
+    **hive_types_autocast** : objectIf True, automatically cast data types to match Hive types.
 
 ##### 
         
@@ -818,10 +842,13 @@ rel.show()
 ```
 #### 
         
-        `read_parquet`
+        [`read_parquet`](#read_parquet)
+        
+      
 
     
-      `read_parquet`##### 
+      `read_parquet`
+##### 
         
         [Signature](#signature-8)
         
@@ -855,19 +882,19 @@ Create a relation object from the Parquet files
 
     
 - 
-    **file_glob**: strFile path or glob pattern pointing to Parquet files to be read. 
+    **file_glob** : strFile path or glob pattern pointing to Parquet files to be read.
 - 
-    **binary_as_string**: bool, default: FalseInterpret binary columns as strings instead of blobs. 
+    **binary_as_string** : bool, default: FalseInterpret binary columns as strings instead of blobs.
 - 
-    **file_row_number**: bool, default: FalseAdd a column containing the row number within each file. 
+    **file_row_number** : bool, default: FalseAdd a column containing the row number within each file.
 - 
-    **filename**: bool, default: FalseAdd a column containing the name of the file each row came from. 
+    **filename** : bool, default: FalseAdd a column containing the name of the file each row came from.
 - 
-    **hive_partitioning**: bool, default: FalseEnable automatic detection of Hive-style partitions in file paths. 
+    **hive_partitioning** : bool, default: FalseEnable automatic detection of Hive-style partitions in file paths.
 - 
-    **union_by_name**: bool, default: FalseUnion Parquet files by matching column names instead of positions. 
+    **union_by_name** : bool, default: FalseUnion Parquet files by matching column names instead of positions.
 - 
-    **compression**: objectOptional compression codec to use when reading the Parquet files. 
+    **compression** : objectOptional compression codec to use when reading the Parquet files.
 
 ##### 
         
@@ -905,10 +932,13 @@ rel.show()
 ```
 #### 
         
-        `sql`
+        [`sql`](#sql)
+        
+      
 
     
-      `sql`##### 
+      `sql`
+##### 
         
         [Signature](#signature-9)
         
@@ -927,11 +957,11 @@ sql(self: _duckdb.DuckDBPyConnection, query: object, *, alias: str = '', params:
     
 Run a SQL query. If it is a SELECT statement, create a relation object from the given SQL query, otherwise run the query as-is.
 
-Warning.Passing`params`to this method is[discouraged](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api)due to significant performance overhead. Use[for parameterized queries instead.](/docs/current/clients/python/dbapi.html#prepared-statements)`execute()`
+  **Warning.** Passing `params` to this method is [discouraged](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api) due to significant performance overhead. Use [`execute()`](/docs/current/clients/python/dbapi.html#prepared-statements) for parameterized queries instead.
 
-**Aliases**: [ from_query](#from_query), 
+**Aliases**: [`from_query`](#from_query), `query`
 
-`query`##### 
+##### 
         
         [Parameters](#parameters-9)
         
@@ -939,11 +969,11 @@ Warning.Passing`params`to this method is[discouraged](/docs/current/clients/pyth
 
     
 - 
-    **query**: objectThe SQL query or subquery to be executed and converted into a relation. 
+    **query** : objectThe SQL query or subquery to be executed and converted into a relation.
 - 
-    **alias**: str, default: ''Optional alias name to assign to the resulting relation. 
+    **alias** : str, default: ''Optional alias name to assign to the resulting relation.
 - 
-    **params**: objectOptional query parameters. **Discouraged**due to[significant performance overhead](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api). Use`execute()`
+    **params** : objectOptional query parameters. **Discouraged** due to[significant performance overhead](/docs/current/clients/python/known_issues.html#parameterized-queries-in-relational-api) . Use[`execute()`](/docs/current/clients/python/dbapi.html#prepared-statements) for parameterized queries instead.
 
 ##### 
         
@@ -975,10 +1005,13 @@ rel.show()
 ```
 #### 
         
-        `table`
+        [`table`](#table)
+        
+      
 
     
-      `table`##### 
+      `table`
+##### 
         
         [Signature](#signature-10)
         
@@ -1005,7 +1038,7 @@ Create a relation object for the named table
 
     
 - 
-    **table_name**: strName of the table to create a relation from. 
+    **table_name** : strName of the table to create a relation from.
 
 ##### 
         
@@ -1038,10 +1071,13 @@ rel.show()
 ```
 #### 
         
-        `table_function`
+        [`table_function`](#table_function)
+        
+      
 
     
-      `table_function`##### 
+      `table_function`
+##### 
         
         [Signature](#signature-11)
         
@@ -1068,9 +1104,9 @@ Create a relation object from the named table function with given parameters
 
     
 - 
-    **name**: strName of the table function to call. 
+    **name** : strName of the table function to call.
 - 
-    **parameters**: objectOptional parameters to pass to the table function. 
+    **parameters** : objectOptional parameters to pass to the table function.
 
 ##### 
         
@@ -1106,10 +1142,13 @@ rel.show()
 ```
 #### 
         
-        `values`
+        [`values`](#values)
+        
+      
 
     
-      `values`##### 
+      `values`
+##### 
         
         [Signature](#signature-12)
         
@@ -1158,10 +1197,13 @@ rel.show()
 ```
 #### 
         
-        `view`
+        [`view`](#view)
+        
+      
 
     
-      `view`##### 
+      `view`
+##### 
         
         [Signature](#signature-13)
         
@@ -1188,7 +1230,7 @@ Create a relation object for the named view
 
     
 - 
-    **view_name**: strName of the view to create a relation from. 
+    **view_name** : strName of the view to create a relation from.
 
 ##### 
         
@@ -1230,26 +1272,29 @@ This section contains the details on how to inspect a relation.
 
 | Name | Description | 
 |---|---|
-| `alias` | Get the name of the current alias | 
-| `columns` | Return a list containing the names of the columns of the relation. | 
-| `describe` | Gives basic statistics (e.g., min, max) and if NULL exists for each column of the relation. | 
-| `description` | Return the description of the result | 
-| `dtypes` | Return a list containing the types of the columns of the relation. | 
-| `explain` | explain(self: _duckdb.DuckDBPyRelation, type: _duckdb.ExplainType = 'standard') -> str | 
-| `query` | Run the given SQL query in sql_query on the view named virtual_table_name that refers to the relation object | 
-| `set_alias` | Rename the relation object to new alias | 
-| `shape` | Tuple of # of rows, # of columns in relation. | 
-| `show` | Display a summary of the data | 
-| `sql_query` | Get the SQL query that is equivalent to the relation | 
-| `type` | Get the type of the relation. | 
-| `types` | Return a list containing the types of the columns of the relation. | 
+| [`alias`](#alias) | Get the name of the current alias | 
+| [`columns`](#columns) | Return a list containing the names of the columns of the relation. | 
+| [`describe`](#describe) | Gives basic statistics (e.g., min, max) and if NULL exists for each column of the relation. | 
+| [`description`](#description) | Return the description of the result | 
+| [`dtypes`](#dtypes) | Return a list containing the types of the columns of the relation. | 
+| [`explain`](#explain) | explain(self: _duckdb.DuckDBPyRelation, type: _duckdb.ExplainType = 'standard') -> str | 
+| [`query`](#query-1) | Run the given SQL query in sql_query on the view named virtual_table_name that refers to the relation object | 
+| [`set_alias`](#set_alias) | Rename the relation object to new alias | 
+| [`shape`](#shape) | Tuple of # of rows, # of columns in relation. | 
+| [`show`](#show) | Display a summary of the data | 
+| [`sql_query`](#sql_query) | Get the SQL query that is equivalent to the relation | 
+| [`type`](#type) | Get the type of the relation. | 
+| [`types`](#types) | Return a list containing the types of the columns of the relation. | 
 
 #### 
         
-        `alias`
+        [`alias`](#alias)
+        
+      
 
     
-      `alias`##### 
+      `alias`
+##### 
         
         [Description](#description-14)
         
@@ -1291,10 +1336,13 @@ unnamed_relation_43c808c247431be5
 ```
 #### 
         
-        `columns`
+        [`columns`](#columns)
+        
+      
 
     
-      `columns`##### 
+      `columns`
+##### 
         
         [Description](#description-15)
         
@@ -1336,10 +1384,13 @@ rel.columns
 ```
 #### 
         
-        `describe`
+        [`describe`](#describe)
+        
+      
 
     
-      `describe`##### 
+      `describe`
+##### 
         
         [Signature](#signature-14)
         
@@ -1401,10 +1452,13 @@ rel.describe()
 ```
 #### 
         
-        `description`
+        [`description`](#description-17)
+        
+      
 
     
-      `description`##### 
+      `description`
+##### 
         
         [Description](#description-18)
         
@@ -1449,10 +1503,13 @@ rel.description
 ```
 #### 
         
-        `dtypes`
+        [`dtypes`](#dtypes)
+        
+      
 
     
-      `dtypes`##### 
+      `dtypes`
+##### 
         
         [Description](#description-19)
         
@@ -1496,10 +1553,13 @@ rel.dtypes
 ```
 #### 
         
-        `explain`
+        [`explain`](#explain)
+        
+      
 
     
-      `explain`##### 
+      `explain`
+##### 
         
         [Description](#description-20)
         
@@ -1557,10 +1617,13 @@ rel.explain()
 ```
 #### 
         
-        `query`
+        [`query`](#query-1)
+        
+      
 
     
-      `query`##### 
+      `query`
+##### 
         
         [Signature](#signature-15)
         
@@ -1587,9 +1650,9 @@ Run the given SQL query in sql_query on the view named virtual_table_name that r
 
     
 - 
-    **virtual_table_name**: strThe name to assign to the current relation when referenced in the SQL query. 
+    **virtual_table_name** : strThe name to assign to the current relation when referenced in the SQL query.
 - 
-    **sql_query**: strThe SQL query string that uses the virtual table name to query the relation. 
+    **sql_query** : strThe SQL query string that uses the virtual table name to query the relation.
 
 ##### 
         
@@ -1633,10 +1696,13 @@ duckdb_conn.sql("show rel_view")
 ```
 #### 
         
-        `set_alias`
+        [`set_alias`](#set_alias)
+        
+      
 
     
-      `set_alias`##### 
+      `set_alias`
+##### 
         
         [Signature](#signature-16)
         
@@ -1663,7 +1729,7 @@ Rename the relation object to new alias
 
     
 - 
-    **alias**: strThe alias name to assign to the relation. 
+    **alias** : strThe alias name to assign to the relation.
 
 ##### 
         
@@ -1698,10 +1764,13 @@ In the SQL query, the alias will be `abc`
 ```
 #### 
         
-        `shape`
+        [`shape`](#shape)
+        
+      
 
     
-      `shape`##### 
+      `shape`
+##### 
         
         [Description](#description-23)
         
@@ -1743,10 +1812,13 @@ rel.shape
 ```
 #### 
         
-        `show`
+        [`show`](#show)
+        
+      
 
     
-      `show`##### 
+      `show`
+##### 
         
         [Signature](#signature-17)
         
@@ -1773,15 +1845,15 @@ Display a summary of the data
 
     
 - 
-    **max_width**: intMaximum display width for the entire output in characters. 
+    **max_width** : intMaximum display width for the entire output in characters.
 - 
-    **max_rows**: intMaximum number of rows to display. 
+    **max_rows** : intMaximum number of rows to display.
 - 
-    **max_col_width**: intMaximum number of characters to display per column. 
+    **max_col_width** : intMaximum number of characters to display per column.
 - 
-    **null_value**: strString to display in place of NULL values. 
+    **null_value** : strString to display in place of NULL values.
 - 
-    **render_mode**: objectRender mode for displaying the output. 
+    **render_mode** : objectRender mode for displaying the output.
 
 ##### 
         
@@ -1829,10 +1901,13 @@ rel.show()
 ```
 #### 
         
-        `sql_query`
+        [`sql_query`](#sql_query)
+        
+      
 
     
-      `sql_query`##### 
+      `sql_query`
+##### 
         
         [Signature](#signature-18)
         
@@ -1889,10 +1964,13 @@ FROM "range"(1, 10)
 ```
 #### 
         
-        `type`
+        [`type`](#type)
+        
+      
 
     
-      `type`##### 
+      `type`
+##### 
         
         [Description](#description-26)
         
@@ -1934,10 +2012,13 @@ QUERY_RELATION
 ```
 #### 
         
-        `types`
+        [`types`](#types)
+        
+      
 
     
-      `types`##### 
+      `types`
+##### 
         
         [Description](#description-27)
         
@@ -1990,30 +2071,33 @@ This section contains the methods which can be used to chain queries.        The
 
 | Name | Description | 
 |---|---|
-| `aggregate` | Compute the aggregate aggr_expr by the optional groups group_expr on the relation | 
-| `apply` | Compute the function of a single column or a list of columns by the optional groups on the relation | 
-| `cross` | Create cross/cartesian product of two relational objects | 
-| `except_` | Create the set except of this relation object with another relation object in other_rel | 
-| `filter` | Filter the relation object by the filter in filter_expr | 
-| `insert` | Inserts the given values into the relation | 
-| `insert_into` | Inserts the relation object into an existing table named table_name | 
-| `intersect` | Create the set intersection of this relation object with another relation object in other_rel | 
-| `join` | Join the relation object with another relation object in other_rel using the join condition expression in join_condition. Types supported are 'inner', 'left', 'right', 'outer', 'semi' and 'anti' | 
-| `limit` | Only retrieve the first n rows from this relation object, starting at offset | 
-| `map` | Calls the passed function on the relation | 
-| `order` | Reorder the relation object by order_expr | 
-| `project` | Project the relation object by the projection in project_expr | 
-| `select` | Project the relation object by the projection in project_expr | 
-| `sort` | Reorder the relation object by the provided expressions | 
-| `union` | Create the set union of this relation object with another relation object in other_rel | 
-| `update` | Update the given relation with the provided expressions | 
+| [`aggregate`](#aggregate) | Compute the aggregate aggr_expr by the optional groups group_expr on the relation | 
+| [`apply`](#apply) | Compute the function of a single column or a list of columns by the optional groups on the relation | 
+| [`cross`](#cross) | Create cross/cartesian product of two relational objects | 
+| [`except_`](#except_) | Create the set except of this relation object with another relation object in other_rel | 
+| [`filter`](#filter) | Filter the relation object by the filter in filter_expr | 
+| [`insert`](#insert) | Inserts the given values into the relation | 
+| [`insert_into`](#insert_into) | Inserts the relation object into an existing table named table_name | 
+| [`intersect`](#intersect) | Create the set intersection of this relation object with another relation object in other_rel | 
+| [`join`](#join) | Join the relation object with another relation object in other_rel using the join condition expression in join_condition. Types supported are 'inner', 'left', 'right', 'outer', 'semi' and 'anti' | 
+| [`limit`](#limit) | Only retrieve the first n rows from this relation object, starting at offset | 
+| [`map`](#map) | Calls the passed function on the relation | 
+| [`order`](#order) | Reorder the relation object by order_expr | 
+| [`project`](#project) | Project the relation object by the projection in project_expr | 
+| [`select`](#select) | Project the relation object by the projection in project_expr | 
+| [`sort`](#sort) | Reorder the relation object by the provided expressions | 
+| [`union`](#union) | Create the set union of this relation object with another relation object in other_rel | 
+| [`update`](#update) | Update the given relation with the provided expressions | 
 
 #### 
         
-        `aggregate`
+        [`aggregate`](#aggregate)
+        
+      
 
     
-      `aggregate`##### 
+      `aggregate`
+##### 
         
         [Signature](#signature-19)
         
@@ -2040,9 +2124,9 @@ Compute the aggregate aggr_expr by the optional groups group_expr on the relatio
 
     
 - 
-    **aggr_expr**: str, list[Expression]The list of columns and aggregation functions. 
+    **aggr_expr** : str, list[Expression]The list of columns and aggregation functions.
 - 
-    **group_expr**: str, default: ''The list of columns to be included in `group_by`. If`None`,`group by all`is applied.
+    **group_expr** : str, default: ''The list of columns to be included in `group_by` . If`None` ,`group by all` is applied.
 
 ##### 
         
@@ -2083,10 +2167,13 @@ rel = rel.aggregate('max(value)')
 ```
 #### 
         
-        `apply`
+        [`apply`](#apply)
+        
+      
 
     
-      `apply`##### 
+      `apply`
+##### 
         
         [Signature](#signature-20)
         
@@ -2113,15 +2200,15 @@ Compute the function of a single column or a list of columns by the optional gro
 
     
 - 
-    **function_name**: strName of the function to apply over the relation. 
+    **function_name** : strName of the function to apply over the relation.
 - 
-    **function_aggr**: strThe list of columns to apply the function over. 
+    **function_aggr** : strThe list of columns to apply the function over.
 - 
-    **group_expr**: str, default: ''Optional SQL expression for grouping. 
+    **group_expr** : str, default: ''Optional SQL expression for grouping.
 - 
-    **function_parameter**: str, default: ''Optional parameters to pass into the function. 
+    **function_parameter** : str, default: ''Optional parameters to pass into the function.
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -2167,10 +2254,13 @@ rel.apply(
 ```
 #### 
         
-        `cross`
+        [`cross`](#cross)
+        
+      
 
     
-      `cross`##### 
+      `cross`
+##### 
         
         [Signature](#signature-21)
         
@@ -2197,7 +2287,7 @@ Create cross/cartesian product of two relational objects
 
     
 - 
-    **other_rel**: _duckdb.DuckDBPyRelationAnother relation to perform a cross product with. 
+    **other_rel** : _duckdb.DuckDBPyRelationAnother relation to perform a cross product with.
 
 ##### 
         
@@ -2237,10 +2327,13 @@ rel.cross(other_rel=rel.set_alias("other_rel"))
 ```
 #### 
         
-        `except_`
+        [`except_`](#except_)
+        
+      
 
     
-      `except_`##### 
+      `except_`
+##### 
         
         [Signature](#signature-22)
         
@@ -2267,7 +2360,7 @@ Create the set except of this relation object with another relation object in ot
 
     
 - 
-    **other_rel**: _duckdb.DuckDBPyRelationThe relation to subtract from the current relation (set difference). 
+    **other_rel** : _duckdb.DuckDBPyRelationThe relation to subtract from the current relation (set difference).
 
 ##### 
         
@@ -2309,10 +2402,13 @@ The relation query is executed twice, therefore generating different ids and tim
 ```
 #### 
         
-        `filter`
+        [`filter`](#filter)
+        
+      
 
     
-      `filter`##### 
+      `filter`
+##### 
         
         [Signature](#signature-23)
         
@@ -2339,7 +2435,7 @@ Filter the relation object by the filter in filter_expr
 
     
 - 
-    **filter_expr**: str, ExpressionThe filter expression to apply over the relation. 
+    **filter_expr** : str, ExpressionThe filter expression to apply over the relation.
 
 ##### 
         
@@ -2379,10 +2475,13 @@ rel.filter("value = 2")
 ```
 #### 
         
-        `insert`
+        [`insert`](#insert)
+        
+      
 
     
-      `insert`##### 
+      `insert`
+##### 
         
         [Signature](#signature-24)
         
@@ -2409,7 +2508,7 @@ Inserts the given values into the relation
 
     
 - 
-    **values**: objectA tuple of values matching the relation column list, to be inserted. 
+    **values** : objectA tuple of values matching the relation column list, to be inserted.
 
 ##### 
         
@@ -2460,10 +2559,13 @@ rel.filter("value = 10")
 ```
 #### 
         
-        `insert_into`
+        [`insert_into`](#insert_into)
+        
+      
 
     
-      `insert_into`##### 
+      `insert_into`
+##### 
         
         [Signature](#signature-25)
         
@@ -2490,7 +2592,7 @@ Inserts the relation object into an existing table named table_name
 
     
 - 
-    **table_name**: strThe table name to insert the data into. The relation must respect the column order of the table. 
+    **table_name** : strThe table name to insert the data into. The relation must respect the column order of the table.
 
 ##### 
         
@@ -2541,10 +2643,13 @@ duckdb_conn.table("code_example").filter("value = 10")
 ```
 #### 
         
-        `intersect`
+        [`intersect`](#intersect)
+        
+      
 
     
-      `intersect`##### 
+      `intersect`
+##### 
         
         [Signature](#signature-26)
         
@@ -2571,7 +2676,7 @@ Create the set intersection of this relation object with another relation object
 
     
 - 
-    **other_rel**: _duckdb.DuckDBPyRelationThe relation to intersect with the current relation (set intersection). 
+    **other_rel** : _duckdb.DuckDBPyRelationThe relation to intersect with the current relation (set intersection).
 
 ##### 
         
@@ -2613,10 +2718,13 @@ therefore generating different ids and timestamps:
 ```
 #### 
         
-        `join`
+        [`join`](#join)
+        
+      
 
     
-      `join`##### 
+      `join`
+##### 
         
         [Signature](#signature-27)
         
@@ -2687,8 +2795,8 @@ INNER JOIN (
     ) AS unnamed_relation_307e245965aa2c2b 
 ON ((unnamed_relation_41bc15e744037078.id = unnamed_relation_307e245965aa2c2b.id))
 ```
-
-`NATURAL`,`POSITIONAL`and`ASOF`joins are not provided by the relational API.`CROSS`joins are provided through the[cross method](#cross).
+  `NATURAL`, `POSITIONAL` and `ASOF` joins are not provided by the relational API.
+`CROSS` joins are provided through the [cross method](#cross).
 
 ##### 
         
@@ -2698,11 +2806,11 @@ ON ((unnamed_relation_41bc15e744037078.id = unnamed_relation_307e245965aa2c2b.id
 
     
 - 
-    **other_rel**: _duckdb.DuckDBPyRelationThe relation to join with the current relation. 
+    **other_rel** : _duckdb.DuckDBPyRelationThe relation to join with the current relation.
 - 
-    **condition**: objectThe join condition, typically a SQL expression or the duplicated column name to join on. 
+    **condition** : objectThe join condition, typically a SQL expression or the duplicated column name to join on.
 - 
-    **how**: str, default: 'inner'The type of join to perform: 'inner', 'left', 'right', 'outer', 'semi' and 'anti'. 
+    **how** : str, default: 'inner'The type of join to perform: 'inner', 'left', 'right', 'outer', 'semi' and 'anti'.
 
 ##### 
         
@@ -2747,10 +2855,13 @@ rel.count("*")
 ```
 #### 
         
-        `limit`
+        [`limit`](#limit)
+        
+      
 
     
-      `limit`##### 
+      `limit`
+##### 
         
         [Signature](#signature-28)
         
@@ -2777,9 +2888,9 @@ Only retrieve the first n rows from this relation object, starting at offset
 
     
 - 
-    **n**: intThe maximum number of rows to return. 
+    **n** : intThe maximum number of rows to return.
 - 
-    **offset**: int, default: 0The number of rows to skip before starting to return rows. 
+    **offset** : int, default: 0The number of rows to skip before starting to return rows.
 
 ##### 
         
@@ -2819,10 +2930,13 @@ rel.limit(1)
 ```
 #### 
         
-        `map`
+        [`map`](#map)
+        
+      
 
     
-      `map`##### 
+      `map`
+##### 
         
         [Signature](#signature-29)
         
@@ -2849,9 +2963,9 @@ Calls the passed function on the relation
 
     
 - 
-    **map_function**: CallableA Python function that takes a DataFrame and returns a transformed DataFrame. 
+    **map_function** : CallableA Python function that takes a DataFrame and returns a transformed DataFrame.
 - 
-    **schema**: object, default: NoneOptional schema describing the structure of the output relation. 
+    **schema** : object, default: NoneOptional schema describing the structure of the output relation.
 
 ##### 
         
@@ -2888,10 +3002,13 @@ rel.map(multiply_by_2, schema={"id": int, "text": str})
 ```
 #### 
         
-        `order`
+        [`order`](#order)
+        
+      
 
     
-      `order`##### 
+      `order`
+##### 
         
         [Signature](#signature-30)
         
@@ -2918,7 +3035,7 @@ Reorder the relation object by order_expr
 
     
 - 
-    **order_expr**: strSQL expression defining the ordering of the result rows. 
+    **order_expr** : strSQL expression defining the ordering of the result rows.
 
 ##### 
         
@@ -2958,10 +3075,13 @@ rel.order("value desc").limit(1, offset=4)
 ```
 #### 
         
-        `project`
+        [`project`](#project)
+        
+      
 
     
-      `project`##### 
+      `project`
+##### 
         
         [Signature](#signature-31)
         
@@ -2990,7 +3110,7 @@ Project the relation object by the projection in project_expr
 
     
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 
 ##### 
         
@@ -3030,10 +3150,13 @@ rel.project("description").limit(1)
 ```
 #### 
         
-        `select`
+        [`select`](#select)
+        
+      
 
     
-      `select`##### 
+      `select`
+##### 
         
         [Signature](#signature-32)
         
@@ -3062,7 +3185,7 @@ Project the relation object by the projection in project_expr
 
     
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 
 ##### 
         
@@ -3102,10 +3225,13 @@ rel.select("description").limit(1)
 ```
 #### 
         
-        `sort`
+        [`sort`](#sort)
+        
+      
 
     
-      `sort`##### 
+      `sort`
+##### 
         
         [Signature](#signature-33)
         
@@ -3163,10 +3289,13 @@ rel.sort("description")
 ```
 #### 
         
-        `union`
+        [`union`](#union)
+        
+      
 
     
-      `union`##### 
+      `union`
+##### 
         
         [Signature](#signature-34)
         
@@ -3185,9 +3314,7 @@ union(self: _duckdb.DuckDBPyRelation, union_rel: _duckdb.DuckDBPyRelation) -> _d
     
 Create the set union of this relation object with another relation object in other_rel
 
-The union is
-
-`union all`. In order to retrieve distinct values, apply[distinct](#distinct).
+  The union is `union all`. In order to retrieve distinct values, apply [distinct](#distinct).
 
 ##### 
         
@@ -3197,7 +3324,7 @@ The union is
 
     
 - 
-    **union_rel**: _duckdb.DuckDBPyRelationThe relation to union with the current relation (set union). 
+    **union_rel** : _duckdb.DuckDBPyRelationThe relation to union with the current relation (set union).
 
 ##### 
         
@@ -3238,10 +3365,13 @@ rel.count("*")
 ```
 #### 
         
-        `update`
+        [`update`](#update)
+        
+      
 
     
-      `update`##### 
+      `update`
+##### 
         
         [Signature](#signature-35)
         
@@ -3268,9 +3398,9 @@ Update the given relation with the provided expressions
 
     
 - 
-    **set**: objectMapping of columns to new values for the update operation. 
+    **set** : objectMapping of columns to new values for the update operation.
 - 
-    **condition**: object, default: NoneOptional condition to filter which rows to update. 
+    **condition** : object, default: NoneOptional condition to filter which rows to update.
 
 ##### 
         
@@ -3326,67 +3456,70 @@ This section contains the functions which can be applied to a relation,         
 
 | Name | Description | 
 |---|---|
-| `any_value` | Returns the first non-null value from a given expression | 
-| `arg_max` | Finds the row with the maximum value for a value column and returns the value of that row for an argument column | 
-| `arg_min` | Finds the row with the minimum value for a value column and returns the value of that row for an argument column | 
-| `avg` | Computes the average of a given expression | 
-| `bit_and` | Computes the bitwise AND of all bits present in a given expression | 
-| `bit_or` | Computes the bitwise OR of all bits present in a given expression | 
-| `bit_xor` | Computes the bitwise XOR of all bits present in a given expression | 
-| `bitstring_agg` | Computes a bitstring with bits set for each distinct value in a given expression | 
-| `bool_and` | Computes the logical AND of all values present in a given expression | 
-| `bool_or` | Computes the logical OR of all values present in a given expression | 
-| `count` | Computes the number of elements present in a given expression | 
-| `cume_dist` | Computes the cumulative distribution within the partition | 
-| `dense_rank` | Computes the dense rank within the partition | 
-| `distinct` | Retrieve distinct rows from this relation object | 
-| `favg` | Computes the average of all values present in a given expression using a more accurate floating point summation (Kahan Sum) | 
-| `first` | Returns the first value of a given expression | 
-| `first_value` | Computes the first value within the group or partition | 
-| `fsum` | Computes the sum of all values present in a given expression using a more accurate floating point summation (Kahan Sum) | 
-| `geomean` | Computes the geometric mean over all values present in a given expression | 
-| `histogram` | Computes the histogram over all values present in a given expression | 
-| `lag` | Computes the lag within the partition | 
-| `last` | Returns the last value of a given expression | 
-| `last_value` | Computes the last value within the group or partition | 
-| `lead` | Computes the lead within the partition | 
-| `list` | Returns a list containing all values present in a given expression | 
-| `max` | Returns the maximum value present in a given expression | 
-| `mean` | Computes the average of a given expression | 
-| `median` | Computes the median over all values present in a given expression | 
-| `min` | Returns the minimum value present in a given expression | 
-| `mode` | Computes the mode over all values present in a given expression | 
-| `n_tile` | Divides the partition as equally as possible into num_buckets | 
-| `nth_value` | Computes the nth value within the partition | 
-| `percent_rank` | Computes the relative rank within the partition | 
-| `product` | Returns the product of all values present in a given expression | 
-| `quantile` | Computes the exact quantile value for a given expression | 
-| `quantile_cont` | Computes the interpolated quantile value for a given expression | 
-| `quantile_disc` | Computes the exact quantile value for a given expression | 
-| `rank` | Computes the rank within the partition | 
-| `rank_dense` | Computes the dense rank within the partition | 
-| `row_number` | Computes the row number within the partition | 
-| `select_dtypes` | Select columns from the relation, by filtering based on type(s) | 
-| `select_types` | Select columns from the relation, by filtering based on type(s) | 
-| `std` | Computes the sample standard deviation for a given expression | 
-| `stddev` | Computes the sample standard deviation for a given expression | 
-| `stddev_pop` | Computes the population standard deviation for a given expression | 
-| `stddev_samp` | Computes the sample standard deviation for a given expression | 
-| `string_agg` | Concatenates the values present in a given expression with a separator | 
-| `sum` | Computes the sum of all values present in a given expression | 
-| `unique` | Returns the distinct values in a column. | 
-| `value_counts` | Computes the number of elements present in a given expression, also projecting the original expression | 
-| `var` | Computes the sample variance for a given expression | 
-| `var_pop` | Computes the population variance for a given expression | 
-| `var_samp` | Computes the sample variance for a given expression | 
-| `variance` | Computes the sample variance for a given expression | 
+| [`any_value`](#any_value) | Returns the first non-null value from a given expression | 
+| [`arg_max`](#arg_max) | Finds the row with the maximum value for a value column and returns the value of that row for an argument column | 
+| [`arg_min`](#arg_min) | Finds the row with the minimum value for a value column and returns the value of that row for an argument column | 
+| [`avg`](#avg) | Computes the average of a given expression | 
+| [`bit_and`](#bit_and) | Computes the bitwise AND of all bits present in a given expression | 
+| [`bit_or`](#bit_or) | Computes the bitwise OR of all bits present in a given expression | 
+| [`bit_xor`](#bit_xor) | Computes the bitwise XOR of all bits present in a given expression | 
+| [`bitstring_agg`](#bitstring_agg) | Computes a bitstring with bits set for each distinct value in a given expression | 
+| [`bool_and`](#bool_and) | Computes the logical AND of all values present in a given expression | 
+| [`bool_or`](#bool_or) | Computes the logical OR of all values present in a given expression | 
+| [`count`](#count) | Computes the number of elements present in a given expression | 
+| [`cume_dist`](#cume_dist) | Computes the cumulative distribution within the partition | 
+| [`dense_rank`](#dense_rank) | Computes the dense rank within the partition | 
+| [`distinct`](#distinct) | Retrieve distinct rows from this relation object | 
+| [`favg`](#favg) | Computes the average of all values present in a given expression using a more accurate floating point summation (Kahan Sum) | 
+| [`first`](#first) | Returns the first value of a given expression | 
+| [`first_value`](#first_value) | Computes the first value within the group or partition | 
+| [`fsum`](#fsum) | Computes the sum of all values present in a given expression using a more accurate floating point summation (Kahan Sum) | 
+| [`geomean`](#geomean) | Computes the geometric mean over all values present in a given expression | 
+| [`histogram`](#histogram) | Computes the histogram over all values present in a given expression | 
+| [`lag`](#lag) | Computes the lag within the partition | 
+| [`last`](#last) | Returns the last value of a given expression | 
+| [`last_value`](#last_value) | Computes the last value within the group or partition | 
+| [`lead`](#lead) | Computes the lead within the partition | 
+| [`list`](#list) | Returns a list containing all values present in a given expression | 
+| [`max`](#max) | Returns the maximum value present in a given expression | 
+| [`mean`](#mean) | Computes the average of a given expression | 
+| [`median`](#median) | Computes the median over all values present in a given expression | 
+| [`min`](#min) | Returns the minimum value present in a given expression | 
+| [`mode`](#mode) | Computes the mode over all values present in a given expression | 
+| [`n_tile`](#n_tile) | Divides the partition as equally as possible into num_buckets | 
+| [`nth_value`](#nth_value) | Computes the nth value within the partition | 
+| [`percent_rank`](#percent_rank) | Computes the relative rank within the partition | 
+| [`product`](#product) | Returns the product of all values present in a given expression | 
+| [`quantile`](#quantile) | Computes the exact quantile value for a given expression | 
+| [`quantile_cont`](#quantile_cont) | Computes the interpolated quantile value for a given expression | 
+| [`quantile_disc`](#quantile_disc) | Computes the exact quantile value for a given expression | 
+| [`rank`](#rank) | Computes the rank within the partition | 
+| [`rank_dense`](#rank_dense) | Computes the dense rank within the partition | 
+| [`row_number`](#row_number) | Computes the row number within the partition | 
+| [`select_dtypes`](#select_dtypes) | Select columns from the relation, by filtering based on type(s) | 
+| [`select_types`](#select_types) | Select columns from the relation, by filtering based on type(s) | 
+| [`std`](#std) | Computes the sample standard deviation for a given expression | 
+| [`stddev`](#stddev) | Computes the sample standard deviation for a given expression | 
+| [`stddev_pop`](#stddev_pop) | Computes the population standard deviation for a given expression | 
+| [`stddev_samp`](#stddev_samp) | Computes the sample standard deviation for a given expression | 
+| [`string_agg`](#string_agg) | Concatenates the values present in a given expression with a separator | 
+| [`sum`](#sum) | Computes the sum of all values present in a given expression | 
+| [`unique`](#unique) | Returns the distinct values in a column. | 
+| [`value_counts`](#value_counts) | Computes the number of elements present in a given expression, also projecting the original expression | 
+| [`var`](#var) | Computes the sample variance for a given expression | 
+| [`var_pop`](#var_pop) | Computes the population variance for a given expression | 
+| [`var_samp`](#var_samp) | Computes the sample variance for a given expression | 
+| [`variance`](#variance) | Computes the sample variance for a given expression | 
 
 #### 
         
-        `any_value`
+        [`any_value`](#any_value)
+        
+      
 
     
-      `any_value`##### 
+      `any_value`
+##### 
         
         [Signature](#signature-36)
         
@@ -3413,13 +3546,13 @@ Returns the first non-null value from a given expression
 
     
 - 
-    **column**: strThe column name from which to retrieve any value. 
+    **column** : strThe column name from which to retrieve any value.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`.
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)` .
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -3459,10 +3592,13 @@ rel.any_value('id')
 ```
 #### 
         
-        `arg_max`
+        [`arg_max`](#arg_max)
+        
+      
 
     
-      `arg_max`##### 
+      `arg_max`
+##### 
         
         [Signature](#signature-37)
         
@@ -3489,15 +3625,15 @@ Finds the row with the maximum value for a value column and returns the value of
 
     
 - 
-    **arg_column**: strThe column name for which to find the argument maximizing the value. 
+    **arg_column** : strThe column name for which to find the argument maximizing the value.
 - 
-    **value_column**: strThe column name containing values used to determine the maximum. 
+    **value_column** : strThe column name containing values used to determine the maximum.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`.
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)` .
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -3538,10 +3674,13 @@ rel.arg_max(arg_column="value", value_column="value", groups="description", proj
 ```
 #### 
         
-        `arg_min`
+        [`arg_min`](#arg_min)
+        
+      
 
     
-      `arg_min`##### 
+      `arg_min`
+##### 
         
         [Signature](#signature-38)
         
@@ -3568,15 +3707,15 @@ Finds the row with the minimum value for a value column and returns the value of
 
     
 - 
-    **arg_column**: strThe column name for which to find the argument minimizing the value. 
+    **arg_column** : strThe column name for which to find the argument minimizing the value.
 - 
-    **value_column**: strThe column name containing values used to determine the minimum. 
+    **value_column** : strThe column name containing values used to determine the minimum.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -3617,10 +3756,13 @@ rel.arg_min(arg_column="value", value_column="value", groups="description", proj
 ```
 #### 
         
-        `avg`
+        [`avg`](#avg)
+        
+      
 
     
-      `avg`##### 
+      `avg`
+##### 
         
         [Signature](#signature-39)
         
@@ -3647,13 +3789,13 @@ Computes the average of a given expression
 
     
 - 
-    **column**: strThe column name to calculate the average on. 
+    **column** : strThe column name to calculate the average on.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -3694,10 +3836,13 @@ rel.avg('value')
 ```
 #### 
         
-        `bit_and`
+        [`bit_and`](#bit_and)
+        
+      
 
     
-      `bit_and`##### 
+      `bit_and`
+##### 
         
         [Signature](#signature-40)
         
@@ -3724,13 +3869,13 @@ Computes the bitwise AND of all bits present in a given expression
 
     
 - 
-    **column**: strThe column name to perform the bitwise AND aggregation on. 
+    **column** : strThe column name to perform the bitwise AND aggregation on.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -3772,10 +3917,13 @@ rel.bit_and(column="value_bit", groups="description", projected_columns="descrip
 ```
 #### 
         
-        `bit_or`
+        [`bit_or`](#bit_or)
+        
+      
 
     
-      `bit_or`##### 
+      `bit_or`
+##### 
         
         [Signature](#signature-41)
         
@@ -3802,13 +3950,13 @@ Computes the bitwise OR of all bits present in a given expression
 
     
 - 
-    **column**: strThe column name to perform the bitwise OR aggregation on. 
+    **column** : strThe column name to perform the bitwise OR aggregation on.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -3850,10 +3998,13 @@ rel.bit_or(column="value_bit", groups="description", projected_columns="descript
 ```
 #### 
         
-        `bit_xor`
+        [`bit_xor`](#bit_xor)
+        
+      
 
     
-      `bit_xor`##### 
+      `bit_xor`
+##### 
         
         [Signature](#signature-42)
         
@@ -3880,13 +4031,13 @@ Computes the bitwise XOR of all bits present in a given expression
 
     
 - 
-    **column**: strThe column name to perform the bitwise XOR aggregation on. 
+    **column** : strThe column name to perform the bitwise XOR aggregation on.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -3928,10 +4079,13 @@ rel.bit_xor(column="value_bit", groups="description", projected_columns="descrip
 ```
 #### 
         
-        `bitstring_agg`
+        [`bitstring_agg`](#bitstring_agg)
+        
+      
 
     
-      `bitstring_agg`##### 
+      `bitstring_agg`
+##### 
         
         [Signature](#signature-43)
         
@@ -3958,17 +4112,17 @@ Computes a bitstring with bits set for each distinct value in a given expression
 
     
 - 
-    **column**: strThe column name to aggregate as a bitstring. 
+    **column** : strThe column name to aggregate as a bitstring.
 - 
-    **min**: object, default: NoneOptional minimum bitstring value for aggregation. 
+    **min** : object, default: NoneOptional minimum bitstring value for aggregation.
 - 
-    **max**: object, default: NoneOptional maximum bitstring value for aggregation. 
+    **max** : object, default: NoneOptional maximum bitstring value for aggregation.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4009,10 +4163,13 @@ rel.bitstring_agg(column="value", groups="description", projected_columns="descr
 ```
 #### 
         
-        `bool_and`
+        [`bool_and`](#bool_and)
+        
+      
 
     
-      `bool_and`##### 
+      `bool_and`
+##### 
         
         [Signature](#signature-44)
         
@@ -4039,13 +4196,13 @@ Computes the logical AND of all values present in a given expression
 
     
 - 
-    **column**: strThe column name to perform the boolean AND aggregation on. 
+    **column** : strThe column name to perform the boolean AND aggregation on.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4087,10 +4244,13 @@ rel.bool_and(column="uneven", groups="description", projected_columns="descripti
 ```
 #### 
         
-        `bool_or`
+        [`bool_or`](#bool_or)
+        
+      
 
     
-      `bool_or`##### 
+      `bool_or`
+##### 
         
         [Signature](#signature-45)
         
@@ -4117,13 +4277,13 @@ Computes the logical OR of all values present in a given expression
 
     
 - 
-    **column**: strThe column name to perform the boolean OR aggregation on. 
+    **column** : strThe column name to perform the boolean OR aggregation on.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4165,10 +4325,13 @@ rel.bool_or(column="uneven", groups="description", projected_columns="descriptio
 ```
 #### 
         
-        `count`
+        [`count`](#count)
+        
+      
 
     
-      `count`##### 
+      `count`
+##### 
         
         [Signature](#signature-46)
         
@@ -4195,13 +4358,13 @@ Computes the number of elements present in a given expression
 
     
 - 
-    **column**: strThe column name to perform count on. 
+    **column** : strThe column name to perform count on.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4241,10 +4404,13 @@ rel.count("id")
 ```
 #### 
         
-        `cume_dist`
+        [`cume_dist`](#cume_dist)
+        
+      
 
     
-      `cume_dist`##### 
+      `cume_dist`
+##### 
         
         [Signature](#signature-47)
         
@@ -4271,9 +4437,9 @@ Computes the cumulative distribution within the partition
 
     
 - 
-    **window_spec**: strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4321,10 +4487,13 @@ rel.cume_dist(window_spec="over (partition by description order by value)", proj
 ```
 #### 
         
-        `dense_rank`
+        [`dense_rank`](#dense_rank)
+        
+      
 
     
-      `dense_rank`##### 
+      `dense_rank`
+##### 
         
         [Signature](#signature-48)
         
@@ -4353,9 +4522,9 @@ Computes the dense rank within the partition
 
     
 - 
-    **window_spec**: strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4403,10 +4572,13 @@ rel = duckdb_conn.sql("""
 ```
 #### 
         
-        `distinct`
+        [`distinct`](#distinct)
+        
+      
 
     
-      `distinct`##### 
+      `distinct`
+##### 
         
         [Signature](#signature-49)
         
@@ -4458,10 +4630,13 @@ rel.distinct().order("range")
 ```
 #### 
         
-        `favg`
+        [`favg`](#favg)
+        
+      
 
     
-      `favg`##### 
+      `favg`
+##### 
         
         [Signature](#signature-50)
         
@@ -4488,13 +4663,13 @@ Computes the average of all values present in a given expression using a more ac
 
     
 - 
-    **column**: strThe column name to calculate the average on. 
+    **column** : strThe column name to calculate the average on.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4535,10 +4710,13 @@ rel.favg(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `first`
+        [`first`](#first)
+        
+      
 
     
-      `first`##### 
+      `first`
+##### 
         
         [Signature](#signature-51)
         
@@ -4565,11 +4743,11 @@ Returns the first value of a given expression
 
     
 - 
-    **column**: strThe column name from which to retrieve the first value. 
+    **column** : strThe column name from which to retrieve the first value.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4610,10 +4788,13 @@ rel.first(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `first_value`
+        [`first_value`](#first_value)
+        
+      
 
     
-      `first_value`##### 
+      `first_value`
+##### 
         
         [Signature](#signature-52)
         
@@ -4640,11 +4821,11 @@ Computes the first value within the group or partition
 
     
 - 
-    **column**: strThe column name from which to retrieve the first value. 
+    **column** : strThe column name from which to retrieve the first value.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4685,10 +4866,13 @@ rel.first_value(column="value", window_spec="over (partition by description orde
 ```
 #### 
         
-        `fsum`
+        [`fsum`](#fsum)
+        
+      
 
     
-      `fsum`##### 
+      `fsum`
+##### 
         
         [Signature](#signature-53)
         
@@ -4715,13 +4899,13 @@ Computes the sum of all values present in a given expression using a more accura
 
     
 - 
-    **column**: strThe column name to calculate the sum on. 
+    **column** : strThe column name to calculate the sum on.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4762,10 +4946,13 @@ rel.fsum(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `geomean`
+        [`geomean`](#geomean)
+        
+      
 
     
-      `geomean`##### 
+      `geomean`
+##### 
         
         [Signature](#signature-54)
         
@@ -4792,11 +4979,11 @@ Computes the geometric mean over all values present in a given expression
 
     
 - 
-    **column**: strThe column name to calculate the geometric mean on. 
+    **column** : strThe column name to calculate the geometric mean on.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4837,10 +5024,13 @@ rel.geomean(column="value", groups="description", projected_columns="description
 ```
 #### 
         
-        `histogram`
+        [`histogram`](#histogram)
+        
+      
 
     
-      `histogram`##### 
+      `histogram`
+##### 
         
         [Signature](#signature-55)
         
@@ -4867,11 +5057,11 @@ Computes the histogram over all values present in a given expression
 
     
 - 
-    **column**: strThe column name to calculate the histogram on. 
+    **column** : strThe column name to calculate the histogram on.
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -4912,10 +5102,13 @@ rel.histogram(column="value", groups="description", projected_columns="descripti
 ```
 #### 
         
-        `lag`
+        [`lag`](#lag)
+        
+      
 
     
-      `lag`##### 
+      `lag`
+##### 
         
         [Signature](#signature-56)
         
@@ -4942,17 +5135,17 @@ Computes the lag within the partition
 
     
 - 
-    **column**: strThe column name to apply the lag function on. 
+    **column** : strThe column name to apply the lag function on.
 - 
-    **window_spec**: strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **offset**: int, default: 1The number of rows to lag behind. 
+    **offset** : int, default: 1The number of rows to lag behind.
 - 
-    **default_value**: str, default: 'NULL'The default value to return when the lag offset goes out of bounds. 
+    **default_value** : str, default: 'NULL'The default value to return when the lag offset goes out of bounds.
 - 
-    **ignore_nulls**: bool, default: FalseWhether to ignore NULL values when computing the lag. 
+    **ignore_nulls** : bool, default: FalseWhether to ignore NULL values when computing the lag.
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5000,10 +5193,13 @@ rel.lag(column="description", window_spec="over (order by value)", projected_col
 ```
 #### 
         
-        `last`
+        [`last`](#last)
+        
+      
 
     
-      `last`##### 
+      `last`
+##### 
         
         [Signature](#signature-57)
         
@@ -5030,11 +5226,11 @@ Returns the last value of a given expression
 
     
 - 
-    **column**: strThe column name from which to retrieve the last value. 
+    **column** : strThe column name from which to retrieve the last value.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5075,10 +5271,13 @@ rel.last(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `last_value`
+        [`last_value`](#last_value)
+        
+      
 
     
-      `last_value`##### 
+      `last_value`
+##### 
         
         [Signature](#signature-58)
         
@@ -5105,11 +5304,11 @@ Computes the last value within the group or partition
 
     
 - 
-    **column**: strThe column name from which to retrieve the last value within the window. 
+    **column** : strThe column name from which to retrieve the last value within the window.
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5150,10 +5349,13 @@ rel.last_value(column="value", window_spec="over (order by description)", projec
 ```
 #### 
         
-        `lead`
+        [`lead`](#lead)
+        
+      
 
     
-      `lead`##### 
+      `lead`
+##### 
         
         [Signature](#signature-59)
         
@@ -5180,17 +5382,17 @@ Computes the lead within the partition
 
     
 - 
-    **column**: strThe column name to apply the lead function on. 
+    **column** : strThe column name to apply the lead function on.
 - 
-    **window_spec**: strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **offset**: int, default: 1The number of rows to lead ahead. 
+    **offset** : int, default: 1The number of rows to lead ahead.
 - 
-    **default_value**: str, default: 'NULL'The default value to return when the lead offset goes out of bounds. 
+    **default_value** : str, default: 'NULL'The default value to return when the lead offset goes out of bounds.
 - 
-    **ignore_nulls**: bool, default: FalseWhether to ignore NULL values when computing the lead. 
+    **ignore_nulls** : bool, default: FalseWhether to ignore NULL values when computing the lead.
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5238,10 +5440,13 @@ rel.lead(column="description", window_spec="over (order by value)", projected_co
 ```
 #### 
         
-        `list`
+        [`list`](#list)
+        
+      
 
     
-      `list`##### 
+      `list`
+##### 
         
         [Signature](#signature-60)
         
@@ -5268,13 +5473,13 @@ Returns a list containing all values present in a given expression
 
     
 - 
-    **column**: strThe column name to aggregate values into a list. 
+    **column** : strThe column name to aggregate values into a list.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5315,10 +5520,13 @@ rel.list(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `max`
+        [`max`](#max)
+        
+      
 
     
-      `max`##### 
+      `max`
+##### 
         
         [Signature](#signature-61)
         
@@ -5345,13 +5553,13 @@ Returns the maximum value present in a given expression
 
     
 - 
-    **column**: strThe column name to calculate the maximum value of. 
+    **column** : strThe column name to calculate the maximum value of.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5392,10 +5600,13 @@ rel = duckdb_conn.sql("""
 ```
 #### 
         
-        `mean`
+        [`mean`](#mean)
+        
+      
 
     
-      `mean`##### 
+      `mean`
+##### 
         
         [Signature](#signature-62)
         
@@ -5422,13 +5633,13 @@ Computes the average of a given expression
 
     
 - 
-    **column**: strThe column name to calculate the mean value of. 
+    **column** : strThe column name to calculate the mean value of.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5469,10 +5680,13 @@ rel.mean(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `median`
+        [`median`](#median)
+        
+      
 
     
-      `median`##### 
+      `median`
+##### 
         
         [Signature](#signature-63)
         
@@ -5499,13 +5713,13 @@ Computes the median over all values present in a given expression
 
     
 - 
-    **column**: strThe column name to calculate the median value of. 
+    **column** : strThe column name to calculate the median value of.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5546,10 +5760,13 @@ rel.median(column="value", groups="description", projected_columns="description"
 ```
 #### 
         
-        `min`
+        [`min`](#min)
+        
+      
 
     
-      `min`##### 
+      `min`
+##### 
         
         [Signature](#signature-64)
         
@@ -5576,13 +5793,13 @@ Returns the minimum value present in a given expression
 
     
 - 
-    **column**: strThe column name to calculate the min value of. 
+    **column** : strThe column name to calculate the min value of.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5623,10 +5840,13 @@ rel.min(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `mode`
+        [`mode`](#mode)
+        
+      
 
     
-      `mode`##### 
+      `mode`
+##### 
         
         [Signature](#signature-65)
         
@@ -5653,13 +5873,13 @@ Computes the mode over all values present in a given expression
 
     
 - 
-    **column**: strThe column name to calculate the mode (most frequent value) of. 
+    **column** : strThe column name to calculate the mode (most frequent value) of.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5700,10 +5920,13 @@ rel.mode(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `n_tile`
+        [`n_tile`](#n_tile)
+        
+      
 
     
-      `n_tile`##### 
+      `n_tile`
+##### 
         
         [Signature](#signature-66)
         
@@ -5730,11 +5953,11 @@ Divides the partition as equally as possible into num_buckets
 
     
 - 
-    **window_spec**: strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **num_buckets**: intThe number of buckets to divide the rows into. 
+    **num_buckets** : intThe number of buckets to divide the rows into.
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5782,10 +6005,13 @@ rel.n_tile(window_spec="over (partition by description)", num_buckets=2, project
 ```
 #### 
         
-        `nth_value`
+        [`nth_value`](#nth_value)
+        
+      
 
     
-      `nth_value`##### 
+      `nth_value`
+##### 
         
         [Signature](#signature-67)
         
@@ -5812,15 +6038,15 @@ Computes the nth value within the partition
 
     
 - 
-    **column**: strThe column name from which to retrieve the nth value within the window. 
+    **column** : strThe column name from which to retrieve the nth value within the window.
 - 
-    **window_spec**: strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **offset**: intThe position of the value to retrieve within the window (1-based index). 
+    **offset** : intThe position of the value to retrieve within the window (1-based index).
 - 
-    **ignore_nulls**: bool, default: FalseWhether to ignore NULL values when computing the nth value. 
+    **ignore_nulls** : bool, default: FalseWhether to ignore NULL values when computing the nth value.
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5868,10 +6094,13 @@ rel.nth_value(column="value", window_spec="over (partition by description)", pro
 ```
 #### 
         
-        `percent_rank`
+        [`percent_rank`](#percent_rank)
+        
+      
 
     
-      `percent_rank`##### 
+      `percent_rank`
+##### 
         
         [Signature](#signature-68)
         
@@ -5898,9 +6127,9 @@ Computes the relative rank within the partition
 
     
 - 
-    **window_spec**: strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -5948,10 +6177,13 @@ rel.percent_rank(window_spec="over (partition by description order by value)", p
 ```
 #### 
         
-        `product`
+        [`product`](#product)
+        
+      
 
     
-      `product`##### 
+      `product`
+##### 
         
         [Signature](#signature-69)
         
@@ -5978,13 +6210,13 @@ Returns the product of all values present in a given expression
 
     
 - 
-    **column**: strThe column name to calculate the product of. 
+    **column** : strThe column name to calculate the product of.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6025,10 +6257,13 @@ rel.product(column="value", groups="description", projected_columns="description
 ```
 #### 
         
-        `quantile`
+        [`quantile`](#quantile)
+        
+      
 
     
-      `quantile`##### 
+      `quantile`
+##### 
         
         [Signature](#signature-70)
         
@@ -6055,15 +6290,15 @@ Computes the exact quantile value for a given expression
 
     
 - 
-    **column**: strThe column name to compute the quantile for. 
+    **column** : strThe column name to compute the quantile for.
 - 
-    **q**: object, default: 0.5The quantile value to compute (e.g., 0.5 for median). 
+    **q** : object, default: 0.5The quantile value to compute (e.g., 0.5 for median).
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6104,10 +6339,13 @@ rel.quantile(column="value", groups="description", projected_columns="descriptio
 ```
 #### 
         
-        `quantile_cont`
+        [`quantile_cont`](#quantile_cont)
+        
+      
 
     
-      `quantile_cont`##### 
+      `quantile_cont`
+##### 
         
         [Signature](#signature-71)
         
@@ -6134,15 +6372,15 @@ Computes the interpolated quantile value for a given expression
 
     
 - 
-    **column**: strThe column name to compute the continuous quantile for. 
+    **column** : strThe column name to compute the continuous quantile for.
 - 
-    **q**: object, default: 0.5The quantile value to compute (e.g., 0.5 for median). 
+    **q** : object, default: 0.5The quantile value to compute (e.g., 0.5 for median).
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6183,10 +6421,13 @@ rel.quantile_cont(column="value", groups="description", projected_columns="descr
 ```
 #### 
         
-        `quantile_disc`
+        [`quantile_disc`](#quantile_disc)
+        
+      
 
     
-      `quantile_disc`##### 
+      `quantile_disc`
+##### 
         
         [Signature](#signature-72)
         
@@ -6213,15 +6454,15 @@ Computes the exact quantile value for a given expression
 
     
 - 
-    **column**: strThe column name to compute the discrete quantile for. 
+    **column** : strThe column name to compute the discrete quantile for.
 - 
-    **q**: object, default: 0.5The quantile value to compute (e.g., 0.5 for median). 
+    **q** : object, default: 0.5The quantile value to compute (e.g., 0.5 for median).
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6262,10 +6503,13 @@ rel.quantile_disc(column="value", groups="description", projected_columns="descr
 ```
 #### 
         
-        `rank`
+        [`rank`](#rank)
+        
+      
 
     
-      `rank`##### 
+      `rank`
+##### 
         
         [Signature](#signature-73)
         
@@ -6292,9 +6536,9 @@ Computes the rank within the partition
 
     
 - 
-    **window_spec**: strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6342,10 +6586,13 @@ rel.rank(window_spec="over (partition by description order by value)", projected
 ```
 #### 
         
-        `rank_dense`
+        [`rank_dense`](#rank_dense)
+        
+      
 
     
-      `rank_dense`##### 
+      `rank_dense`
+##### 
         
         [Signature](#signature-74)
         
@@ -6374,9 +6621,9 @@ Computes the dense rank within the partition
 
     
 - 
-    **window_spec**: strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6424,10 +6671,13 @@ rel = duckdb_conn.sql("""
 ```
 #### 
         
-        `row_number`
+        [`row_number`](#row_number)
+        
+      
 
     
-      `row_number`##### 
+      `row_number`
+##### 
         
         [Signature](#signature-75)
         
@@ -6454,9 +6704,9 @@ Computes the row number within the partition
 
     
 - 
-    **window_spec**: strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : strOptional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6504,10 +6754,13 @@ rel.row_number(window_spec="over (partition by description order by value)", pro
 ```
 #### 
         
-        `select_dtypes`
+        [`select_dtypes`](#select_dtypes)
+        
+      
 
     
-      `select_dtypes`##### 
+      `select_dtypes`
+##### 
         
         [Signature](#signature-76)
         
@@ -6536,7 +6789,7 @@ Select columns from the relation, by filtering based on type(s)
 
     
 - 
-    **types**: objectData type(s) to select columns by. Can be a single type or a collection of types. 
+    **types** : objectData type(s) to select columns by. Can be a single type or a collection of types.
 
 ##### 
         
@@ -6577,10 +6830,13 @@ rel.select_dtypes(types=[duckdb.sqltypes.VARCHAR]).distinct()
 ```
 #### 
         
-        `select_types`
+        [`select_types`](#select_types)
+        
+      
 
     
-      `select_types`##### 
+      `select_types`
+##### 
         
         [Signature](#signature-77)
         
@@ -6609,7 +6865,7 @@ Select columns from the relation, by filtering based on type(s)
 
     
 - 
-    **types**: objectData type(s) to select columns by. Can be a single type or a collection of types. 
+    **types** : objectData type(s) to select columns by. Can be a single type or a collection of types.
 
 ##### 
         
@@ -6650,10 +6906,13 @@ rel.select_types(types=[duckdb.sqltypes.VARCHAR]).distinct()
 ```
 #### 
         
-        `std`
+        [`std`](#std)
+        
+      
 
     
-      `std`##### 
+      `std`
+##### 
         
         [Signature](#signature-78)
         
@@ -6672,9 +6931,9 @@ std(self: _duckdb.DuckDBPyRelation, expression: str, groups: str = '', window_sp
     
 Computes the sample standard deviation for a given expression
 
-**Aliases**: [ stddev](#stddev), 
+**Aliases**: [`stddev`](#stddev), `stddev_samp`
 
-`stddev_samp`##### 
+##### 
         
         [Parameters](#parameters-73)
         
@@ -6682,13 +6941,13 @@ Computes the sample standard deviation for a given expression
 
     
 - 
-    **column**: strThe column name to calculate the standard deviation for. 
+    **column** : strThe column name to calculate the standard deviation for.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6729,10 +6988,13 @@ rel.std(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `stddev`
+        [`stddev`](#stddev)
+        
+      
 
     
-      `stddev`##### 
+      `stddev`
+##### 
         
         [Signature](#signature-79)
         
@@ -6751,9 +7013,9 @@ stddev(self: _duckdb.DuckDBPyRelation, expression: str, groups: str = '', window
     
 Computes the sample standard deviation for a given expression
 
-**Aliases**: [ std](#std), 
+**Aliases**: [`std`](#std), `stddev_samp`
 
-`stddev_samp`##### 
+##### 
         
         [Parameters](#parameters-74)
         
@@ -6761,13 +7023,13 @@ Computes the sample standard deviation for a given expression
 
     
 - 
-    **column**: strThe column name to calculate the standard deviation for. 
+    **column** : strThe column name to calculate the standard deviation for.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6808,10 +7070,13 @@ rel.stddev(column="value", groups="description", projected_columns="description"
 ```
 #### 
         
-        `stddev_pop`
+        [`stddev_pop`](#stddev_pop)
+        
+      
 
     
-      `stddev_pop`##### 
+      `stddev_pop`
+##### 
         
         [Signature](#signature-80)
         
@@ -6838,13 +7103,13 @@ Computes the population standard deviation for a given expression
 
     
 - 
-    **column**: strThe column name to calculate the standard deviation for. 
+    **column** : strThe column name to calculate the standard deviation for.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6885,10 +7150,13 @@ rel.stddev_pop(column="value", groups="description", projected_columns="descript
 ```
 #### 
         
-        `stddev_samp`
+        [`stddev_samp`](#stddev_samp)
+        
+      
 
     
-      `stddev_samp`##### 
+      `stddev_samp`
+##### 
         
         [Signature](#signature-81)
         
@@ -6915,13 +7183,13 @@ Computes the sample standard deviation for a given expression
 
     
 - 
-    **column**: strThe column name to calculate the standard deviation for. 
+    **column** : strThe column name to calculate the standard deviation for.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -6962,10 +7230,13 @@ rel.stddev_samp(column="value", groups="description", projected_columns="descrip
 ```
 #### 
         
-        `string_agg`
+        [`string_agg`](#string_agg)
+        
+      
 
     
-      `string_agg`##### 
+      `string_agg`
+##### 
         
         [Signature](#signature-82)
         
@@ -6992,15 +7263,15 @@ Concatenates the values present in a given expression with a separator
 
     
 - 
-    **column**: strThe column name to concatenate values from. 
+    **column** : strThe column name to concatenate values from.
 - 
-    **sep**: str, default: ','Separator string to use between concatenated values. 
+    **sep** : str, default: ','Separator string to use between concatenated values.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -7041,10 +7312,13 @@ rel.string_agg(column="value", sep=",", groups="description", projected_columns=
 ```
 #### 
         
-        `sum`
+        [`sum`](#sum)
+        
+      
 
     
-      `sum`##### 
+      `sum`
+##### 
         
         [Signature](#signature-83)
         
@@ -7071,13 +7345,13 @@ Computes the sum of all values present in a given expression
 
     
 - 
-    **column**: strThe column name to calculate the sum for. 
+    **column** : strThe column name to calculate the sum for.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -7118,10 +7392,13 @@ rel.sum(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `unique`
+        [`unique`](#unique)
+        
+      
 
     
-      `unique`##### 
+      `unique`
+##### 
         
         [Signature](#signature-84)
         
@@ -7148,7 +7425,7 @@ Returns the distinct values in a column.
 
     
 - 
-    **unique_aggr**: strThe column to get the distinct values for. 
+    **unique_aggr** : strThe column to get the distinct values for.
 
 ##### 
         
@@ -7189,10 +7466,13 @@ rel.unique(unique_aggr="description")
 ```
 #### 
         
-        `value_counts`
+        [`value_counts`](#value_counts)
+        
+      
 
     
-      `value_counts`##### 
+      `value_counts`
+##### 
         
         [Signature](#signature-85)
         
@@ -7219,9 +7499,9 @@ Computes the number of elements present in a given expression, also projecting t
 
     
 - 
-    **column**: strThe column name to count values from. 
+    **column** : strThe column name to count values from.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 
 ##### 
         
@@ -7262,10 +7542,13 @@ rel.value_counts(column="description", groups="description")
 ```
 #### 
         
-        `var`
+        [`var`](#var)
+        
+      
 
     
-      `var`##### 
+      `var`
+##### 
         
         [Signature](#signature-86)
         
@@ -7292,13 +7575,13 @@ Computes the sample variance for a given expression
 
     
 - 
-    **column**: strThe column name to calculate the sample variance for. 
+    **column** : strThe column name to calculate the sample variance for.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -7339,10 +7622,13 @@ rel.var(column="value", groups="description", projected_columns="description")
 ```
 #### 
         
-        `var_pop`
+        [`var_pop`](#var_pop)
+        
+      
 
     
-      `var_pop`##### 
+      `var_pop`
+##### 
         
         [Signature](#signature-87)
         
@@ -7369,13 +7655,13 @@ Computes the population variance for a given expression
 
     
 - 
-    **column**: strThe column name to calculate the population variance for. 
+    **column** : strThe column name to calculate the population variance for.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -7416,10 +7702,13 @@ rel.var_pop(column="value", groups="description", projected_columns="description
 ```
 #### 
         
-        `var_samp`
+        [`var_samp`](#var_samp)
+        
+      
 
     
-      `var_samp`##### 
+      `var_samp`
+##### 
         
         [Signature](#signature-88)
         
@@ -7446,13 +7735,13 @@ Computes the sample variance for a given expression
 
     
 - 
-    **column**: strThe column name to calculate the sample variance for. 
+    **column** : strThe column name to calculate the sample variance for.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -7493,10 +7782,13 @@ rel.var_samp(column="value", groups="description", projected_columns="descriptio
 ```
 #### 
         
-        `variance`
+        [`variance`](#variance)
+        
+      
 
     
-      `variance`##### 
+      `variance`
+##### 
         
         [Signature](#signature-89)
         
@@ -7523,13 +7815,13 @@ Computes the sample variance for a given expression
 
     
 - 
-    **column**: strThe column name to calculate the sample variance for. 
+    **column** : strThe column name to calculate the sample variance for.
 - 
-    **groups**: str, default: ''Comma-separated list of columns to include in the `group by`.
+    **groups** : str, default: ''Comma-separated list of columns to include in the `group by` .
 - 
-    **window_spec**: str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
+    **window_spec** : str, default: ''Optional window specification for window functions, provided as `over (partition by ... order by ...)`
 - 
-    **projected_columns**: str, default: ''Comma-separated list of columns to include in the result. 
+    **projected_columns** : str, default: ''Comma-separated list of columns to include in the result.
 
 ##### 
         
@@ -7579,40 +7871,43 @@ This section contains the functions which will trigger an SQL execution and retr
 
 | Name | Description | 
 |---|---|
-| `arrow` | Alias of to_arrow_reader(). We recommend using to_arrow_reader() instead. | 
-| `close` | Closes the result | 
-| `create` | Creates a new table named table_name with the contents of the relation object | 
-| `create_view` | Creates a view named view_name that refers to the relation object | 
-| `df` | Execute and fetch all rows as a pandas DataFrame | 
-| `execute` | Transform the relation into a result set | 
-| `fetch_arrow_reader` | Execute and return an Arrow Record Batch Reader that yields all rows | 
-| `fetch_arrow_table` | Execute and fetch all rows as an Arrow Table | 
-| `fetch_df_chunk` | Execute and fetch a chunk of the rows | 
-| `fetch_record_batch` | Execute and return an Arrow Record Batch Reader that yields all rows | 
-| `fetchall` | Execute and fetch all rows as a list of tuples | 
-| `fetchdf` | Execute and fetch all rows as a pandas DataFrame | 
-| `fetchmany` | Execute and fetch the next set of rows as a list of tuples | 
-| `fetchnumpy` | Execute and fetch all rows as a Python dict mapping each column to one numpy arrays | 
-| `fetchone` | Execute and fetch a single row as a tuple | 
-| `pl` | Execute and fetch all rows as a Polars DataFrame | 
-| `tf` | Fetch a result as dict of TensorFlow Tensors | 
-| `to_arrow_reader` | Execute and return an Arrow Record Batch Reader that yields all rows | 
-| `to_arrow_table` | Execute and fetch all rows as an Arrow Table | 
-| `to_csv` | Write the relation object to a CSV file in 'file_name' | 
-| `to_df` | Execute and fetch all rows as a pandas DataFrame | 
-| `to_parquet` | Write the relation object to a Parquet file in 'file_name' | 
-| `to_table` | Creates a new table named table_name with the contents of the relation object | 
-| `to_view` | Creates a view named view_name that refers to the relation object | 
-| `torch` | Fetch a result as dict of PyTorch Tensors | 
-| `write_csv` | Write the relation object to a CSV file in 'file_name' | 
-| `write_parquet` | Write the relation object to a Parquet file in 'file_name' | 
+| [`arrow`](#arrow) | Alias of to_arrow_reader(). We recommend using to_arrow_reader() instead. | 
+| [`close`](#close) | Closes the result | 
+| [`create`](#create) | Creates a new table named table_name with the contents of the relation object | 
+| [`create_view`](#create_view) | Creates a view named view_name that refers to the relation object | 
+| [`df`](#df) | Execute and fetch all rows as a pandas DataFrame | 
+| [`execute`](#execute) | Transform the relation into a result set | 
+| [`fetch_arrow_reader`](#fetch_arrow_reader) | Execute and return an Arrow Record Batch Reader that yields all rows | 
+| [`fetch_arrow_table`](#fetch_arrow_table) | Execute and fetch all rows as an Arrow Table | 
+| [`fetch_df_chunk`](#fetch_df_chunk) | Execute and fetch a chunk of the rows | 
+| [`fetch_record_batch`](#fetch_record_batch) | Execute and return an Arrow Record Batch Reader that yields all rows | 
+| [`fetchall`](#fetchall) | Execute and fetch all rows as a list of tuples | 
+| [`fetchdf`](#fetchdf) | Execute and fetch all rows as a pandas DataFrame | 
+| [`fetchmany`](#fetchmany) | Execute and fetch the next set of rows as a list of tuples | 
+| [`fetchnumpy`](#fetchnumpy) | Execute and fetch all rows as a Python dict mapping each column to one numpy arrays | 
+| [`fetchone`](#fetchone) | Execute and fetch a single row as a tuple | 
+| [`pl`](#pl) | Execute and fetch all rows as a Polars DataFrame | 
+| [`tf`](#tf) | Fetch a result as dict of TensorFlow Tensors | 
+| [`to_arrow_reader`](#to_arrow_reader) | Execute and return an Arrow Record Batch Reader that yields all rows | 
+| [`to_arrow_table`](#to_arrow_table) | Execute and fetch all rows as an Arrow Table | 
+| [`to_csv`](#to_csv) | Write the relation object to a CSV file in 'file_name' | 
+| [`to_df`](#to_df) | Execute and fetch all rows as a pandas DataFrame | 
+| [`to_parquet`](#to_parquet) | Write the relation object to a Parquet file in 'file_name' | 
+| [`to_table`](#to_table) | Creates a new table named table_name with the contents of the relation object | 
+| [`to_view`](#to_view) | Creates a view named view_name that refers to the relation object | 
+| [`torch`](#torch) | Fetch a result as dict of PyTorch Tensors | 
+| [`write_csv`](#write_csv) | Write the relation object to a CSV file in 'file_name' | 
+| [`write_parquet`](#write_parquet) | Write the relation object to a Parquet file in 'file_name' | 
 
 #### 
         
-        `arrow`
+        [`arrow`](#arrow)
+        
+      
 
     
-      `arrow`##### 
+      `arrow`
+##### 
         
         [Signature](#signature-90)
         
@@ -7631,9 +7926,7 @@ arrow(self: _duckdb.DuckDBPyRelation, batch_size: typing.SupportsInt = 1000000) 
     
 Alias of to_arrow_reader(). We recommend using to_arrow_reader() instead.
 
-We recommend using
-
-[instead.](#to_arrow_reader)`to_arrow_reader()`
+  We recommend using [`to_arrow_reader()`](#to_arrow_reader) instead.
 
 **Aliases**: `to_arrow_reader`
 
@@ -7645,7 +7938,7 @@ We recommend using
 
     
 - 
-    **batch_size**: int, default: 1000000The batch size for fetching the data. 
+    **batch_size** : int, default: 1000000The batch size for fetching the data.
 
 ##### 
         
@@ -7690,10 +7983,13 @@ created_timestamp: [2025-04-10 09:25:51.259000Z]
 ```
 #### 
         
-        `close`
+        [`close`](#close)
+        
+      
 
     
-      `close`##### 
+      `close`
+##### 
         
         [Signature](#signature-91)
         
@@ -7714,10 +8010,13 @@ Closes the result
 
 #### 
         
-        `create`
+        [`create`](#create)
+        
+      
 
     
-      `create`##### 
+      `create`
+##### 
         
         [Signature](#signature-92)
         
@@ -7746,7 +8045,7 @@ Creates a new table named table_name with the contents of the relation object
 
     
 - 
-    **table_name**: strThe name of the table to be created. There shouldn't be any other table with the same name. 
+    **table_name** : strThe name of the table to be created. There shouldn't be any other table with the same name.
 
 ##### 
         
@@ -7787,10 +8086,13 @@ duckdb_conn.table("table_code_example").limit(1)
 ```
 #### 
         
-        `create_view`
+        [`create_view`](#create_view)
+        
+      
 
     
-      `create_view`##### 
+      `create_view`
+##### 
         
         [Signature](#signature-93)
         
@@ -7819,9 +8121,9 @@ Creates a view named view_name that refers to the relation object
 
     
 - 
-    **view_name**: strThe name of the view to be created. 
+    **view_name** : strThe name of the view to be created.
 - 
-    **replace**: bool, default: TrueIf the view should be created with `CREATE OR REPLACE`. When set to`False`, there shouldn't be another view with the same`view_name`.
+    **replace** : bool, default: TrueIf the view should be created with `CREATE OR REPLACE` . When set to`False` , there shouldn't be another view with the same`view_name` .
 
 ##### 
         
@@ -7862,10 +8164,13 @@ duckdb_conn.table("view_code_example").limit(1)
 ```
 #### 
         
-        `df`
+        [`df`](#df)
+        
+      
 
     
-      `df`##### 
+      `df`
+##### 
         
         [Signature](#signature-94)
         
@@ -7892,7 +8197,7 @@ Execute and fetch all rows as a pandas DataFrame
 
     
 - 
-    **date_as_object**: bool, default: FalseIf the date columns should be interpreted as Python date objects. 
+    **date_as_object** : bool, default: FalseIf the date columns should be interpreted as Python date objects.
 
 ##### 
         
@@ -7931,10 +8236,13 @@ rel.df()
 ```
 #### 
         
-        `execute`
+        [`execute`](#execute)
+        
+      
 
     
-      `execute`##### 
+      `execute`
+##### 
         
         [Signature](#signature-95)
         
@@ -7992,10 +8300,13 @@ rel.execute()
 ```
 #### 
         
-        `fetch_arrow_reader`
+        [`fetch_arrow_reader`](#fetch_arrow_reader)
+        
+      
 
     
-      `fetch_arrow_reader`##### 
+      `fetch_arrow_reader`
+##### 
         
         [Signature](#signature-96)
         
@@ -8014,9 +8325,7 @@ fetch_arrow_reader(self: object, batch_size: typing.SupportsInt = 1000000) -> ob
     
 Execute and return an Arrow Record Batch Reader that yields all rows
 
-Deprecated
-
-`fetch_arrow_reader()`is deprecated. Use[instead.](#to_arrow_reader)`to_arrow_reader()`
+  Deprecated `fetch_arrow_reader()` is deprecated. Use [`to_arrow_reader()`](#to_arrow_reader) instead.
 
 ##### 
         
@@ -8026,7 +8335,7 @@ Deprecated
 
     
 - 
-    **batch_size**: int, default: 1000000The batch size for fetching the data. 
+    **batch_size** : int, default: 1000000The batch size for fetching the data.
 
 ##### 
         
@@ -8071,10 +8380,13 @@ created_timestamp: [2025-04-10 09:25:51.259000Z]
 ```
 #### 
         
-        `fetch_arrow_table`
+        [`fetch_arrow_table`](#fetch_arrow_table)
+        
+      
 
     
-      `fetch_arrow_table`##### 
+      `fetch_arrow_table`
+##### 
         
         [Signature](#signature-97)
         
@@ -8093,13 +8405,11 @@ fetch_arrow_table(self: object, batch_size: typing.SupportsInt = 1000000) -> obj
     
 Execute and fetch all rows as an Arrow Table
 
-Deprecated
+  Deprecated `fetch_arrow_table()` is deprecated. Use [`to_arrow_table()`](#to_arrow_table) instead.
 
-`fetch_arrow_table()`is deprecated. Use[instead.](#to_arrow_table)`to_arrow_table()`
+**Aliases**: [`arrow`](#arrow), `to_arrow_table`
 
-**Aliases**: [ arrow](#arrow), 
-
-`to_arrow_table`##### 
+##### 
         
         [Parameters](#parameters-90)
         
@@ -8107,7 +8417,7 @@ Deprecated
 
     
 - 
-    **batch_size**: int, default: 1000000The batch size for fetching the data. 
+    **batch_size** : int, default: 1000000The batch size for fetching the data.
 
 ##### 
         
@@ -8151,10 +8461,13 @@ created_timestamp: [[2025-04-10 09:24:51.259000Z,2025-04-10 09:25:51.259000Z,202
 ```
 #### 
         
-        `fetch_df_chunk`
+        [`fetch_df_chunk`](#fetch_df_chunk)
+        
+      
 
     
-      `fetch_df_chunk`##### 
+      `fetch_df_chunk`
+##### 
         
         [Signature](#signature-98)
         
@@ -8181,9 +8494,9 @@ Execute and fetch a chunk of the rows
 
     
 - 
-    **vectors_per_chunk**: int, default: 1Number of data chunks to be processed before converting to dataframe. 
+    **vectors_per_chunk** : int, default: 1Number of data chunks to be processed before converting to dataframe.
 - 
-    **date_as_object**: bool, default: FalseIf the date columns should be interpreted as Python date objects. 
+    **date_as_object** : bool, default: FalseIf the date columns should be interpreted as Python date objects.
 
 ##### 
         
@@ -8222,10 +8535,13 @@ rel.fetch_df_chunk()
 ```
 #### 
         
-        `fetch_record_batch`
+        [`fetch_record_batch`](#fetch_record_batch)
+        
+      
 
     
-      `fetch_record_batch`##### 
+      `fetch_record_batch`
+##### 
         
         [Signature](#signature-99)
         
@@ -8244,9 +8560,7 @@ fetch_record_batch(self: object, rows_per_batch: typing.SupportsInt = 1000000) -
     
 Execute and return an Arrow Record Batch Reader that yields all rows
 
-Deprecated
-
-`fetch_record_batch()`is deprecated. Use[instead.](#to_arrow_reader)`to_arrow_reader()`
+  Deprecated `fetch_record_batch()` is deprecated. Use [`to_arrow_reader()`](#to_arrow_reader) instead.
 
 **Aliases**: `record_batch`
 
@@ -8258,7 +8572,7 @@ Deprecated
 
     
 - 
-    **rows_per_batch**: int, default: 1000000The number of rows per batch. 
+    **rows_per_batch** : int, default: 1000000The number of rows per batch.
 
 ##### 
         
@@ -8303,10 +8617,13 @@ created_timestamp: [2025-04-10 09:52:55.249000Z]
 ```
 #### 
         
-        `fetchall`
+        [`fetchall`](#fetchall)
+        
+      
 
     
-      `fetchall`##### 
+      `fetchall`
+##### 
         
         [Signature](#signature-100)
         
@@ -8361,10 +8678,13 @@ rel.limit(1).fetchall()
 ```
 #### 
         
-        `fetchdf`
+        [`fetchdf`](#fetchdf)
+        
+      
 
     
-      `fetchdf`##### 
+      `fetchdf`
+##### 
         
         [Signature](#signature-101)
         
@@ -8391,7 +8711,7 @@ Execute and fetch all rows as a pandas DataFrame
 
     
 - 
-    **date_as_object**: bool, default: FalseIf the date columns should be interpreted as Python date objects. 
+    **date_as_object** : bool, default: FalseIf the date columns should be interpreted as Python date objects.
 
 ##### 
         
@@ -8430,10 +8750,13 @@ rel.fetchdf()
 ```
 #### 
         
-        `fetchmany`
+        [`fetchmany`](#fetchmany)
+        
+      
 
     
-      `fetchmany`##### 
+      `fetchmany`
+##### 
         
         [Signature](#signature-102)
         
@@ -8452,9 +8775,26 @@ fetchmany(self: _duckdb.DuckDBPyRelation, size: typing.SupportsInt = 1) -> list
     
 Execute and fetch the next set of rows as a list of tuples
 
-Warning Executing any operation during the retrieval of the data from an
+  Warning Executing any operation during the retrieval of the data from an [aggregate](#aggregate) relation,
+will close the result set.
 
-[aggregate](#aggregate)relation, will close the result set.`import duckdb duckdb_conn = duckdb.connect() rel = duckdb_conn.sql(""" select gen_random_uuid() as id, concat('value is ', case when mod(range,2)=0 then 'even' else 'uneven' end) as description, range as value, now() + concat(range,' ', 'minutes')::interval as created_timestamp from range(1, 10) """ ) agg_rel = rel.aggregate("value") while res := agg_rel.fetchmany(size=1): print(res) rel.show()`
+```
+import duckdb
+duckdb_conn = duckdb.connect()
+rel = duckdb_conn.sql("""
+      select 
+          gen_random_uuid() as id, 
+          concat('value is ', case when mod(range,2)=0 then 'even' else 'uneven' end) as description,
+          range as value, 
+          now() + concat(range,' ', 'minutes')::interval as created_timestamp
+      from range(1, 10)
+   """
+)
+agg_rel = rel.aggregate("value")
+while res := agg_rel.fetchmany(size=1):
+   print(res)
+   rel.show()
+```
 
 ##### 
         
@@ -8464,7 +8804,7 @@ Warning Executing any operation during the retrieval of the data from an
 
     
 - 
-    **size**: int, default: 1The number of records to be fetched. 
+    **size** : int, default: 1The number of records to be fetched.
 
 ##### 
         
@@ -8508,10 +8848,13 @@ while res := rel.fetchmany(size=1):
 ```
 #### 
         
-        `fetchnumpy`
+        [`fetchnumpy`](#fetchnumpy)
+        
+      
 
     
-      `fetchnumpy`##### 
+      `fetchnumpy`
+##### 
         
         [Signature](#signature-103)
         
@@ -8581,10 +8924,13 @@ rel.fetchnumpy()
 ```
 #### 
         
-        `fetchone`
+        [`fetchone`](#fetchone)
+        
+      
 
     
-      `fetchone`##### 
+      `fetchone`
+##### 
         
         [Signature](#signature-104)
         
@@ -8603,9 +8949,26 @@ fetchone(self: _duckdb.DuckDBPyRelation) -> typing.Optional[tuple]
     
 Execute and fetch a single row as a tuple
 
-Warning Executing any operation during the retrieval of the data from an
+  Warning Executing any operation during the retrieval of the data from an [aggregate](#aggregate) relation,
+will close the result set.
 
-[aggregate](#aggregate)relation, will close the result set.`import duckdb duckdb_conn = duckdb.connect() rel = duckdb_conn.sql(""" select gen_random_uuid() as id, concat('value is ', case when mod(range,2)=0 then 'even' else 'uneven' end) as description, range as value, now() + concat(range,' ', 'minutes')::interval as created_timestamp from range(1, 10) """ ) agg_rel = rel.aggregate("value") while res := agg_rel.fetchone(): print(res) rel.show()`
+```
+import duckdb
+duckdb_conn = duckdb.connect()
+rel = duckdb_conn.sql("""
+      select 
+          gen_random_uuid() as id, 
+          concat('value is ', case when mod(range,2)=0 then 'even' else 'uneven' end) as description,
+          range as value, 
+          now() + concat(range,' ', 'minutes')::interval as created_timestamp
+      from range(1, 10)
+   """
+)
+agg_rel = rel.aggregate("value")
+while res := agg_rel.fetchone():
+   print(res)
+   rel.show()
+```
 
 ##### 
         
@@ -8649,10 +9012,13 @@ while res := rel.fetchone():
 ```
 #### 
         
-        `pl`
+        [`pl`](#pl)
+        
+      
 
     
-      `pl`##### 
+      `pl`
+##### 
         
         [Signature](#signature-105)
         
@@ -8679,7 +9045,7 @@ Execute and fetch all rows as a Polars DataFrame
 
     
 - 
-    **batch_size**: int, default: 1000000The number of records to be fetched per batch. 
+    **batch_size** : int, default: 1000000The number of records to be fetched per batch.
 
 ##### 
         
@@ -8720,10 +9086,13 @@ shape: (9, 4)
 ```
 #### 
         
-        `tf`
+        [`tf`](#tf)
+        
+      
 
     
-      `tf`##### 
+      `tf`
+##### 
         
         [Signature](#signature-106)
         
@@ -8780,10 +9149,13 @@ rel.select("description, value").tf()
 ```
 #### 
         
-        `to_arrow_reader`
+        [`to_arrow_reader`](#to_arrow_reader)
+        
+      
 
     
-      `to_arrow_reader`##### 
+      `to_arrow_reader`
+##### 
         
         [Signature](#signature-107)
         
@@ -8812,7 +9184,7 @@ Execute and return an Arrow Record Batch Reader that yields all rows
 
     
 - 
-    **batch_size**: int, default: 1000000The batch size for fetching the data. 
+    **batch_size** : int, default: 1000000The batch size for fetching the data.
 
 ##### 
         
@@ -8857,10 +9229,13 @@ created_timestamp: [2025-04-10 09:25:51.259000Z]
 ```
 #### 
         
-        `to_arrow_table`
+        [`to_arrow_table`](#to_arrow_table)
+        
+      
 
     
-      `to_arrow_table`##### 
+      `to_arrow_table`
+##### 
         
         [Signature](#signature-108)
         
@@ -8889,7 +9264,7 @@ Execute and fetch all rows as an Arrow Table
 
     
 - 
-    **batch_size**: int, default: 1000000The batch size for fetching the data. 
+    **batch_size** : int, default: 1000000The batch size for fetching the data.
 
 ##### 
         
@@ -8933,10 +9308,13 @@ created_timestamp: [[2025-04-10 09:54:24.015000Z,2025-04-10 09:55:24.015000Z,202
 ```
 #### 
         
-        `to_csv`
+        [`to_csv`](#to_csv)
+        
+      
 
     
-      `to_csv`##### 
+      `to_csv`
+##### 
         
         [Signature](#signature-109)
         
@@ -8965,37 +9343,37 @@ Write the relation object to a CSV file in 'file_name'
 
     
 - 
-    **file_name**: strThe name of the output CSV file. 
+    **file_name** : strThe name of the output CSV file.
 - 
-    **sep**: str, default: ','Field delimiter for the output file. 
+    **sep** : str, default: ','Field delimiter for the output file.
 - 
-    **na_rep**: str, default: ''Missing data representation. 
+    **na_rep** : str, default: ''Missing data representation.
 - 
-    **header**: bool, default: TrueWhether to write column headers. 
+    **header** : bool, default: TrueWhether to write column headers.
 - 
-    **quotechar**: str, default: '"'Character used to quote fields containing special characters. 
+    **quotechar** : str, default: '"'Character used to quote fields containing special characters.
 - 
-    **escapechar**: str, default: NoneCharacter used to escape the delimiter if quoting is set to QUOTE_NONE. 
+    **escapechar** : str, default: NoneCharacter used to escape the delimiter if quoting is set to QUOTE_NONE.
 - 
-    **date_format**: str, default: NoneCustom format string for DATE values. 
+    **date_format** : str, default: NoneCustom format string for DATE values.
 - 
-    **timestamp_format**: str, default: NoneCustom format string for TIMESTAMP values. 
+    **timestamp_format** : str, default: NoneCustom format string for TIMESTAMP values.
 - 
-    **quoting**: int, default: csv.QUOTE_MINIMALControl field quoting behavior (e.g., QUOTE_MINIMAL, QUOTE_ALL). 
+    **quoting** : int, default: csv.QUOTE_MINIMALControl field quoting behavior (e.g., QUOTE_MINIMAL, QUOTE_ALL).
 - 
-    **encoding**: str, default: 'utf-8'Character encoding for the output file. 
+    **encoding** : str, default: 'utf-8'Character encoding for the output file.
 - 
-    **compression**: str, default: autoCompression type (e.g., 'gzip', 'bz2', 'zstd'). 
+    **compression** : str, default: autoCompression type (e.g., 'gzip', 'bz2', 'zstd').
 - 
-    **overwrite**: bool, default: FalseWhen true, all existing files inside targeted directories will be removed (not supported on remote filesystems). Only has an effect when used with `partition_by`.
+    **overwrite** : bool, default: FalseWhen true, all existing files inside targeted directories will be removed (not supported on remote filesystems). Only has an effect when used with `partition_by` .
 - 
-    **per_thread_output**: bool, default: FalseWhen `true`, write one file per thread, rather than one file in total. This allows for faster parallel writing.
+    **per_thread_output** : bool, default: FalseWhen `true` , write one file per thread, rather than one file in total. This allows for faster parallel writing.
 - 
-    **use_tmp_file**: bool, default: FalseWrite to a temporary file before renaming to final name to avoid partial writes. 
+    **use_tmp_file** : bool, default: FalseWrite to a temporary file before renaming to final name to avoid partial writes.
 - 
-    **partition_by**: list[str], default: NoneList of column names to partition output by (creates folder structure). 
+    **partition_by** : list[str], default: NoneList of column names to partition output by (creates folder structure).
 - 
-    **write_partition_columns**: bool, default: FalseWhether or not to write partition columns into files. Only has an effect when used with `partition_by`.
+    **write_partition_columns** : bool, default: FalseWhether or not to write partition columns into files. Only has an effect when used with `partition_by` .
 
 ##### 
         
@@ -9030,10 +9408,13 @@ The data is exported to a CSV file, named code_example.csv
 ```
 #### 
         
-        `to_df`
+        [`to_df`](#to_df)
+        
+      
 
     
-      `to_df`##### 
+      `to_df`
+##### 
         
         [Signature](#signature-110)
         
@@ -9060,7 +9441,7 @@ Execute and fetch all rows as a pandas DataFrame
 
     
 - 
-    **date_as_object**: bool, default: FalseIf the date columns should be interpreted as Python date objects. 
+    **date_as_object** : bool, default: FalseIf the date columns should be interpreted as Python date objects.
 
 ##### 
         
@@ -9099,10 +9480,13 @@ rel.to_df()
 ```
 #### 
         
-        `to_parquet`
+        [`to_parquet`](#to_parquet)
+        
+      
 
     
-      `to_parquet`##### 
+      `to_parquet`
+##### 
         
         [Signature](#signature-111)
         
@@ -9131,27 +9515,27 @@ Write the relation object to a Parquet file in 'file_name'
 
     
 - 
-    **file_name**: strThe name of the output Parquet file. 
+    **file_name** : strThe name of the output Parquet file.
 - 
-    **compression**: str, default: 'snappy'The compression format to use ( `uncompressed`,`snappy`,`gzip`,`zstd`,`brotli`,`lz4`,`lz4_raw`).
+    **compression** : str, default: 'snappy'The compression format to use ( `uncompressed` ,`snappy` ,`gzip` ,`zstd` ,`brotli` ,`lz4` ,`lz4_raw` ).
 - 
-    **field_ids**: STRUCTThe field_id for each column. Pass auto to attempt to infer automatically. 
+    **field_ids** : STRUCTThe field_id for each column. Pass auto to attempt to infer automatically.
 - 
-    **row_group_size_bytes**: int, default: row_group_size * 1024The target size of each row group. You can pass either a human-readable string, e.g., 2MB, or an integer, i.e., the number of bytes. This option is only used when you have issued `SET preserve_insertion_order = false;`, otherwise, it is ignored.
+    **row_group_size_bytes** : int, default: row_group_size * 1024The target size of each row group. You can pass either a human-readable string, e.g., 2MB, or an integer, i.e., the number of bytes. This option is only used when you have issued `SET preserve_insertion_order = false;` , otherwise, it is ignored.
 - 
-    **row_group_size**: int, default: 122880The target size, i.e., number of rows, of each row group. 
+    **row_group_size** : int, default: 122880The target size, i.e., number of rows, of each row group.
 - 
-    **overwrite**: bool, default: FalseIf True, overwrite the file if it exists. 
+    **overwrite** : bool, default: FalseIf True, overwrite the file if it exists.
 - 
-    **per_thread_output**: bool, default: FalseWhen `True`, write one file per thread, rather than one file in total. This allows for faster parallel writing.
+    **per_thread_output** : bool, default: FalseWhen `True` , write one file per thread, rather than one file in total. This allows for faster parallel writing.
 - 
-    **use_tmp_file**: bool, default: FalseWrite to a temporary file before renaming to final name to avoid partial writes. 
+    **use_tmp_file** : bool, default: FalseWrite to a temporary file before renaming to final name to avoid partial writes.
 - 
-    **partition_by**: list[str], default: NoneList of column names to partition output by (creates folder structure). 
+    **partition_by** : list[str], default: NoneList of column names to partition output by (creates folder structure).
 - 
-    **write_partition_columns**: bool, default: FalseWhether or not to write partition columns into files. Only has an effect when used with `partition_by`.
+    **write_partition_columns** : bool, default: FalseWhether or not to write partition columns into files. Only has an effect when used with `partition_by` .
 - 
-    **append**: bool, default: FalseWhen `True`, in the event a filename pattern is generated that already exists, the path will be regenerated to ensure no existing files are overwritten. Only has an effect when used with`partition_by`.
+    **append** : bool, default: FalseWhen `True` , in the event a filename pattern is generated that already exists, the path will be regenerated to ensure no existing files are overwritten. Only has an effect when used with`partition_by` .
 
 ##### 
         
@@ -9186,10 +9570,13 @@ The data is exported to a Parquet file, named code_example.parquet
 ```
 #### 
         
-        `to_table`
+        [`to_table`](#to_table)
+        
+      
 
     
-      `to_table`##### 
+      `to_table`
+##### 
         
         [Signature](#signature-112)
         
@@ -9218,7 +9605,7 @@ Creates a new table named table_name with the contents of the relation object
 
     
 - 
-    **table_name**: strThe name of the table to be created. There shouldn't be any other table with the same name. 
+    **table_name** : strThe name of the table to be created. There shouldn't be any other table with the same name.
 
 ##### 
         
@@ -9253,10 +9640,13 @@ A table, named table_code_example, is created with the data of the relation
 ```
 #### 
         
-        `to_view`
+        [`to_view`](#to_view)
+        
+      
 
     
-      `to_view`##### 
+      `to_view`
+##### 
         
         [Signature](#signature-113)
         
@@ -9285,9 +9675,9 @@ Creates a view named view_name that refers to the relation object
 
     
 - 
-    **view_name**: strThe name of the view to be created. 
+    **view_name** : strThe name of the view to be created.
 - 
-    **replace**: bool, default: TrueIf the view should be created with `CREATE OR REPLACE`. When set to`False`, there shouldn't be another view with the same`view_name`.
+    **replace** : bool, default: TrueIf the view should be created with `CREATE OR REPLACE` . When set to`False` , there shouldn't be another view with the same`view_name` .
 
 ##### 
         
@@ -9322,10 +9712,13 @@ A view, named view_code_example, is created with the query definition of the rel
 ```
 #### 
         
-        `torch`
+        [`torch`](#torch)
+        
+      
 
     
-      `torch`##### 
+      `torch`
+##### 
         
         [Signature](#signature-114)
         
@@ -9377,10 +9770,13 @@ rel.select("value").torch()
 ```
 #### 
         
-        `write_csv`
+        [`write_csv`](#write_csv)
+        
+      
 
     
-      `write_csv`##### 
+      `write_csv`
+##### 
         
         [Signature](#signature-115)
         
@@ -9409,37 +9805,37 @@ Write the relation object to a CSV file in 'file_name'
 
     
 - 
-    **file_name**: strThe name of the output CSV file. 
+    **file_name** : strThe name of the output CSV file.
 - 
-    **sep**: str, default: ','Field delimiter for the output file. 
+    **sep** : str, default: ','Field delimiter for the output file.
 - 
-    **na_rep**: str, default: ''Missing data representation. 
+    **na_rep** : str, default: ''Missing data representation.
 - 
-    **header**: bool, default: TrueWhether to write column headers. 
+    **header** : bool, default: TrueWhether to write column headers.
 - 
-    **quotechar**: str, default: '"'Character used to quote fields containing special characters. 
+    **quotechar** : str, default: '"'Character used to quote fields containing special characters.
 - 
-    **escapechar**: str, default: NoneCharacter used to escape the delimiter if quoting is set to QUOTE_NONE. 
+    **escapechar** : str, default: NoneCharacter used to escape the delimiter if quoting is set to QUOTE_NONE.
 - 
-    **date_format**: str, default: NoneCustom format string for DATE values. 
+    **date_format** : str, default: NoneCustom format string for DATE values.
 - 
-    **timestamp_format**: str, default: NoneCustom format string for TIMESTAMP values. 
+    **timestamp_format** : str, default: NoneCustom format string for TIMESTAMP values.
 - 
-    **quoting**: int, default: csv.QUOTE_MINIMALControl field quoting behavior (e.g., QUOTE_MINIMAL, QUOTE_ALL). 
+    **quoting** : int, default: csv.QUOTE_MINIMALControl field quoting behavior (e.g., QUOTE_MINIMAL, QUOTE_ALL).
 - 
-    **encoding**: str, default: 'utf-8'Character encoding for the output file. 
+    **encoding** : str, default: 'utf-8'Character encoding for the output file.
 - 
-    **compression**: str, default: autoCompression type (e.g., 'gzip', 'bz2', 'zstd'). 
+    **compression** : str, default: autoCompression type (e.g., 'gzip', 'bz2', 'zstd').
 - 
-    **overwrite**: bool, default: FalseWhen true, all existing files inside targeted directories will be removed (not supported on remote filesystems). Only has an effect when used with `partition_by`.
+    **overwrite** : bool, default: FalseWhen true, all existing files inside targeted directories will be removed (not supported on remote filesystems). Only has an effect when used with `partition_by` .
 - 
-    **per_thread_output**: bool, default: FalseWhen `true`, write one file per thread, rather than one file in total. This allows for faster parallel writing.
+    **per_thread_output** : bool, default: FalseWhen `true` , write one file per thread, rather than one file in total. This allows for faster parallel writing.
 - 
-    **use_tmp_file**: bool, default: FalseWrite to a temporary file before renaming to final name to avoid partial writes. 
+    **use_tmp_file** : bool, default: FalseWrite to a temporary file before renaming to final name to avoid partial writes.
 - 
-    **partition_by**: list[str], default: NoneList of column names to partition output by (creates folder structure). 
+    **partition_by** : list[str], default: NoneList of column names to partition output by (creates folder structure).
 - 
-    **write_partition_columns**: bool, default: FalseWhether or not to write partition columns into files. Only has an effect when used with `partition_by`.
+    **write_partition_columns** : bool, default: FalseWhether or not to write partition columns into files. Only has an effect when used with `partition_by` .
 
 ##### 
         
@@ -9474,10 +9870,13 @@ The data is exported to a CSV file, named code_example.csv
 ```
 #### 
         
-        `write_parquet`
+        [`write_parquet`](#write_parquet)
+        
+      
 
     
-      `write_parquet`##### 
+      `write_parquet`
+##### 
         
         [Signature](#signature-116)
         
@@ -9506,27 +9905,27 @@ Write the relation object to a Parquet file in 'file_name'
 
     
 - 
-    **file_name**: strThe name of the output Parquet file. 
+    **file_name** : strThe name of the output Parquet file.
 - 
-    **compression**: str, default: 'snappy'The compression format to use ( `uncompressed`,`snappy`,`gzip`,`zstd`,`brotli`,`lz4`,`lz4_raw`).
+    **compression** : str, default: 'snappy'The compression format to use ( `uncompressed` ,`snappy` ,`gzip` ,`zstd` ,`brotli` ,`lz4` ,`lz4_raw` ).
 - 
-    **field_ids**: STRUCTThe field_id for each column. Pass auto to attempt to infer automatically. 
+    **field_ids** : STRUCTThe field_id for each column. Pass auto to attempt to infer automatically.
 - 
-    **row_group_size_bytes**: int, default: row_group_size * 1024The target size of each row group. You can pass either a human-readable string, e.g., 2MB, or an integer, i.e., the number of bytes. This option is only used when you have issued `SET preserve_insertion_order = false;`, otherwise, it is ignored.
+    **row_group_size_bytes** : int, default: row_group_size * 1024The target size of each row group. You can pass either a human-readable string, e.g., 2MB, or an integer, i.e., the number of bytes. This option is only used when you have issued `SET preserve_insertion_order = false;` , otherwise, it is ignored.
 - 
-    **row_group_size**: int, default: 122880The target size, i.e., number of rows, of each row group. 
+    **row_group_size** : int, default: 122880The target size, i.e., number of rows, of each row group.
 - 
-    **overwrite**: bool, default: FalseIf True, overwrite the file if it exists. 
+    **overwrite** : bool, default: FalseIf True, overwrite the file if it exists.
 - 
-    **per_thread_output**: bool, default: FalseWhen `True`, write one file per thread, rather than one file in total. This allows for faster parallel writing.
+    **per_thread_output** : bool, default: FalseWhen `True` , write one file per thread, rather than one file in total. This allows for faster parallel writing.
 - 
-    **use_tmp_file**: bool, default: FalseWrite to a temporary file before renaming to final name to avoid partial writes. 
+    **use_tmp_file** : bool, default: FalseWrite to a temporary file before renaming to final name to avoid partial writes.
 - 
-    **partition_by**: list[str], default: NoneList of column names to partition output by (creates folder structure). 
+    **partition_by** : list[str], default: NoneList of column names to partition output by (creates folder structure).
 - 
-    **write_partition_columns**: bool, default: FalseWhether or not to write partition columns into files. Only has an effect when used with `partition_by`.
+    **write_partition_columns** : bool, default: FalseWhether or not to write partition columns into files. Only has an effect when used with `partition_by` .
 - 
-    **append**: bool, default: FalseWhen `True`, in the event a filename pattern is generated that already exists, the path will be regenerated to ensure no existing files are overwritten. Only has an effect when used with`partition_by`.
+    **append** : bool, default: FalseWhen `True` , in the event a filename pattern is generated that already exists, the path will be regenerated to ensure no existing files are overwritten. Only has an effect when used with`partition_by` .
 
 ##### 
         

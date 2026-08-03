@@ -10,7 +10,7 @@ description: 'CSV files can come in all shapes and forms, with some presenting m
   we will go over each error with an example. For the examples, consider the following
   table: CREATE TABLE people (name VARCHAR, birth_date DATE); DuckDB…'
 resource: https://duckdb.org/docs/current/data/csv/reading_faulty_csv_files
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 CSV files can come in all shapes and forms, with some presenting many errors that make the process of cleanly reading them inherently difficult. To help users read these files, DuckDB supports detailed error messages, the ability to skip faulty lines and the possibility of storing faulty lines in a temporary table to assist users with a data cleaning step.
@@ -29,12 +29,12 @@ CREATE TABLE people (name VARCHAR, birth_date DATE);
 ```
 DuckDB detects the following error types:
 
-- `CAST`: Casting errors occur when a column in the CSV file cannot be cast to the expected schema value. For example, the line- `Pedro,The 90s`would cause an error since the string- `The 90s`cannot be cast to a date.
-- `MISSING COLUMNS`: This error occurs if a line in the CSV file has fewer columns than expected. In our example, we expect two columns; therefore, a row with just one value, e.g.,- `Pedro`, would cause this error.
-- `TOO MANY COLUMNS`: This error occurs if a line in the CSV has more columns than expected. In our example, any line with more than two columns would cause this error, e.g.,- `Pedro,01-01-1992,pdet`.
-- `UNQUOTED VALUE`: Quoted values in CSV lines must always be unquoted at the end; if a quoted value remains quoted throughout, it will cause an error. For example, assuming our scanner uses- `quote='"'`, the line- `"pedro"holanda, 01-01-1992`would present an unquoted value error.
-- `LINE SIZE OVER MAXIMUM`: DuckDB has a parameter that sets the maximum line size a CSV file can have, which by default is set to 2,097,152 bytes. Assuming our scanner is set to- `max_line_size = 25`, the line- `Pedro Holanda, 01-01-1992`would produce an error, as it exceeds 25 bytes.
-- `INVALID ENCODING`: DuckDB supports UTF-8 strings, UTF-16 and Latin-1 encodings. Lines containing other characters will produce an error. For example, the line- `pedro\xff\xff, 01-01-1992`would be problematic.
+- `CAST` : Casting errors occur when a column in the CSV file cannot be cast to the expected schema value. For example, the line`Pedro,The 90s` would cause an error since the string`The 90s` cannot be cast to a date.
+- `MISSING COLUMNS` : This error occurs if a line in the CSV file has fewer columns than expected. In our example, we expect two columns; therefore, a row with just one value, e.g.,`Pedro` , would cause this error.
+- `TOO MANY COLUMNS` : This error occurs if a line in the CSV has more columns than expected. In our example, any line with more than two columns would cause this error, e.g.,`Pedro,01-01-1992,pdet` .
+- `UNQUOTED VALUE` : Quoted values in CSV lines must always be unquoted at the end; if a quoted value remains quoted throughout, it will cause an error. For example, assuming our scanner uses`quote='"'` , the line`"pedro"holanda, 01-01-1992` would present an unquoted value error.
+- `LINE SIZE OVER MAXIMUM` : DuckDB has a parameter that sets the maximum line size a CSV file can have, which by default is set to 2,097,152 bytes. Assuming our scanner is set to`max_line_size = 25` , the line`Pedro Holanda, 01-01-1992` would produce an error, as it exceeds 25 bytes.
+- `INVALID ENCODING` : DuckDB supports UTF-8 strings, UTF-16 and Latin-1 encodings. Lines containing other characters will produce an error. For example, the line`pedro\xff\xff, 01-01-1992` would be problematic.
 
 ### 
         
@@ -96,14 +96,15 @@ Finally, the last block presents some of the options used in the scanner that ca
 
 ## 
         
-        [Using the ](#using-the-ignore_errors-option)`ignore_errors` Option
+        [Using the `ignore_errors` Option](#using-the-ignore_errors-option)
         
       
 
     
-`ignore_errors` OptionThere are cases where CSV files may have multiple structural errors, and users simply wish to skip these and read the correct data. Reading erroneous CSV files is possible by utilizing the `ignore_errors` option. With this option set, rows containing data that would otherwise cause the CSV parser to generate an error will be ignored. In our example, we will demonstrate a CAST error, but note that any of the errors described in our Structural Error section would cause the faulty line to be skipped.
+`ignore_errors` Option
+There are cases where CSV files may have multiple structural errors, and users simply wish to skip these and read the correct data. Reading erroneous CSV files is possible by utilizing the `ignore_errors` option. With this option set, rows containing data that would otherwise cause the CSV parser to generate an error will be ignored. In our example, we will demonstrate a CAST error, but note that any of the errors described in our Structural Error section would cause the faulty line to be skipped.
 
-For example, consider the following CSV file, [ faulty.csv](/data/faulty.csv):
+For example, consider the following CSV file, [`faulty.csv`](/data/faulty.csv):
 
 ```
 Pedro,31
@@ -153,8 +154,8 @@ Outputs:
     
 Being able to read faulty CSV files is important, but for many data cleaning operations, it is also necessary to know exactly which lines are corrupted and what errors the parser discovered on them. For scenarios like these, it is possible to use DuckDB's CSV Rejects Table feature. By default, this feature creates two temporary tables.
 
-- `reject_scans`: Stores information regarding the parameters of the CSV Scanner.
-- `reject_errors`: Stores information regarding each CSV faulty line and in which CSV Scanner they happened.
+1. `reject_scans` : Stores information regarding the parameters of the CSV Scanner.
+2. `reject_errors` : Stores information regarding each CSV faulty line and in which CSV Scanner they happened.
 
 Note that any of the errors described in our Structural Error section will be stored in the rejects tables. Also, if a line has multiple errors, multiple entries will be stored for the same line, one for each error.
 
@@ -239,7 +240,7 @@ Outputs:
 
 | scan_id | file_id | file_path | delimiter | quote | escape | newline_delimiter | skip_rows | has_header | columns | date_format | timestamp_format | user_arguments | 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 5 | 0 | faulty.csv | , | " | " | \n | 0 | false | {'name': 'VARCHAR','age': 'INTEGER'} | store_rejects=true | 
+| 5 | 0 | faulty.csv | , | " | " | \n | 0 | false | {'name': 'VARCHAR','age': 'INTEGER'} |  |  | store_rejects=true | 
 
 ```
 FROM reject_errors;

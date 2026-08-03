@@ -10,12 +10,12 @@ description: Installation To use the DuckDB Java (JDBC) client, visit the Java i
   API, version 4.1. Describing JDBC is beyond the scope of this page, see the official
   documentation for details. Below we focus on the DuckDB-specific parts. Refer…
 resource: https://duckdb.org/docs/current/clients/java
-timestamp: '2026-07-27T09:58:58.846218+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
-Installation To use the DuckDB Java (JDBC) client, visit the
+Installation To use the DuckDB Java (JDBC) client, visit the [Java installation page](/install/?environment=java).
 
-[Java installation page](/install/?environment=java).The latest stable version of the DuckDB Java (JDBC) client is 1.5.5.
+The latest stable version of the DuckDB Java (JDBC) client is 1.5.5.
 
 ## 
         
@@ -88,7 +88,7 @@ Multiple connections are allowed, but mixing read-write and read-only connection
 
     
 Configuration options can be provided to change different settings of the database system. Note that many of these
-settings can be changed later on using [ PRAGMA statements](/docs/current/configuration/pragmas.html) as well.
+settings can be changed later on using [`PRAGMA` statements](/docs/current/configuration/pragmas.html) as well.
 
 ```
 Properties connectionProperties = new Properties();
@@ -102,11 +102,9 @@ Connection conn = DriverManager.getConnection("jdbc:duckdb:/tmp/my_database", co
       
 
     
-DuckDB supports the standard JDBC methods to send queries and retrieve result sets. First a `Statement` object has to be created from the `Connection`, this object can then be used to send queries using `execute` and `executeQuery`. `execute()` is meant for queries where no results are expected like `CREATE TABLE` or `UPDATE` etc. and `executeQuery()` is meant to be used for queries that produce results (e.g., `SELECT`). Below two examples. See also the JDBC [ Statement](https://docs.oracle.com/javase/7/docs/api/java/sql/Statement.html) and 
+DuckDB supports the standard JDBC methods to send queries and retrieve result sets. First a `Statement` object has to be created from the `Connection`, this object can then be used to send queries using `execute` and `executeQuery`. `execute()` is meant for queries where no results are expected like `CREATE TABLE` or `UPDATE` etc. and `executeQuery()` is meant to be used for queries that produce results (e.g., `SELECT`). Below two examples. See also the JDBC [`Statement`](https://docs.oracle.com/javase/7/docs/api/java/sql/Statement.html) and [`ResultSet`](https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html) documentations.
 
-[documentations.](https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html)
-
-`ResultSet````
+```
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -144,9 +142,7 @@ try (PreparedStatement stmt = conn.prepareStatement("INSERT INTO items VALUES (?
     // more calls to execute() possible
 }
 ```
-Warning Do
-
-notuse prepared statements to insert large amounts of data into DuckDB. See the[data import documentation](/docs/current/data/overview.html)for better options.
+  Warning Do *not* use prepared statements to insert large amounts of data into DuckDB. See the [data import documentation](/docs/current/data/overview.html) for better options.
 
 ### 
         
@@ -155,7 +151,7 @@ notuse prepared statements to insert large amounts of data into DuckDB. See the[
       
 
     
-Refer to the [API Reference](https://javadoc.io/doc/org.duckdb/duckdb_jdbc/latest/org/duckdb/DuckDBResultSet.html#arrowExportStream(java.lang.Object,long)) for type signatures
+Refer to the [API Reference](<https://javadoc.io/doc/org.duckdb/duckdb_jdbc/latest/org/duckdb/DuckDBResultSet.html#arrowExportStream(java.lang.Object,long)>) for type signatures
 
 #### 
         
@@ -271,9 +267,8 @@ try (var appender = conn.createAppender(DuckDBConnection.DEFAULT_SCHEMA, "tbl"))
     
 The DuckDB JDBC driver offers batch write functionality. The batch writer supports prepared statements to mitigate the overhead of query parsing.
 
-The preferred method for bulk inserts is to use the
-
-[Appender](#appender)due to its higher performance. However, when using the Appender is not possible, the batch writer is available as alternative.
+  The preferred method for bulk inserts is to use the [Appender](#appender) due to its higher performance.
+However, when using the Appender is not possible, the batch writer is available as alternative.
 
 #### 
         

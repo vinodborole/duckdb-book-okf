@@ -11,12 +11,12 @@ description: 'Installation To use the DuckDB Node.js client, visit the Node.js i
   data types Appending default values row-by-row User-defined types & functions Profiling
   info Table description APIs…'
 resource: https://duckdb.org/docs/current/clients/node_neo/overview
-timestamp: '2026-07-27T09:58:58.846218+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
-Installation To use the DuckDB Node.js client, visit the
+Installation To use the DuckDB Node.js client, visit the [Node.js installation page](/install/?environment=nodejs).
 
-[Node.js installation page](/install/?environment=nodejs).The latest stable version of the DuckDB Node.js (Neo) client is 1.5.5.
+The latest stable version of the DuckDB Node.js (Neo) client is 1.5.5.
 
 An API for using [DuckDB](/) in [Node.js](https://nodejs.org/).
 

@@ -10,7 +10,7 @@ description: 'The standard DuckDB Python API provides a SQL interface compliant 
   The special value :memory: can be used to create an in-memory database. Note that
   for an in-memory database no data is persisted to disk (i.e., all data…'
 resource: https://duckdb.org/docs/current/clients/python/dbapi
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 The standard DuckDB Python API provides a SQL interface compliant with the [DB-API 2.0 specification described by PEP 249](https://www.python.org/dev/peps/pep-0249/) similar to the [SQLite Python API](https://docs.python.org/3.7/library/sqlite3.html).
@@ -23,7 +23,7 @@ The standard DuckDB Python API provides a SQL interface compliant with the [DB-A
 
     
 To use the module, you must first create a `DuckDBPyConnection` object that represents a connection to a database.
-This is done through the [ duckdb.connect](/docs/current/clients/python/reference/#duckdb.connect) method.
+This is done through the [`duckdb.connect`](/docs/current/clients/python/reference/#duckdb.connect) method.
 
 The 'config' keyword argument can be used to provide a `dict` that contains key->value pairs referencing [settings](/docs/current/configuration/overview.html#configuration-reference) understood by DuckDB.
 
@@ -72,10 +72,13 @@ If the file does not exist the file will be created (the extension of the file i
 
 #### 
         
-        `read_only` Connections
+        [`read_only` Connections](#read_only-connections)
+        
+      
 
     
-`read_only` ConnectionsIf you would like to connect in read-only mode, you can set the `read_only` flag to `True`. If the file does not exist, it is **not** created when connecting in read-only mode.
+`read_only` Connections
+If you would like to connect in read-only mode, you can set the `read_only` flag to `True`. If the file does not exist, it is **not** created when connecting in read-only mode.
 Read-only mode is required if multiple Python processes want to access the same database file at the same time.
 
 ```
@@ -105,7 +108,7 @@ con = duckdb.connect(database = "my-db.duckdb", read_only = True)
 # to explicitly get the default connection
 con = duckdb.connect(database = ":default:")
 ```
-You can obtain another handle on an existing connection with the `cursor()` method. Note that this creates another handle on the *same* connection rather than opening a new connection, so cursors created from one connection cannot run queries at the same time. A single connection is thread-safe but is locked for the duration of each query, effectively serializing database access. See [About  cursor()](/docs/current/clients/python/overview.html#about-cursor) for details.
+You can obtain another handle on an existing connection with the `cursor()` method. Note that this creates another handle on the *same* connection rather than opening a new connection, so cursors created from one connection cannot run queries at the same time. A single connection is thread-safe but is locked for the duration of each query, effectively serializing database access. See [About `cursor()`](/docs/current/clients/python/overview.html#about-cursor) for details.
 
 Connections are closed implicitly when they go out of scope or if they are explicitly closed using `close()`. Once the last connection to a database instance is closed, the database instance is closed as well.
 
@@ -175,9 +178,7 @@ print(con.fetchall())
 ```
 [('duck', 'duck', 'goose')]
 ```
-Warning Do
-
-notuse`executemany`to insert large amounts of data into DuckDB. See the[data ingestion page](/docs/current/clients/python/data_ingestion.html)for better options.
+  Warning Do *not* use `executemany` to insert large amounts of data into DuckDB. See the [data ingestion page](/docs/current/clients/python/data_ingestion.html) for better options.
 
 ## 
         

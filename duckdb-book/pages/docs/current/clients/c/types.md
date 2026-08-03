@@ -10,7 +10,7 @@ description: DuckDB is a strongly typed database system. As such, every column h
   objects are not mere enums, but a class that can potentially be nested. Types in
   the C API are…
 resource: https://duckdb.org/docs/current/clients/c/types
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 DuckDB is a strongly typed database system. As such, every column has a single type specified. This type is constant
@@ -70,10 +70,13 @@ The enum type of a column in the result can be obtained using the `duckdb_column
 
 ### 
         
-        `duckdb_value`
+        [`duckdb_value`](#duckdb_value)
+        
+      
 
     
-`duckdb_value`The `duckdb_value` functions will auto-cast values as required. For example, it is no problem to use
+`duckdb_value`
+The `duckdb_value` functions will auto-cast values as required. For example, it is no problem to use
 `duckdb_value_double` on a column of type `duckdb_value_int32`. The value will be auto-cast and returned as a double.
 Note that in certain cases the cast may fail. For example, this can happen if we request a `duckdb_value_int8` and the value does not fit within an `int8` value. In this case, a default value will be returned (usually `0` or `nullptr`). The same default value will also be returned if the corresponding value is `NULL`.
 
@@ -81,14 +84,17 @@ The `duckdb_value_is_null` function can be used to check if a specific value is 
 
 The exception to the auto-cast rule is the `duckdb_value_varchar_internal` function. This function does not auto-cast and only works for `VARCHAR` columns. The reason this function exists is that the result does not need to be freed.
 
-`duckdb_value_varchar`and`duckdb_value_blob`require the result to be de-allocated using`duckdb_free`.
+  `duckdb_value_varchar` and `duckdb_value_blob` require the result to be de-allocated using `duckdb_free`.
 
 ### 
         
-        `duckdb_fetch_chunk`
+        [`duckdb_fetch_chunk`](#duckdb_fetch_chunk)
+        
+      
 
     
-`duckdb_fetch_chunk`The `duckdb_fetch_chunk` function can be used to read data chunks from a DuckDB result set, and is the most efficient way of reading data from a DuckDB result using the C API. It is also the only way of reading data of certain types from a DuckDB result. For example, the `duckdb_value` functions do not support structural reading of composite types (lists or structs) or more complex types like enums or decimals.
+`duckdb_fetch_chunk`
+The `duckdb_fetch_chunk` function can be used to read data chunks from a DuckDB result set, and is the most efficient way of reading data from a DuckDB result using the C API. It is also the only way of reading data of certain types from a DuckDB result. For example, the `duckdb_value` functions do not support structural reading of composite types (lists or structs) or more complex types like enums or decimals.
 
 For more information about data chunks, see the [documentation on data chunks](/docs/current/clients/c/data_chunk.html).
 
@@ -99,7 +105,7 @@ For more information about data chunks, see the [documentation on data chunks](/
       
 
     
-`duckdb_data_chunk `[duckdb_result_get_chunk](#duckdb_result_get_chunk)(duckdb_result result, idx_t chunk_index);
+`duckdb_data_chunk` [duckdb_result_get_chunk](#duckdb_result_get_chunk)(duckdb_result result, idx_t chunk_index);
 bool [duckdb_result_is_streaming](#duckdb_result_is_streaming)(duckdb_result result);
 idx_t [duckdb_result_chunk_count](#duckdb_result_chunk_count)(duckdb_result result);
 duckdb_result_type [duckdb_result_return_type](#duckdb_result_return_type)(duckdb_result result);
@@ -110,7 +116,7 @@ duckdb_result_type [duckdb_result_return_type](#duckdb_result_return_type)(duckd
       
 
     
-`duckdb_date_struct `[duckdb_from_date](#duckdb_from_date)(duckdb_date date);
+`duckdb_date_struct` [duckdb_from_date](#duckdb_from_date)(duckdb_date date);
 duckdb_date [duckdb_to_date](#duckdb_to_date)(duckdb_date_struct date);
 bool [duckdb_is_finite_date](#duckdb_is_finite_date)(duckdb_date date);
 duckdb_time_struct [duckdb_from_time](#duckdb_from_time)(duckdb_time time);
@@ -130,7 +136,7 @@ bool [duckdb_is_finite_timestamp_ns](#duckdb_is_finite_timestamp_ns)(duckdb_time
       
 
     
-`double `[duckdb_hugeint_to_double](#duckdb_hugeint_to_double)(duckdb_hugeint val);
+`double` [duckdb_hugeint_to_double](#duckdb_hugeint_to_double)(duckdb_hugeint val);
 duckdb_hugeint [duckdb_double_to_hugeint](#duckdb_double_to_hugeint)(double val);
 ### 
         
@@ -139,7 +145,7 @@ duckdb_hugeint [duckdb_double_to_hugeint](#duckdb_double_to_hugeint)(double val)
       
 
     
-`duckdb_decimal `[duckdb_double_to_decimal](#duckdb_double_to_decimal)(double val, uint8_t width, uint8_t scale);
+`duckdb_decimal` [duckdb_double_to_decimal](#duckdb_double_to_decimal)(double val, uint8_t width, uint8_t scale);
 double [duckdb_decimal_to_double](#duckdb_decimal_to_double)(duckdb_decimal val);
 ### 
         
@@ -148,7 +154,7 @@ double [duckdb_decimal_to_double](#duckdb_decimal_to_double)(duckdb_decimal val)
       
 
     
-`duckdb_logical_type `[duckdb_create_logical_type](#duckdb_create_logical_type)(duckdb_type type);
+`duckdb_logical_type` [duckdb_create_logical_type](#duckdb_create_logical_type)(duckdb_type type);
 char *[duckdb_logical_type_get_alias](#duckdb_logical_type_get_alias)(duckdb_logical_type type);
 void [duckdb_logical_type_set_alias](#duckdb_logical_type_set_alias)(duckdb_logical_type type, const char *alias);
 duckdb_logical_type [duckdb_create_list_type](#duckdb_create_list_type)(duckdb_logical_type type);
@@ -180,10 +186,13 @@ void [duckdb_destroy_logical_type](#duckdb_destroy_logical_type)(duckdb_logical_
 duckdb_state [duckdb_register_logical_type](#duckdb_register_logical_type)(duckdb_connection con, duckdb_logical_type type, duckdb_create_type_info info);
 #### 
         
-        `duckdb_result_get_chunk`
+        [`duckdb_result_get_chunk`](#duckdb_result_get_chunk)
+        
+      
 
     
-`duckdb_result_get_chunk`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_result_get_chunk`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Fetches a data chunk from the duckdb_result. This function should be called repeatedly until the result is exhausted.
 
@@ -216,8 +225,8 @@ duckdb_data_chunk duckdb_result_get_chunk(
       
 
     
-- `result`: The result object to fetch the data chunk from.
-- `chunk_index`: The chunk index to fetch from.
+- `result` : The result object to fetch the data chunk from.
+- `chunk_index` : The chunk index to fetch from.
 
 ##### 
         
@@ -230,10 +239,13 @@ The resulting data chunk. Returns `NULL` if the chunk index is out of bounds.
 
 #### 
         
-        `duckdb_result_is_streaming`
+        [`duckdb_result_is_streaming`](#duckdb_result_is_streaming)
+        
+      
 
     
-`duckdb_result_is_streaming`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_result_is_streaming`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Checks if the type of the internal result is StreamQueryResult.
 
@@ -256,7 +268,7 @@ bool duckdb_result_is_streaming(
       
 
     
-- `result`: The result object to check.
+- `result` : The result object to check.
 
 ##### 
         
@@ -269,10 +281,13 @@ Whether or not the result object is of the type StreamQueryResult
 
 #### 
         
-        `duckdb_result_chunk_count`
+        [`duckdb_result_chunk_count`](#duckdb_result_chunk_count)
+        
+      
 
     
-`duckdb_result_chunk_count`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_result_chunk_count`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Returns the number of data chunks present in the result.
 
@@ -295,7 +310,7 @@ idx_t duckdb_result_chunk_count(
       
 
     
-- `result`: The result object
+- `result` : The result object
 
 ##### 
         
@@ -308,10 +323,13 @@ Number of data chunks present in the result.
 
 #### 
         
-        `duckdb_result_return_type`
+        [`duckdb_result_return_type`](#duckdb_result_return_type)
+        
+      
 
     
-`duckdb_result_return_type`Returns the return_type of the given result, or DUCKDB_RETURN_TYPE_INVALID on error
+`duckdb_result_return_type`
+Returns the return_type of the given result, or DUCKDB_RETURN_TYPE_INVALID on error
 
 ##### 
         
@@ -332,7 +350,7 @@ duckdb_result_type duckdb_result_return_type(
       
 
     
-- `result`: The result object
+- `result` : The result object
 
 ##### 
         
@@ -345,10 +363,13 @@ The return_type
 
 #### 
         
-        `duckdb_from_date`
+        [`duckdb_from_date`](#duckdb_from_date)
+        
+      
 
     
-`duckdb_from_date`Decompose a `duckdb_date` object into year, month and date (stored as `duckdb_date_struct`).
+`duckdb_from_date`
+Decompose a `duckdb_date` object into year, month and date (stored as `duckdb_date_struct`).
 
 ##### 
         
@@ -369,7 +390,7 @@ duckdb_date_struct duckdb_from_date(
       
 
     
-- `date`: The date object, as obtained from a- `DUCKDB_TYPE_DATE`column.
+- `date` : The date object, as obtained from a`DUCKDB_TYPE_DATE` column.
 
 ##### 
         
@@ -382,10 +403,13 @@ The `duckdb_date_struct` with the decomposed elements.
 
 #### 
         
-        `duckdb_to_date`
+        [`duckdb_to_date`](#duckdb_to_date)
+        
+      
 
     
-`duckdb_to_date`Re-compose a `duckdb_date` from year, month and date (`duckdb_date_struct`).
+`duckdb_to_date`
+Re-compose a `duckdb_date` from year, month and date (`duckdb_date_struct`).
 
 ##### 
         
@@ -406,7 +430,7 @@ duckdb_date duckdb_to_date(
       
 
     
-- `date`: The year, month and date stored in a- `duckdb_date_struct`.
+- `date` : The year, month and date stored in a`duckdb_date_struct` .
 
 ##### 
         
@@ -419,10 +443,13 @@ The `duckdb_date` element.
 
 #### 
         
-        `duckdb_is_finite_date`
+        [`duckdb_is_finite_date`](#duckdb_is_finite_date)
+        
+      
 
     
-`duckdb_is_finite_date`Test a `duckdb_date` to see if it is a finite value.
+`duckdb_is_finite_date`
+Test a `duckdb_date` to see if it is a finite value.
 
 ##### 
         
@@ -443,7 +470,7 @@ bool duckdb_is_finite_date(
       
 
     
-- `date`: The date object, as obtained from a- `DUCKDB_TYPE_DATE`column.
+- `date` : The date object, as obtained from a`DUCKDB_TYPE_DATE` column.
 
 ##### 
         
@@ -456,10 +483,13 @@ True if the date is finite, false if it is ±infinity.
 
 #### 
         
-        `duckdb_from_time`
+        [`duckdb_from_time`](#duckdb_from_time)
+        
+      
 
     
-`duckdb_from_time`Decompose a `duckdb_time` object into hour, minute, second and microsecond (stored as `duckdb_time_struct`).
+`duckdb_from_time`
+Decompose a `duckdb_time` object into hour, minute, second and microsecond (stored as `duckdb_time_struct`).
 
 ##### 
         
@@ -480,7 +510,7 @@ duckdb_time_struct duckdb_from_time(
       
 
     
-- `time`: The time object, as obtained from a- `DUCKDB_TYPE_TIME`column.
+- `time` : The time object, as obtained from a`DUCKDB_TYPE_TIME` column.
 
 ##### 
         
@@ -493,10 +523,13 @@ The `duckdb_time_struct` with the decomposed elements.
 
 #### 
         
-        `duckdb_create_time_tz`
+        [`duckdb_create_time_tz`](#duckdb_create_time_tz)
+        
+      
 
     
-`duckdb_create_time_tz`Create a `duckdb_time_tz` object from micros and a timezone offset.
+`duckdb_create_time_tz`
+Create a `duckdb_time_tz` object from micros and a timezone offset.
 
 ##### 
         
@@ -518,8 +551,8 @@ duckdb_time_tz duckdb_create_time_tz(
       
 
     
-- `micros`: The microsecond component of the time.
-- `offset`: The timezone offset component of the time.
+- `micros` : The microsecond component of the time.
+- `offset` : The timezone offset component of the time.
 
 ##### 
         
@@ -532,10 +565,13 @@ The `duckdb_time_tz` element.
 
 #### 
         
-        `duckdb_from_time_tz`
+        [`duckdb_from_time_tz`](#duckdb_from_time_tz)
+        
+      
 
     
-`duckdb_from_time_tz`Decompose a TIME_TZ objects into micros and a timezone offset.
+`duckdb_from_time_tz`
+Decompose a TIME_TZ objects into micros and a timezone offset.
 
 Use `duckdb_from_time` to further decompose the micros into hour, minute, second and microsecond.
 
@@ -558,14 +594,17 @@ duckdb_time_tz_struct duckdb_from_time_tz(
       
 
     
-- `micros`: The time object, as obtained from a- `DUCKDB_TYPE_TIME_TZ`column.
+- `micros` : The time object, as obtained from a`DUCKDB_TYPE_TIME_TZ` column.
 
 #### 
         
-        `duckdb_to_time`
+        [`duckdb_to_time`](#duckdb_to_time)
+        
+      
 
     
-`duckdb_to_time`Re-compose a `duckdb_time` from hour, minute, second and microsecond (`duckdb_time_struct`).
+`duckdb_to_time`
+Re-compose a `duckdb_time` from hour, minute, second and microsecond (`duckdb_time_struct`).
 
 ##### 
         
@@ -586,7 +625,7 @@ duckdb_time duckdb_to_time(
       
 
     
-- `time`: The hour, minute, second and microsecond in a- `duckdb_time_struct`.
+- `time` : The hour, minute, second and microsecond in a`duckdb_time_struct` .
 
 ##### 
         
@@ -599,10 +638,13 @@ The `duckdb_time` element.
 
 #### 
         
-        `duckdb_from_timestamp`
+        [`duckdb_from_timestamp`](#duckdb_from_timestamp)
+        
+      
 
     
-`duckdb_from_timestamp`Decompose a `duckdb_timestamp` object into a `duckdb_timestamp_struct`.
+`duckdb_from_timestamp`
+Decompose a `duckdb_timestamp` object into a `duckdb_timestamp_struct`.
 
 ##### 
         
@@ -623,7 +665,7 @@ duckdb_timestamp_struct duckdb_from_timestamp(
       
 
     
-- `ts`: The ts object, as obtained from a- `DUCKDB_TYPE_TIMESTAMP`column.
+- `ts` : The ts object, as obtained from a`DUCKDB_TYPE_TIMESTAMP` column.
 
 ##### 
         
@@ -636,10 +678,13 @@ The `duckdb_timestamp_struct` with the decomposed elements.
 
 #### 
         
-        `duckdb_to_timestamp`
+        [`duckdb_to_timestamp`](#duckdb_to_timestamp)
+        
+      
 
     
-`duckdb_to_timestamp`Re-compose a `duckdb_timestamp` from a duckdb_timestamp_struct.
+`duckdb_to_timestamp`
+Re-compose a `duckdb_timestamp` from a duckdb_timestamp_struct.
 
 ##### 
         
@@ -660,7 +705,7 @@ duckdb_timestamp duckdb_to_timestamp(
       
 
     
-- `ts`: The de-composed elements in a- `duckdb_timestamp_struct`.
+- `ts` : The de-composed elements in a`duckdb_timestamp_struct` .
 
 ##### 
         
@@ -673,10 +718,13 @@ The `duckdb_timestamp` element.
 
 #### 
         
-        `duckdb_is_finite_timestamp`
+        [`duckdb_is_finite_timestamp`](#duckdb_is_finite_timestamp)
+        
+      
 
     
-`duckdb_is_finite_timestamp`Test a `duckdb_timestamp` to see if it is a finite value.
+`duckdb_is_finite_timestamp`
+Test a `duckdb_timestamp` to see if it is a finite value.
 
 ##### 
         
@@ -697,7 +745,7 @@ bool duckdb_is_finite_timestamp(
       
 
     
-- `ts`: The duckdb_timestamp object, as obtained from a- `DUCKDB_TYPE_TIMESTAMP`column.
+- `ts` : The duckdb_timestamp object, as obtained from a`DUCKDB_TYPE_TIMESTAMP` column.
 
 ##### 
         
@@ -710,10 +758,13 @@ True if the timestamp is finite, false if it is ±infinity.
 
 #### 
         
-        `duckdb_is_finite_timestamp_s`
+        [`duckdb_is_finite_timestamp_s`](#duckdb_is_finite_timestamp_s)
+        
+      
 
     
-`duckdb_is_finite_timestamp_s`Test a `duckdb_timestamp_s` to see if it is a finite value.
+`duckdb_is_finite_timestamp_s`
+Test a `duckdb_timestamp_s` to see if it is a finite value.
 
 ##### 
         
@@ -734,7 +785,7 @@ bool duckdb_is_finite_timestamp_s(
       
 
     
-- `ts`: The duckdb_timestamp_s object, as obtained from a- `DUCKDB_TYPE_TIMESTAMP_S`column.
+- `ts` : The duckdb_timestamp_s object, as obtained from a`DUCKDB_TYPE_TIMESTAMP_S` column.
 
 ##### 
         
@@ -747,10 +798,13 @@ True if the timestamp is finite, false if it is ±infinity.
 
 #### 
         
-        `duckdb_is_finite_timestamp_ms`
+        [`duckdb_is_finite_timestamp_ms`](#duckdb_is_finite_timestamp_ms)
+        
+      
 
     
-`duckdb_is_finite_timestamp_ms`Test a `duckdb_timestamp_ms` to see if it is a finite value.
+`duckdb_is_finite_timestamp_ms`
+Test a `duckdb_timestamp_ms` to see if it is a finite value.
 
 ##### 
         
@@ -771,7 +825,7 @@ bool duckdb_is_finite_timestamp_ms(
       
 
     
-- `ts`: The duckdb_timestamp_ms object, as obtained from a- `DUCKDB_TYPE_TIMESTAMP_MS`column.
+- `ts` : The duckdb_timestamp_ms object, as obtained from a`DUCKDB_TYPE_TIMESTAMP_MS` column.
 
 ##### 
         
@@ -784,10 +838,13 @@ True if the timestamp is finite, false if it is ±infinity.
 
 #### 
         
-        `duckdb_is_finite_timestamp_ns`
+        [`duckdb_is_finite_timestamp_ns`](#duckdb_is_finite_timestamp_ns)
+        
+      
 
     
-`duckdb_is_finite_timestamp_ns`Test a `duckdb_timestamp_ns` to see if it is a finite value.
+`duckdb_is_finite_timestamp_ns`
+Test a `duckdb_timestamp_ns` to see if it is a finite value.
 
 ##### 
         
@@ -808,7 +865,7 @@ bool duckdb_is_finite_timestamp_ns(
       
 
     
-- `ts`: The duckdb_timestamp_ns object, as obtained from a- `DUCKDB_TYPE_TIMESTAMP_NS`column.
+- `ts` : The duckdb_timestamp_ns object, as obtained from a`DUCKDB_TYPE_TIMESTAMP_NS` column.
 
 ##### 
         
@@ -821,10 +878,13 @@ True if the timestamp is finite, false if it is ±infinity.
 
 #### 
         
-        `duckdb_hugeint_to_double`
+        [`duckdb_hugeint_to_double`](#duckdb_hugeint_to_double)
+        
+      
 
     
-`duckdb_hugeint_to_double`Converts a duckdb_hugeint object (as obtained from a `DUCKDB_TYPE_HUGEINT` column) into a double.
+`duckdb_hugeint_to_double`
+Converts a duckdb_hugeint object (as obtained from a `DUCKDB_TYPE_HUGEINT` column) into a double.
 
 ##### 
         
@@ -845,7 +905,7 @@ double duckdb_hugeint_to_double(
       
 
     
-- `val`: The hugeint value.
+- `val` : The hugeint value.
 
 ##### 
         
@@ -858,10 +918,13 @@ The converted `double` element.
 
 #### 
         
-        `duckdb_double_to_hugeint`
+        [`duckdb_double_to_hugeint`](#duckdb_double_to_hugeint)
+        
+      
 
     
-`duckdb_double_to_hugeint`Converts a double value to a duckdb_hugeint object.
+`duckdb_double_to_hugeint`
+Converts a double value to a duckdb_hugeint object.
 
 If the conversion fails because the double value is too big the result will be 0.
 
@@ -884,7 +947,7 @@ duckdb_hugeint duckdb_double_to_hugeint(
       
 
     
-- `val`: The double value.
+- `val` : The double value.
 
 ##### 
         
@@ -897,10 +960,13 @@ The converted `duckdb_hugeint` element.
 
 #### 
         
-        `duckdb_double_to_decimal`
+        [`duckdb_double_to_decimal`](#duckdb_double_to_decimal)
+        
+      
 
     
-`duckdb_double_to_decimal`Converts a double value to a duckdb_decimal object.
+`duckdb_double_to_decimal`
+Converts a double value to a duckdb_decimal object.
 
 If the conversion fails because the double value is too big, or the width/scale are invalid the result will be 0.
 
@@ -925,7 +991,7 @@ duckdb_decimal duckdb_double_to_decimal(
       
 
     
-- `val`: The double value.
+- `val` : The double value.
 
 ##### 
         
@@ -938,10 +1004,13 @@ The converted `duckdb_decimal` element.
 
 #### 
         
-        `duckdb_decimal_to_double`
+        [`duckdb_decimal_to_double`](#duckdb_decimal_to_double)
+        
+      
 
     
-`duckdb_decimal_to_double`Converts a duckdb_decimal object (as obtained from a `DUCKDB_TYPE_DECIMAL` column) into a double.
+`duckdb_decimal_to_double`
+Converts a duckdb_decimal object (as obtained from a `DUCKDB_TYPE_DECIMAL` column) into a double.
 
 ##### 
         
@@ -962,7 +1031,7 @@ double duckdb_decimal_to_double(
       
 
     
-- `val`: The decimal value.
+- `val` : The decimal value.
 
 ##### 
         
@@ -975,10 +1044,13 @@ The converted `double` element.
 
 #### 
         
-        `duckdb_create_logical_type`
+        [`duckdb_create_logical_type`](#duckdb_create_logical_type)
+        
+      
 
     
-`duckdb_create_logical_type`Creates a `duckdb_logical_type` from a primitive type.
+`duckdb_create_logical_type`
+Creates a `duckdb_logical_type` from a primitive type.
 The resulting logical type must be destroyed with `duckdb_destroy_logical_type`.
 
 Returns an invalid logical type, if type is: `DUCKDB_TYPE_INVALID`, `DUCKDB_TYPE_DECIMAL`, `DUCKDB_TYPE_ENUM`,
@@ -1003,7 +1075,7 @@ duckdb_logical_type duckdb_create_logical_type(
       
 
     
-- `type`: The primitive type to create.
+- `type` : The primitive type to create.
 
 ##### 
         
@@ -1016,10 +1088,13 @@ The logical type.
 
 #### 
         
-        `duckdb_logical_type_get_alias`
+        [`duckdb_logical_type_get_alias`](#duckdb_logical_type_get_alias)
+        
+      
 
     
-`duckdb_logical_type_get_alias`Returns the alias of a duckdb_logical_type, if set, else `nullptr`.
+`duckdb_logical_type_get_alias`
+Returns the alias of a duckdb_logical_type, if set, else `nullptr`.
 The result must be destroyed with `duckdb_free`.
 
 ##### 
@@ -1041,7 +1116,7 @@ char *duckdb_logical_type_get_alias(
       
 
     
-- `type`: The logical type
+- `type` : The logical type
 
 ##### 
         
@@ -1054,10 +1129,13 @@ The alias or `nullptr`
 
 #### 
         
-        `duckdb_logical_type_set_alias`
+        [`duckdb_logical_type_set_alias`](#duckdb_logical_type_set_alias)
+        
+      
 
     
-`duckdb_logical_type_set_alias`Sets the alias of a duckdb_logical_type.
+`duckdb_logical_type_set_alias`
+Sets the alias of a duckdb_logical_type.
 
 ##### 
         
@@ -1079,15 +1157,18 @@ void duckdb_logical_type_set_alias(
       
 
     
-- `type`: The logical type
-- `alias`: The alias to set
+- `type` : The logical type
+- `alias` : The alias to set
 
 #### 
         
-        `duckdb_create_list_type`
+        [`duckdb_create_list_type`](#duckdb_create_list_type)
+        
+      
 
     
-`duckdb_create_list_type`Creates a LIST type from its child type.
+`duckdb_create_list_type`
+Creates a LIST type from its child type.
 The return type must be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -1109,7 +1190,7 @@ duckdb_logical_type duckdb_create_list_type(
       
 
     
-- `type`: The child type of the list
+- `type` : The child type of the list
 
 ##### 
         
@@ -1122,10 +1203,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_array_type`
+        [`duckdb_create_array_type`](#duckdb_create_array_type)
+        
+      
 
     
-`duckdb_create_array_type`Creates an ARRAY type from its child type.
+`duckdb_create_array_type`
+Creates an ARRAY type from its child type.
 The return type must be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -1148,8 +1232,8 @@ duckdb_logical_type duckdb_create_array_type(
       
 
     
-- `type`: The child type of the array.
-- `array_size`: The number of elements in the array.
+- `type` : The child type of the array.
+- `array_size` : The number of elements in the array.
 
 ##### 
         
@@ -1162,10 +1246,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_map_type`
+        [`duckdb_create_map_type`](#duckdb_create_map_type)
+        
+      
 
     
-`duckdb_create_map_type`Creates a MAP type from its key type and value type.
+`duckdb_create_map_type`
+Creates a MAP type from its key type and value type.
 The return type must be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -1188,8 +1275,8 @@ duckdb_logical_type duckdb_create_map_type(
       
 
     
-- `key_type`: The map's key type.
-- `value_type`: The map's value type.
+- `key_type` : The map's key type.
+- `value_type` : The map's value type.
 
 ##### 
         
@@ -1202,10 +1289,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_union_type`
+        [`duckdb_create_union_type`](#duckdb_create_union_type)
+        
+      
 
     
-`duckdb_create_union_type`Creates a UNION type from the passed arrays.
+`duckdb_create_union_type`
+Creates a UNION type from the passed arrays.
 The return type must be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -1229,9 +1319,9 @@ duckdb_logical_type duckdb_create_union_type(
       
 
     
-- `member_types`: The array of union member types.
-- `member_names`: The union member names.
-- `member_count`: The number of union members.
+- `member_types` : The array of union member types.
+- `member_names` : The union member names.
+- `member_count` : The number of union members.
 
 ##### 
         
@@ -1244,10 +1334,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_struct_type`
+        [`duckdb_create_struct_type`](#duckdb_create_struct_type)
+        
+      
 
     
-`duckdb_create_struct_type`Creates a STRUCT type based on the member types and names.
+`duckdb_create_struct_type`
+Creates a STRUCT type based on the member types and names.
 The resulting type must be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -1271,9 +1364,9 @@ duckdb_logical_type duckdb_create_struct_type(
       
 
     
-- `member_types`: The array of types of the struct members.
-- `member_names`: The array of names of the struct members.
-- `member_count`: The number of members of the struct.
+- `member_types` : The array of types of the struct members.
+- `member_names` : The array of names of the struct members.
+- `member_count` : The number of members of the struct.
 
 ##### 
         
@@ -1286,10 +1379,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_enum_type`
+        [`duckdb_create_enum_type`](#duckdb_create_enum_type)
+        
+      
 
     
-`duckdb_create_enum_type`Creates an ENUM type from the passed member name array.
+`duckdb_create_enum_type`
+Creates an ENUM type from the passed member name array.
 The resulting type should be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -1312,8 +1408,8 @@ duckdb_logical_type duckdb_create_enum_type(
       
 
     
-- `member_names`: The array of names that the enum should consist of.
-- `member_count`: The number of elements that were specified in the array.
+- `member_names` : The array of names that the enum should consist of.
+- `member_count` : The number of elements that were specified in the array.
 
 ##### 
         
@@ -1326,10 +1422,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_decimal_type`
+        [`duckdb_create_decimal_type`](#duckdb_create_decimal_type)
+        
+      
 
     
-`duckdb_create_decimal_type`Creates a DECIMAL type with the specified width and scale.
+`duckdb_create_decimal_type`
+Creates a DECIMAL type with the specified width and scale.
 The resulting type should be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -1352,8 +1451,8 @@ duckdb_logical_type duckdb_create_decimal_type(
       
 
     
-- `width`: The width of the decimal type
-- `scale`: The scale of the decimal type
+- `width` : The width of the decimal type
+- `scale` : The scale of the decimal type
 
 ##### 
         
@@ -1366,10 +1465,13 @@ The logical type.
 
 #### 
         
-        `duckdb_get_type_id`
+        [`duckdb_get_type_id`](#duckdb_get_type_id)
+        
+      
 
     
-`duckdb_get_type_id`Retrieves the enum `duckdb_type` of a `duckdb_logical_type`.
+`duckdb_get_type_id`
+Retrieves the enum `duckdb_type` of a `duckdb_logical_type`.
 
 ##### 
         
@@ -1390,7 +1492,7 @@ duckdb_type duckdb_get_type_id(
       
 
     
-- `type`: The logical type.
+- `type` : The logical type.
 
 ##### 
         
@@ -1403,10 +1505,13 @@ The `duckdb_type` id.
 
 #### 
         
-        `duckdb_decimal_width`
+        [`duckdb_decimal_width`](#duckdb_decimal_width)
+        
+      
 
     
-`duckdb_decimal_width`Retrieves the width of a decimal type.
+`duckdb_decimal_width`
+Retrieves the width of a decimal type.
 
 ##### 
         
@@ -1427,7 +1532,7 @@ uint8_t duckdb_decimal_width(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -1440,10 +1545,13 @@ The width of the decimal type
 
 #### 
         
-        `duckdb_decimal_scale`
+        [`duckdb_decimal_scale`](#duckdb_decimal_scale)
+        
+      
 
     
-`duckdb_decimal_scale`Retrieves the scale of a decimal type.
+`duckdb_decimal_scale`
+Retrieves the scale of a decimal type.
 
 ##### 
         
@@ -1464,7 +1572,7 @@ uint8_t duckdb_decimal_scale(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -1477,10 +1585,13 @@ The scale of the decimal type
 
 #### 
         
-        `duckdb_decimal_internal_type`
+        [`duckdb_decimal_internal_type`](#duckdb_decimal_internal_type)
+        
+      
 
     
-`duckdb_decimal_internal_type`Retrieves the internal storage type of a decimal type.
+`duckdb_decimal_internal_type`
+Retrieves the internal storage type of a decimal type.
 
 ##### 
         
@@ -1501,7 +1612,7 @@ duckdb_type duckdb_decimal_internal_type(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -1514,10 +1625,13 @@ The internal type of the decimal type
 
 #### 
         
-        `duckdb_enum_internal_type`
+        [`duckdb_enum_internal_type`](#duckdb_enum_internal_type)
+        
+      
 
     
-`duckdb_enum_internal_type`Retrieves the internal storage type of an enum type.
+`duckdb_enum_internal_type`
+Retrieves the internal storage type of an enum type.
 
 ##### 
         
@@ -1538,7 +1652,7 @@ duckdb_type duckdb_enum_internal_type(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -1551,10 +1665,13 @@ The internal type of the enum type
 
 #### 
         
-        `duckdb_enum_dictionary_size`
+        [`duckdb_enum_dictionary_size`](#duckdb_enum_dictionary_size)
+        
+      
 
     
-`duckdb_enum_dictionary_size`Retrieves the dictionary size of the enum type.
+`duckdb_enum_dictionary_size`
+Retrieves the dictionary size of the enum type.
 
 ##### 
         
@@ -1575,7 +1692,7 @@ uint32_t duckdb_enum_dictionary_size(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -1588,10 +1705,13 @@ The dictionary size of the enum type
 
 #### 
         
-        `duckdb_enum_dictionary_value`
+        [`duckdb_enum_dictionary_value`](#duckdb_enum_dictionary_value)
+        
+      
 
     
-`duckdb_enum_dictionary_value`Retrieves the dictionary value at the specified position from the enum.
+`duckdb_enum_dictionary_value`
+Retrieves the dictionary value at the specified position from the enum.
 
 The result must be freed with `duckdb_free`.
 
@@ -1615,8 +1735,8 @@ char *duckdb_enum_dictionary_value(
       
 
     
-- `type`: The logical type object
-- `index`: The index in the dictionary
+- `type` : The logical type object
+- `index` : The index in the dictionary
 
 ##### 
         
@@ -1629,10 +1749,13 @@ The string value of the enum type. Must be freed with `duckdb_free`.
 
 #### 
         
-        `duckdb_list_type_child_type`
+        [`duckdb_list_type_child_type`](#duckdb_list_type_child_type)
+        
+      
 
     
-`duckdb_list_type_child_type`Retrieves the child type of the given LIST type. Also accepts MAP types.
+`duckdb_list_type_child_type`
+Retrieves the child type of the given LIST type. Also accepts MAP types.
 The result must be freed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -1654,7 +1777,7 @@ duckdb_logical_type duckdb_list_type_child_type(
       
 
     
-- `type`: The logical type, either LIST or MAP.
+- `type` : The logical type, either LIST or MAP.
 
 ##### 
         
@@ -1667,10 +1790,13 @@ The child type of the LIST or MAP type.
 
 #### 
         
-        `duckdb_array_type_child_type`
+        [`duckdb_array_type_child_type`](#duckdb_array_type_child_type)
+        
+      
 
     
-`duckdb_array_type_child_type`Retrieves the child type of the given ARRAY type.
+`duckdb_array_type_child_type`
+Retrieves the child type of the given ARRAY type.
 
 The result must be freed with `duckdb_destroy_logical_type`.
 
@@ -1693,7 +1819,7 @@ duckdb_logical_type duckdb_array_type_child_type(
       
 
     
-- `type`: The logical type. Must be ARRAY.
+- `type` : The logical type. Must be ARRAY.
 
 ##### 
         
@@ -1706,10 +1832,13 @@ The child type of the ARRAY type.
 
 #### 
         
-        `duckdb_array_type_array_size`
+        [`duckdb_array_type_array_size`](#duckdb_array_type_array_size)
+        
+      
 
     
-`duckdb_array_type_array_size`Retrieves the array size of the given array type.
+`duckdb_array_type_array_size`
+Retrieves the array size of the given array type.
 
 ##### 
         
@@ -1730,7 +1859,7 @@ idx_t duckdb_array_type_array_size(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -1743,10 +1872,13 @@ The fixed number of elements the values of this array type can store.
 
 #### 
         
-        `duckdb_map_type_key_type`
+        [`duckdb_map_type_key_type`](#duckdb_map_type_key_type)
+        
+      
 
     
-`duckdb_map_type_key_type`Retrieves the key type of the given map type.
+`duckdb_map_type_key_type`
+Retrieves the key type of the given map type.
 
 The result must be freed with `duckdb_destroy_logical_type`.
 
@@ -1769,7 +1901,7 @@ duckdb_logical_type duckdb_map_type_key_type(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -1782,10 +1914,13 @@ The key type of the map type. Must be destroyed with `duckdb_destroy_logical_typ
 
 #### 
         
-        `duckdb_map_type_value_type`
+        [`duckdb_map_type_value_type`](#duckdb_map_type_value_type)
+        
+      
 
     
-`duckdb_map_type_value_type`Retrieves the value type of the given map type.
+`duckdb_map_type_value_type`
+Retrieves the value type of the given map type.
 
 The result must be freed with `duckdb_destroy_logical_type`.
 
@@ -1808,7 +1943,7 @@ duckdb_logical_type duckdb_map_type_value_type(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -1821,10 +1956,13 @@ The value type of the map type. Must be destroyed with `duckdb_destroy_logical_t
 
 #### 
         
-        `duckdb_struct_type_child_count`
+        [`duckdb_struct_type_child_count`](#duckdb_struct_type_child_count)
+        
+      
 
     
-`duckdb_struct_type_child_count`Returns the number of children of a struct type.
+`duckdb_struct_type_child_count`
+Returns the number of children of a struct type.
 
 ##### 
         
@@ -1845,7 +1983,7 @@ idx_t duckdb_struct_type_child_count(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -1858,10 +1996,13 @@ The number of children of a struct type.
 
 #### 
         
-        `duckdb_struct_type_child_name`
+        [`duckdb_struct_type_child_name`](#duckdb_struct_type_child_name)
+        
+      
 
     
-`duckdb_struct_type_child_name`Retrieves the name of the struct child.
+`duckdb_struct_type_child_name`
+Retrieves the name of the struct child.
 
 The result must be freed with `duckdb_free`.
 
@@ -1885,8 +2026,8 @@ char *duckdb_struct_type_child_name(
       
 
     
-- `type`: The logical type object
-- `index`: The child index
+- `type` : The logical type object
+- `index` : The child index
 
 ##### 
         
@@ -1899,10 +2040,13 @@ The name of the struct type. Must be freed with `duckdb_free`.
 
 #### 
         
-        `duckdb_struct_type_child_type`
+        [`duckdb_struct_type_child_type`](#duckdb_struct_type_child_type)
+        
+      
 
     
-`duckdb_struct_type_child_type`Retrieves the child type of the given struct type at the specified index.
+`duckdb_struct_type_child_type`
+Retrieves the child type of the given struct type at the specified index.
 
 The result must be freed with `duckdb_destroy_logical_type`.
 
@@ -1926,8 +2070,8 @@ duckdb_logical_type duckdb_struct_type_child_type(
       
 
     
-- `type`: The logical type object
-- `index`: The child index
+- `type` : The logical type object
+- `index` : The child index
 
 ##### 
         
@@ -1940,10 +2084,13 @@ The child type of the struct type. Must be destroyed with `duckdb_destroy_logica
 
 #### 
         
-        `duckdb_union_type_member_count`
+        [`duckdb_union_type_member_count`](#duckdb_union_type_member_count)
+        
+      
 
     
-`duckdb_union_type_member_count`Returns the number of members that the union type has.
+`duckdb_union_type_member_count`
+Returns the number of members that the union type has.
 
 ##### 
         
@@ -1964,7 +2111,7 @@ idx_t duckdb_union_type_member_count(
       
 
     
-- `type`: The logical type (union) object
+- `type` : The logical type (union) object
 
 ##### 
         
@@ -1977,10 +2124,13 @@ The number of members of a union type.
 
 #### 
         
-        `duckdb_union_type_member_name`
+        [`duckdb_union_type_member_name`](#duckdb_union_type_member_name)
+        
+      
 
     
-`duckdb_union_type_member_name`Retrieves the name of the union member.
+`duckdb_union_type_member_name`
+Retrieves the name of the union member.
 
 The result must be freed with `duckdb_free`.
 
@@ -2004,8 +2154,8 @@ char *duckdb_union_type_member_name(
       
 
     
-- `type`: The logical type object
-- `index`: The child index
+- `type` : The logical type object
+- `index` : The child index
 
 ##### 
         
@@ -2018,10 +2168,13 @@ The name of the union member. Must be freed with `duckdb_free`.
 
 #### 
         
-        `duckdb_union_type_member_type`
+        [`duckdb_union_type_member_type`](#duckdb_union_type_member_type)
+        
+      
 
     
-`duckdb_union_type_member_type`Retrieves the child type of the given union member at the specified index.
+`duckdb_union_type_member_type`
+Retrieves the child type of the given union member at the specified index.
 
 The result must be freed with `duckdb_destroy_logical_type`.
 
@@ -2045,8 +2198,8 @@ duckdb_logical_type duckdb_union_type_member_type(
       
 
     
-- `type`: The logical type object
-- `index`: The child index
+- `type` : The logical type object
+- `index` : The child index
 
 ##### 
         
@@ -2059,10 +2212,13 @@ The child type of the union member. Must be destroyed with `duckdb_destroy_logic
 
 #### 
         
-        `duckdb_destroy_logical_type`
+        [`duckdb_destroy_logical_type`](#duckdb_destroy_logical_type)
+        
+      
 
     
-`duckdb_destroy_logical_type`Destroys the logical type and de-allocates all memory allocated for that type.
+`duckdb_destroy_logical_type`
+Destroys the logical type and de-allocates all memory allocated for that type.
 
 ##### 
         
@@ -2083,14 +2239,17 @@ void duckdb_destroy_logical_type(
       
 
     
-- `type`: The logical type to destroy.
+- `type` : The logical type to destroy.
 
 #### 
         
-        `duckdb_register_logical_type`
+        [`duckdb_register_logical_type`](#duckdb_register_logical_type)
+        
+      
 
     
-`duckdb_register_logical_type`Registers a custom type within the given connection. The type must have an alias
+`duckdb_register_logical_type`
+Registers a custom type within the given connection. The type must have an alias
 
 ##### 
         
@@ -2113,8 +2272,8 @@ duckdb_state duckdb_register_logical_type(
       
 
     
-- `con`: The connection to use
-- `type`: The custom type to register
+- `con` : The connection to use
+- `type` : The custom type to register
 
 ##### 
         

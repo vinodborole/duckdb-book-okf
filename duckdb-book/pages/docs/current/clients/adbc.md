@@ -11,12 +11,12 @@ description: Installation To use the DuckDB ADBC client, download the libduckdb 
   Arrow to transfer data between the database system and the application. DuckDB has
   an ADBC driver, which…
 resource: https://duckdb.org/docs/current/clients/adbc
-timestamp: '2026-07-27T09:58:58.846218+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
-Installation To use the DuckDB ADBC client, download the
+Installation To use the DuckDB ADBC client, download the [`libduckdb` archive](/install/?environment=c) for your platform and follow the [instructions below](#installing-the-library).
 
-[for your platform and follow the](/install/?environment=c)`libduckdb`archive[instructions below](#installing-the-library).The latest stable version of the DuckDB ADBC client is 1.5.5.
+The latest stable version of the DuckDB ADBC client is 1.5.5.
 
 [Arrow Database Connectivity (ADBC)](https://arrow.apache.org/adbc/), similarly to ODBC and JDBC, is a C-style API that enables code portability between different database systems. This allows developers to effortlessly build applications that communicate with database systems without using code specific to that system. The main difference between ADBC and ODBC/JDBC is that ADBC uses [Arrow](https://arrow.apache.org/) to transfer data between the database system and the application. DuckDB has an ADBC driver, which takes advantage of the [zero-copy integration between DuckDB and Arrow](/2021/12/03/duck-arrow.html) to efficiently transfer data.
 
@@ -57,10 +57,10 @@ Set of functions that operate on a database.
     
 | Option | Description | 
 |---|---|
-| `driver` | Path to the DuckDB shared library ( `libduckdb.so`,`libduckdb.dylib`, or`duckdb.dll`). | 
-| `entrypoint` | Entry point function name. Must be `duckdb_adbc_init`. | 
+| `driver` | Path to the DuckDB shared library ( `libduckdb.so` ,`libduckdb.dylib` , or`duckdb.dll` ). | 
+| `entrypoint` | Entry point function name. Must be `duckdb_adbc_init` . | 
 | `path` | Path to a DuckDB database file. If not set, an in-memory database is created. | 
-| `uri` | Alternative to `path`. Accepts plain paths or`file:`URIs (e.g.,`file:test.db`,`file:///absolute/path.db`). Takes precedence over`path`if both are set. | 
+| `uri` | Alternative to `path` . Accepts plain paths or`file:` URIs (e.g.,`file:test.db` ,`file:///absolute/path.db` ). Takes precedence over`path` if both are set. | 
 
 ### 
         
@@ -91,12 +91,12 @@ The `ConnectionGetInfo` function supports the following info codes:
 
 | Info code | Constant | Description | 
 |---|---|---|
-| 0 | `ADBC_INFO_VENDOR_NAME` | Database vendor name ( `duckdb`). | 
+| 0 | `ADBC_INFO_VENDOR_NAME` | Database vendor name ( `duckdb` ). | 
 | 1 | `ADBC_INFO_VENDOR_VERSION` | Database version. | 
 | 100 | `ADBC_INFO_DRIVER_NAME` | Driver name. | 
 | 101 | `ADBC_INFO_DRIVER_VERSION` | Driver version. | 
 | 102 | `ADBC_INFO_DRIVER_ARROW_VERSION` | Arrow library version. | 
-| 103 | `ADBC_INFO_DRIVER_ADBC_VERSION` | ADBC specification version supported by the driver (as an integer, e.g., `1001000`for 1.1.0). | 
+| 103 | `ADBC_INFO_DRIVER_ADBC_VERSION` | ADBC specification version supported by the driver (as an integer, e.g., `1001000` for 1.1.0). | 
 
 A set of functions with transaction semantics for the connection. By default, all connections start with auto-commit mode on, but this can be turned off via the ConnectionSetOption function.
 
@@ -165,9 +165,9 @@ When ingesting data via `StatementBindStream`, the ingestion mode can be set usi
 | Option | Description | 
 |---|---|
 | `adbc.ingest.target_table` | The target table name for ingestion. | 
-| `adbc.ingest.target_catalog` | The target catalog (attached database) for ingestion. When set without `adbc.ingest.target_db_schema`, the schema defaults to`main`. | 
+| `adbc.ingest.target_catalog` | The target catalog (attached database) for ingestion. When set without `adbc.ingest.target_db_schema` , the schema defaults to`main` . | 
 | `adbc.ingest.target_db_schema` | The target schema for ingestion. | 
-| `adbc.ingest.temporary` | Set to `enabled`to create a temporary table. Incompatible with`target_catalog`and`target_db_schema`. | 
+| `adbc.ingest.temporary` | Set to `enabled` to create a temporary table. Incompatible with`target_catalog` and`target_db_schema` . | 
 
 ## 
         
@@ -187,9 +187,9 @@ Before using DuckDB as an ADBC driver, you must install the `libduckdb` shared l
     
 Download the appropriate `libduckdb` library for your platform from the [DuckDB releases page](https://github.com/duckdb/duckdb/releases):
 
-- **Linux**:- `libduckdb-linux-amd64.zip`(contains- `libduckdb.so`)
-- **macOS**:- `libduckdb-osx-universal.zip`(contains- `libduckdb.dylib`)
-- **Windows**:- `libduckdb-windows-amd64.zip`(contains- `duckdb.dll`)
+- **Linux** :`libduckdb-linux-amd64.zip` (contains`libduckdb.so` )
+- **macOS** :`libduckdb-osx-universal.zip` (contains`libduckdb.dylib` )
+- **Windows** :`libduckdb-windows-amd64.zip` (contains`duckdb.dll` )
 
 Extract the archive to obtain the shared library file.
 
@@ -207,14 +207,21 @@ Extract the archive to obtain the shared library file.
       
 
     
-- Extract the `libduckdb.so`file from the downloaded archive
-- 
-    Make sure your code can use the library. You can: - 
-        Either copy it to a system library directory (requires root access): `sudo cp libduckdb.so /usr/local/lib/ sudo ldconfig`
-- 
-        Or place it in a custom directory and add that directory to your `LD_LIBRARY_PATH`:`mkdir -p ~/lib cp libduckdb.so ~/lib/ export LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH`
- 
-- 
+1. Extract the `libduckdb.so` file from the downloaded archive
+2. 
+    Make sure your code can use the library. You can: 
+  - 
+        Either copy it to a system library directory (requires root access): ```
+sudo cp libduckdb.so /usr/local/lib/
+sudo ldconfig
+```
+  - 
+        Or place it in a custom directory and add that directory to your `LD_LIBRARY_PATH` :```
+mkdir -p ~/lib
+cp libduckdb.so ~/lib/
+export LD_LIBRARY_PATH=~/lib:$LD_LIBRARY_PATH
+```
+3. 
         
 
 #### 
@@ -224,14 +231,20 @@ Extract the archive to obtain the shared library file.
       
 
     
-- Extract the `libduckdb.dylib`file from the downloaded archive
-- 
-    Make sure your code can use the library. You can: - 
-        Either copy it to a system library directory: `sudo cp libduckdb.dylib /usr/local/lib/`
-- 
-        Or place it in a custom directory and add that directory to your `DYLD_LIBRARY_PATH`:`mkdir -p ~/lib cp libduckdb.dylib ~/lib/ export DYLD_LIBRARY_PATH=~/lib:$DYLD_LIBRARY_PATH`
- 
-- 
+1. Extract the `libduckdb.dylib` file from the downloaded archive
+2. 
+    Make sure your code can use the library. You can: 
+  - 
+        Either copy it to a system library directory: ```
+sudo cp libduckdb.dylib /usr/local/lib/
+```
+  - 
+        Or place it in a custom directory and add that directory to your `DYLD_LIBRARY_PATH` :```
+mkdir -p ~/lib
+cp libduckdb.dylib ~/lib/
+export DYLD_LIBRARY_PATH=~/lib:$DYLD_LIBRARY_PATH
+```
+3. 
         
 
 #### 
@@ -241,12 +254,12 @@ Extract the archive to obtain the shared library file.
       
 
     
-- Extract the `duckdb.dll`file from the downloaded archive
-- Place it in one of the following locations:
-    - The same directory as your application executable
-- A directory listed in your `PATH`environment variable
-- The Windows system directory (e.g., `C:\Windows\System32`)
- 
+1. Extract the `duckdb.dll` file from the downloaded archive
+2. Place it in one of the following locations:
+    
+  - The same directory as your application executable
+  - A directory listed in your `PATH` environment variable
+  - The Windows system directory (e.g., `C:\Windows\System32` )
 
 ### 
         
@@ -341,9 +354,7 @@ The first thing to do is to use `pip` and install the ADBC Driver manager. You w
 ```
 pip install adbc_driver_manager pyarrow
 ```
-For details on the
-
-`adbc_driver_manager`package, see the[.](https://arrow.apache.org/adbc/current/python/api/adbc_driver_manager.html)`adbc_driver_manager`package documentation
+  For details on the `adbc_driver_manager` package, see the [`adbc_driver_manager` package documentation](https://arrow.apache.org/adbc/current/python/api/adbc_driver_manager.html).
 
 As with C++, we need to provide initialization options consisting of the location of the libduckdb shared object and entrypoint function. Notice that the `path` argument for DuckDB is passed in through the `db_kwargs` dictionary.
 

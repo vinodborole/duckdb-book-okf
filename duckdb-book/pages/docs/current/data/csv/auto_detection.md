@@ -10,7 +10,7 @@ description: 'When using read_csv, the system tries to automatically infer how t
   However, options can be individually overridden by the user. This can be useful
   in case the system makes a mistake.…'
 resource: https://duckdb.org/docs/current/data/csv/auto_detection
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 When using `read_csv`, the system tries to automatically infer how to read the CSV file using the [CSV sniffer](/2023/10/27/csv-sniffer.html).
@@ -42,10 +42,13 @@ If we are reading from a file in which we cannot jump – such as a `.gz` compre
 
 ## 
         
-        `sniff_csv` Function
+        [`sniff_csv` Function](#sniff_csv-function)
+        
+      
 
     
-`sniff_csv` FunctionIt is possible to run the CSV sniffer as a separate step using the `sniff_csv(filename)` function, which returns the detected CSV properties as a table with a single row.
+`sniff_csv` Function
+It is possible to run the CSV sniffer as a separate step using the `sniff_csv(filename)` function, which returns the detected CSV properties as a table with a single row.
 The `sniff_csv` function accepts an optional `sample_size` parameter to configure the number of rows sampled.
 
 ```
@@ -61,7 +64,7 @@ FROM sniff_csv('my_file.csv', sample_size = 1000);
 | `Comment` | Comment character | `#` | 
 | `SkipRows` | Number of rows skipped | 1 | 
 | `HasHeader` | Whether the CSV has a header | `true` | 
-| `Columns` | Column types encoded as a `LIST`of`STRUCT`s | `({'name': 'VARCHAR', 'age': 'BIGINT'})` | 
+| `Columns` | Column types encoded as a `LIST` of`STRUCT` s | `({'name': 'VARCHAR', 'age': 'BIGINT'})` | 
 | `DateFormat` | Date format | `%d/%m/%Y` | 
 | `TimestampFormat` | Timestamp Format | `%Y-%m-%dT%H:%M:%S.%f` | 
 | `UserArguments` | Arguments used to invoke `sniff_csv` | `sample_size = 1000` | 
@@ -104,11 +107,11 @@ The following dialects are considered for automatic dialect detection.
 
 | Parameters | Considered values | 
 |---|---|
-| `delim` | `,``|``;``\t` | 
-| `quote` | `"``'`(empty) | 
-| `escape` | `"``'``\`(empty) | 
+| `delim` | `,``\|``;``\t` | 
+| `quote` | `"``'` (empty) | 
+| `escape` | `"``'``\` (empty) | 
 
-Consider the example file [ flights.csv](/data/flights.csv):
+Consider the example file [`flights.csv`](/data/flights.csv):
 
 ```
 FlightDate|UniqueCarrier|OriginCityName|DestCityName
@@ -118,10 +121,10 @@ FlightDate|UniqueCarrier|OriginCityName|DestCityName
 ```
 In this file, the dialect detection works as follows:
 
-- If we split by a `|`every row is split into`4`columns.
-- If we split by a `,`rows 2-4 are split into`3`columns, while the first row is split into`1`column.
-- If we split by `;`, every row is split into`1`column.
-- If we split by `\t`, every row is split into`1`column.
+- If we split by a `|` every row is split into`4` columns.
+- If we split by a `,` rows 2-4 are split into`3` columns, while the first row is split into`1` column.
+- If we split by `;` , every row is split into`1` column.
+- If we split by `\t` , every row is split into`1` column.
 
 In this example – the system selects the `|` as the delimiter. All rows are split into the same amount of columns, and there is more than one column per row meaning the delimiter was actually found in the CSV file.
 
@@ -149,11 +152,11 @@ The type detection works by attempting to convert the values in each column to t
 | VARCHAR | 
 
 Everything can be cast to `VARCHAR`, therefore, this type has the lowest priority meaning that all columns are converted to `VARCHAR` as a fallback if they cannot be cast to anything else.
-In [ flights.csv](/data/flights.csv) the 
+In [`flights.csv`](/data/flights.csv) the `FlightDate` column will be cast to a `DATE`, while the other columns will be cast to `VARCHAR`.
 
-`FlightDate` column will be cast to a `DATE`, while the other columns will be cast to `VARCHAR`.The set of candidate types that should be considered by the CSV reader can be specified explicitly using the [ auto_type_candidates](/docs/current/data/csv/overview.html#auto_type_candidates-details) option. 
+The set of candidate types that should be considered by the CSV reader can be specified explicitly using the [`auto_type_candidates`](/docs/current/data/csv/overview.html#auto_type_candidates-details) option. `VARCHAR` as the fallback type will always be considered as a candidate type whether you specify it or not.
 
-`VARCHAR` as the fallback type will always be considered as a candidate type whether you specify it or not.Here are all additional candidate types that may be specified using the `auto_type_candidates` option, in order of priority:
+Here are all additional candidate types that may be specified using the `auto_type_candidates` option, in order of priority:
 
 | Types | 
 |---|
@@ -179,14 +182,12 @@ Quoted fields will not be converted to `VARCHAR`, instead, the sniffer will try 
     
 The detected types can be individually overridden using the `types` option. This option takes either of two options:
 
-- A list of type definitions (e.g., `types = ['INTEGER', 'VARCHAR', 'DATE']`). This overrides the types of the columns in-order of occurrence in the CSV file.
-- Alternatively, `types`takes a`name`→`type`map which overrides options of individual columns (e.g.,`types = {'quarter': 'INTEGER'}`).
+- A list of type definitions (e.g., `types = ['INTEGER', 'VARCHAR', 'DATE']` ). This overrides the types of the columns in-order of occurrence in the CSV file.
+- Alternatively, `types` takes a`name` →`type` map which overrides options of individual columns (e.g.,`types = {'quarter': 'INTEGER'}` ).
 
-The set of column types that may be specified using the `types` option is not as limited as the types available for the `auto_type_candidates` option: any valid type definition is acceptable to the `types`-option. (To get a valid type definition, use the [ typeof()](/docs/current/sql/functions/utility.html#typeofexpression) function, or use the 
+The set of column types that may be specified using the `types` option is not as limited as the types available for the `auto_type_candidates` option: any valid type definition is acceptable to the `types`-option. (To get a valid type definition, use the [`typeof()`](/docs/current/sql/functions/utility.html#typeofexpression) function, or use the `column_type` column of the [`DESCRIBE`](/docs/current/guides/meta/describe.html) result.)
 
-`column_type` column of the [result.)](/docs/current/guides/meta/describe.html)
-
-`DESCRIBE`The `sniff_csv()` function's `Column` field returns a struct with column names and types that can be used as a basis for overriding types.
+The `sniff_csv()` function's `Column` field returns a struct with column names and types that can be used as a basis for overriding types.
 
 ## 
         
@@ -195,9 +196,9 @@ The set of column types that may be specified using the `types` option is not as
       
 
     
-Header detection works by checking if the candidate header row deviates from the other rows in the file in terms of types. For example, in [ flights.csv](/data/flights.csv), we can see that the header row consists of only 
+Header detection works by checking if the candidate header row deviates from the other rows in the file in terms of types. For example, in [`flights.csv`](/data/flights.csv), we can see that the header row consists of only `VARCHAR` columns – whereas the values contain a `DATE` value for the `FlightDate` column. As such – the system defines the first row as the header row and extracts the column names from the header row.
 
-`VARCHAR` columns – whereas the values contain a `DATE` value for the `FlightDate` column. As such – the system defines the first row as the header row and extracts the column names from the header row.In files that do not have a header row, the column names are generated as `column0`, `column1`, etc.
+In files that do not have a header row, the column names are generated as `column0`, `column1`, etc.
 
 Note that headers cannot be detected correctly if all columns are of type `VARCHAR` – as in this case the system cannot distinguish the header row from the other rows in the file. In this case, the system assumes the file has a header. This can be overridden by setting the `header` option to `false`.
 

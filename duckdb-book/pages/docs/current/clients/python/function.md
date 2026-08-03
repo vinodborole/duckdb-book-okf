@@ -11,7 +11,7 @@ description: 'You can create a DuckDB user-defined function (UDF) from a Python 
   To register a Python UDF, use the create_function method from a DuckDB connection.
   Here is the syntax: import duckdb con =…'
 resource: https://duckdb.org/docs/current/clients/python/function
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 You can create a DuckDB user-defined function (UDF) from a Python function so it can be used in SQL queries.
@@ -49,14 +49,14 @@ con.create_function(name, function, parameters, return_type)
 ```
 The `create_function` method takes the following parameters:
 
-- `name`A string representing the unique name of the UDF within the connection catalog.
-- `function`The Python function you wish to register as a UDF.
-- `parameters`Scalar functions can operate on one or more columns. This parameter takes a list of column types used as input.
-- `return_type`Scalar functions return one element per row. This parameter specifies the return type of the function.
-- `type`(optional): DuckDB supports both native Python types and PyArrow Arrays. By default,- `type = 'native'`is assumed, but you can specify- `type = 'arrow'`to use PyArrow Arrays. In general, using an Arrow UDF will be much more efficient than native because it will be able to operate in batches.
-- `null_handling`(optional): By default,- `NULL`values are automatically handled as- `NULL`-in- `NULL`-out. Users can specify a desired behavior for- `NULL`values by setting- `null_handling = 'special'`.
-- `exception_handling`(optional): By default, when an exception is thrown from the Python function, it will be re-thrown in Python. Users can disable this behavior, and instead return- `NULL`, by setting this parameter to- `'return_null'`
-- `side_effects`(optional): By default, functions are expected to produce the same result for the same input. If the result of a function is impacted by any type of randomness,- `side_effects`must be set to- `True`.
+1. `name` A string representing the unique name of the UDF within the connection catalog.
+2. `function` The Python function you wish to register as a UDF.
+3. `parameters` Scalar functions can operate on one or more columns. This parameter takes a list of column types used as input.
+4. `return_type` Scalar functions return one element per row. This parameter specifies the return type of the function.
+5. `type` (optional): DuckDB supports both native Python types and PyArrow Arrays. By default,`type = 'native'` is assumed, but you can specify`type = 'arrow'` to use PyArrow Arrays. In general, using an Arrow UDF will be much more efficient than native because it will be able to operate in batches.
+6. `null_handling` (optional): By default,`NULL` values are automatically handled as`NULL` -in`NULL` -out. Users can specify a desired behavior for`NULL` values by setting`null_handling = 'special'` .
+7. `exception_handling` (optional): By default, when an exception is thrown from the Python function, it will be re-thrown in Python. Users can disable this behavior, and instead return`NULL` , by setting this parameter to`'return_null'`
+8. `side_effects` (optional): By default, functions are expected to produce the same result for the same input. If the result of a function is impacted by any type of randomness,`side_effects` must be set to`True` .
 
 To unregister a UDF, you can call the `remove_function` method with the UDF name:
 
@@ -166,10 +166,13 @@ If only the parameter list types can be inferred, you'll need to pass in `None` 
 
 ## 
         
-        `NULL` Handling
+        [`NULL` Handling](#null-handling)
+        
+      
 
     
-`NULL` HandlingBy default when functions receive a `NULL` value, this instantly returns `NULL`, as part of the default `NULL`-handling.
+`NULL` Handling
+By default when functions receive a `NULL` value, this instantly returns `NULL`, as part of the default `NULL`-handling.
 When this is not desired, you need to explicitly set this parameter to `"special"`.
 
 ```
@@ -198,9 +201,7 @@ print(res)
 ```
 [(5,)]
 ```
-Always use
-
-`null_handling="special"`when the function can return NULL.
+  Always use `null_handling="special"` when the function can return NULL.
 
 ```
 import duckdb

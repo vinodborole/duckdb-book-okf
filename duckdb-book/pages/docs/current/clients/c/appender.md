@@ -11,7 +11,7 @@ description: Appenders are the most efficient way of loading data into DuckDB fr
   should always be called on the resulting appender, even if the function returns
   DuckDBError. Example…
 resource: https://duckdb.org/docs/current/clients/c/appender
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 Appenders are the most efficient way of loading data into DuckDB from within the C interface, and are recommended for
@@ -55,7 +55,7 @@ duckdb_appender_destroy(&appender);
       
 
     
-`duckdb_state `[duckdb_appender_create](#duckdb_appender_create)(duckdb_connection connection, const char *schema, const char *table, duckdb_appender *out_appender);
+`duckdb_state` [duckdb_appender_create](#duckdb_appender_create)(duckdb_connection connection, const char *schema, const char *table, duckdb_appender *out_appender);
 duckdb_state [duckdb_appender_create_ext](#duckdb_appender_create_ext)(duckdb_connection connection, const char *catalog, const char *schema, const char *table, duckdb_appender *out_appender);
 duckdb_state [duckdb_appender_create_query](#duckdb_appender_create_query)(duckdb_connection connection, const char *query, idx_t column_count, duckdb_logical_type *types, const char *table_name, const char **column_names, duckdb_appender *out_appender);
 idx_t [duckdb_appender_column_count](#duckdb_appender_column_count)(duckdb_appender appender);
@@ -96,10 +96,13 @@ duckdb_state [duckdb_append_value](#duckdb_append_value)(duckdb_appender appende
 duckdb_state [duckdb_append_data_chunk](#duckdb_append_data_chunk)(duckdb_appender appender, duckdb_data_chunk chunk);
 #### 
         
-        `duckdb_appender_create`
+        [`duckdb_appender_create`](#duckdb_appender_create)
+        
+      
 
     
-`duckdb_appender_create`Creates an appender object.
+`duckdb_appender_create`
+Creates an appender object.
 
 Note that the object must be destroyed with `duckdb_appender_destroy`.
 
@@ -125,10 +128,10 @@ duckdb_state duckdb_appender_create(
       
 
     
-- `connection`: The connection context to create the appender in.
-- `schema`: The schema of the table to append to, or- `nullptr`for the default schema.
-- `table`: The table name to append to.
-- `out_appender`: The resulting appender object.
+- `connection` : The connection context to create the appender in.
+- `schema` : The schema of the table to append to, or`nullptr` for the default schema.
+- `table` : The table name to append to.
+- `out_appender` : The resulting appender object.
 
 ##### 
         
@@ -141,10 +144,13 @@ duckdb_state duckdb_appender_create(
 
 #### 
         
-        `duckdb_appender_create_ext`
+        [`duckdb_appender_create_ext`](#duckdb_appender_create_ext)
+        
+      
 
     
-`duckdb_appender_create_ext`Creates an appender object.
+`duckdb_appender_create_ext`
+Creates an appender object.
 
 Note that the object must be destroyed with `duckdb_appender_destroy`.
 
@@ -171,11 +177,11 @@ duckdb_state duckdb_appender_create_ext(
       
 
     
-- `connection`: The connection context to create the appender in.
-- `catalog`: The catalog of the table to append to, or- `nullptr`for the default catalog.
-- `schema`: The schema of the table to append to, or- `nullptr`for the default schema.
-- `table`: The table name to append to.
-- `out_appender`: The resulting appender object.
+- `connection` : The connection context to create the appender in.
+- `catalog` : The catalog of the table to append to, or`nullptr` for the default catalog.
+- `schema` : The schema of the table to append to, or`nullptr` for the default schema.
+- `table` : The table name to append to.
+- `out_appender` : The resulting appender object.
 
 ##### 
         
@@ -188,10 +194,13 @@ duckdb_state duckdb_appender_create_ext(
 
 #### 
         
-        `duckdb_appender_create_query`
+        [`duckdb_appender_create_query`](#duckdb_appender_create_query)
+        
+      
 
     
-`duckdb_appender_create_query`Creates an appender object that executes the given query with any data appended to it.
+`duckdb_appender_create_query`
+Creates an appender object that executes the given query with any data appended to it.
 
 Note that the object must be destroyed with `duckdb_appender_destroy`.
 
@@ -220,13 +229,13 @@ duckdb_state duckdb_appender_create_query(
       
 
     
-- `connection`: The connection context to create the appender in.
-- `query`: The query to execute, can be an INSERT, DELETE, UPDATE or MERGE INTO statement.
-- `column_count`: The number of columns to append.
-- `types`: The types of the columns to append.
-- `table_name`: (optionally) the table name used to refer to the appended data, defaults to "appended_data".
-- `column_names`: (optionally) the list of column names, defaults to "col1", "col2", …
-- `out_appender`: The resulting appender object.
+- `connection` : The connection context to create the appender in.
+- `query` : The query to execute, can be an INSERT, DELETE, UPDATE or MERGE INTO statement.
+- `column_count` : The number of columns to append.
+- `types` : The types of the columns to append.
+- `table_name` : (optionally) the table name used to refer to the appended data, defaults to "appended_data".
+- `column_names` : (optionally) the list of column names, defaults to "col1", "col2", …
+- `out_appender` : The resulting appender object.
 
 ##### 
         
@@ -239,10 +248,13 @@ duckdb_state duckdb_appender_create_query(
 
 #### 
         
-        `duckdb_appender_column_count`
+        [`duckdb_appender_column_count`](#duckdb_appender_column_count)
+        
+      
 
     
-`duckdb_appender_column_count`Returns the number of columns that belong to the appender. If there is no active column list, then this equals the table's physical columns.
+`duckdb_appender_column_count`
+Returns the number of columns that belong to the appender. If there is no active column list, then this equals the table's physical columns.
 
 ##### 
         
@@ -263,7 +275,7 @@ idx_t duckdb_appender_column_count(
       
 
     
-- `appender`: The appender to get the column count from.
+- `appender` : The appender to get the column count from.
 
 ##### 
         
@@ -276,10 +288,13 @@ The number of columns in the data chunks.
 
 #### 
         
-        `duckdb_appender_column_type`
+        [`duckdb_appender_column_type`](#duckdb_appender_column_type)
+        
+      
 
     
-`duckdb_appender_column_type`Returns the type of the column at the specified index. This is either a type in the active column list, or the same type as a column in the receiving table.
+`duckdb_appender_column_type`
+Returns the type of the column at the specified index. This is either a type in the active column list, or the same type as a column in the receiving table.
 
 Note: The resulting type must be destroyed with `duckdb_destroy_logical_type`.
 
@@ -303,8 +318,8 @@ duckdb_logical_type duckdb_appender_column_type(
       
 
     
-- `appender`: The appender to get the column type from.
-- `col_idx`: The index of the column to get the type of.
+- `appender` : The appender to get the column type from.
+- `col_idx` : The index of the column to get the type of.
 
 ##### 
         
@@ -317,10 +332,13 @@ The `duckdb_logical_type` of the column.
 
 #### 
         
-        `duckdb_appender_error`
+        [`duckdb_appender_error`](#duckdb_appender_error)
+        
+      
 
     
-`duckdb_appender_error`Warning Deprecation notice. This method is scheduled for removal in a future release. Use duckdb_appender_error_data instead.
+`duckdb_appender_error`
+  Warning Deprecation notice. This method is scheduled for removal in a future release. Use duckdb_appender_error_data instead.
 
 Returns the error message associated with the appender.
 If the appender has no error message, this returns `nullptr` instead.
@@ -346,7 +364,7 @@ const char *duckdb_appender_error(
       
 
     
-- `appender`: The appender to get the error from.
+- `appender` : The appender to get the error from.
 
 ##### 
         
@@ -359,10 +377,13 @@ The error message, or `nullptr` if there is none.
 
 #### 
         
-        `duckdb_appender_error_data`
+        [`duckdb_appender_error_data`](#duckdb_appender_error_data)
+        
+      
 
     
-`duckdb_appender_error_data`Returns the error data associated with the appender. Must be destroyed with duckdb_destroy_error_data.
+`duckdb_appender_error_data`
+Returns the error data associated with the appender. Must be destroyed with duckdb_destroy_error_data.
 
 ##### 
         
@@ -383,7 +404,7 @@ duckdb_error_data duckdb_appender_error_data(
       
 
     
-- `appender`: The appender to get the error data from.
+- `appender` : The appender to get the error data from.
 
 ##### 
         
@@ -396,10 +417,13 @@ The error data.
 
 #### 
         
-        `duckdb_appender_flush`
+        [`duckdb_appender_flush`](#duckdb_appender_flush)
+        
+      
 
     
-`duckdb_appender_flush`Flush the appender to the table, forcing the cache of the appender to be cleared. If flushing the data triggers a constraint violation or any other error, then all data is invalidated, and this function returns DuckDBError. It is not possible to append more values. Call duckdb_appender_error_data to obtain the error data followed by duckdb_appender_destroy to destroy the invalidated appender.
+`duckdb_appender_flush`
+Flush the appender to the table, forcing the cache of the appender to be cleared. If flushing the data triggers a constraint violation or any other error, then all data is invalidated, and this function returns DuckDBError. It is not possible to append more values. Call duckdb_appender_error_data to obtain the error data followed by duckdb_appender_destroy to destroy the invalidated appender.
 
 ##### 
         
@@ -420,7 +444,7 @@ duckdb_state duckdb_appender_flush(
       
 
     
-- `appender`: The appender to flush.
+- `appender` : The appender to flush.
 
 ##### 
         
@@ -433,10 +457,13 @@ duckdb_state duckdb_appender_flush(
 
 #### 
         
-        `duckdb_appender_close`
+        [`duckdb_appender_close`](#duckdb_appender_close)
+        
+      
 
     
-`duckdb_appender_close`Closes the appender by flushing all intermediate states and closing it for further appends. If flushing the data triggers a constraint violation or any other error, then all data is invalidated, and this function returns DuckDBError. Call duckdb_appender_error_data to obtain the error data followed by duckdb_appender_destroy to destroy the invalidated appender.
+`duckdb_appender_close`
+Closes the appender by flushing all intermediate states and closing it for further appends. If flushing the data triggers a constraint violation or any other error, then all data is invalidated, and this function returns DuckDBError. Call duckdb_appender_error_data to obtain the error data followed by duckdb_appender_destroy to destroy the invalidated appender.
 
 ##### 
         
@@ -457,7 +484,7 @@ duckdb_state duckdb_appender_close(
       
 
     
-- `appender`: The appender to flush and close.
+- `appender` : The appender to flush and close.
 
 ##### 
         
@@ -470,10 +497,13 @@ duckdb_state duckdb_appender_close(
 
 #### 
         
-        `duckdb_appender_destroy`
+        [`duckdb_appender_destroy`](#duckdb_appender_destroy)
+        
+      
 
     
-`duckdb_appender_destroy`Closes the appender by flushing all intermediate states to the table and destroying it. By destroying it, this function de-allocates all memory associated with the appender. If flushing the data triggers a constraint violation, then all data is invalidated, and this function returns DuckDBError. Due to the destruction of the appender, it is no longer possible to obtain the specific error message with duckdb_appender_error. Therefore, call duckdb_appender_close before destroying the appender, if you need insights into the specific error.
+`duckdb_appender_destroy`
+Closes the appender by flushing all intermediate states to the table and destroying it. By destroying it, this function de-allocates all memory associated with the appender. If flushing the data triggers a constraint violation, then all data is invalidated, and this function returns DuckDBError. Due to the destruction of the appender, it is no longer possible to obtain the specific error message with duckdb_appender_error. Therefore, call duckdb_appender_close before destroying the appender, if you need insights into the specific error.
 
 ##### 
         
@@ -494,7 +524,7 @@ duckdb_state duckdb_appender_destroy(
       
 
     
-- `appender`: The appender to flush, close and destroy.
+- `appender` : The appender to flush, close and destroy.
 
 ##### 
         
@@ -507,10 +537,13 @@ duckdb_state duckdb_appender_destroy(
 
 #### 
         
-        `duckdb_appender_add_column`
+        [`duckdb_appender_add_column`](#duckdb_appender_add_column)
+        
+      
 
     
-`duckdb_appender_add_column`Appends a column to the active column list of the appender. Immediately flushes all previous data.
+`duckdb_appender_add_column`
+Appends a column to the active column list of the appender. Immediately flushes all previous data.
 
 The active column list specifies all columns that are expected when flushing the data. Any non-active columns are filled with their default values, or NULL.
 
@@ -534,7 +567,7 @@ duckdb_state duckdb_appender_add_column(
       
 
     
-- `appender`: The appender to add the column to.
+- `appender` : The appender to add the column to.
 
 ##### 
         
@@ -547,10 +580,13 @@ duckdb_state duckdb_appender_add_column(
 
 #### 
         
-        `duckdb_appender_clear_columns`
+        [`duckdb_appender_clear_columns`](#duckdb_appender_clear_columns)
+        
+      
 
     
-`duckdb_appender_clear_columns`Removes all columns from the active column list of the appender, resetting the appender to treat all columns as active. Immediately flushes all previous data.
+`duckdb_appender_clear_columns`
+Removes all columns from the active column list of the appender, resetting the appender to treat all columns as active. Immediately flushes all previous data.
 
 ##### 
         
@@ -571,7 +607,7 @@ duckdb_state duckdb_appender_clear_columns(
       
 
     
-- `appender`: The appender to clear the columns from.
+- `appender` : The appender to clear the columns from.
 
 ##### 
         
@@ -584,10 +620,13 @@ duckdb_state duckdb_appender_clear_columns(
 
 #### 
         
-        `duckdb_appender_begin_row`
+        [`duckdb_appender_begin_row`](#duckdb_appender_begin_row)
+        
+      
 
     
-`duckdb_appender_begin_row`A nop function, provided for backwards compatibility reasons. Does nothing. Only `duckdb_appender_end_row` is required.
+`duckdb_appender_begin_row`
+A nop function, provided for backwards compatibility reasons. Does nothing. Only `duckdb_appender_end_row` is required.
 
 ##### 
         
@@ -603,10 +642,13 @@ duckdb_state duckdb_appender_begin_row(
 ```
 #### 
         
-        `duckdb_appender_end_row`
+        [`duckdb_appender_end_row`](#duckdb_appender_end_row)
+        
+      
 
     
-`duckdb_appender_end_row`Finish the current row of appends. After end_row is called, the next row can be appended.
+`duckdb_appender_end_row`
+Finish the current row of appends. After end_row is called, the next row can be appended.
 
 ##### 
         
@@ -627,7 +669,7 @@ duckdb_state duckdb_appender_end_row(
       
 
     
-- `appender`: The appender.
+- `appender` : The appender.
 
 ##### 
         
@@ -640,10 +682,13 @@ duckdb_state duckdb_appender_end_row(
 
 #### 
         
-        `duckdb_append_default`
+        [`duckdb_append_default`](#duckdb_append_default)
+        
+      
 
     
-`duckdb_append_default`Append a DEFAULT value (NULL if DEFAULT not available for column) to the appender.
+`duckdb_append_default`
+Append a DEFAULT value (NULL if DEFAULT not available for column) to the appender.
 
 ##### 
         
@@ -659,10 +704,13 @@ duckdb_state duckdb_append_default(
 ```
 #### 
         
-        `duckdb_append_default_to_chunk`
+        [`duckdb_append_default_to_chunk`](#duckdb_append_default_to_chunk)
+        
+      
 
     
-`duckdb_append_default_to_chunk`Append a DEFAULT value, at the specified row and column, (NULL if DEFAULT not available for column) to the chunk created from the specified appender. The default value of the column must be a constant value. Non-deterministic expressions like nextval('seq') or random() are not supported.
+`duckdb_append_default_to_chunk`
+Append a DEFAULT value, at the specified row and column, (NULL if DEFAULT not available for column) to the chunk created from the specified appender. The default value of the column must be a constant value. Non-deterministic expressions like nextval('seq') or random() are not supported.
 
 ##### 
         
@@ -686,10 +734,10 @@ duckdb_state duckdb_append_default_to_chunk(
       
 
     
-- `appender`: The appender to get the default value from.
-- `chunk`: The data chunk to append the default value to.
-- `col`: The chunk column index to append the default value to.
-- `row`: The chunk row index to append the default value to.
+- `appender` : The appender to get the default value from.
+- `chunk` : The data chunk to append the default value to.
+- `col` : The chunk column index to append the default value to.
+- `row` : The chunk row index to append the default value to.
 
 ##### 
         
@@ -702,10 +750,13 @@ duckdb_state duckdb_append_default_to_chunk(
 
 #### 
         
-        `duckdb_append_bool`
+        [`duckdb_append_bool`](#duckdb_append_bool)
+        
+      
 
     
-`duckdb_append_bool`Append a bool value to the appender.
+`duckdb_append_bool`
+Append a bool value to the appender.
 
 ##### 
         
@@ -722,10 +773,13 @@ duckdb_state duckdb_append_bool(
 ```
 #### 
         
-        `duckdb_append_int8`
+        [`duckdb_append_int8`](#duckdb_append_int8)
+        
+      
 
     
-`duckdb_append_int8`Append an int8_t value to the appender.
+`duckdb_append_int8`
+Append an int8_t value to the appender.
 
 ##### 
         
@@ -742,10 +796,13 @@ duckdb_state duckdb_append_int8(
 ```
 #### 
         
-        `duckdb_append_int16`
+        [`duckdb_append_int16`](#duckdb_append_int16)
+        
+      
 
     
-`duckdb_append_int16`Append an int16_t value to the appender.
+`duckdb_append_int16`
+Append an int16_t value to the appender.
 
 ##### 
         
@@ -762,10 +819,13 @@ duckdb_state duckdb_append_int16(
 ```
 #### 
         
-        `duckdb_append_int32`
+        [`duckdb_append_int32`](#duckdb_append_int32)
+        
+      
 
     
-`duckdb_append_int32`Append an int32_t value to the appender.
+`duckdb_append_int32`
+Append an int32_t value to the appender.
 
 ##### 
         
@@ -782,10 +842,13 @@ duckdb_state duckdb_append_int32(
 ```
 #### 
         
-        `duckdb_append_int64`
+        [`duckdb_append_int64`](#duckdb_append_int64)
+        
+      
 
     
-`duckdb_append_int64`Append an int64_t value to the appender.
+`duckdb_append_int64`
+Append an int64_t value to the appender.
 
 ##### 
         
@@ -802,10 +865,13 @@ duckdb_state duckdb_append_int64(
 ```
 #### 
         
-        `duckdb_append_hugeint`
+        [`duckdb_append_hugeint`](#duckdb_append_hugeint)
+        
+      
 
     
-`duckdb_append_hugeint`Append a duckdb_hugeint value to the appender.
+`duckdb_append_hugeint`
+Append a duckdb_hugeint value to the appender.
 
 ##### 
         
@@ -822,10 +888,13 @@ duckdb_state duckdb_append_hugeint(
 ```
 #### 
         
-        `duckdb_append_uint8`
+        [`duckdb_append_uint8`](#duckdb_append_uint8)
+        
+      
 
     
-`duckdb_append_uint8`Append a uint8_t value to the appender.
+`duckdb_append_uint8`
+Append a uint8_t value to the appender.
 
 ##### 
         
@@ -842,10 +911,13 @@ duckdb_state duckdb_append_uint8(
 ```
 #### 
         
-        `duckdb_append_uint16`
+        [`duckdb_append_uint16`](#duckdb_append_uint16)
+        
+      
 
     
-`duckdb_append_uint16`Append a uint16_t value to the appender.
+`duckdb_append_uint16`
+Append a uint16_t value to the appender.
 
 ##### 
         
@@ -862,10 +934,13 @@ duckdb_state duckdb_append_uint16(
 ```
 #### 
         
-        `duckdb_append_uint32`
+        [`duckdb_append_uint32`](#duckdb_append_uint32)
+        
+      
 
     
-`duckdb_append_uint32`Append a uint32_t value to the appender.
+`duckdb_append_uint32`
+Append a uint32_t value to the appender.
 
 ##### 
         
@@ -882,10 +957,13 @@ duckdb_state duckdb_append_uint32(
 ```
 #### 
         
-        `duckdb_append_uint64`
+        [`duckdb_append_uint64`](#duckdb_append_uint64)
+        
+      
 
     
-`duckdb_append_uint64`Append a uint64_t value to the appender.
+`duckdb_append_uint64`
+Append a uint64_t value to the appender.
 
 ##### 
         
@@ -902,10 +980,13 @@ duckdb_state duckdb_append_uint64(
 ```
 #### 
         
-        `duckdb_append_uhugeint`
+        [`duckdb_append_uhugeint`](#duckdb_append_uhugeint)
+        
+      
 
     
-`duckdb_append_uhugeint`Append a duckdb_uhugeint value to the appender.
+`duckdb_append_uhugeint`
+Append a duckdb_uhugeint value to the appender.
 
 ##### 
         
@@ -922,10 +1003,13 @@ duckdb_state duckdb_append_uhugeint(
 ```
 #### 
         
-        `duckdb_append_float`
+        [`duckdb_append_float`](#duckdb_append_float)
+        
+      
 
     
-`duckdb_append_float`Append a float value to the appender.
+`duckdb_append_float`
+Append a float value to the appender.
 
 ##### 
         
@@ -942,10 +1026,13 @@ duckdb_state duckdb_append_float(
 ```
 #### 
         
-        `duckdb_append_double`
+        [`duckdb_append_double`](#duckdb_append_double)
+        
+      
 
     
-`duckdb_append_double`Append a double value to the appender.
+`duckdb_append_double`
+Append a double value to the appender.
 
 ##### 
         
@@ -962,10 +1049,13 @@ duckdb_state duckdb_append_double(
 ```
 #### 
         
-        `duckdb_append_date`
+        [`duckdb_append_date`](#duckdb_append_date)
+        
+      
 
     
-`duckdb_append_date`Append a duckdb_date value to the appender.
+`duckdb_append_date`
+Append a duckdb_date value to the appender.
 
 ##### 
         
@@ -982,10 +1072,13 @@ duckdb_state duckdb_append_date(
 ```
 #### 
         
-        `duckdb_append_time`
+        [`duckdb_append_time`](#duckdb_append_time)
+        
+      
 
     
-`duckdb_append_time`Append a duckdb_time value to the appender.
+`duckdb_append_time`
+Append a duckdb_time value to the appender.
 
 ##### 
         
@@ -1002,10 +1095,13 @@ duckdb_state duckdb_append_time(
 ```
 #### 
         
-        `duckdb_append_timestamp`
+        [`duckdb_append_timestamp`](#duckdb_append_timestamp)
+        
+      
 
     
-`duckdb_append_timestamp`Append a duckdb_timestamp value to the appender.
+`duckdb_append_timestamp`
+Append a duckdb_timestamp value to the appender.
 
 ##### 
         
@@ -1022,10 +1118,13 @@ duckdb_state duckdb_append_timestamp(
 ```
 #### 
         
-        `duckdb_append_interval`
+        [`duckdb_append_interval`](#duckdb_append_interval)
+        
+      
 
     
-`duckdb_append_interval`Append a duckdb_interval value to the appender.
+`duckdb_append_interval`
+Append a duckdb_interval value to the appender.
 
 ##### 
         
@@ -1042,10 +1141,13 @@ duckdb_state duckdb_append_interval(
 ```
 #### 
         
-        `duckdb_append_varchar`
+        [`duckdb_append_varchar`](#duckdb_append_varchar)
+        
+      
 
     
-`duckdb_append_varchar`Append a varchar value to the appender.
+`duckdb_append_varchar`
+Append a varchar value to the appender.
 
 ##### 
         
@@ -1062,10 +1164,13 @@ duckdb_state duckdb_append_varchar(
 ```
 #### 
         
-        `duckdb_append_varchar_length`
+        [`duckdb_append_varchar_length`](#duckdb_append_varchar_length)
+        
+      
 
     
-`duckdb_append_varchar_length`Append a varchar value to the appender.
+`duckdb_append_varchar_length`
+Append a varchar value to the appender.
 
 ##### 
         
@@ -1083,10 +1188,13 @@ duckdb_state duckdb_append_varchar_length(
 ```
 #### 
         
-        `duckdb_append_blob`
+        [`duckdb_append_blob`](#duckdb_append_blob)
+        
+      
 
     
-`duckdb_append_blob`Append a blob value to the appender.
+`duckdb_append_blob`
+Append a blob value to the appender.
 
 ##### 
         
@@ -1104,10 +1212,13 @@ duckdb_state duckdb_append_blob(
 ```
 #### 
         
-        `duckdb_append_null`
+        [`duckdb_append_null`](#duckdb_append_null)
+        
+      
 
     
-`duckdb_append_null`Append a NULL value to the appender (of any type).
+`duckdb_append_null`
+Append a NULL value to the appender (of any type).
 
 ##### 
         
@@ -1123,10 +1234,13 @@ duckdb_state duckdb_append_null(
 ```
 #### 
         
-        `duckdb_append_value`
+        [`duckdb_append_value`](#duckdb_append_value)
+        
+      
 
     
-`duckdb_append_value`Append a duckdb_value to the appender.
+`duckdb_append_value`
+Append a duckdb_value to the appender.
 
 ##### 
         
@@ -1143,10 +1257,13 @@ duckdb_state duckdb_append_value(
 ```
 #### 
         
-        `duckdb_append_data_chunk`
+        [`duckdb_append_data_chunk`](#duckdb_append_data_chunk)
+        
+      
 
     
-`duckdb_append_data_chunk`Appends a pre-filled data chunk to the specified appender. Attempts casting, if the data chunk types do not match the active appender types.
+`duckdb_append_data_chunk`
+Appends a pre-filled data chunk to the specified appender. Attempts casting, if the data chunk types do not match the active appender types.
 
 ##### 
         
@@ -1168,8 +1285,8 @@ duckdb_state duckdb_append_data_chunk(
       
 
     
-- `appender`: The appender to append to.
-- `chunk`: The data chunk to append.
+- `appender` : The appender to append to.
+- `chunk` : The data chunk to append.
 
 ##### 
         

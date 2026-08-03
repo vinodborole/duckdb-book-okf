@@ -10,7 +10,7 @@ description: Vectors represent a horizontal slice of a column. They hold a numbe
   data type. The logical type of a vector can be obtained using duckdb_vector_get_column_type.
   The type id of the…
 resource: https://duckdb.org/docs/current/clients/c/vector
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 Vectors represent a horizontal slice of a column. They hold a number of values of a specific type, similar to an array. Vectors are the core data representation used in DuckDB. Vectors are typically stored within [data chunks](/docs/current/clients/c/data_chunk.html).
@@ -67,10 +67,13 @@ For primitive types, the underlying array can be obtained using the `duckdb_vect
 
 ### 
         
-        `NULL` Values
+        [`NULL` Values](#null-values)
+        
+      
 
     
-`NULL` ValuesAny value in a vector can be `NULL`. When a value is `NULL`, the values contained within the primary array at that index is undefined (and can be uninitialized). The validity mask is a bitmask consisting of `uint64_t` elements. For every `64` values in the vector, one `uint64_t` element exists (rounded up). The validity mask has its bit set to 1 if the value is valid, or set to 0 if the value is invalid (i.e., `NULL`).
+`NULL` Values
+Any value in a vector can be `NULL`. When a value is `NULL`, the values contained within the primary array at that index is undefined (and can be uninitialized). The validity mask is a bitmask consisting of `uint64_t` elements. For every `64` values in the vector, one `uint64_t` element exists (rounded up). The validity mask has its bit set to 1 if the value is valid, or set to 0 if the value is invalid (i.e., `NULL`).
 
 The bits of the bitmask can be read directly, or the slower helper method `duckdb_validity_row_is_valid` can be used to check whether or not a value is `NULL`.
 
@@ -193,7 +196,7 @@ Below are several full end-to-end examples of how to interact with vectors.
 
 ### 
         
-        [Example: Reading an int64 Vector with ](#example-reading-an-int64-vector-with-null-values)`NULL` Values
+        [Example: Reading an int64 Vector with `NULL` Values](#example-reading-an-int64-vector-with-null-values)
         
       
 
@@ -416,7 +419,7 @@ duckdb_close(&db);
       
 
     
-`duckdb_vector `[duckdb_create_vector](#duckdb_create_vector)(duckdb_logical_type type, idx_t capacity);
+`duckdb_vector` [duckdb_create_vector](#duckdb_create_vector)(duckdb_logical_type type, idx_t capacity);
 void [duckdb_destroy_vector](#duckdb_destroy_vector)(duckdb_vector *vector);
 duckdb_logical_type [duckdb_vector_get_column_type](#duckdb_vector_get_column_type)(duckdb_vector vector);
 void *[duckdb_vector_get_data](#duckdb_vector_get_data)(duckdb_vector vector);
@@ -441,16 +444,19 @@ void [duckdb_vector_reference_vector](#duckdb_vector_reference_vector)(duckdb_ve
       
 
     
-`bool `[duckdb_validity_row_is_valid](#duckdb_validity_row_is_valid)(uint64_t *validity, idx_t row);
+`bool` [duckdb_validity_row_is_valid](#duckdb_validity_row_is_valid)(uint64_t *validity, idx_t row);
 void [duckdb_validity_set_row_validity](#duckdb_validity_set_row_validity)(uint64_t *validity, idx_t row, bool valid);
 void [duckdb_validity_set_row_invalid](#duckdb_validity_set_row_invalid)(uint64_t *validity, idx_t row);
 void [duckdb_validity_set_row_valid](#duckdb_validity_set_row_valid)(uint64_t *validity, idx_t row);
 #### 
         
-        `duckdb_create_vector`
+        [`duckdb_create_vector`](#duckdb_create_vector)
+        
+      
 
     
-`duckdb_create_vector`Creates a flat vector. Must be destroyed with `duckdb_destroy_vector`.
+`duckdb_create_vector`
+Creates a flat vector. Must be destroyed with `duckdb_destroy_vector`.
 
 ##### 
         
@@ -472,8 +478,8 @@ duckdb_vector duckdb_create_vector(
       
 
     
-- `type`: The logical type of the vector.
-- `capacity`: The capacity of the vector.
+- `type` : The logical type of the vector.
+- `capacity` : The capacity of the vector.
 
 ##### 
         
@@ -486,10 +492,13 @@ The vector.
 
 #### 
         
-        `duckdb_destroy_vector`
+        [`duckdb_destroy_vector`](#duckdb_destroy_vector)
+        
+      
 
     
-`duckdb_destroy_vector`Destroys the vector and de-allocates its memory.
+`duckdb_destroy_vector`
+Destroys the vector and de-allocates its memory.
 
 ##### 
         
@@ -510,14 +519,17 @@ void duckdb_destroy_vector(
       
 
     
-- `vector`: A pointer to the vector.
+- `vector` : A pointer to the vector.
 
 #### 
         
-        `duckdb_vector_get_column_type`
+        [`duckdb_vector_get_column_type`](#duckdb_vector_get_column_type)
+        
+      
 
     
-`duckdb_vector_get_column_type`Retrieves the column type of the specified vector.
+`duckdb_vector_get_column_type`
+Retrieves the column type of the specified vector.
 
 The result must be destroyed with `duckdb_destroy_logical_type`.
 
@@ -540,7 +552,7 @@ duckdb_logical_type duckdb_vector_get_column_type(
       
 
     
-- `vector`: The vector get the data from
+- `vector` : The vector get the data from
 
 ##### 
         
@@ -553,10 +565,13 @@ The type of the vector
 
 #### 
         
-        `duckdb_vector_get_data`
+        [`duckdb_vector_get_data`](#duckdb_vector_get_data)
+        
+      
 
     
-`duckdb_vector_get_data`Retrieves the data pointer of the vector.
+`duckdb_vector_get_data`
+Retrieves the data pointer of the vector.
 
 The data pointer can be used to read or write values from the vector. How to read or write values depends on the type of the vector.
 
@@ -579,7 +594,7 @@ void *duckdb_vector_get_data(
       
 
     
-- `vector`: The vector to get the data from
+- `vector` : The vector to get the data from
 
 ##### 
         
@@ -592,10 +607,13 @@ The data pointer
 
 #### 
         
-        `duckdb_vector_get_validity`
+        [`duckdb_vector_get_validity`](#duckdb_vector_get_validity)
+        
+      
 
     
-`duckdb_vector_get_validity`Retrieves the validity mask pointer of the specified vector.
+`duckdb_vector_get_validity`
+Retrieves the validity mask pointer of the specified vector.
 
 If all values are valid, this function MIGHT return NULL!
 
@@ -626,7 +644,7 @@ uint64_t *duckdb_vector_get_validity(
       
 
     
-- `vector`: The vector to get the data from
+- `vector` : The vector to get the data from
 
 ##### 
         
@@ -639,10 +657,13 @@ The pointer to the validity mask, or NULL if no validity mask is present
 
 #### 
         
-        `duckdb_vector_ensure_validity_writable`
+        [`duckdb_vector_ensure_validity_writable`](#duckdb_vector_ensure_validity_writable)
+        
+      
 
     
-`duckdb_vector_ensure_validity_writable`Ensures the validity mask is writable by allocating it.
+`duckdb_vector_ensure_validity_writable`
+Ensures the validity mask is writable by allocating it.
 
 After this function is called, `duckdb_vector_get_validity` will ALWAYS return non-NULL.
 This allows NULL values to be written to the vector, regardless of whether a validity mask was present before.
@@ -666,14 +687,17 @@ void duckdb_vector_ensure_validity_writable(
       
 
     
-- `vector`: The vector to alter
+- `vector` : The vector to alter
 
 #### 
         
-        `duckdb_vector_assign_string_element`
+        [`duckdb_vector_assign_string_element`](#duckdb_vector_assign_string_element)
+        
+      
 
     
-`duckdb_vector_assign_string_element`Assigns a string element in the vector at the specified location.
+`duckdb_vector_assign_string_element`
+Assigns a string element in the vector at the specified location.
 
 ##### 
         
@@ -696,16 +720,19 @@ void duckdb_vector_assign_string_element(
       
 
     
-- `vector`: The vector to alter
-- `index`: The row position in the vector to assign the string to
-- `str`: The null-terminated string
+- `vector` : The vector to alter
+- `index` : The row position in the vector to assign the string to
+- `str` : The null-terminated string
 
 #### 
         
-        `duckdb_vector_assign_string_element_len`
+        [`duckdb_vector_assign_string_element_len`](#duckdb_vector_assign_string_element_len)
+        
+      
 
     
-`duckdb_vector_assign_string_element_len`Assigns a string element in the vector at the specified location. You may also use this function to assign BLOBs.
+`duckdb_vector_assign_string_element_len`
+Assigns a string element in the vector at the specified location. You may also use this function to assign BLOBs.
 
 ##### 
         
@@ -729,17 +756,20 @@ void duckdb_vector_assign_string_element_len(
       
 
     
-- `vector`: The vector to alter
-- `index`: The row position in the vector to assign the string to
-- `str`: The string
-- `str_len`: The length of the string (in bytes)
+- `vector` : The vector to alter
+- `index` : The row position in the vector to assign the string to
+- `str` : The string
+- `str_len` : The length of the string (in bytes)
 
 #### 
         
-        `duckdb_list_vector_get_child`
+        [`duckdb_list_vector_get_child`](#duckdb_list_vector_get_child)
+        
+      
 
     
-`duckdb_list_vector_get_child`Retrieves the child vector of a list vector.
+`duckdb_list_vector_get_child`
+Retrieves the child vector of a list vector.
 
 The resulting vector is valid as long as the parent vector is valid.
 
@@ -762,7 +792,7 @@ duckdb_vector duckdb_list_vector_get_child(
       
 
     
-- `vector`: The vector
+- `vector` : The vector
 
 ##### 
         
@@ -775,10 +805,13 @@ The child vector
 
 #### 
         
-        `duckdb_list_vector_get_size`
+        [`duckdb_list_vector_get_size`](#duckdb_list_vector_get_size)
+        
+      
 
     
-`duckdb_list_vector_get_size`Returns the size of the child vector of the list.
+`duckdb_list_vector_get_size`
+Returns the size of the child vector of the list.
 
 ##### 
         
@@ -799,7 +832,7 @@ idx_t duckdb_list_vector_get_size(
       
 
     
-- `vector`: The vector
+- `vector` : The vector
 
 ##### 
         
@@ -812,10 +845,13 @@ The size of the child list
 
 #### 
         
-        `duckdb_list_vector_set_size`
+        [`duckdb_list_vector_set_size`](#duckdb_list_vector_set_size)
+        
+      
 
     
-`duckdb_list_vector_set_size`Sets the total size of the underlying child-vector of a list vector.
+`duckdb_list_vector_set_size`
+Sets the total size of the underlying child-vector of a list vector.
 
 ##### 
         
@@ -837,8 +873,8 @@ duckdb_state duckdb_list_vector_set_size(
       
 
     
-- `vector`: The list vector.
-- `size`: The size of the child list.
+- `vector` : The list vector.
+- `size` : The size of the child list.
 
 ##### 
         
@@ -851,10 +887,13 @@ The duckdb state. Returns DuckDBError if the vector is nullptr.
 
 #### 
         
-        `duckdb_list_vector_reserve`
+        [`duckdb_list_vector_reserve`](#duckdb_list_vector_reserve)
+        
+      
 
     
-`duckdb_list_vector_reserve`Sets the total capacity of the underlying child-vector of a list.
+`duckdb_list_vector_reserve`
+Sets the total capacity of the underlying child-vector of a list.
 
 After calling this method, you must call `duckdb_vector_get_validity` and `duckdb_vector_get_data` to obtain current
 data and validity pointers
@@ -879,8 +918,8 @@ duckdb_state duckdb_list_vector_reserve(
       
 
     
-- `vector`: The list vector.
-- `required_capacity`: the total capacity to reserve.
+- `vector` : The list vector.
+- `required_capacity` : the total capacity to reserve.
 
 ##### 
         
@@ -893,10 +932,13 @@ The duckdb state. Returns DuckDBError if the vector is nullptr.
 
 #### 
         
-        `duckdb_struct_vector_get_child`
+        [`duckdb_struct_vector_get_child`](#duckdb_struct_vector_get_child)
+        
+      
 
     
-`duckdb_struct_vector_get_child`Retrieves the child vector of a struct vector. The resulting vector is valid as long as the parent vector is valid.
+`duckdb_struct_vector_get_child`
+Retrieves the child vector of a struct vector. The resulting vector is valid as long as the parent vector is valid.
 
 ##### 
         
@@ -918,8 +960,8 @@ duckdb_vector duckdb_struct_vector_get_child(
       
 
     
-- `vector`: The vector
-- `index`: The child index
+- `vector` : The vector
+- `index` : The child index
 
 ##### 
         
@@ -932,10 +974,13 @@ The child vector
 
 #### 
         
-        `duckdb_array_vector_get_child`
+        [`duckdb_array_vector_get_child`](#duckdb_array_vector_get_child)
+        
+      
 
     
-`duckdb_array_vector_get_child`Retrieves the child vector of an array vector. The resulting vector is valid as long as the parent vector is valid. The resulting vector has the size of the parent vector multiplied by the array size.
+`duckdb_array_vector_get_child`
+Retrieves the child vector of an array vector. The resulting vector is valid as long as the parent vector is valid. The resulting vector has the size of the parent vector multiplied by the array size.
 
 ##### 
         
@@ -956,7 +1001,7 @@ duckdb_vector duckdb_array_vector_get_child(
       
 
     
-- `vector`: The vector
+- `vector` : The vector
 
 ##### 
         
@@ -969,10 +1014,13 @@ The child vector
 
 #### 
         
-        `duckdb_slice_vector`
+        [`duckdb_slice_vector`](#duckdb_slice_vector)
+        
+      
 
     
-`duckdb_slice_vector`Slice a vector with a selection vector. The length of the selection vector must be less than or equal to the length of the vector. Turns the vector into a dictionary vector.
+`duckdb_slice_vector`
+Slice a vector with a selection vector. The length of the selection vector must be less than or equal to the length of the vector. Turns the vector into a dictionary vector.
 
 ##### 
         
@@ -995,16 +1043,19 @@ void duckdb_slice_vector(
       
 
     
-- `vector`: The vector to slice.
-- `sel`: The selection vector.
-- `len`: The length of the selection vector.
+- `vector` : The vector to slice.
+- `sel` : The selection vector.
+- `len` : The length of the selection vector.
 
 #### 
         
-        `duckdb_vector_copy_sel`
+        [`duckdb_vector_copy_sel`](#duckdb_vector_copy_sel)
+        
+      
 
     
-`duckdb_vector_copy_sel`Copy the src vector to the dst with a selection vector that identifies which indices to copy.
+`duckdb_vector_copy_sel`
+Copy the src vector to the dst with a selection vector that identifies which indices to copy.
 
 ##### 
         
@@ -1030,19 +1081,25 @@ void duckdb_vector_copy_sel(
       
 
     
-- `src`: The vector to copy from.
-- `dst`: The vector to copy to.
-- `sel`: The selection vector. The length of the selection vector should not be more than the length of the src vector
-- `src_count`: The number of entries from selection vector to copy. Think of this as the effective length of the selection vector starting from index 0
-- `src_offset`: The offset in the selection vector to copy from (important: actual number of items copied = src_count - src_offset).
-- `dst_offset`: The offset in the dst vector to start copying to.
+- `src` : The vector to copy from.
+- `dst` : The vector to copy to.
+- `sel` : The selection vector. The length of the selection vector should not be more than the length of the src
+vector
+- `src_count` : The number of entries from selection vector to copy. Think of this as the effective length of the
+selection vector starting from index 0
+- `src_offset` : The offset in the selection vector to copy from (important: actual number of items copied =
+src_count - src_offset).
+- `dst_offset` : The offset in the dst vector to start copying to.
 
 #### 
         
-        `duckdb_vector_reference_value`
+        [`duckdb_vector_reference_value`](#duckdb_vector_reference_value)
+        
+      
 
     
-`duckdb_vector_reference_value`Copies the value from `value` to `vector`.
+`duckdb_vector_reference_value`
+Copies the value from `value` to `vector`.
 
 ##### 
         
@@ -1064,15 +1121,18 @@ void duckdb_vector_reference_value(
       
 
     
-- `vector`: The receiving vector.
-- `value`: The value to copy into the vector.
+- `vector` : The receiving vector.
+- `value` : The value to copy into the vector.
 
 #### 
         
-        `duckdb_vector_reference_vector`
+        [`duckdb_vector_reference_vector`](#duckdb_vector_reference_vector)
+        
+      
 
     
-`duckdb_vector_reference_vector`Changes `to_vector` to reference `from_vector. After, the vectors share ownership of the data.
+`duckdb_vector_reference_vector`
+Changes `to_vector` to reference `from_vector. After, the vectors share ownership of the data.
 
 ##### 
         
@@ -1094,15 +1154,18 @@ void duckdb_vector_reference_vector(
       
 
     
-- `to_vector`: The receiving vector.
-- `from_vector`: The vector to reference.
+- `to_vector` : The receiving vector.
+- `from_vector` : The vector to reference.
 
 #### 
         
-        `duckdb_validity_row_is_valid`
+        [`duckdb_validity_row_is_valid`](#duckdb_validity_row_is_valid)
+        
+      
 
     
-`duckdb_validity_row_is_valid`Returns whether or not a row is valid (i.e., not NULL) in the given validity mask.
+`duckdb_validity_row_is_valid`
+Returns whether or not a row is valid (i.e., not NULL) in the given validity mask.
 
 ##### 
         
@@ -1124,8 +1187,8 @@ bool duckdb_validity_row_is_valid(
       
 
     
-- `validity`: The validity mask, as obtained through- `duckdb_vector_get_validity`
-- `row`: The row index
+- `validity` : The validity mask, as obtained through`duckdb_vector_get_validity`
+- `row` : The row index
 
 ##### 
         
@@ -1138,10 +1201,13 @@ true if the row is valid, false otherwise
 
 #### 
         
-        `duckdb_validity_set_row_validity`
+        [`duckdb_validity_set_row_validity`](#duckdb_validity_set_row_validity)
+        
+      
 
     
-`duckdb_validity_set_row_validity`In a validity mask, sets a specific row to either valid or invalid.
+`duckdb_validity_set_row_validity`
+In a validity mask, sets a specific row to either valid or invalid.
 
 Note that `duckdb_vector_ensure_validity_writable` should be called before calling `duckdb_vector_get_validity`,
 to ensure that there is a validity mask to write to.
@@ -1167,16 +1233,19 @@ void duckdb_validity_set_row_validity(
       
 
     
-- `validity`: The validity mask, as obtained through- `duckdb_vector_get_validity`.
-- `row`: The row index
-- `valid`: Whether or not to set the row to valid, or invalid
+- `validity` : The validity mask, as obtained through`duckdb_vector_get_validity` .
+- `row` : The row index
+- `valid` : Whether or not to set the row to valid, or invalid
 
 #### 
         
-        `duckdb_validity_set_row_invalid`
+        [`duckdb_validity_set_row_invalid`](#duckdb_validity_set_row_invalid)
+        
+      
 
     
-`duckdb_validity_set_row_invalid`In a validity mask, sets a specific row to invalid.
+`duckdb_validity_set_row_invalid`
+In a validity mask, sets a specific row to invalid.
 
 Equivalent to `duckdb_validity_set_row_validity` with valid set to false.
 
@@ -1200,15 +1269,18 @@ void duckdb_validity_set_row_invalid(
       
 
     
-- `validity`: The validity mask
-- `row`: The row index
+- `validity` : The validity mask
+- `row` : The row index
 
 #### 
         
-        `duckdb_validity_set_row_valid`
+        [`duckdb_validity_set_row_valid`](#duckdb_validity_set_row_valid)
+        
+      
 
     
-`duckdb_validity_set_row_valid`In a validity mask, sets a specific row to valid.
+`duckdb_validity_set_row_valid`
+In a validity mask, sets a specific row to valid.
 
 Equivalent to `duckdb_validity_set_row_validity` with valid set to true.
 
@@ -1232,8 +1304,8 @@ void duckdb_validity_set_row_valid(
       
 
     
-- `validity`: The validity mask
-- `row`: The row index
+- `validity` : The validity mask
+- `row` : The row index
 
 # Citations
 

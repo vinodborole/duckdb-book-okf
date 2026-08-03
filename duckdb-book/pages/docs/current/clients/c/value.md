@@ -19,7 +19,7 @@ description: The value class represents a single value of any type. API Referenc
   input); duckdb_value duckdb_create_timestamp_ms(duckdb_timestamp_ms input); duckdb_value
   duckdb_create_timestamp_ns(duckdb_timestamp_ns input); duckdb_value duckdb_create_interval(duckdb_interval…
 resource: https://duckdb.org/docs/current/clients/c/value
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 The value class represents a single value of any type.
@@ -31,7 +31,7 @@ The value class represents a single value of any type.
       
 
     
-`void `[duckdb_destroy_value](#duckdb_destroy_value)(duckdb_value *value);
+`void` [duckdb_destroy_value](#duckdb_destroy_value)(duckdb_value *value);
 duckdb_value [duckdb_create_varchar](#duckdb_create_varchar)(const char *text);
 duckdb_value [duckdb_create_varchar_length](#duckdb_create_varchar_length)(const char *text, idx_t length);
 duckdb_value [duckdb_create_bool](#duckdb_create_bool)(bool input);
@@ -110,10 +110,13 @@ duckdb_value [duckdb_get_struct_child](#duckdb_get_struct_child)(duckdb_value va
 char *[duckdb_value_to_string](#duckdb_value_to_string)(duckdb_value value);
 #### 
         
-        `duckdb_destroy_value`
+        [`duckdb_destroy_value`](#duckdb_destroy_value)
+        
+      
 
     
-`duckdb_destroy_value`Destroys the value and de-allocates all memory allocated for that type.
+`duckdb_destroy_value`
+Destroys the value and de-allocates all memory allocated for that type.
 
 ##### 
         
@@ -134,14 +137,17 @@ void duckdb_destroy_value(
       
 
     
-- `value`: The value to destroy.
+- `value` : The value to destroy.
 
 #### 
         
-        `duckdb_create_varchar`
+        [`duckdb_create_varchar`](#duckdb_create_varchar)
+        
+      
 
     
-`duckdb_create_varchar`Creates a value from a null-terminated string
+`duckdb_create_varchar`
+Creates a value from a null-terminated string
 
 ##### 
         
@@ -162,7 +168,7 @@ duckdb_value duckdb_create_varchar(
       
 
     
-- `text`: The null-terminated string
+- `text` : The null-terminated string
 
 ##### 
         
@@ -175,10 +181,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_varchar_length`
+        [`duckdb_create_varchar_length`](#duckdb_create_varchar_length)
+        
+      
 
     
-`duckdb_create_varchar_length`Creates a value from a string
+`duckdb_create_varchar_length`
+Creates a value from a string
 
 ##### 
         
@@ -200,8 +209,8 @@ duckdb_value duckdb_create_varchar_length(
       
 
     
-- `text`: The text
-- `length`: The length of the text
+- `text` : The text
+- `length` : The length of the text
 
 ##### 
         
@@ -214,10 +223,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_bool`
+        [`duckdb_create_bool`](#duckdb_create_bool)
+        
+      
 
     
-`duckdb_create_bool`Creates a value from a boolean
+`duckdb_create_bool`
+Creates a value from a boolean
 
 ##### 
         
@@ -238,7 +250,7 @@ duckdb_value duckdb_create_bool(
       
 
     
-- `input`: The boolean value
+- `input` : The boolean value
 
 ##### 
         
@@ -251,10 +263,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_int8`
+        [`duckdb_create_int8`](#duckdb_create_int8)
+        
+      
 
     
-`duckdb_create_int8`Creates a value from an int8_t (a tinyint)
+`duckdb_create_int8`
+Creates a value from an int8_t (a tinyint)
 
 ##### 
         
@@ -275,7 +290,7 @@ duckdb_value duckdb_create_int8(
       
 
     
-- `input`: The tinyint value
+- `input` : The tinyint value
 
 ##### 
         
@@ -288,10 +303,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uint8`
+        [`duckdb_create_uint8`](#duckdb_create_uint8)
+        
+      
 
     
-`duckdb_create_uint8`Creates a value from a uint8_t (a utinyint)
+`duckdb_create_uint8`
+Creates a value from a uint8_t (a utinyint)
 
 ##### 
         
@@ -312,7 +330,7 @@ duckdb_value duckdb_create_uint8(
       
 
     
-- `input`: The utinyint value
+- `input` : The utinyint value
 
 ##### 
         
@@ -325,10 +343,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_int16`
+        [`duckdb_create_int16`](#duckdb_create_int16)
+        
+      
 
     
-`duckdb_create_int16`Creates a value from an int16_t (a smallint)
+`duckdb_create_int16`
+Creates a value from an int16_t (a smallint)
 
 ##### 
         
@@ -349,7 +370,7 @@ duckdb_value duckdb_create_int16(
       
 
     
-- `input`: The smallint value
+- `input` : The smallint value
 
 ##### 
         
@@ -362,10 +383,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uint16`
+        [`duckdb_create_uint16`](#duckdb_create_uint16)
+        
+      
 
     
-`duckdb_create_uint16`Creates a value from a uint16_t (a usmallint)
+`duckdb_create_uint16`
+Creates a value from a uint16_t (a usmallint)
 
 ##### 
         
@@ -386,7 +410,7 @@ duckdb_value duckdb_create_uint16(
       
 
     
-- `input`: The usmallint value
+- `input` : The usmallint value
 
 ##### 
         
@@ -399,10 +423,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_int32`
+        [`duckdb_create_int32`](#duckdb_create_int32)
+        
+      
 
     
-`duckdb_create_int32`Creates a value from an int32_t (an integer)
+`duckdb_create_int32`
+Creates a value from an int32_t (an integer)
 
 ##### 
         
@@ -423,7 +450,7 @@ duckdb_value duckdb_create_int32(
       
 
     
-- `input`: The integer value
+- `input` : The integer value
 
 ##### 
         
@@ -436,10 +463,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uint32`
+        [`duckdb_create_uint32`](#duckdb_create_uint32)
+        
+      
 
     
-`duckdb_create_uint32`Creates a value from a uint32_t (a uinteger)
+`duckdb_create_uint32`
+Creates a value from a uint32_t (a uinteger)
 
 ##### 
         
@@ -460,7 +490,7 @@ duckdb_value duckdb_create_uint32(
       
 
     
-- `input`: The uinteger value
+- `input` : The uinteger value
 
 ##### 
         
@@ -473,10 +503,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uint64`
+        [`duckdb_create_uint64`](#duckdb_create_uint64)
+        
+      
 
     
-`duckdb_create_uint64`Creates a value from a uint64_t (a ubigint)
+`duckdb_create_uint64`
+Creates a value from a uint64_t (a ubigint)
 
 ##### 
         
@@ -497,7 +530,7 @@ duckdb_value duckdb_create_uint64(
       
 
     
-- `input`: The ubigint value
+- `input` : The ubigint value
 
 ##### 
         
@@ -510,10 +543,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_int64`
+        [`duckdb_create_int64`](#duckdb_create_int64)
+        
+      
 
     
-`duckdb_create_int64`Creates a value from an int64
+`duckdb_create_int64`
+Creates a value from an int64
 
 ##### 
         
@@ -538,10 +574,13 @@ duckdb_value duckdb_create_int64(
 ```
 #### 
         
-        `duckdb_create_hugeint`
+        [`duckdb_create_hugeint`](#duckdb_create_hugeint)
+        
+      
 
     
-`duckdb_create_hugeint`Creates a value from a hugeint
+`duckdb_create_hugeint`
+Creates a value from a hugeint
 
 ##### 
         
@@ -562,7 +601,7 @@ duckdb_value duckdb_create_hugeint(
       
 
     
-- `input`: The hugeint value
+- `input` : The hugeint value
 
 ##### 
         
@@ -575,10 +614,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uhugeint`
+        [`duckdb_create_uhugeint`](#duckdb_create_uhugeint)
+        
+      
 
     
-`duckdb_create_uhugeint`Creates a value from a uhugeint
+`duckdb_create_uhugeint`
+Creates a value from a uhugeint
 
 ##### 
         
@@ -599,7 +641,7 @@ duckdb_value duckdb_create_uhugeint(
       
 
     
-- `input`: The uhugeint value
+- `input` : The uhugeint value
 
 ##### 
         
@@ -612,10 +654,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_bignum`
+        [`duckdb_create_bignum`](#duckdb_create_bignum)
+        
+      
 
     
-`duckdb_create_bignum`Creates a BIGNUM value from a duckdb_bignum
+`duckdb_create_bignum`
+Creates a BIGNUM value from a duckdb_bignum
 
 ##### 
         
@@ -636,7 +681,7 @@ duckdb_value duckdb_create_bignum(
       
 
     
-- `input`: The duckdb_bignum value
+- `input` : The duckdb_bignum value
 
 ##### 
         
@@ -649,10 +694,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_decimal`
+        [`duckdb_create_decimal`](#duckdb_create_decimal)
+        
+      
 
     
-`duckdb_create_decimal`Creates a DECIMAL value from a duckdb_decimal
+`duckdb_create_decimal`
+Creates a DECIMAL value from a duckdb_decimal
 
 ##### 
         
@@ -673,7 +721,7 @@ duckdb_value duckdb_create_decimal(
       
 
     
-- `input`: The duckdb_decimal value
+- `input` : The duckdb_decimal value
 
 ##### 
         
@@ -686,10 +734,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_float`
+        [`duckdb_create_float`](#duckdb_create_float)
+        
+      
 
     
-`duckdb_create_float`Creates a value from a float
+`duckdb_create_float`
+Creates a value from a float
 
 ##### 
         
@@ -710,7 +761,7 @@ duckdb_value duckdb_create_float(
       
 
     
-- `input`: The float value
+- `input` : The float value
 
 ##### 
         
@@ -723,10 +774,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_double`
+        [`duckdb_create_double`](#duckdb_create_double)
+        
+      
 
     
-`duckdb_create_double`Creates a value from a double
+`duckdb_create_double`
+Creates a value from a double
 
 ##### 
         
@@ -747,7 +801,7 @@ duckdb_value duckdb_create_double(
       
 
     
-- `input`: The double value
+- `input` : The double value
 
 ##### 
         
@@ -760,10 +814,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_date`
+        [`duckdb_create_date`](#duckdb_create_date)
+        
+      
 
     
-`duckdb_create_date`Creates a value from a date
+`duckdb_create_date`
+Creates a value from a date
 
 ##### 
         
@@ -784,7 +841,7 @@ duckdb_value duckdb_create_date(
       
 
     
-- `input`: The date value
+- `input` : The date value
 
 ##### 
         
@@ -797,10 +854,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_time`
+        [`duckdb_create_time`](#duckdb_create_time)
+        
+      
 
     
-`duckdb_create_time`Creates a value from a time
+`duckdb_create_time`
+Creates a value from a time
 
 ##### 
         
@@ -821,7 +881,7 @@ duckdb_value duckdb_create_time(
       
 
     
-- `input`: The time value
+- `input` : The time value
 
 ##### 
         
@@ -834,10 +894,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_time_ns`
+        [`duckdb_create_time_ns`](#duckdb_create_time_ns)
+        
+      
 
     
-`duckdb_create_time_ns`Creates a value from a time_ns
+`duckdb_create_time_ns`
+Creates a value from a time_ns
 
 ##### 
         
@@ -858,7 +921,7 @@ duckdb_value duckdb_create_time_ns(
       
 
     
-- `input`: The time value
+- `input` : The time value
 
 ##### 
         
@@ -871,10 +934,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_time_tz_value`
+        [`duckdb_create_time_tz_value`](#duckdb_create_time_tz_value)
+        
+      
 
     
-`duckdb_create_time_tz_value`Creates a value from a time_tz.
+`duckdb_create_time_tz_value`
+Creates a value from a time_tz.
 Not to be confused with `duckdb_create_time_tz`, which creates a duckdb_time_tz_t.
 
 ##### 
@@ -896,7 +962,7 @@ duckdb_value duckdb_create_time_tz_value(
       
 
     
-- `value`: The time_tz value
+- `value` : The time_tz value
 
 ##### 
         
@@ -909,10 +975,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_timestamp`
+        [`duckdb_create_timestamp`](#duckdb_create_timestamp)
+        
+      
 
     
-`duckdb_create_timestamp`Creates a TIMESTAMP value from a duckdb_timestamp
+`duckdb_create_timestamp`
+Creates a TIMESTAMP value from a duckdb_timestamp
 
 ##### 
         
@@ -933,7 +1002,7 @@ duckdb_value duckdb_create_timestamp(
       
 
     
-- `input`: The duckdb_timestamp value
+- `input` : The duckdb_timestamp value
 
 ##### 
         
@@ -946,10 +1015,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_timestamp_tz`
+        [`duckdb_create_timestamp_tz`](#duckdb_create_timestamp_tz)
+        
+      
 
     
-`duckdb_create_timestamp_tz`Creates a TIMESTAMP_TZ value from a duckdb_timestamp
+`duckdb_create_timestamp_tz`
+Creates a TIMESTAMP_TZ value from a duckdb_timestamp
 
 ##### 
         
@@ -970,7 +1042,7 @@ duckdb_value duckdb_create_timestamp_tz(
       
 
     
-- `input`: The duckdb_timestamp value
+- `input` : The duckdb_timestamp value
 
 ##### 
         
@@ -983,10 +1055,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_timestamp_s`
+        [`duckdb_create_timestamp_s`](#duckdb_create_timestamp_s)
+        
+      
 
     
-`duckdb_create_timestamp_s`Creates a TIMESTAMP_S value from a duckdb_timestamp_s
+`duckdb_create_timestamp_s`
+Creates a TIMESTAMP_S value from a duckdb_timestamp_s
 
 ##### 
         
@@ -1007,7 +1082,7 @@ duckdb_value duckdb_create_timestamp_s(
       
 
     
-- `input`: The duckdb_timestamp_s value
+- `input` : The duckdb_timestamp_s value
 
 ##### 
         
@@ -1020,10 +1095,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_timestamp_ms`
+        [`duckdb_create_timestamp_ms`](#duckdb_create_timestamp_ms)
+        
+      
 
     
-`duckdb_create_timestamp_ms`Creates a TIMESTAMP_MS value from a duckdb_timestamp_ms
+`duckdb_create_timestamp_ms`
+Creates a TIMESTAMP_MS value from a duckdb_timestamp_ms
 
 ##### 
         
@@ -1044,7 +1122,7 @@ duckdb_value duckdb_create_timestamp_ms(
       
 
     
-- `input`: The duckdb_timestamp_ms value
+- `input` : The duckdb_timestamp_ms value
 
 ##### 
         
@@ -1057,10 +1135,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_timestamp_ns`
+        [`duckdb_create_timestamp_ns`](#duckdb_create_timestamp_ns)
+        
+      
 
     
-`duckdb_create_timestamp_ns`Creates a TIMESTAMP_NS value from a duckdb_timestamp_ns
+`duckdb_create_timestamp_ns`
+Creates a TIMESTAMP_NS value from a duckdb_timestamp_ns
 
 ##### 
         
@@ -1081,7 +1162,7 @@ duckdb_value duckdb_create_timestamp_ns(
       
 
     
-- `input`: The duckdb_timestamp_ns value
+- `input` : The duckdb_timestamp_ns value
 
 ##### 
         
@@ -1094,10 +1175,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_interval`
+        [`duckdb_create_interval`](#duckdb_create_interval)
+        
+      
 
     
-`duckdb_create_interval`Creates a value from an interval
+`duckdb_create_interval`
+Creates a value from an interval
 
 ##### 
         
@@ -1118,7 +1202,7 @@ duckdb_value duckdb_create_interval(
       
 
     
-- `input`: The interval value
+- `input` : The interval value
 
 ##### 
         
@@ -1131,10 +1215,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_blob`
+        [`duckdb_create_blob`](#duckdb_create_blob)
+        
+      
 
     
-`duckdb_create_blob`Creates a value from a blob
+`duckdb_create_blob`
+Creates a value from a blob
 
 ##### 
         
@@ -1156,8 +1243,8 @@ duckdb_value duckdb_create_blob(
       
 
     
-- `data`: The blob data
-- `length`: The length of the blob data
+- `data` : The blob data
+- `length` : The length of the blob data
 
 ##### 
         
@@ -1170,10 +1257,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_bit`
+        [`duckdb_create_bit`](#duckdb_create_bit)
+        
+      
 
     
-`duckdb_create_bit`Creates a BIT value from a duckdb_bit
+`duckdb_create_bit`
+Creates a BIT value from a duckdb_bit
 
 ##### 
         
@@ -1194,7 +1284,7 @@ duckdb_value duckdb_create_bit(
       
 
     
-- `input`: The duckdb_bit value
+- `input` : The duckdb_bit value
 
 ##### 
         
@@ -1207,10 +1297,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uuid`
+        [`duckdb_create_uuid`](#duckdb_create_uuid)
+        
+      
 
     
-`duckdb_create_uuid`Creates a UUID value from a uhugeint
+`duckdb_create_uuid`
+Creates a UUID value from a uhugeint
 
 ##### 
         
@@ -1231,7 +1324,7 @@ duckdb_value duckdb_create_uuid(
       
 
     
-- `input`: The duckdb_uhugeint containing the UUID
+- `input` : The duckdb_uhugeint containing the UUID
 
 ##### 
         
@@ -1244,10 +1337,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_get_bool`
+        [`duckdb_get_bool`](#duckdb_get_bool)
+        
+      
 
     
-`duckdb_get_bool`Returns the boolean value of the given value.
+`duckdb_get_bool`
+Returns the boolean value of the given value.
 
 ##### 
         
@@ -1268,7 +1364,7 @@ bool duckdb_get_bool(
       
 
     
-- `val`: A duckdb_value containing a boolean
+- `val` : A duckdb_value containing a boolean
 
 ##### 
         
@@ -1281,10 +1377,13 @@ A boolean, or false if the value cannot be converted
 
 #### 
         
-        `duckdb_get_int8`
+        [`duckdb_get_int8`](#duckdb_get_int8)
+        
+      
 
     
-`duckdb_get_int8`Returns the int8_t value of the given value.
+`duckdb_get_int8`
+Returns the int8_t value of the given value.
 
 ##### 
         
@@ -1305,7 +1404,7 @@ int8_t duckdb_get_int8(
       
 
     
-- `val`: A duckdb_value containing a tinyint
+- `val` : A duckdb_value containing a tinyint
 
 ##### 
         
@@ -1318,10 +1417,13 @@ A int8_t, or MinValue
 
 #### 
         
-        `duckdb_get_uint8`
+        [`duckdb_get_uint8`](#duckdb_get_uint8)
+        
+      
 
     
-`duckdb_get_uint8`Returns the uint8_t value of the given value.
+`duckdb_get_uint8`
+Returns the uint8_t value of the given value.
 
 ##### 
         
@@ -1342,7 +1444,7 @@ uint8_t duckdb_get_uint8(
       
 
     
-- `val`: A duckdb_value containing a utinyint
+- `val` : A duckdb_value containing a utinyint
 
 ##### 
         
@@ -1355,10 +1457,13 @@ A uint8_t, or MinValue
 
 #### 
         
-        `duckdb_get_int16`
+        [`duckdb_get_int16`](#duckdb_get_int16)
+        
+      
 
     
-`duckdb_get_int16`Returns the int16_t value of the given value.
+`duckdb_get_int16`
+Returns the int16_t value of the given value.
 
 ##### 
         
@@ -1379,7 +1484,7 @@ int16_t duckdb_get_int16(
       
 
     
-- `val`: A duckdb_value containing a smallint
+- `val` : A duckdb_value containing a smallint
 
 ##### 
         
@@ -1392,10 +1497,13 @@ A int16_t, or MinValue
 
 #### 
         
-        `duckdb_get_uint16`
+        [`duckdb_get_uint16`](#duckdb_get_uint16)
+        
+      
 
     
-`duckdb_get_uint16`Returns the uint16_t value of the given value.
+`duckdb_get_uint16`
+Returns the uint16_t value of the given value.
 
 ##### 
         
@@ -1416,7 +1524,7 @@ uint16_t duckdb_get_uint16(
       
 
     
-- `val`: A duckdb_value containing a usmallint
+- `val` : A duckdb_value containing a usmallint
 
 ##### 
         
@@ -1429,10 +1537,13 @@ A uint16_t, or MinValue
 
 #### 
         
-        `duckdb_get_int32`
+        [`duckdb_get_int32`](#duckdb_get_int32)
+        
+      
 
     
-`duckdb_get_int32`Returns the int32_t value of the given value.
+`duckdb_get_int32`
+Returns the int32_t value of the given value.
 
 ##### 
         
@@ -1453,7 +1564,7 @@ int32_t duckdb_get_int32(
       
 
     
-- `val`: A duckdb_value containing an integer
+- `val` : A duckdb_value containing an integer
 
 ##### 
         
@@ -1466,10 +1577,13 @@ A int32_t, or MinValue
 
 #### 
         
-        `duckdb_get_uint32`
+        [`duckdb_get_uint32`](#duckdb_get_uint32)
+        
+      
 
     
-`duckdb_get_uint32`Returns the uint32_t value of the given value.
+`duckdb_get_uint32`
+Returns the uint32_t value of the given value.
 
 ##### 
         
@@ -1490,7 +1604,7 @@ uint32_t duckdb_get_uint32(
       
 
     
-- `val`: A duckdb_value containing a uinteger
+- `val` : A duckdb_value containing a uinteger
 
 ##### 
         
@@ -1503,10 +1617,13 @@ A uint32_t, or MinValue
 
 #### 
         
-        `duckdb_get_int64`
+        [`duckdb_get_int64`](#duckdb_get_int64)
+        
+      
 
     
-`duckdb_get_int64`Returns the int64_t value of the given value.
+`duckdb_get_int64`
+Returns the int64_t value of the given value.
 
 ##### 
         
@@ -1527,7 +1644,7 @@ int64_t duckdb_get_int64(
       
 
     
-- `val`: A duckdb_value containing a bigint
+- `val` : A duckdb_value containing a bigint
 
 ##### 
         
@@ -1540,10 +1657,13 @@ A int64_t, or MinValue
 
 #### 
         
-        `duckdb_get_uint64`
+        [`duckdb_get_uint64`](#duckdb_get_uint64)
+        
+      
 
     
-`duckdb_get_uint64`Returns the uint64_t value of the given value.
+`duckdb_get_uint64`
+Returns the uint64_t value of the given value.
 
 ##### 
         
@@ -1564,7 +1684,7 @@ uint64_t duckdb_get_uint64(
       
 
     
-- `val`: A duckdb_value containing a ubigint
+- `val` : A duckdb_value containing a ubigint
 
 ##### 
         
@@ -1577,10 +1697,13 @@ A uint64_t, or MinValue
 
 #### 
         
-        `duckdb_get_hugeint`
+        [`duckdb_get_hugeint`](#duckdb_get_hugeint)
+        
+      
 
     
-`duckdb_get_hugeint`Returns the hugeint value of the given value.
+`duckdb_get_hugeint`
+Returns the hugeint value of the given value.
 
 ##### 
         
@@ -1601,7 +1724,7 @@ duckdb_hugeint duckdb_get_hugeint(
       
 
     
-- `val`: A duckdb_value containing a hugeint
+- `val` : A duckdb_value containing a hugeint
 
 ##### 
         
@@ -1614,10 +1737,13 @@ A duckdb_hugeint, or MinValue
 
 #### 
         
-        `duckdb_get_uhugeint`
+        [`duckdb_get_uhugeint`](#duckdb_get_uhugeint)
+        
+      
 
     
-`duckdb_get_uhugeint`Returns the uhugeint value of the given value.
+`duckdb_get_uhugeint`
+Returns the uhugeint value of the given value.
 
 ##### 
         
@@ -1638,7 +1764,7 @@ duckdb_uhugeint duckdb_get_uhugeint(
       
 
     
-- `val`: A duckdb_value containing a uhugeint
+- `val` : A duckdb_value containing a uhugeint
 
 ##### 
         
@@ -1651,10 +1777,13 @@ A duckdb_uhugeint, or MinValue
 
 #### 
         
-        `duckdb_get_bignum`
+        [`duckdb_get_bignum`](#duckdb_get_bignum)
+        
+      
 
     
-`duckdb_get_bignum`Returns the duckdb_bignum value of the given value.
+`duckdb_get_bignum`
+Returns the duckdb_bignum value of the given value.
 The `data` field must be destroyed with `duckdb_free`.
 
 ##### 
@@ -1676,7 +1805,7 @@ duckdb_bignum duckdb_get_bignum(
       
 
     
-- `val`: A duckdb_value containing a BIGNUM
+- `val` : A duckdb_value containing a BIGNUM
 
 ##### 
         
@@ -1689,10 +1818,13 @@ A duckdb_bignum. The `data` field must be destroyed with `duckdb_free`.
 
 #### 
         
-        `duckdb_get_decimal`
+        [`duckdb_get_decimal`](#duckdb_get_decimal)
+        
+      
 
     
-`duckdb_get_decimal`Returns the duckdb_decimal value of the given value.
+`duckdb_get_decimal`
+Returns the duckdb_decimal value of the given value.
 
 ##### 
         
@@ -1713,7 +1845,7 @@ duckdb_decimal duckdb_get_decimal(
       
 
     
-- `val`: A duckdb_value containing a DECIMAL
+- `val` : A duckdb_value containing a DECIMAL
 
 ##### 
         
@@ -1726,10 +1858,13 @@ A duckdb_decimal, or MinValue
 
 #### 
         
-        `duckdb_get_float`
+        [`duckdb_get_float`](#duckdb_get_float)
+        
+      
 
     
-`duckdb_get_float`Returns the float value of the given value.
+`duckdb_get_float`
+Returns the float value of the given value.
 
 ##### 
         
@@ -1750,7 +1885,7 @@ float duckdb_get_float(
       
 
     
-- `val`: A duckdb_value containing a float
+- `val` : A duckdb_value containing a float
 
 ##### 
         
@@ -1763,10 +1898,13 @@ A float, or NAN if the value cannot be converted
 
 #### 
         
-        `duckdb_get_double`
+        [`duckdb_get_double`](#duckdb_get_double)
+        
+      
 
     
-`duckdb_get_double`Returns the double value of the given value.
+`duckdb_get_double`
+Returns the double value of the given value.
 
 ##### 
         
@@ -1787,7 +1925,7 @@ double duckdb_get_double(
       
 
     
-- `val`: A duckdb_value containing a double
+- `val` : A duckdb_value containing a double
 
 ##### 
         
@@ -1800,10 +1938,13 @@ A double, or NAN if the value cannot be converted
 
 #### 
         
-        `duckdb_get_date`
+        [`duckdb_get_date`](#duckdb_get_date)
+        
+      
 
     
-`duckdb_get_date`Returns the date value of the given value.
+`duckdb_get_date`
+Returns the date value of the given value.
 
 ##### 
         
@@ -1824,7 +1965,7 @@ duckdb_date duckdb_get_date(
       
 
     
-- `val`: A duckdb_value containing a date
+- `val` : A duckdb_value containing a date
 
 ##### 
         
@@ -1837,10 +1978,13 @@ A duckdb_date, or MinValue
 
 #### 
         
-        `duckdb_get_time`
+        [`duckdb_get_time`](#duckdb_get_time)
+        
+      
 
     
-`duckdb_get_time`Returns the time value of the given value.
+`duckdb_get_time`
+Returns the time value of the given value.
 
 ##### 
         
@@ -1861,7 +2005,7 @@ duckdb_time duckdb_get_time(
       
 
     
-- `val`: A duckdb_value containing a time
+- `val` : A duckdb_value containing a time
 
 ##### 
         
@@ -1874,10 +2018,13 @@ A duckdb_time, or MinValue
 
 #### 
         
-        `duckdb_get_time_ns`
+        [`duckdb_get_time_ns`](#duckdb_get_time_ns)
+        
+      
 
     
-`duckdb_get_time_ns`Returns the time_ns value of the given value.
+`duckdb_get_time_ns`
+Returns the time_ns value of the given value.
 
 ##### 
         
@@ -1898,7 +2045,7 @@ duckdb_time_ns duckdb_get_time_ns(
       
 
     
-- `val`: A duckdb_value containing a time_ns
+- `val` : A duckdb_value containing a time_ns
 
 ##### 
         
@@ -1911,10 +2058,13 @@ A duckdb_time_ns, or MinValue
 
 #### 
         
-        `duckdb_get_time_tz`
+        [`duckdb_get_time_tz`](#duckdb_get_time_tz)
+        
+      
 
     
-`duckdb_get_time_tz`Returns the time_tz value of the given value.
+`duckdb_get_time_tz`
+Returns the time_tz value of the given value.
 
 ##### 
         
@@ -1935,7 +2085,7 @@ duckdb_time_tz duckdb_get_time_tz(
       
 
     
-- `val`: A duckdb_value containing a time_tz
+- `val` : A duckdb_value containing a time_tz
 
 ##### 
         
@@ -1948,10 +2098,13 @@ A duckdb_time_tz, or MinValue
 
 #### 
         
-        `duckdb_get_timestamp`
+        [`duckdb_get_timestamp`](#duckdb_get_timestamp)
+        
+      
 
     
-`duckdb_get_timestamp`Returns the TIMESTAMP value of the given value.
+`duckdb_get_timestamp`
+Returns the TIMESTAMP value of the given value.
 
 ##### 
         
@@ -1972,7 +2125,7 @@ duckdb_timestamp duckdb_get_timestamp(
       
 
     
-- `val`: A duckdb_value containing a TIMESTAMP
+- `val` : A duckdb_value containing a TIMESTAMP
 
 ##### 
         
@@ -1985,10 +2138,13 @@ A duckdb_timestamp, or MinValue
 
 #### 
         
-        `duckdb_get_timestamp_tz`
+        [`duckdb_get_timestamp_tz`](#duckdb_get_timestamp_tz)
+        
+      
 
     
-`duckdb_get_timestamp_tz`Returns the TIMESTAMP_TZ value of the given value.
+`duckdb_get_timestamp_tz`
+Returns the TIMESTAMP_TZ value of the given value.
 
 ##### 
         
@@ -2009,7 +2165,7 @@ duckdb_timestamp duckdb_get_timestamp_tz(
       
 
     
-- `val`: A duckdb_value containing a TIMESTAMP_TZ
+- `val` : A duckdb_value containing a TIMESTAMP_TZ
 
 ##### 
         
@@ -2022,10 +2178,13 @@ A duckdb_timestamp, or MinValue
 
 #### 
         
-        `duckdb_get_timestamp_s`
+        [`duckdb_get_timestamp_s`](#duckdb_get_timestamp_s)
+        
+      
 
     
-`duckdb_get_timestamp_s`Returns the duckdb_timestamp_s value of the given value.
+`duckdb_get_timestamp_s`
+Returns the duckdb_timestamp_s value of the given value.
 
 ##### 
         
@@ -2046,7 +2205,7 @@ duckdb_timestamp_s duckdb_get_timestamp_s(
       
 
     
-- `val`: A duckdb_value containing a TIMESTAMP_S
+- `val` : A duckdb_value containing a TIMESTAMP_S
 
 ##### 
         
@@ -2059,10 +2218,13 @@ A duckdb_timestamp_s, or MinValue
 
 #### 
         
-        `duckdb_get_timestamp_ms`
+        [`duckdb_get_timestamp_ms`](#duckdb_get_timestamp_ms)
+        
+      
 
     
-`duckdb_get_timestamp_ms`Returns the duckdb_timestamp_ms value of the given value.
+`duckdb_get_timestamp_ms`
+Returns the duckdb_timestamp_ms value of the given value.
 
 ##### 
         
@@ -2083,7 +2245,7 @@ duckdb_timestamp_ms duckdb_get_timestamp_ms(
       
 
     
-- `val`: A duckdb_value containing a TIMESTAMP_MS
+- `val` : A duckdb_value containing a TIMESTAMP_MS
 
 ##### 
         
@@ -2096,10 +2258,13 @@ A duckdb_timestamp_ms, or MinValue
 
 #### 
         
-        `duckdb_get_timestamp_ns`
+        [`duckdb_get_timestamp_ns`](#duckdb_get_timestamp_ns)
+        
+      
 
     
-`duckdb_get_timestamp_ns`Returns the duckdb_timestamp_ns value of the given value.
+`duckdb_get_timestamp_ns`
+Returns the duckdb_timestamp_ns value of the given value.
 
 ##### 
         
@@ -2120,7 +2285,7 @@ duckdb_timestamp_ns duckdb_get_timestamp_ns(
       
 
     
-- `val`: A duckdb_value containing a TIMESTAMP_NS
+- `val` : A duckdb_value containing a TIMESTAMP_NS
 
 ##### 
         
@@ -2133,10 +2298,13 @@ A duckdb_timestamp_ns, or MinValue
 
 #### 
         
-        `duckdb_get_interval`
+        [`duckdb_get_interval`](#duckdb_get_interval)
+        
+      
 
     
-`duckdb_get_interval`Returns the interval value of the given value.
+`duckdb_get_interval`
+Returns the interval value of the given value.
 
 ##### 
         
@@ -2157,7 +2325,7 @@ duckdb_interval duckdb_get_interval(
       
 
     
-- `val`: A duckdb_value containing a interval
+- `val` : A duckdb_value containing a interval
 
 ##### 
         
@@ -2170,10 +2338,13 @@ A duckdb_interval, or MinValue
 
 #### 
         
-        `duckdb_get_value_type`
+        [`duckdb_get_value_type`](#duckdb_get_value_type)
+        
+      
 
     
-`duckdb_get_value_type`Returns the type of the given value. The type is valid as long as the value is not destroyed. The type itself must not be destroyed.
+`duckdb_get_value_type`
+Returns the type of the given value. The type is valid as long as the value is not destroyed. The type itself must not be destroyed.
 
 ##### 
         
@@ -2194,7 +2365,7 @@ duckdb_logical_type duckdb_get_value_type(
       
 
     
-- `val`: A duckdb_value
+- `val` : A duckdb_value
 
 ##### 
         
@@ -2207,10 +2378,13 @@ A duckdb_logical_type.
 
 #### 
         
-        `duckdb_get_blob`
+        [`duckdb_get_blob`](#duckdb_get_blob)
+        
+      
 
     
-`duckdb_get_blob`Returns the blob value of the given value.
+`duckdb_get_blob`
+Returns the blob value of the given value.
 
 ##### 
         
@@ -2231,7 +2405,7 @@ duckdb_blob duckdb_get_blob(
       
 
     
-- `val`: A duckdb_value containing a blob
+- `val` : A duckdb_value containing a blob
 
 ##### 
         
@@ -2244,10 +2418,13 @@ A duckdb_blob
 
 #### 
         
-        `duckdb_get_bit`
+        [`duckdb_get_bit`](#duckdb_get_bit)
+        
+      
 
     
-`duckdb_get_bit`Returns the duckdb_bit value of the given value.
+`duckdb_get_bit`
+Returns the duckdb_bit value of the given value.
 The `data` field must be destroyed with `duckdb_free`.
 
 ##### 
@@ -2269,7 +2446,7 @@ duckdb_bit duckdb_get_bit(
       
 
     
-- `val`: A duckdb_value containing a BIT
+- `val` : A duckdb_value containing a BIT
 
 ##### 
         
@@ -2282,10 +2459,13 @@ A duckdb_bit
 
 #### 
         
-        `duckdb_get_uuid`
+        [`duckdb_get_uuid`](#duckdb_get_uuid)
+        
+      
 
     
-`duckdb_get_uuid`Returns a duckdb_uhugeint representing the UUID value of the given value.
+`duckdb_get_uuid`
+Returns a duckdb_uhugeint representing the UUID value of the given value.
 
 ##### 
         
@@ -2306,7 +2486,7 @@ duckdb_uhugeint duckdb_get_uuid(
       
 
     
-- `val`: A duckdb_value containing a UUID
+- `val` : A duckdb_value containing a UUID
 
 ##### 
         
@@ -2319,10 +2499,13 @@ A duckdb_uhugeint representing the UUID value
 
 #### 
         
-        `duckdb_get_varchar`
+        [`duckdb_get_varchar`](#duckdb_get_varchar)
+        
+      
 
     
-`duckdb_get_varchar`Obtains a string representation of the given value.
+`duckdb_get_varchar`
+Obtains a string representation of the given value.
 The result must be destroyed with `duckdb_free`.
 
 ##### 
@@ -2344,7 +2527,7 @@ char *duckdb_get_varchar(
       
 
     
-- `value`: The value
+- `value` : The value
 
 ##### 
         
@@ -2357,10 +2540,13 @@ The string value. This must be destroyed with `duckdb_free`.
 
 #### 
         
-        `duckdb_create_struct_value`
+        [`duckdb_create_struct_value`](#duckdb_create_struct_value)
+        
+      
 
     
-`duckdb_create_struct_value`Creates a struct value from a type and an array of values. Must be destroyed with `duckdb_destroy_value`.
+`duckdb_create_struct_value`
+Creates a struct value from a type and an array of values. Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
         
@@ -2382,8 +2568,8 @@ duckdb_value duckdb_create_struct_value(
       
 
     
-- `type`: The type of the struct
-- `values`: The values for the struct fields
+- `type` : The type of the struct
+- `values` : The values for the struct fields
 
 ##### 
         
@@ -2396,10 +2582,13 @@ The struct value, or nullptr, if any child type is `DUCKDB_TYPE_ANY` or `DUCKDB_
 
 #### 
         
-        `duckdb_create_list_value`
+        [`duckdb_create_list_value`](#duckdb_create_list_value)
+        
+      
 
     
-`duckdb_create_list_value`Creates a list value from a child (element) type and an array of values of length `value_count`.
+`duckdb_create_list_value`
+Creates a list value from a child (element) type and an array of values of length `value_count`.
 Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
@@ -2423,9 +2612,9 @@ duckdb_value duckdb_create_list_value(
       
 
     
-- `type`: The type of the list
-- `values`: The values for the list
-- `value_count`: The number of values in the list
+- `type` : The type of the list
+- `values` : The values for the list
+- `value_count` : The number of values in the list
 
 ##### 
         
@@ -2438,10 +2627,13 @@ The list value, or nullptr, if the child type is `DUCKDB_TYPE_ANY` or `DUCKDB_TY
 
 #### 
         
-        `duckdb_create_array_value`
+        [`duckdb_create_array_value`](#duckdb_create_array_value)
+        
+      
 
     
-`duckdb_create_array_value`Creates an array value from a child (element) type and an array of values of length `value_count`.
+`duckdb_create_array_value`
+Creates an array value from a child (element) type and an array of values of length `value_count`.
 Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
@@ -2465,9 +2657,9 @@ duckdb_value duckdb_create_array_value(
       
 
     
-- `type`: The type of the array
-- `values`: The values for the array
-- `value_count`: The number of values in the array
+- `type` : The type of the array
+- `values` : The values for the array
+- `value_count` : The number of values in the array
 
 ##### 
         
@@ -2480,10 +2672,13 @@ The array value, or nullptr, if the child type is `DUCKDB_TYPE_ANY` or `DUCKDB_T
 
 #### 
         
-        `duckdb_create_map_value`
+        [`duckdb_create_map_value`](#duckdb_create_map_value)
+        
+      
 
     
-`duckdb_create_map_value`Creates a map value from a map type and two arrays, one for the keys and one for the values, each of length
+`duckdb_create_map_value`
+Creates a map value from a map type and two arrays, one for the keys and one for the values, each of length
 `entry_count`. Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
@@ -2508,10 +2703,10 @@ duckdb_value duckdb_create_map_value(
       
 
     
-- `map_type`: The map type
-- `keys`: The keys of the map
-- `values`: The values of the map
-- `entry_count`: The number of entries (key-value pairs) in the map
+- `map_type` : The map type
+- `keys` : The keys of the map
+- `values` : The values of the map
+- `entry_count` : The number of entries (key-value pairs) in the map
 
 ##### 
         
@@ -2524,10 +2719,13 @@ The map value, or nullptr, if the parameters are invalid.
 
 #### 
         
-        `duckdb_create_union_value`
+        [`duckdb_create_union_value`](#duckdb_create_union_value)
+        
+      
 
     
-`duckdb_create_union_value`Creates a union value from a union type, a tag index and a value.
+`duckdb_create_union_value`
+Creates a union value from a union type, a tag index and a value.
 Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
@@ -2551,9 +2749,9 @@ duckdb_value duckdb_create_union_value(
       
 
     
-- `union_type`: The union type
-- `tag_index`: The index of the tag of the union
-- `value`: The value of the union for that tag
+- `union_type` : The union type
+- `tag_index` : The index of the tag of the union
+- `value` : The value of the union for that tag
 
 ##### 
         
@@ -2566,10 +2764,13 @@ The union value, or nullptr, if the parameters are invalid.
 
 #### 
         
-        `duckdb_get_map_size`
+        [`duckdb_get_map_size`](#duckdb_get_map_size)
+        
+      
 
     
-`duckdb_get_map_size`Returns the number of elements in a MAP value.
+`duckdb_get_map_size`
+Returns the number of elements in a MAP value.
 
 ##### 
         
@@ -2590,7 +2791,7 @@ idx_t duckdb_get_map_size(
       
 
     
-- `value`: The MAP value.
+- `value` : The MAP value.
 
 ##### 
         
@@ -2603,10 +2804,13 @@ The number of elements in the map.
 
 #### 
         
-        `duckdb_get_map_key`
+        [`duckdb_get_map_key`](#duckdb_get_map_key)
+        
+      
 
     
-`duckdb_get_map_key`Returns the MAP key at index as a duckdb_value.
+`duckdb_get_map_key`
+Returns the MAP key at index as a duckdb_value.
 
 ##### 
         
@@ -2628,8 +2832,8 @@ duckdb_value duckdb_get_map_key(
       
 
     
-- `value`: The MAP value.
-- `index`: The index of the key.
+- `value` : The MAP value.
+- `index` : The index of the key.
 
 ##### 
         
@@ -2642,10 +2846,13 @@ The key as a duckdb_value.
 
 #### 
         
-        `duckdb_get_map_value`
+        [`duckdb_get_map_value`](#duckdb_get_map_value)
+        
+      
 
     
-`duckdb_get_map_value`Returns the MAP value at index as a duckdb_value.
+`duckdb_get_map_value`
+Returns the MAP value at index as a duckdb_value.
 
 ##### 
         
@@ -2667,8 +2874,8 @@ duckdb_value duckdb_get_map_value(
       
 
     
-- `value`: The MAP value.
-- `index`: The index of the value.
+- `value` : The MAP value.
+- `index` : The index of the value.
 
 ##### 
         
@@ -2681,10 +2888,13 @@ The value as a duckdb_value.
 
 #### 
         
-        `duckdb_is_null_value`
+        [`duckdb_is_null_value`](#duckdb_is_null_value)
+        
+      
 
     
-`duckdb_is_null_value`Returns whether the value's type is SQLNULL or not.
+`duckdb_is_null_value`
+Returns whether the value's type is SQLNULL or not.
 
 ##### 
         
@@ -2705,7 +2915,7 @@ bool duckdb_is_null_value(
       
 
     
-- `value`: The value to check.
+- `value` : The value to check.
 
 ##### 
         
@@ -2718,10 +2928,13 @@ True, if the value's type is SQLNULL, otherwise false.
 
 #### 
         
-        `duckdb_create_null_value`
+        [`duckdb_create_null_value`](#duckdb_create_null_value)
+        
+      
 
     
-`duckdb_create_null_value`Creates a value of type SQLNULL.
+`duckdb_create_null_value`
+Creates a value of type SQLNULL.
 
 ##### 
         
@@ -2746,10 +2959,13 @@ duckdb_value duckdb_create_null_value(
 ```
 #### 
         
-        `duckdb_get_list_size`
+        [`duckdb_get_list_size`](#duckdb_get_list_size)
+        
+      
 
     
-`duckdb_get_list_size`Returns the number of elements in a LIST value.
+`duckdb_get_list_size`
+Returns the number of elements in a LIST value.
 
 ##### 
         
@@ -2770,7 +2986,7 @@ idx_t duckdb_get_list_size(
       
 
     
-- `value`: The LIST value.
+- `value` : The LIST value.
 
 ##### 
         
@@ -2783,10 +2999,13 @@ The number of elements in the list.
 
 #### 
         
-        `duckdb_get_list_child`
+        [`duckdb_get_list_child`](#duckdb_get_list_child)
+        
+      
 
     
-`duckdb_get_list_child`Returns the LIST child at index as a duckdb_value.
+`duckdb_get_list_child`
+Returns the LIST child at index as a duckdb_value.
 
 ##### 
         
@@ -2808,8 +3027,8 @@ duckdb_value duckdb_get_list_child(
       
 
     
-- `value`: The LIST value.
-- `index`: The index of the child.
+- `value` : The LIST value.
+- `index` : The index of the child.
 
 ##### 
         
@@ -2822,10 +3041,13 @@ The child as a duckdb_value.
 
 #### 
         
-        `duckdb_create_enum_value`
+        [`duckdb_create_enum_value`](#duckdb_create_enum_value)
+        
+      
 
     
-`duckdb_create_enum_value`Creates an enum value from a type and a value. Must be destroyed with `duckdb_destroy_value`.
+`duckdb_create_enum_value`
+Creates an enum value from a type and a value. Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
         
@@ -2847,8 +3069,8 @@ duckdb_value duckdb_create_enum_value(
       
 
     
-- `type`: The type of the enum
-- `value`: The value for the enum
+- `type` : The type of the enum
+- `value` : The value for the enum
 
 ##### 
         
@@ -2861,10 +3083,13 @@ The enum value, or nullptr.
 
 #### 
         
-        `duckdb_get_enum_value`
+        [`duckdb_get_enum_value`](#duckdb_get_enum_value)
+        
+      
 
     
-`duckdb_get_enum_value`Returns the enum value of the given value.
+`duckdb_get_enum_value`
+Returns the enum value of the given value.
 
 ##### 
         
@@ -2885,7 +3110,7 @@ uint64_t duckdb_get_enum_value(
       
 
     
-- `value`: A duckdb_value containing an enum
+- `value` : A duckdb_value containing an enum
 
 ##### 
         
@@ -2898,10 +3123,13 @@ A uint64_t, or MinValue
 
 #### 
         
-        `duckdb_get_struct_child`
+        [`duckdb_get_struct_child`](#duckdb_get_struct_child)
+        
+      
 
     
-`duckdb_get_struct_child`Returns the STRUCT child at index as a duckdb_value.
+`duckdb_get_struct_child`
+Returns the STRUCT child at index as a duckdb_value.
 
 ##### 
         
@@ -2923,8 +3151,8 @@ duckdb_value duckdb_get_struct_child(
       
 
     
-- `value`: The STRUCT value.
-- `index`: The index of the child.
+- `value` : The STRUCT value.
+- `index` : The index of the child.
 
 ##### 
         
@@ -2937,10 +3165,13 @@ The child as a duckdb_value.
 
 #### 
         
-        `duckdb_value_to_string`
+        [`duckdb_value_to_string`](#duckdb_value_to_string)
+        
+      
 
     
-`duckdb_value_to_string`Returns the SQL string representation of the given value.
+`duckdb_value_to_string`
+Returns the SQL string representation of the given value.
 
 ##### 
         
@@ -2961,7 +3192,7 @@ char *duckdb_value_to_string(
       
 
     
-- `value`: A duckdb_value.
+- `value` : A duckdb_value.
 
 ##### 
         

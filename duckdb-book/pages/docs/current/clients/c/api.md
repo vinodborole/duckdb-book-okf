@@ -10,12 +10,12 @@ description: This page contains the reference for DuckDB's C API. The reference 
   minor versions before removing them. The reason that the methods are already deprecated
   in v1.0 is to denote that they are…
 resource: https://duckdb.org/docs/current/clients/c/api
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 This page contains the reference for DuckDB's C API.
 
-The reference contains several deprecation notices. These concern methods whose long-term availability is not guaranteed as they may be removed in the future. That said, DuckDB's developers plan to carry out deprecations slowly as several of the deprecated methods do not yet have a fully functional alternative. Therefore, they will not be removed before the alternative is available, and even then, there will be a grace period of a few minor versions before removing them. The reason that the methods are already deprecated in v1.0 is to denote that they are not part of the v1.0 stable API, which contains methods that are available long-term.
+  The reference contains several deprecation notices. These concern methods whose long-term availability is not guaranteed as they may be removed in the future. That said, DuckDB's developers plan to carry out deprecations slowly as several of the deprecated methods do not yet have a fully functional alternative. Therefore, they will not be removed before the alternative is available, and even then, there will be a grace period of a few minor versions before removing them. The reason that the methods are already deprecated in v1.0 is to denote that they are not part of the v1.0 stable API, which contains methods that are available long-term.
 
 ## 
         
@@ -31,7 +31,7 @@ The reference contains several deprecation notices. These concern methods whose 
       
 
     
-`duckdb_instance_cache `[duckdb_create_instance_cache](#duckdb_create_instance_cache)();
+`duckdb_instance_cache` [duckdb_create_instance_cache](#duckdb_create_instance_cache)();
 duckdb_state [duckdb_get_or_create_from_cache](#duckdb_get_or_create_from_cache)(duckdb_instance_cache instance_cache, const char *path, duckdb_database *out_database, duckdb_config config, char **out_error);
 void [duckdb_destroy_instance_cache](#duckdb_destroy_instance_cache)(duckdb_instance_cache *instance_cache);
 duckdb_state [duckdb_open](#duckdb_open)(const char *path, duckdb_database *out_database);
@@ -55,7 +55,7 @@ duckdb_value [duckdb_get_table_names](#duckdb_get_table_names)(duckdb_connection
       
 
     
-`duckdb_state `[duckdb_create_config](#duckdb_create_config)(duckdb_config *out_config);
+`duckdb_state` [duckdb_create_config](#duckdb_create_config)(duckdb_config *out_config);
 size_t [duckdb_config_count](#duckdb_config_count)();
 duckdb_state [duckdb_get_config_flag](#duckdb_get_config_flag)(size_t index, const char **out_name, const char **out_description);
 duckdb_state [duckdb_set_config](#duckdb_set_config)(duckdb_config config, const char *name, const char *option);
@@ -67,7 +67,7 @@ void [duckdb_destroy_config](#duckdb_destroy_config)(duckdb_config *config);
       
 
     
-`duckdb_error_data `[duckdb_create_error_data](#duckdb_create_error_data)(duckdb_error_type type, const char *message);
+`duckdb_error_data` [duckdb_create_error_data](#duckdb_create_error_data)(duckdb_error_type type, const char *message);
 void [duckdb_destroy_error_data](#duckdb_destroy_error_data)(duckdb_error_data *error_data);
 duckdb_error_type [duckdb_error_data_error_type](#duckdb_error_data_error_type)(duckdb_error_data error_data);
 const char *[duckdb_error_data_message](#duckdb_error_data_message)(duckdb_error_data error_data);
@@ -79,7 +79,7 @@ bool [duckdb_error_data_has_error](#duckdb_error_data_has_error)(duckdb_error_da
       
 
     
-`duckdb_state `[duckdb_query](#duckdb_query)(duckdb_connection connection, const char *query, duckdb_result *out_result);
+`duckdb_state` [duckdb_query](#duckdb_query)(duckdb_connection connection, const char *query, duckdb_result *out_result);
 void [duckdb_destroy_result](#duckdb_destroy_result)(duckdb_result *result);
 const char *[duckdb_column_name](#duckdb_column_name)(duckdb_result *result, idx_t col);
 duckdb_type [duckdb_column_type](#duckdb_column_type)(duckdb_result *result, idx_t col);
@@ -100,7 +100,7 @@ duckdb_error_type [duckdb_result_error_type](#duckdb_result_error_type)(duckdb_r
       
 
     
-`duckdb_data_chunk `[duckdb_result_get_chunk](#duckdb_result_get_chunk)(duckdb_result result, idx_t chunk_index);
+`duckdb_data_chunk` [duckdb_result_get_chunk](#duckdb_result_get_chunk)(duckdb_result result, idx_t chunk_index);
 bool [duckdb_result_is_streaming](#duckdb_result_is_streaming)(duckdb_result result);
 idx_t [duckdb_result_chunk_count](#duckdb_result_chunk_count)(duckdb_result result);
 duckdb_result_type [duckdb_result_return_type](#duckdb_result_return_type)(duckdb_result result);
@@ -111,7 +111,7 @@ duckdb_result_type [duckdb_result_return_type](#duckdb_result_return_type)(duckd
       
 
     
-`bool `[duckdb_value_boolean](#duckdb_value_boolean)(duckdb_result *result, idx_t col, idx_t row);
+`bool` [duckdb_value_boolean](#duckdb_value_boolean)(duckdb_result *result, idx_t col, idx_t row);
 int8_t [duckdb_value_int8](#duckdb_value_int8)(duckdb_result *result, idx_t col, idx_t row);
 int16_t [duckdb_value_int16](#duckdb_value_int16)(duckdb_result *result, idx_t col, idx_t row);
 int32_t [duckdb_value_int32](#duckdb_value_int32)(duckdb_result *result, idx_t col, idx_t row);
@@ -155,7 +155,7 @@ const char *[duckdb_string_t_data](#duckdb_string_t_data)(duckdb_string_t *strin
       
 
     
-`duckdb_date_struct `[duckdb_from_date](#duckdb_from_date)(duckdb_date date);
+`duckdb_date_struct` [duckdb_from_date](#duckdb_from_date)(duckdb_date date);
 duckdb_date [duckdb_to_date](#duckdb_to_date)(duckdb_date_struct date);
 bool [duckdb_is_finite_date](#duckdb_is_finite_date)(duckdb_date date);
 duckdb_time_struct [duckdb_from_time](#duckdb_from_time)(duckdb_time time);
@@ -175,7 +175,7 @@ bool [duckdb_is_finite_timestamp_ns](#duckdb_is_finite_timestamp_ns)(duckdb_time
       
 
     
-`double `[duckdb_hugeint_to_double](#duckdb_hugeint_to_double)(duckdb_hugeint val);
+`double` [duckdb_hugeint_to_double](#duckdb_hugeint_to_double)(duckdb_hugeint val);
 duckdb_hugeint [duckdb_double_to_hugeint](#duckdb_double_to_hugeint)(double val);
 ### 
         
@@ -184,7 +184,7 @@ duckdb_hugeint [duckdb_double_to_hugeint](#duckdb_double_to_hugeint)(double val)
       
 
     
-`double `[duckdb_uhugeint_to_double](#duckdb_uhugeint_to_double)(duckdb_uhugeint val);
+`double` [duckdb_uhugeint_to_double](#duckdb_uhugeint_to_double)(duckdb_uhugeint val);
 duckdb_uhugeint [duckdb_double_to_uhugeint](#duckdb_double_to_uhugeint)(double val);
 ### 
         
@@ -193,7 +193,7 @@ duckdb_uhugeint [duckdb_double_to_uhugeint](#duckdb_double_to_uhugeint)(double v
       
 
     
-`duckdb_decimal `[duckdb_double_to_decimal](#duckdb_double_to_decimal)(double val, uint8_t width, uint8_t scale);
+`duckdb_decimal` [duckdb_double_to_decimal](#duckdb_double_to_decimal)(double val, uint8_t width, uint8_t scale);
 double [duckdb_decimal_to_double](#duckdb_decimal_to_double)(duckdb_decimal val);
 ### 
         
@@ -202,7 +202,7 @@ double [duckdb_decimal_to_double](#duckdb_decimal_to_double)(duckdb_decimal val)
       
 
     
-`duckdb_state `[duckdb_prepare](#duckdb_prepare)(duckdb_connection connection, const char *query, duckdb_prepared_statement *out_prepared_statement);
+`duckdb_state` [duckdb_prepare](#duckdb_prepare)(duckdb_connection connection, const char *query, duckdb_prepared_statement *out_prepared_statement);
 void [duckdb_destroy_prepare](#duckdb_destroy_prepare)(duckdb_prepared_statement *prepared_statement);
 const char *[duckdb_prepare_error](#duckdb_prepare_error)(duckdb_prepared_statement prepared_statement);
 idx_t [duckdb_nparams](#duckdb_nparams)(duckdb_prepared_statement prepared_statement);
@@ -222,7 +222,7 @@ duckdb_type [duckdb_prepared_statement_column_type](#duckdb_prepared_statement_c
       
 
     
-`duckdb_state `[duckdb_bind_value](#duckdb_bind_value)(duckdb_prepared_statement prepared_statement, idx_t param_idx, duckdb_value val);
+`duckdb_state` [duckdb_bind_value](#duckdb_bind_value)(duckdb_prepared_statement prepared_statement, idx_t param_idx, duckdb_value val);
 duckdb_state [duckdb_bind_parameter_index](#duckdb_bind_parameter_index)(duckdb_prepared_statement prepared_statement, idx_t *param_idx_out, const char *name);
 duckdb_state [duckdb_bind_boolean](#duckdb_bind_boolean)(duckdb_prepared_statement prepared_statement, idx_t param_idx, bool val);
 duckdb_state [duckdb_bind_int8](#duckdb_bind_int8)(duckdb_prepared_statement prepared_statement, idx_t param_idx, int8_t val);
@@ -254,7 +254,7 @@ duckdb_state [duckdb_bind_null](#duckdb_bind_null)(duckdb_prepared_statement pre
       
 
     
-`duckdb_state `[duckdb_execute_prepared](#duckdb_execute_prepared)(duckdb_prepared_statement prepared_statement, duckdb_result *out_result);
+`duckdb_state` [duckdb_execute_prepared](#duckdb_execute_prepared)(duckdb_prepared_statement prepared_statement, duckdb_result *out_result);
 duckdb_state [duckdb_execute_prepared_streaming](#duckdb_execute_prepared_streaming)(duckdb_prepared_statement prepared_statement, duckdb_result *out_result);
 ### 
         
@@ -263,7 +263,7 @@ duckdb_state [duckdb_execute_prepared_streaming](#duckdb_execute_prepared_stream
       
 
     
-`idx_t `[duckdb_extract_statements](#duckdb_extract_statements)(duckdb_connection connection, const char *query, duckdb_extracted_statements *out_extracted_statements);
+`idx_t` [duckdb_extract_statements](#duckdb_extract_statements)(duckdb_connection connection, const char *query, duckdb_extracted_statements *out_extracted_statements);
 duckdb_state [duckdb_prepare_extracted_statement](#duckdb_prepare_extracted_statement)(duckdb_connection connection, duckdb_extracted_statements extracted_statements, idx_t index, duckdb_prepared_statement *out_prepared_statement);
 const char *[duckdb_extract_statements_error](#duckdb_extract_statements_error)(duckdb_extracted_statements extracted_statements);
 void [duckdb_destroy_extracted](#duckdb_destroy_extracted)(duckdb_extracted_statements *extracted_statements);
@@ -274,7 +274,7 @@ void [duckdb_destroy_extracted](#duckdb_destroy_extracted)(duckdb_extracted_stat
       
 
     
-`duckdb_state `[duckdb_pending_prepared](#duckdb_pending_prepared)(duckdb_prepared_statement prepared_statement, duckdb_pending_result *out_result);
+`duckdb_state` [duckdb_pending_prepared](#duckdb_pending_prepared)(duckdb_prepared_statement prepared_statement, duckdb_pending_result *out_result);
 duckdb_state [duckdb_pending_prepared_streaming](#duckdb_pending_prepared_streaming)(duckdb_prepared_statement prepared_statement, duckdb_pending_result *out_result);
 void [duckdb_destroy_pending](#duckdb_destroy_pending)(duckdb_pending_result *pending_result);
 const char *[duckdb_pending_error](#duckdb_pending_error)(duckdb_pending_result pending_result);
@@ -289,7 +289,7 @@ bool [duckdb_pending_execution_is_finished](#duckdb_pending_execution_is_finishe
       
 
     
-`void `[duckdb_destroy_value](#duckdb_destroy_value)(duckdb_value *value);
+`void` [duckdb_destroy_value](#duckdb_destroy_value)(duckdb_value *value);
 duckdb_value [duckdb_create_varchar](#duckdb_create_varchar)(const char *text);
 duckdb_value [duckdb_create_varchar_length](#duckdb_create_varchar_length)(const char *text, idx_t length);
 duckdb_value [duckdb_create_bool](#duckdb_create_bool)(bool input);
@@ -373,7 +373,7 @@ char *[duckdb_value_to_string](#duckdb_value_to_string)(duckdb_value value);
       
 
     
-`duckdb_logical_type `[duckdb_create_logical_type](#duckdb_create_logical_type)(duckdb_type type);
+`duckdb_logical_type` [duckdb_create_logical_type](#duckdb_create_logical_type)(duckdb_type type);
 char *[duckdb_logical_type_get_alias](#duckdb_logical_type_get_alias)(duckdb_logical_type type);
 void [duckdb_logical_type_set_alias](#duckdb_logical_type_set_alias)(duckdb_logical_type type, const char *alias);
 duckdb_logical_type [duckdb_create_list_type](#duckdb_create_list_type)(duckdb_logical_type type);
@@ -410,7 +410,7 @@ duckdb_state [duckdb_register_logical_type](#duckdb_register_logical_type)(duckd
       
 
     
-`duckdb_data_chunk `[duckdb_create_data_chunk](#duckdb_create_data_chunk)(duckdb_logical_type *types, idx_t column_count);
+`duckdb_data_chunk` [duckdb_create_data_chunk](#duckdb_create_data_chunk)(duckdb_logical_type *types, idx_t column_count);
 void [duckdb_destroy_data_chunk](#duckdb_destroy_data_chunk)(duckdb_data_chunk *chunk);
 void [duckdb_data_chunk_reset](#duckdb_data_chunk_reset)(duckdb_data_chunk chunk);
 idx_t [duckdb_data_chunk_get_column_count](#duckdb_data_chunk_get_column_count)(duckdb_data_chunk chunk);
@@ -424,7 +424,7 @@ void [duckdb_data_chunk_set_size](#duckdb_data_chunk_set_size)(duckdb_data_chunk
       
 
     
-`duckdb_vector `[duckdb_create_vector](#duckdb_create_vector)(duckdb_logical_type type, idx_t capacity);
+`duckdb_vector` [duckdb_create_vector](#duckdb_create_vector)(duckdb_logical_type type, idx_t capacity);
 void [duckdb_destroy_vector](#duckdb_destroy_vector)(duckdb_vector *vector);
 duckdb_logical_type [duckdb_vector_get_column_type](#duckdb_vector_get_column_type)(duckdb_vector vector);
 void *[duckdb_vector_get_data](#duckdb_vector_get_data)(duckdb_vector vector);
@@ -449,7 +449,7 @@ void [duckdb_vector_reference_vector](#duckdb_vector_reference_vector)(duckdb_ve
       
 
     
-`bool `[duckdb_validity_row_is_valid](#duckdb_validity_row_is_valid)(uint64_t *validity, idx_t row);
+`bool` [duckdb_validity_row_is_valid](#duckdb_validity_row_is_valid)(uint64_t *validity, idx_t row);
 void [duckdb_validity_set_row_validity](#duckdb_validity_set_row_validity)(uint64_t *validity, idx_t row, bool valid);
 void [duckdb_validity_set_row_invalid](#duckdb_validity_set_row_invalid)(uint64_t *validity, idx_t row);
 void [duckdb_validity_set_row_valid](#duckdb_validity_set_row_valid)(uint64_t *validity, idx_t row);
@@ -460,7 +460,7 @@ void [duckdb_validity_set_row_valid](#duckdb_validity_set_row_valid)(uint64_t *v
       
 
     
-`duckdb_scalar_function `[duckdb_create_scalar_function](#duckdb_create_scalar_function)();
+`duckdb_scalar_function` [duckdb_create_scalar_function](#duckdb_create_scalar_function)();
 void [duckdb_destroy_scalar_function](#duckdb_destroy_scalar_function)(duckdb_scalar_function *scalar_function);
 void [duckdb_scalar_function_set_name](#duckdb_scalar_function_set_name)(duckdb_scalar_function scalar_function, const char *name);
 void [duckdb_scalar_function_set_varargs](#duckdb_scalar_function_set_varargs)(duckdb_scalar_function scalar_function, duckdb_logical_type type);
@@ -493,7 +493,7 @@ duckdb_expression [duckdb_scalar_function_bind_get_argument](#duckdb_scalar_func
       
 
     
-`duckdb_selection_vector `[duckdb_create_selection_vector](#duckdb_create_selection_vector)(idx_t size);
+`duckdb_selection_vector` [duckdb_create_selection_vector](#duckdb_create_selection_vector)(idx_t size);
 void [duckdb_destroy_selection_vector](#duckdb_destroy_selection_vector)(duckdb_selection_vector sel);
 sel_t *[duckdb_selection_vector_get_data_ptr](#duckdb_selection_vector_get_data_ptr)(duckdb_selection_vector sel);
 ### 
@@ -503,7 +503,7 @@ sel_t *[duckdb_selection_vector_get_data_ptr](#duckdb_selection_vector_get_data_
       
 
     
-`duckdb_aggregate_function `[duckdb_create_aggregate_function](#duckdb_create_aggregate_function)();
+`duckdb_aggregate_function` [duckdb_create_aggregate_function](#duckdb_create_aggregate_function)();
 void [duckdb_destroy_aggregate_function](#duckdb_destroy_aggregate_function)(duckdb_aggregate_function *aggregate_function);
 void [duckdb_aggregate_function_set_name](#duckdb_aggregate_function_set_name)(duckdb_aggregate_function aggregate_function, const char *name);
 void [duckdb_aggregate_function_add_parameter](#duckdb_aggregate_function_add_parameter)(duckdb_aggregate_function aggregate_function, duckdb_logical_type type);
@@ -526,7 +526,7 @@ duckdb_state [duckdb_register_aggregate_function_set](#duckdb_register_aggregate
       
 
     
-`duckdb_table_function `[duckdb_create_table_function](#duckdb_create_table_function)();
+`duckdb_table_function` [duckdb_create_table_function](#duckdb_create_table_function)();
 void [duckdb_destroy_table_function](#duckdb_destroy_table_function)(duckdb_table_function *table_function);
 void [duckdb_table_function_set_name](#duckdb_table_function_set_name)(duckdb_table_function table_function, const char *name);
 void [duckdb_table_function_add_parameter](#duckdb_table_function_add_parameter)(duckdb_table_function table_function, duckdb_logical_type type);
@@ -587,7 +587,7 @@ void [duckdb_function_set_error](#duckdb_function_set_error)(duckdb_function_inf
       
 
     
-`void `[duckdb_add_replacement_scan](#duckdb_add_replacement_scan)(duckdb_database db, duckdb_replacement_callback_t replacement, void *extra_data, duckdb_delete_callback_t delete_callback);
+`void` [duckdb_add_replacement_scan](#duckdb_add_replacement_scan)(duckdb_database db, duckdb_replacement_callback_t replacement, void *extra_data, duckdb_delete_callback_t delete_callback);
 void [duckdb_replacement_scan_set_function_name](#duckdb_replacement_scan_set_function_name)(duckdb_replacement_scan_info info, const char *function_name);
 void [duckdb_replacement_scan_add_parameter](#duckdb_replacement_scan_add_parameter)(duckdb_replacement_scan_info info, duckdb_value parameter);
 void [duckdb_replacement_scan_set_error](#duckdb_replacement_scan_set_error)(duckdb_replacement_scan_info info, const char *error);
@@ -598,7 +598,7 @@ void [duckdb_replacement_scan_set_error](#duckdb_replacement_scan_set_error)(duc
       
 
     
-`duckdb_profiling_info `[duckdb_get_profiling_info](#duckdb_get_profiling_info)(duckdb_connection connection);
+`duckdb_profiling_info` [duckdb_get_profiling_info](#duckdb_get_profiling_info)(duckdb_connection connection);
 duckdb_value [duckdb_profiling_info_get_value](#duckdb_profiling_info_get_value)(duckdb_profiling_info info, const char *key);
 duckdb_value [duckdb_profiling_info_get_metrics](#duckdb_profiling_info_get_metrics)(duckdb_profiling_info info);
 idx_t [duckdb_profiling_info_get_child_count](#duckdb_profiling_info_get_child_count)(duckdb_profiling_info info);
@@ -610,7 +610,7 @@ duckdb_profiling_info [duckdb_profiling_info_get_child](#duckdb_profiling_info_g
       
 
     
-`duckdb_state `[duckdb_appender_create](#duckdb_appender_create)(duckdb_connection connection, const char *schema, const char *table, duckdb_appender *out_appender);
+`duckdb_state` [duckdb_appender_create](#duckdb_appender_create)(duckdb_connection connection, const char *schema, const char *table, duckdb_appender *out_appender);
 duckdb_state [duckdb_appender_create_ext](#duckdb_appender_create_ext)(duckdb_connection connection, const char *catalog, const char *schema, const char *table, duckdb_appender *out_appender);
 duckdb_state [duckdb_appender_create_query](#duckdb_appender_create_query)(duckdb_connection connection, const char *query, idx_t column_count, duckdb_logical_type *types, const char *table_name, const char **column_names, duckdb_appender *out_appender);
 idx_t [duckdb_appender_column_count](#duckdb_appender_column_count)(duckdb_appender appender);
@@ -656,7 +656,7 @@ duckdb_state [duckdb_append_data_chunk](#duckdb_append_data_chunk)(duckdb_append
       
 
     
-`duckdb_state `[duckdb_table_description_create](#duckdb_table_description_create)(duckdb_connection connection, const char *schema, const char *table, duckdb_table_description *out);
+`duckdb_state` [duckdb_table_description_create](#duckdb_table_description_create)(duckdb_connection connection, const char *schema, const char *table, duckdb_table_description *out);
 duckdb_state [duckdb_table_description_create_ext](#duckdb_table_description_create_ext)(duckdb_connection connection, const char *catalog, const char *schema, const char *table, duckdb_table_description *out);
 void [duckdb_table_description_destroy](#duckdb_table_description_destroy)(duckdb_table_description *table_description);
 const char *[duckdb_table_description_error](#duckdb_table_description_error)(duckdb_table_description table_description);
@@ -669,7 +669,7 @@ char *[duckdb_table_description_get_column_name](#duckdb_table_description_get_c
       
 
     
-`duckdb_error_data `[duckdb_to_arrow_schema](#duckdb_to_arrow_schema)(duckdb_arrow_options arrow_options, duckdb_logical_type *types, const char **names, idx_t column_count, struct ArrowSchema *out_schema);
+`duckdb_error_data` [duckdb_to_arrow_schema](#duckdb_to_arrow_schema)(duckdb_arrow_options arrow_options, duckdb_logical_type *types, const char **names, idx_t column_count, struct ArrowSchema *out_schema);
 duckdb_error_data [duckdb_data_chunk_to_arrow](#duckdb_data_chunk_to_arrow)(duckdb_arrow_options arrow_options, duckdb_data_chunk chunk, struct ArrowArray *out_arrow_array);
 duckdb_error_data [duckdb_schema_from_arrow](#duckdb_schema_from_arrow)(duckdb_connection connection, struct ArrowSchema *schema, duckdb_arrow_converted_schema *out_types);
 duckdb_error_data [duckdb_data_chunk_from_arrow](#duckdb_data_chunk_from_arrow)(duckdb_connection connection, struct ArrowArray *arrow_array, duckdb_arrow_converted_schema converted_schema, duckdb_data_chunk *out_chunk);
@@ -695,7 +695,7 @@ duckdb_state [duckdb_arrow_array_scan](#duckdb_arrow_array_scan)(duckdb_connecti
       
 
     
-`void `[duckdb_execute_tasks](#duckdb_execute_tasks)(duckdb_database database, idx_t max_tasks);
+`void` [duckdb_execute_tasks](#duckdb_execute_tasks)(duckdb_database database, idx_t max_tasks);
 duckdb_task_state [duckdb_create_task_state](#duckdb_create_task_state)(duckdb_database database);
 void [duckdb_execute_tasks_state](#duckdb_execute_tasks_state)(duckdb_task_state state);
 idx_t [duckdb_execute_n_tasks_state](#duckdb_execute_n_tasks_state)(duckdb_task_state state, idx_t max_tasks);
@@ -710,7 +710,7 @@ bool [duckdb_execution_is_finished](#duckdb_execution_is_finished)(duckdb_connec
       
 
     
-`duckdb_data_chunk `[duckdb_stream_fetch_chunk](#duckdb_stream_fetch_chunk)(duckdb_result result);
+`duckdb_data_chunk` [duckdb_stream_fetch_chunk](#duckdb_stream_fetch_chunk)(duckdb_result result);
 duckdb_data_chunk [duckdb_fetch_chunk](#duckdb_fetch_chunk)(duckdb_result result);
 ### 
         
@@ -719,7 +719,7 @@ duckdb_data_chunk [duckdb_fetch_chunk](#duckdb_fetch_chunk)(duckdb_result result
       
 
     
-`duckdb_cast_function `[duckdb_create_cast_function](#duckdb_create_cast_function)();
+`duckdb_cast_function` [duckdb_create_cast_function](#duckdb_create_cast_function)();
 void [duckdb_cast_function_set_source_type](#duckdb_cast_function_set_source_type)(duckdb_cast_function cast_function, duckdb_logical_type source_type);
 void [duckdb_cast_function_set_target_type](#duckdb_cast_function_set_target_type)(duckdb_cast_function cast_function, duckdb_logical_type target_type);
 void [duckdb_cast_function_set_implicit_cast_cost](#duckdb_cast_function_set_implicit_cast_cost)(duckdb_cast_function cast_function, int64_t cost);
@@ -738,16 +738,19 @@ void [duckdb_destroy_cast_function](#duckdb_destroy_cast_function)(duckdb_cast_f
       
 
     
-`void `[duckdb_destroy_expression](#duckdb_destroy_expression)(duckdb_expression *expr);
+`void` [duckdb_destroy_expression](#duckdb_destroy_expression)(duckdb_expression *expr);
 duckdb_logical_type [duckdb_expression_return_type](#duckdb_expression_return_type)(duckdb_expression expr);
 bool [duckdb_expression_is_foldable](#duckdb_expression_is_foldable)(duckdb_expression expr);
 duckdb_error_data [duckdb_expression_fold](#duckdb_expression_fold)(duckdb_client_context context, duckdb_expression expr, duckdb_value *out_value);
 #### 
         
-        `duckdb_create_instance_cache`
+        [`duckdb_create_instance_cache`](#duckdb_create_instance_cache)
+        
+      
 
     
-`duckdb_create_instance_cache`Creates a new database instance cache. The instance cache is necessary if a client/program (re)opens multiple databases to the same file within the same process. Must be destroyed with 'duckdb_destroy_instance_cache'.
+`duckdb_create_instance_cache`
+Creates a new database instance cache. The instance cache is necessary if a client/program (re)opens multiple databases to the same file within the same process. Must be destroyed with 'duckdb_destroy_instance_cache'.
 
 ##### 
         
@@ -772,10 +775,13 @@ duckdb_instance_cache duckdb_create_instance_cache(
 ```
 #### 
         
-        `duckdb_get_or_create_from_cache`
+        [`duckdb_get_or_create_from_cache`](#duckdb_get_or_create_from_cache)
+        
+      
 
     
-`duckdb_get_or_create_from_cache`Creates a new database instance in the instance cache, or retrieves an existing database instance. Must be closed with 'duckdb_close'.
+`duckdb_get_or_create_from_cache`
+Creates a new database instance in the instance cache, or retrieves an existing database instance. Must be closed with 'duckdb_close'.
 
 ##### 
         
@@ -800,11 +806,12 @@ duckdb_state duckdb_get_or_create_from_cache(
       
 
     
-- `instance_cache`: The instance cache in which to create the database, or from which to take the database.
-- `path`: Path to the database file on disk. Both- `nullptr`and- `:memory:`open or retrieve an in-memory database.
-- `out_database`: The resulting cached database.
-- `config`: (Optional) configuration used to create the database.
-- `out_error`: If set and the function returns- `DuckDBError`, this contains the error message. Note that the error message must be freed using- `duckdb_free`.
+- `instance_cache` : The instance cache in which to create the database, or from which to take the database.
+- `path` : Path to the database file on disk. Both`nullptr` and`:memory:` open or retrieve an in-memory database.
+- `out_database` : The resulting cached database.
+- `config` : (Optional) configuration used to create the database.
+- `out_error` : If set and the function returns`DuckDBError` , this contains the error message.
+Note that the error message must be freed using`duckdb_free` .
 
 ##### 
         
@@ -817,10 +824,13 @@ duckdb_state duckdb_get_or_create_from_cache(
 
 #### 
         
-        `duckdb_destroy_instance_cache`
+        [`duckdb_destroy_instance_cache`](#duckdb_destroy_instance_cache)
+        
+      
 
     
-`duckdb_destroy_instance_cache`Destroys an existing database instance cache and de-allocates its memory.
+`duckdb_destroy_instance_cache`
+Destroys an existing database instance cache and de-allocates its memory.
 
 ##### 
         
@@ -841,14 +851,17 @@ void duckdb_destroy_instance_cache(
       
 
     
-- `instance_cache`: The instance cache to destroy.
+- `instance_cache` : The instance cache to destroy.
 
 #### 
         
-        `duckdb_open`
+        [`duckdb_open`](#duckdb_open)
+        
+      
 
     
-`duckdb_open`Creates a new database or opens an existing database file stored at the given path. If no path is given a new in-memory database is created instead. The database must be closed with 'duckdb_close'.
+`duckdb_open`
+Creates a new database or opens an existing database file stored at the given path. If no path is given a new in-memory database is created instead. The database must be closed with 'duckdb_close'.
 
 ##### 
         
@@ -870,8 +883,8 @@ duckdb_state duckdb_open(
       
 
     
-- `path`: Path to the database file on disk. Both- `nullptr`and- `:memory:`open an in-memory database.
-- `out_database`: The result database object.
+- `path` : Path to the database file on disk. Both`nullptr` and`:memory:` open an in-memory database.
+- `out_database` : The result database object.
 
 ##### 
         
@@ -884,10 +897,13 @@ duckdb_state duckdb_open(
 
 #### 
         
-        `duckdb_open_ext`
+        [`duckdb_open_ext`](#duckdb_open_ext)
+        
+      
 
     
-`duckdb_open_ext`Extended version of duckdb_open. Creates a new database or opens an existing database file stored at the given path. The database must be closed with 'duckdb_close'.
+`duckdb_open_ext`
+Extended version of duckdb_open. Creates a new database or opens an existing database file stored at the given path. The database must be closed with 'duckdb_close'.
 
 ##### 
         
@@ -911,10 +927,11 @@ duckdb_state duckdb_open_ext(
       
 
     
-- `path`: Path to the database file on disk. Both- `nullptr`and- `:memory:`open an in-memory database.
-- `out_database`: The result database object.
-- `config`: (Optional) configuration used to start up the database.
-- `out_error`: If set and the function returns- `DuckDBError`, this contains the error message. Note that the error message must be freed using- `duckdb_free`.
+- `path` : Path to the database file on disk. Both`nullptr` and`:memory:` open an in-memory database.
+- `out_database` : The result database object.
+- `config` : (Optional) configuration used to start up the database.
+- `out_error` : If set and the function returns`DuckDBError` , this contains the error message.
+Note that the error message must be freed using`duckdb_free` .
 
 ##### 
         
@@ -927,10 +944,13 @@ duckdb_state duckdb_open_ext(
 
 #### 
         
-        `duckdb_close`
+        [`duckdb_close`](#duckdb_close)
+        
+      
 
     
-`duckdb_close`Closes the specified database and de-allocates all memory allocated for that database.
+`duckdb_close`
+Closes the specified database and de-allocates all memory allocated for that database.
 This should be called after you are done with any database allocated through `duckdb_open` or `duckdb_open_ext`.
 Note that failing to call `duckdb_close` (in case of e.g., a program crash) will not cause data corruption.
 Still, it is recommended to always correctly close a database object after you are done with it.
@@ -954,14 +974,17 @@ void duckdb_close(
       
 
     
-- `database`: The database object to shut down.
+- `database` : The database object to shut down.
 
 #### 
         
-        `duckdb_connect`
+        [`duckdb_connect`](#duckdb_connect)
+        
+      
 
     
-`duckdb_connect`Opens a connection to a database. Connections are required to query the database, and store transactional state associated with the connection. The instantiated connection should be closed using 'duckdb_disconnect'.
+`duckdb_connect`
+Opens a connection to a database. Connections are required to query the database, and store transactional state associated with the connection. The instantiated connection should be closed using 'duckdb_disconnect'.
 
 ##### 
         
@@ -983,8 +1006,8 @@ duckdb_state duckdb_connect(
       
 
     
-- `database`: The database file to connect to.
-- `out_connection`: The result connection object.
+- `database` : The database file to connect to.
+- `out_connection` : The result connection object.
 
 ##### 
         
@@ -997,10 +1020,13 @@ duckdb_state duckdb_connect(
 
 #### 
         
-        `duckdb_interrupt`
+        [`duckdb_interrupt`](#duckdb_interrupt)
+        
+      
 
     
-`duckdb_interrupt`Interrupt running query
+`duckdb_interrupt`
+Interrupt running query
 
 ##### 
         
@@ -1021,14 +1047,17 @@ void duckdb_interrupt(
       
 
     
-- `connection`: The connection to interrupt
+- `connection` : The connection to interrupt
 
 #### 
         
-        `duckdb_query_progress`
+        [`duckdb_query_progress`](#duckdb_query_progress)
+        
+      
 
     
-`duckdb_query_progress`Get progress of the running query
+`duckdb_query_progress`
+Get progress of the running query
 
 ##### 
         
@@ -1049,7 +1078,7 @@ duckdb_query_progress_type duckdb_query_progress(
       
 
     
-- `connection`: The working connection
+- `connection` : The working connection
 
 ##### 
         
@@ -1062,10 +1091,13 @@ duckdb_query_progress_type duckdb_query_progress(
 
 #### 
         
-        `duckdb_disconnect`
+        [`duckdb_disconnect`](#duckdb_disconnect)
+        
+      
 
     
-`duckdb_disconnect`Closes the specified connection and de-allocates all memory allocated for that connection.
+`duckdb_disconnect`
+Closes the specified connection and de-allocates all memory allocated for that connection.
 
 ##### 
         
@@ -1086,14 +1118,17 @@ void duckdb_disconnect(
       
 
     
-- `connection`: The connection to close.
+- `connection` : The connection to close.
 
 #### 
         
-        `duckdb_connection_get_client_context`
+        [`duckdb_connection_get_client_context`](#duckdb_connection_get_client_context)
+        
+      
 
     
-`duckdb_connection_get_client_context`Retrieves the client context of the connection.
+`duckdb_connection_get_client_context`
+Retrieves the client context of the connection.
 
 ##### 
         
@@ -1115,15 +1150,18 @@ void duckdb_connection_get_client_context(
       
 
     
-- `connection`: The connection.
-- `out_context`: The client context of the connection. Must be destroyed with- `duckdb_destroy_client_context`.
+- `connection` : The connection.
+- `out_context` : The client context of the connection. Must be destroyed with`duckdb_destroy_client_context` .
 
 #### 
         
-        `duckdb_connection_get_arrow_options`
+        [`duckdb_connection_get_arrow_options`](#duckdb_connection_get_arrow_options)
+        
+      
 
     
-`duckdb_connection_get_arrow_options`Retrieves the arrow options of the connection.
+`duckdb_connection_get_arrow_options`
+Retrieves the arrow options of the connection.
 
 ##### 
         
@@ -1145,14 +1183,17 @@ void duckdb_connection_get_arrow_options(
       
 
     
-- `connection`: The connection.
+- `connection` : The connection.
 
 #### 
         
-        `duckdb_client_context_get_connection_id`
+        [`duckdb_client_context_get_connection_id`](#duckdb_client_context_get_connection_id)
+        
+      
 
     
-`duckdb_client_context_get_connection_id`Returns the connection id of the client context.
+`duckdb_client_context_get_connection_id`
+Returns the connection id of the client context.
 
 ##### 
         
@@ -1173,7 +1214,7 @@ idx_t duckdb_client_context_get_connection_id(
       
 
     
-- `context`: The client context.
+- `context` : The client context.
 
 ##### 
         
@@ -1186,10 +1227,13 @@ The connection id of the client context.
 
 #### 
         
-        `duckdb_destroy_client_context`
+        [`duckdb_destroy_client_context`](#duckdb_destroy_client_context)
+        
+      
 
     
-`duckdb_destroy_client_context`Destroys the client context and deallocates its memory.
+`duckdb_destroy_client_context`
+Destroys the client context and deallocates its memory.
 
 ##### 
         
@@ -1210,14 +1254,17 @@ void duckdb_destroy_client_context(
       
 
     
-- `context`: The client context to destroy.
+- `context` : The client context to destroy.
 
 #### 
         
-        `duckdb_destroy_arrow_options`
+        [`duckdb_destroy_arrow_options`](#duckdb_destroy_arrow_options)
+        
+      
 
     
-`duckdb_destroy_arrow_options`Destroys the arrow options and deallocates its memory.
+`duckdb_destroy_arrow_options`
+Destroys the arrow options and deallocates its memory.
 
 ##### 
         
@@ -1238,14 +1285,17 @@ void duckdb_destroy_arrow_options(
       
 
     
-- `arrow_options`: The arrow options to destroy.
+- `arrow_options` : The arrow options to destroy.
 
 #### 
         
-        `duckdb_library_version`
+        [`duckdb_library_version`](#duckdb_library_version)
+        
+      
 
     
-`duckdb_library_version`Returns the version of the linked DuckDB, with a version postfix for dev versions
+`duckdb_library_version`
+Returns the version of the linked DuckDB, with a version postfix for dev versions
 
 Usually used for developing C extensions that must return this for a compatibility check.
 
@@ -1263,10 +1313,13 @@ const char *duckdb_library_version(
 ```
 #### 
         
-        `duckdb_get_table_names`
+        [`duckdb_get_table_names`](#duckdb_get_table_names)
+        
+      
 
     
-`duckdb_get_table_names`Get the list of (fully qualified) table names of the query.
+`duckdb_get_table_names`
+Get the list of (fully qualified) table names of the query.
 
 ##### 
         
@@ -1289,9 +1342,10 @@ duckdb_value duckdb_get_table_names(
       
 
     
-- `connection`: The connection for which to get the table names.
-- `query`: The query for which to get the table names.
-- `qualified`: Returns fully qualified table names (catalog.schema.table), if set to true, else only the (not escaped) table names.
+- `connection` : The connection for which to get the table names.
+- `query` : The query for which to get the table names.
+- `qualified` : Returns fully qualified table names (catalog.schema.table), if set to true, else only the (not
+escaped) table names.
 
 ##### 
         
@@ -1304,10 +1358,13 @@ A duckdb_value of type VARCHAR[] containing the (fully qualified) table names of
 
 #### 
         
-        `duckdb_create_config`
+        [`duckdb_create_config`](#duckdb_create_config)
+        
+      
 
     
-`duckdb_create_config`Initializes an empty configuration object that can be used to provide start-up options for the DuckDB instance
+`duckdb_create_config`
+Initializes an empty configuration object that can be used to provide start-up options for the DuckDB instance
 through `duckdb_open_ext`.
 The duckdb_config must be destroyed using 'duckdb_destroy_config'
 
@@ -1335,7 +1392,7 @@ duckdb_state duckdb_create_config(
       
 
     
-- `out_config`: The result configuration object.
+- `out_config` : The result configuration object.
 
 ##### 
         
@@ -1348,10 +1405,13 @@ duckdb_state duckdb_create_config(
 
 #### 
         
-        `duckdb_config_count`
+        [`duckdb_config_count`](#duckdb_config_count)
+        
+      
 
     
-`duckdb_config_count`This returns the total amount of configuration options available for usage with `duckdb_get_config_flag`.
+`duckdb_config_count`
+This returns the total amount of configuration options available for usage with `duckdb_get_config_flag`.
 
 This should not be called in a loop as it internally loops over all the options.
 
@@ -1378,10 +1438,13 @@ size_t duckdb_config_count(
 ```
 #### 
         
-        `duckdb_get_config_flag`
+        [`duckdb_get_config_flag`](#duckdb_get_config_flag)
+        
+      
 
     
-`duckdb_get_config_flag`Obtains a human-readable name and description of a specific configuration option. This can be used to e.g.
+`duckdb_get_config_flag`
+Obtains a human-readable name and description of a specific configuration option. This can be used to e.g.
 display configuration options. This will succeed unless `index` is out of range (i.e., `>= duckdb_config_count`).
 
 The result name or description MUST NOT be freed.
@@ -1407,9 +1470,9 @@ duckdb_state duckdb_get_config_flag(
       
 
     
-- `index`: The index of the configuration option (between 0 and- `duckdb_config_count`)
-- `out_name`: A name of the configuration flag.
-- `out_description`: A description of the configuration flag.
+- `index` : The index of the configuration option (between 0 and`duckdb_config_count` )
+- `out_name` : A name of the configuration flag.
+- `out_description` : A description of the configuration flag.
 
 ##### 
         
@@ -1422,10 +1485,13 @@ duckdb_state duckdb_get_config_flag(
 
 #### 
         
-        `duckdb_set_config`
+        [`duckdb_set_config`](#duckdb_set_config)
+        
+      
 
     
-`duckdb_set_config`Sets the specified option for the specified configuration. The configuration option is indicated by name.
+`duckdb_set_config`
+Sets the specified option for the specified configuration. The configuration option is indicated by name.
 To obtain a list of config options, see `duckdb_get_config_flag`.
 
 In the source code, configuration options are defined in `config.cpp`.
@@ -1453,9 +1519,9 @@ duckdb_state duckdb_set_config(
       
 
     
-- `config`: The configuration object to set the option on.
-- `name`: The name of the configuration flag to set.
-- `option`: The value to set the configuration flag to.
+- `config` : The configuration object to set the option on.
+- `name` : The name of the configuration flag to set.
+- `option` : The value to set the configuration flag to.
 
 ##### 
         
@@ -1468,10 +1534,13 @@ duckdb_state duckdb_set_config(
 
 #### 
         
-        `duckdb_destroy_config`
+        [`duckdb_destroy_config`](#duckdb_destroy_config)
+        
+      
 
     
-`duckdb_destroy_config`Destroys the specified configuration object and de-allocates all memory allocated for the object.
+`duckdb_destroy_config`
+Destroys the specified configuration object and de-allocates all memory allocated for the object.
 
 ##### 
         
@@ -1492,14 +1561,17 @@ void duckdb_destroy_config(
       
 
     
-- `config`: The configuration object to destroy.
+- `config` : The configuration object to destroy.
 
 #### 
         
-        `duckdb_create_error_data`
+        [`duckdb_create_error_data`](#duckdb_create_error_data)
+        
+      
 
     
-`duckdb_create_error_data`Creates duckdb_error_data.
+`duckdb_create_error_data`
+Creates duckdb_error_data.
 Must be destroyed with `duckdb_destroy_error_data`.
 
 ##### 
@@ -1522,8 +1594,8 @@ duckdb_error_data duckdb_create_error_data(
       
 
     
-- `type`: The error type.
-- `message`: The error message.
+- `type` : The error type.
+- `message` : The error message.
 
 ##### 
         
@@ -1536,10 +1608,13 @@ The error data.
 
 #### 
         
-        `duckdb_destroy_error_data`
+        [`duckdb_destroy_error_data`](#duckdb_destroy_error_data)
+        
+      
 
     
-`duckdb_destroy_error_data`Destroys the error data and deallocates its memory.
+`duckdb_destroy_error_data`
+Destroys the error data and deallocates its memory.
 
 ##### 
         
@@ -1560,14 +1635,17 @@ void duckdb_destroy_error_data(
       
 
     
-- `error_data`: The error data to destroy.
+- `error_data` : The error data to destroy.
 
 #### 
         
-        `duckdb_error_data_error_type`
+        [`duckdb_error_data_error_type`](#duckdb_error_data_error_type)
+        
+      
 
     
-`duckdb_error_data_error_type`Returns the duckdb_error_type of the error data.
+`duckdb_error_data_error_type`
+Returns the duckdb_error_type of the error data.
 
 ##### 
         
@@ -1588,7 +1666,7 @@ duckdb_error_type duckdb_error_data_error_type(
       
 
     
-- `error_data`: The error data.
+- `error_data` : The error data.
 
 ##### 
         
@@ -1601,10 +1679,13 @@ The error type.
 
 #### 
         
-        `duckdb_error_data_message`
+        [`duckdb_error_data_message`](#duckdb_error_data_message)
+        
+      
 
     
-`duckdb_error_data_message`Returns the error message of the error data. Must not be freed.
+`duckdb_error_data_message`
+Returns the error message of the error data. Must not be freed.
 
 ##### 
         
@@ -1625,7 +1706,7 @@ const char *duckdb_error_data_message(
       
 
     
-- `error_data`: The error data.
+- `error_data` : The error data.
 
 ##### 
         
@@ -1638,10 +1719,13 @@ The error message.
 
 #### 
         
-        `duckdb_error_data_has_error`
+        [`duckdb_error_data_has_error`](#duckdb_error_data_has_error)
+        
+      
 
     
-`duckdb_error_data_has_error`Returns whether the error data contains an error or not.
+`duckdb_error_data_has_error`
+Returns whether the error data contains an error or not.
 
 ##### 
         
@@ -1662,7 +1746,7 @@ bool duckdb_error_data_has_error(
       
 
     
-- `error_data`: The error data.
+- `error_data` : The error data.
 
 ##### 
         
@@ -1675,10 +1759,13 @@ True, if the error data contains an exception, else false.
 
 #### 
         
-        `duckdb_query`
+        [`duckdb_query`](#duckdb_query)
+        
+      
 
     
-`duckdb_query`Executes a SQL query within a connection and stores the full (materialized) result in the out_result pointer.
+`duckdb_query`
+Executes a SQL query within a connection and stores the full (materialized) result in the out_result pointer.
 If the query fails to execute, DuckDBError is returned and the error message can be retrieved by calling
 `duckdb_result_error`.
 
@@ -1706,9 +1793,9 @@ duckdb_state duckdb_query(
       
 
     
-- `connection`: The connection to perform the query in.
-- `query`: The SQL query to run.
-- `out_result`: The query result.
+- `connection` : The connection to perform the query in.
+- `query` : The SQL query to run.
+- `out_result` : The query result.
 
 ##### 
         
@@ -1721,10 +1808,13 @@ duckdb_state duckdb_query(
 
 #### 
         
-        `duckdb_destroy_result`
+        [`duckdb_destroy_result`](#duckdb_destroy_result)
+        
+      
 
     
-`duckdb_destroy_result`Closes the result and de-allocates all memory allocated for that result.
+`duckdb_destroy_result`
+Closes the result and de-allocates all memory allocated for that result.
 
 ##### 
         
@@ -1745,14 +1835,17 @@ void duckdb_destroy_result(
       
 
     
-- `result`: The result to destroy.
+- `result` : The result to destroy.
 
 #### 
         
-        `duckdb_column_name`
+        [`duckdb_column_name`](#duckdb_column_name)
+        
+      
 
     
-`duckdb_column_name`Returns the column name of the specified column. The result should not need to be freed; the column names will automatically be destroyed when the result is destroyed.
+`duckdb_column_name`
+Returns the column name of the specified column. The result should not need to be freed; the column names will automatically be destroyed when the result is destroyed.
 
 Returns `NULL` if the column is out of range.
 
@@ -1776,8 +1869,8 @@ const char *duckdb_column_name(
       
 
     
-- `result`: The result object to fetch the column name from.
-- `col`: The column index.
+- `result` : The result object to fetch the column name from.
+- `col` : The column index.
 
 ##### 
         
@@ -1790,10 +1883,13 @@ The column name of the specified column.
 
 #### 
         
-        `duckdb_column_type`
+        [`duckdb_column_type`](#duckdb_column_type)
+        
+      
 
     
-`duckdb_column_type`Returns the column type of the specified column.
+`duckdb_column_type`
+Returns the column type of the specified column.
 
 Returns `DUCKDB_TYPE_INVALID` if the column is out of range.
 
@@ -1817,8 +1913,8 @@ duckdb_type duckdb_column_type(
       
 
     
-- `result`: The result object to fetch the column type from.
-- `col`: The column index.
+- `result` : The result object to fetch the column type from.
+- `col` : The column index.
 
 ##### 
         
@@ -1831,10 +1927,13 @@ The column type of the specified column.
 
 #### 
         
-        `duckdb_result_statement_type`
+        [`duckdb_result_statement_type`](#duckdb_result_statement_type)
+        
+      
 
     
-`duckdb_result_statement_type`Returns the statement type of the statement that was executed
+`duckdb_result_statement_type`
+Returns the statement type of the statement that was executed
 
 ##### 
         
@@ -1855,7 +1954,7 @@ duckdb_statement_type duckdb_result_statement_type(
       
 
     
-- `result`: The result object to fetch the statement type from.
+- `result` : The result object to fetch the statement type from.
 
 ##### 
         
@@ -1868,10 +1967,13 @@ duckdb_statement_type value or DUCKDB_STATEMENT_TYPE_INVALID
 
 #### 
         
-        `duckdb_column_logical_type`
+        [`duckdb_column_logical_type`](#duckdb_column_logical_type)
+        
+      
 
     
-`duckdb_column_logical_type`Returns the logical column type of the specified column.
+`duckdb_column_logical_type`
+Returns the logical column type of the specified column.
 
 The return type of this call should be destroyed with `duckdb_destroy_logical_type`.
 
@@ -1897,8 +1999,8 @@ duckdb_logical_type duckdb_column_logical_type(
       
 
     
-- `result`: The result object to fetch the column type from.
-- `col`: The column index.
+- `result` : The result object to fetch the column type from.
+- `col` : The column index.
 
 ##### 
         
@@ -1911,10 +2013,13 @@ The logical column type of the specified column.
 
 #### 
         
-        `duckdb_result_get_arrow_options`
+        [`duckdb_result_get_arrow_options`](#duckdb_result_get_arrow_options)
+        
+      
 
     
-`duckdb_result_get_arrow_options`Returns the arrow options associated with the given result. These options are definitions of how the arrow arrays/schema should be produced.
+`duckdb_result_get_arrow_options`
+Returns the arrow options associated with the given result. These options are definitions of how the arrow arrays/schema should be produced.
 
 ##### 
         
@@ -1935,7 +2040,7 @@ duckdb_arrow_options duckdb_result_get_arrow_options(
       
 
     
-- `result`: The result object to fetch arrow options from.
+- `result` : The result object to fetch arrow options from.
 
 ##### 
         
@@ -1949,10 +2054,13 @@ The arrow options associated with the given result. This must be destroyed with
 
 #### 
         
-        `duckdb_column_count`
+        [`duckdb_column_count`](#duckdb_column_count)
+        
+      
 
     
-`duckdb_column_count`Returns the number of columns present in a the result object.
+`duckdb_column_count`
+Returns the number of columns present in a the result object.
 
 ##### 
         
@@ -1973,7 +2081,7 @@ idx_t duckdb_column_count(
       
 
     
-- `result`: The result object.
+- `result` : The result object.
 
 ##### 
         
@@ -1986,10 +2094,13 @@ The number of columns present in the result object.
 
 #### 
         
-        `duckdb_row_count`
+        [`duckdb_row_count`](#duckdb_row_count)
+        
+      
 
     
-`duckdb_row_count`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_row_count`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Returns the number of rows present in the result object.
 
@@ -2012,7 +2123,7 @@ idx_t duckdb_row_count(
       
 
     
-- `result`: The result object.
+- `result` : The result object.
 
 ##### 
         
@@ -2025,10 +2136,13 @@ The number of rows present in the result object.
 
 #### 
         
-        `duckdb_rows_changed`
+        [`duckdb_rows_changed`](#duckdb_rows_changed)
+        
+      
 
     
-`duckdb_rows_changed`Returns the number of rows changed by the query stored in the result. This is relevant only for INSERT/UPDATE/DELETE queries. For other queries the rows_changed will be 0.
+`duckdb_rows_changed`
+Returns the number of rows changed by the query stored in the result. This is relevant only for INSERT/UPDATE/DELETE queries. For other queries the rows_changed will be 0.
 
 ##### 
         
@@ -2049,7 +2163,7 @@ idx_t duckdb_rows_changed(
       
 
     
-- `result`: The result object.
+- `result` : The result object.
 
 ##### 
         
@@ -2062,12 +2176,13 @@ The number of rows changed.
 
 #### 
         
-        `duckdb_column_data`
+        [`duckdb_column_data`](#duckdb_column_data)
+        
+      
 
     
-`duckdb_column_data`Deprecated This method has been deprecated. Prefer using
-
-`duckdb_result_get_chunk`instead.
+`duckdb_column_data`
+  Deprecated This method has been deprecated. Prefer using `duckdb_result_get_chunk` instead.
 
 Returns the data of a specific column of a result in columnar format.
 
@@ -2101,8 +2216,8 @@ void *duckdb_column_data(
       
 
     
-- `result`: The result object to fetch the column data from.
-- `col`: The column index.
+- `result` : The result object to fetch the column data from.
+- `col` : The column index.
 
 ##### 
         
@@ -2115,12 +2230,13 @@ The column data of the specified column.
 
 #### 
         
-        `duckdb_nullmask_data`
+        [`duckdb_nullmask_data`](#duckdb_nullmask_data)
+        
+      
 
     
-`duckdb_nullmask_data`Deprecated This method has been deprecated. Prefer using
-
-`duckdb_result_get_chunk`instead.
+`duckdb_nullmask_data`
+  Deprecated This method has been deprecated. Prefer using `duckdb_result_get_chunk` instead.
 
 Returns the nullmask of a specific column of a result in columnar format. The nullmask indicates for every row
 whether or not the corresponding row is `NULL`. If a row is `NULL`, the values present in the array provided
@@ -2155,8 +2271,8 @@ bool *duckdb_nullmask_data(
       
 
     
-- `result`: The result object to fetch the nullmask from.
-- `col`: The column index.
+- `result` : The result object to fetch the nullmask from.
+- `col` : The column index.
 
 ##### 
         
@@ -2169,10 +2285,13 @@ The nullmask of the specified column.
 
 #### 
         
-        `duckdb_result_error`
+        [`duckdb_result_error`](#duckdb_result_error)
+        
+      
 
     
-`duckdb_result_error`Returns the error message contained within the result. The error is only set if `duckdb_query` returns `DuckDBError`.
+`duckdb_result_error`
+Returns the error message contained within the result. The error is only set if `duckdb_query` returns `DuckDBError`.
 
 The result of this function must not be freed. It will be cleaned up when `duckdb_destroy_result` is called.
 
@@ -2195,7 +2314,7 @@ const char *duckdb_result_error(
       
 
     
-- `result`: The result object to fetch the error from.
+- `result` : The result object to fetch the error from.
 
 ##### 
         
@@ -2208,10 +2327,13 @@ The error of the result.
 
 #### 
         
-        `duckdb_result_error_type`
+        [`duckdb_result_error_type`](#duckdb_result_error_type)
+        
+      
 
     
-`duckdb_result_error_type`Returns the result error type contained within the result. The error is only set if `duckdb_query` returns
+`duckdb_result_error_type`
+Returns the result error type contained within the result. The error is only set if `duckdb_query` returns
 `DuckDBError`.
 
 ##### 
@@ -2233,7 +2355,7 @@ duckdb_error_type duckdb_result_error_type(
       
 
     
-- `result`: The result object to fetch the error from.
+- `result` : The result object to fetch the error from.
 
 ##### 
         
@@ -2246,10 +2368,13 @@ The error type of the result.
 
 #### 
         
-        `duckdb_result_get_chunk`
+        [`duckdb_result_get_chunk`](#duckdb_result_get_chunk)
+        
+      
 
     
-`duckdb_result_get_chunk`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_result_get_chunk`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Fetches a data chunk from the duckdb_result. This function should be called repeatedly until the result is exhausted.
 
@@ -2282,8 +2407,8 @@ duckdb_data_chunk duckdb_result_get_chunk(
       
 
     
-- `result`: The result object to fetch the data chunk from.
-- `chunk_index`: The chunk index to fetch from.
+- `result` : The result object to fetch the data chunk from.
+- `chunk_index` : The chunk index to fetch from.
 
 ##### 
         
@@ -2296,10 +2421,13 @@ The resulting data chunk. Returns `NULL` if the chunk index is out of bounds.
 
 #### 
         
-        `duckdb_result_is_streaming`
+        [`duckdb_result_is_streaming`](#duckdb_result_is_streaming)
+        
+      
 
     
-`duckdb_result_is_streaming`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_result_is_streaming`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Checks if the type of the internal result is StreamQueryResult.
 
@@ -2322,7 +2450,7 @@ bool duckdb_result_is_streaming(
       
 
     
-- `result`: The result object to check.
+- `result` : The result object to check.
 
 ##### 
         
@@ -2335,10 +2463,13 @@ Whether or not the result object is of the type StreamQueryResult
 
 #### 
         
-        `duckdb_result_chunk_count`
+        [`duckdb_result_chunk_count`](#duckdb_result_chunk_count)
+        
+      
 
     
-`duckdb_result_chunk_count`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_result_chunk_count`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Returns the number of data chunks present in the result.
 
@@ -2361,7 +2492,7 @@ idx_t duckdb_result_chunk_count(
       
 
     
-- `result`: The result object
+- `result` : The result object
 
 ##### 
         
@@ -2374,10 +2505,13 @@ Number of data chunks present in the result.
 
 #### 
         
-        `duckdb_result_return_type`
+        [`duckdb_result_return_type`](#duckdb_result_return_type)
+        
+      
 
     
-`duckdb_result_return_type`Returns the return_type of the given result, or DUCKDB_RETURN_TYPE_INVALID on error
+`duckdb_result_return_type`
+Returns the return_type of the given result, or DUCKDB_RETURN_TYPE_INVALID on error
 
 ##### 
         
@@ -2398,7 +2532,7 @@ duckdb_result_type duckdb_result_return_type(
       
 
     
-- `result`: The result object
+- `result` : The result object
 
 ##### 
         
@@ -2411,10 +2545,13 @@ The return_type
 
 #### 
         
-        `duckdb_value_boolean`
+        [`duckdb_value_boolean`](#duckdb_value_boolean)
+        
+      
 
     
-`duckdb_value_boolean`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_boolean`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2441,10 +2578,13 @@ bool duckdb_value_boolean(
 ```
 #### 
         
-        `duckdb_value_int8`
+        [`duckdb_value_int8`](#duckdb_value_int8)
+        
+      
 
     
-`duckdb_value_int8`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_int8`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2471,10 +2611,13 @@ int8_t duckdb_value_int8(
 ```
 #### 
         
-        `duckdb_value_int16`
+        [`duckdb_value_int16`](#duckdb_value_int16)
+        
+      
 
     
-`duckdb_value_int16`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_int16`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2501,10 +2644,13 @@ int16_t duckdb_value_int16(
 ```
 #### 
         
-        `duckdb_value_int32`
+        [`duckdb_value_int32`](#duckdb_value_int32)
+        
+      
 
     
-`duckdb_value_int32`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_int32`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2531,10 +2677,13 @@ int32_t duckdb_value_int32(
 ```
 #### 
         
-        `duckdb_value_int64`
+        [`duckdb_value_int64`](#duckdb_value_int64)
+        
+      
 
     
-`duckdb_value_int64`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_int64`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2561,10 +2710,13 @@ int64_t duckdb_value_int64(
 ```
 #### 
         
-        `duckdb_value_hugeint`
+        [`duckdb_value_hugeint`](#duckdb_value_hugeint)
+        
+      
 
     
-`duckdb_value_hugeint`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_hugeint`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2591,10 +2743,13 @@ duckdb_hugeint duckdb_value_hugeint(
 ```
 #### 
         
-        `duckdb_value_uhugeint`
+        [`duckdb_value_uhugeint`](#duckdb_value_uhugeint)
+        
+      
 
     
-`duckdb_value_uhugeint`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_uhugeint`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2621,10 +2776,13 @@ duckdb_uhugeint duckdb_value_uhugeint(
 ```
 #### 
         
-        `duckdb_value_decimal`
+        [`duckdb_value_decimal`](#duckdb_value_decimal)
+        
+      
 
     
-`duckdb_value_decimal`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_decimal`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2651,10 +2809,13 @@ duckdb_decimal duckdb_value_decimal(
 ```
 #### 
         
-        `duckdb_value_uint8`
+        [`duckdb_value_uint8`](#duckdb_value_uint8)
+        
+      
 
     
-`duckdb_value_uint8`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_uint8`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2681,10 +2842,13 @@ uint8_t duckdb_value_uint8(
 ```
 #### 
         
-        `duckdb_value_uint16`
+        [`duckdb_value_uint16`](#duckdb_value_uint16)
+        
+      
 
     
-`duckdb_value_uint16`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_uint16`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2711,10 +2875,13 @@ uint16_t duckdb_value_uint16(
 ```
 #### 
         
-        `duckdb_value_uint32`
+        [`duckdb_value_uint32`](#duckdb_value_uint32)
+        
+      
 
     
-`duckdb_value_uint32`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_uint32`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2741,10 +2908,13 @@ uint32_t duckdb_value_uint32(
 ```
 #### 
         
-        `duckdb_value_uint64`
+        [`duckdb_value_uint64`](#duckdb_value_uint64)
+        
+      
 
     
-`duckdb_value_uint64`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_uint64`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2771,10 +2941,13 @@ uint64_t duckdb_value_uint64(
 ```
 #### 
         
-        `duckdb_value_float`
+        [`duckdb_value_float`](#duckdb_value_float)
+        
+      
 
     
-`duckdb_value_float`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_float`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2801,10 +2974,13 @@ float duckdb_value_float(
 ```
 #### 
         
-        `duckdb_value_double`
+        [`duckdb_value_double`](#duckdb_value_double)
+        
+      
 
     
-`duckdb_value_double`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_double`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2831,10 +3007,13 @@ double duckdb_value_double(
 ```
 #### 
         
-        `duckdb_value_date`
+        [`duckdb_value_date`](#duckdb_value_date)
+        
+      
 
     
-`duckdb_value_date`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_date`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2861,10 +3040,13 @@ duckdb_date duckdb_value_date(
 ```
 #### 
         
-        `duckdb_value_time`
+        [`duckdb_value_time`](#duckdb_value_time)
+        
+      
 
     
-`duckdb_value_time`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_time`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2891,10 +3073,13 @@ duckdb_time duckdb_value_time(
 ```
 #### 
         
-        `duckdb_value_timestamp`
+        [`duckdb_value_timestamp`](#duckdb_value_timestamp)
+        
+      
 
     
-`duckdb_value_timestamp`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_timestamp`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2921,10 +3106,13 @@ duckdb_timestamp duckdb_value_timestamp(
 ```
 #### 
         
-        `duckdb_value_interval`
+        [`duckdb_value_interval`](#duckdb_value_interval)
+        
+      
 
     
-`duckdb_value_interval`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_interval`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -2951,10 +3139,13 @@ duckdb_interval duckdb_value_interval(
 ```
 #### 
         
-        `duckdb_value_varchar`
+        [`duckdb_value_varchar`](#duckdb_value_varchar)
+        
+      
 
     
-`duckdb_value_varchar`Deprecated This method has been deprecated. Use duckdb_value_string instead. This function does not work correctly if the string contains null bytes.
+`duckdb_value_varchar`
+  Deprecated This method has been deprecated. Use duckdb_value_string instead. This function does not work correctly if the string contains null bytes.
 
 ##### 
         
@@ -2982,10 +3173,13 @@ char *duckdb_value_varchar(
 ```
 #### 
         
-        `duckdb_value_string`
+        [`duckdb_value_string`](#duckdb_value_string)
+        
+      
 
     
-`duckdb_value_string`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_string`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 No support for nested types, and for other complex types.
 The resulting field "string.data" must be freed with `duckdb_free.`
@@ -3015,10 +3209,13 @@ duckdb_string duckdb_value_string(
 ```
 #### 
         
-        `duckdb_value_varchar_internal`
+        [`duckdb_value_varchar_internal`](#duckdb_value_varchar_internal)
+        
+      
 
     
-`duckdb_value_varchar_internal`Deprecated This method has been deprecated. Use duckdb_value_string_internal instead. This function does not work correctly if the string contains null bytes.
+`duckdb_value_varchar_internal`
+  Deprecated This method has been deprecated. Use duckdb_value_string_internal instead. This function does not work correctly if the string contains null bytes.
 
 ##### 
         
@@ -3047,10 +3244,13 @@ char *duckdb_value_varchar_internal(
 ```
 #### 
         
-        `duckdb_value_string_internal`
+        [`duckdb_value_string_internal`](#duckdb_value_string_internal)
+        
+      
 
     
-`duckdb_value_string_internal`Deprecated This method has been deprecated. Use duckdb_value_string_internal instead. This function does not work correctly if the string contains null bytes.
+`duckdb_value_string_internal`
+  Deprecated This method has been deprecated. Use duckdb_value_string_internal instead. This function does not work correctly if the string contains null bytes.
 
 ##### 
         
@@ -3079,10 +3279,13 @@ duckdb_string duckdb_value_string_internal(
 ```
 #### 
         
-        `duckdb_value_blob`
+        [`duckdb_value_blob`](#duckdb_value_blob)
+        
+      
 
     
-`duckdb_value_blob`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_blob`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -3110,10 +3313,13 @@ duckdb_blob duckdb_value_blob(
 ```
 #### 
         
-        `duckdb_value_is_null`
+        [`duckdb_value_is_null`](#duckdb_value_is_null)
+        
+      
 
     
-`duckdb_value_is_null`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_value_is_null`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 ##### 
         
@@ -3140,10 +3346,13 @@ bool duckdb_value_is_null(
 ```
 #### 
         
-        `duckdb_malloc`
+        [`duckdb_malloc`](#duckdb_malloc)
+        
+      
 
     
-`duckdb_malloc`Allocate `size` bytes of memory using the duckdb internal malloc function. Any memory allocated in this manner
+`duckdb_malloc`
+Allocate `size` bytes of memory using the duckdb internal malloc function. Any memory allocated in this manner
 should be freed using `duckdb_free`.
 
 ##### 
@@ -3165,7 +3374,7 @@ void *duckdb_malloc(
       
 
     
-- `size`: The number of bytes to allocate.
+- `size` : The number of bytes to allocate.
 
 ##### 
         
@@ -3178,10 +3387,13 @@ A pointer to the allocated memory region.
 
 #### 
         
-        `duckdb_free`
+        [`duckdb_free`](#duckdb_free)
+        
+      
 
     
-`duckdb_free`Free a value returned from `duckdb_malloc`, `duckdb_value_varchar`, `duckdb_value_blob`, or
+`duckdb_free`
+Free a value returned from `duckdb_malloc`, `duckdb_value_varchar`, `duckdb_value_blob`, or
 `duckdb_value_string`.
 
 ##### 
@@ -3203,14 +3415,17 @@ void duckdb_free(
       
 
     
-- `ptr`: The memory region to de-allocate.
+- `ptr` : The memory region to de-allocate.
 
 #### 
         
-        `duckdb_vector_size`
+        [`duckdb_vector_size`](#duckdb_vector_size)
+        
+      
 
     
-`duckdb_vector_size`The internal vector size used by DuckDB.
+`duckdb_vector_size`
+The internal vector size used by DuckDB.
 This is the amount of tuples that will fit into a data chunk created by `duckdb_create_data_chunk`.
 
 ##### 
@@ -3236,10 +3451,13 @@ idx_t duckdb_vector_size(
 ```
 #### 
         
-        `duckdb_string_is_inlined`
+        [`duckdb_string_is_inlined`](#duckdb_string_is_inlined)
+        
+      
 
     
-`duckdb_string_is_inlined`Whether or not the duckdb_string_t value is inlined. This means that the data of the string does not have a separate allocation.
+`duckdb_string_is_inlined`
+Whether or not the duckdb_string_t value is inlined. This means that the data of the string does not have a separate allocation.
 
 ##### 
         
@@ -3255,10 +3473,13 @@ bool duckdb_string_is_inlined(
 ```
 #### 
         
-        `duckdb_string_t_length`
+        [`duckdb_string_t_length`](#duckdb_string_t_length)
+        
+      
 
     
-`duckdb_string_t_length`Get the string length of a string_t
+`duckdb_string_t_length`
+Get the string length of a string_t
 
 ##### 
         
@@ -3279,7 +3500,7 @@ uint32_t duckdb_string_t_length(
       
 
     
-- `string`: The string to get the length of.
+- `string` : The string to get the length of.
 
 ##### 
         
@@ -3292,10 +3513,13 @@ The length.
 
 #### 
         
-        `duckdb_string_t_data`
+        [`duckdb_string_t_data`](#duckdb_string_t_data)
+        
+      
 
     
-`duckdb_string_t_data`Get a pointer to the string data of a string_t
+`duckdb_string_t_data`
+Get a pointer to the string data of a string_t
 
 ##### 
         
@@ -3316,7 +3540,7 @@ const char *duckdb_string_t_data(
       
 
     
-- `string`: The string to get the pointer to.
+- `string` : The string to get the pointer to.
 
 ##### 
         
@@ -3329,10 +3553,13 @@ The pointer.
 
 #### 
         
-        `duckdb_from_date`
+        [`duckdb_from_date`](#duckdb_from_date)
+        
+      
 
     
-`duckdb_from_date`Decompose a `duckdb_date` object into year, month and date (stored as `duckdb_date_struct`).
+`duckdb_from_date`
+Decompose a `duckdb_date` object into year, month and date (stored as `duckdb_date_struct`).
 
 ##### 
         
@@ -3353,7 +3580,7 @@ duckdb_date_struct duckdb_from_date(
       
 
     
-- `date`: The date object, as obtained from a- `DUCKDB_TYPE_DATE`column.
+- `date` : The date object, as obtained from a`DUCKDB_TYPE_DATE` column.
 
 ##### 
         
@@ -3366,10 +3593,13 @@ The `duckdb_date_struct` with the decomposed elements.
 
 #### 
         
-        `duckdb_to_date`
+        [`duckdb_to_date`](#duckdb_to_date)
+        
+      
 
     
-`duckdb_to_date`Re-compose a `duckdb_date` from year, month and date (`duckdb_date_struct`).
+`duckdb_to_date`
+Re-compose a `duckdb_date` from year, month and date (`duckdb_date_struct`).
 
 ##### 
         
@@ -3390,7 +3620,7 @@ duckdb_date duckdb_to_date(
       
 
     
-- `date`: The year, month and date stored in a- `duckdb_date_struct`.
+- `date` : The year, month and date stored in a`duckdb_date_struct` .
 
 ##### 
         
@@ -3403,10 +3633,13 @@ The `duckdb_date` element.
 
 #### 
         
-        `duckdb_is_finite_date`
+        [`duckdb_is_finite_date`](#duckdb_is_finite_date)
+        
+      
 
     
-`duckdb_is_finite_date`Test a `duckdb_date` to see if it is a finite value.
+`duckdb_is_finite_date`
+Test a `duckdb_date` to see if it is a finite value.
 
 ##### 
         
@@ -3427,7 +3660,7 @@ bool duckdb_is_finite_date(
       
 
     
-- `date`: The date object, as obtained from a- `DUCKDB_TYPE_DATE`column.
+- `date` : The date object, as obtained from a`DUCKDB_TYPE_DATE` column.
 
 ##### 
         
@@ -3440,10 +3673,13 @@ True if the date is finite, false if it is ±infinity.
 
 #### 
         
-        `duckdb_from_time`
+        [`duckdb_from_time`](#duckdb_from_time)
+        
+      
 
     
-`duckdb_from_time`Decompose a `duckdb_time` object into hour, minute, second and microsecond (stored as `duckdb_time_struct`).
+`duckdb_from_time`
+Decompose a `duckdb_time` object into hour, minute, second and microsecond (stored as `duckdb_time_struct`).
 
 ##### 
         
@@ -3464,7 +3700,7 @@ duckdb_time_struct duckdb_from_time(
       
 
     
-- `time`: The time object, as obtained from a- `DUCKDB_TYPE_TIME`column.
+- `time` : The time object, as obtained from a`DUCKDB_TYPE_TIME` column.
 
 ##### 
         
@@ -3477,10 +3713,13 @@ The `duckdb_time_struct` with the decomposed elements.
 
 #### 
         
-        `duckdb_create_time_tz`
+        [`duckdb_create_time_tz`](#duckdb_create_time_tz)
+        
+      
 
     
-`duckdb_create_time_tz`Create a `duckdb_time_tz` object from micros and a timezone offset.
+`duckdb_create_time_tz`
+Create a `duckdb_time_tz` object from micros and a timezone offset.
 
 ##### 
         
@@ -3502,8 +3741,8 @@ duckdb_time_tz duckdb_create_time_tz(
       
 
     
-- `micros`: The microsecond component of the time.
-- `offset`: The timezone offset component of the time.
+- `micros` : The microsecond component of the time.
+- `offset` : The timezone offset component of the time.
 
 ##### 
         
@@ -3516,10 +3755,13 @@ The `duckdb_time_tz` element.
 
 #### 
         
-        `duckdb_from_time_tz`
+        [`duckdb_from_time_tz`](#duckdb_from_time_tz)
+        
+      
 
     
-`duckdb_from_time_tz`Decompose a TIME_TZ objects into micros and a timezone offset.
+`duckdb_from_time_tz`
+Decompose a TIME_TZ objects into micros and a timezone offset.
 
 Use `duckdb_from_time` to further decompose the micros into hour, minute, second and microsecond.
 
@@ -3542,14 +3784,17 @@ duckdb_time_tz_struct duckdb_from_time_tz(
       
 
     
-- `micros`: The time object, as obtained from a- `DUCKDB_TYPE_TIME_TZ`column.
+- `micros` : The time object, as obtained from a`DUCKDB_TYPE_TIME_TZ` column.
 
 #### 
         
-        `duckdb_to_time`
+        [`duckdb_to_time`](#duckdb_to_time)
+        
+      
 
     
-`duckdb_to_time`Re-compose a `duckdb_time` from hour, minute, second and microsecond (`duckdb_time_struct`).
+`duckdb_to_time`
+Re-compose a `duckdb_time` from hour, minute, second and microsecond (`duckdb_time_struct`).
 
 ##### 
         
@@ -3570,7 +3815,7 @@ duckdb_time duckdb_to_time(
       
 
     
-- `time`: The hour, minute, second and microsecond in a- `duckdb_time_struct`.
+- `time` : The hour, minute, second and microsecond in a`duckdb_time_struct` .
 
 ##### 
         
@@ -3583,10 +3828,13 @@ The `duckdb_time` element.
 
 #### 
         
-        `duckdb_from_timestamp`
+        [`duckdb_from_timestamp`](#duckdb_from_timestamp)
+        
+      
 
     
-`duckdb_from_timestamp`Decompose a `duckdb_timestamp` object into a `duckdb_timestamp_struct`.
+`duckdb_from_timestamp`
+Decompose a `duckdb_timestamp` object into a `duckdb_timestamp_struct`.
 
 ##### 
         
@@ -3607,7 +3855,7 @@ duckdb_timestamp_struct duckdb_from_timestamp(
       
 
     
-- `ts`: The ts object, as obtained from a- `DUCKDB_TYPE_TIMESTAMP`column.
+- `ts` : The ts object, as obtained from a`DUCKDB_TYPE_TIMESTAMP` column.
 
 ##### 
         
@@ -3620,10 +3868,13 @@ The `duckdb_timestamp_struct` with the decomposed elements.
 
 #### 
         
-        `duckdb_to_timestamp`
+        [`duckdb_to_timestamp`](#duckdb_to_timestamp)
+        
+      
 
     
-`duckdb_to_timestamp`Re-compose a `duckdb_timestamp` from a duckdb_timestamp_struct.
+`duckdb_to_timestamp`
+Re-compose a `duckdb_timestamp` from a duckdb_timestamp_struct.
 
 ##### 
         
@@ -3644,7 +3895,7 @@ duckdb_timestamp duckdb_to_timestamp(
       
 
     
-- `ts`: The de-composed elements in a- `duckdb_timestamp_struct`.
+- `ts` : The de-composed elements in a`duckdb_timestamp_struct` .
 
 ##### 
         
@@ -3657,10 +3908,13 @@ The `duckdb_timestamp` element.
 
 #### 
         
-        `duckdb_is_finite_timestamp`
+        [`duckdb_is_finite_timestamp`](#duckdb_is_finite_timestamp)
+        
+      
 
     
-`duckdb_is_finite_timestamp`Test a `duckdb_timestamp` to see if it is a finite value.
+`duckdb_is_finite_timestamp`
+Test a `duckdb_timestamp` to see if it is a finite value.
 
 ##### 
         
@@ -3681,7 +3935,7 @@ bool duckdb_is_finite_timestamp(
       
 
     
-- `ts`: The duckdb_timestamp object, as obtained from a- `DUCKDB_TYPE_TIMESTAMP`column.
+- `ts` : The duckdb_timestamp object, as obtained from a`DUCKDB_TYPE_TIMESTAMP` column.
 
 ##### 
         
@@ -3694,10 +3948,13 @@ True if the timestamp is finite, false if it is ±infinity.
 
 #### 
         
-        `duckdb_is_finite_timestamp_s`
+        [`duckdb_is_finite_timestamp_s`](#duckdb_is_finite_timestamp_s)
+        
+      
 
     
-`duckdb_is_finite_timestamp_s`Test a `duckdb_timestamp_s` to see if it is a finite value.
+`duckdb_is_finite_timestamp_s`
+Test a `duckdb_timestamp_s` to see if it is a finite value.
 
 ##### 
         
@@ -3718,7 +3975,7 @@ bool duckdb_is_finite_timestamp_s(
       
 
     
-- `ts`: The duckdb_timestamp_s object, as obtained from a- `DUCKDB_TYPE_TIMESTAMP_S`column.
+- `ts` : The duckdb_timestamp_s object, as obtained from a`DUCKDB_TYPE_TIMESTAMP_S` column.
 
 ##### 
         
@@ -3731,10 +3988,13 @@ True if the timestamp is finite, false if it is ±infinity.
 
 #### 
         
-        `duckdb_is_finite_timestamp_ms`
+        [`duckdb_is_finite_timestamp_ms`](#duckdb_is_finite_timestamp_ms)
+        
+      
 
     
-`duckdb_is_finite_timestamp_ms`Test a `duckdb_timestamp_ms` to see if it is a finite value.
+`duckdb_is_finite_timestamp_ms`
+Test a `duckdb_timestamp_ms` to see if it is a finite value.
 
 ##### 
         
@@ -3755,7 +4015,7 @@ bool duckdb_is_finite_timestamp_ms(
       
 
     
-- `ts`: The duckdb_timestamp_ms object, as obtained from a- `DUCKDB_TYPE_TIMESTAMP_MS`column.
+- `ts` : The duckdb_timestamp_ms object, as obtained from a`DUCKDB_TYPE_TIMESTAMP_MS` column.
 
 ##### 
         
@@ -3768,10 +4028,13 @@ True if the timestamp is finite, false if it is ±infinity.
 
 #### 
         
-        `duckdb_is_finite_timestamp_ns`
+        [`duckdb_is_finite_timestamp_ns`](#duckdb_is_finite_timestamp_ns)
+        
+      
 
     
-`duckdb_is_finite_timestamp_ns`Test a `duckdb_timestamp_ns` to see if it is a finite value.
+`duckdb_is_finite_timestamp_ns`
+Test a `duckdb_timestamp_ns` to see if it is a finite value.
 
 ##### 
         
@@ -3792,7 +4055,7 @@ bool duckdb_is_finite_timestamp_ns(
       
 
     
-- `ts`: The duckdb_timestamp_ns object, as obtained from a- `DUCKDB_TYPE_TIMESTAMP_NS`column.
+- `ts` : The duckdb_timestamp_ns object, as obtained from a`DUCKDB_TYPE_TIMESTAMP_NS` column.
 
 ##### 
         
@@ -3805,10 +4068,13 @@ True if the timestamp is finite, false if it is ±infinity.
 
 #### 
         
-        `duckdb_hugeint_to_double`
+        [`duckdb_hugeint_to_double`](#duckdb_hugeint_to_double)
+        
+      
 
     
-`duckdb_hugeint_to_double`Converts a duckdb_hugeint object (as obtained from a `DUCKDB_TYPE_HUGEINT` column) into a double.
+`duckdb_hugeint_to_double`
+Converts a duckdb_hugeint object (as obtained from a `DUCKDB_TYPE_HUGEINT` column) into a double.
 
 ##### 
         
@@ -3829,7 +4095,7 @@ double duckdb_hugeint_to_double(
       
 
     
-- `val`: The hugeint value.
+- `val` : The hugeint value.
 
 ##### 
         
@@ -3842,10 +4108,13 @@ The converted `double` element.
 
 #### 
         
-        `duckdb_double_to_hugeint`
+        [`duckdb_double_to_hugeint`](#duckdb_double_to_hugeint)
+        
+      
 
     
-`duckdb_double_to_hugeint`Converts a double value to a duckdb_hugeint object.
+`duckdb_double_to_hugeint`
+Converts a double value to a duckdb_hugeint object.
 
 If the conversion fails because the double value is too big the result will be 0.
 
@@ -3868,7 +4137,7 @@ duckdb_hugeint duckdb_double_to_hugeint(
       
 
     
-- `val`: The double value.
+- `val` : The double value.
 
 ##### 
         
@@ -3881,10 +4150,13 @@ The converted `duckdb_hugeint` element.
 
 #### 
         
-        `duckdb_uhugeint_to_double`
+        [`duckdb_uhugeint_to_double`](#duckdb_uhugeint_to_double)
+        
+      
 
     
-`duckdb_uhugeint_to_double`Converts a duckdb_uhugeint object (as obtained from a `DUCKDB_TYPE_UHUGEINT` column) into a double.
+`duckdb_uhugeint_to_double`
+Converts a duckdb_uhugeint object (as obtained from a `DUCKDB_TYPE_UHUGEINT` column) into a double.
 
 ##### 
         
@@ -3905,7 +4177,7 @@ double duckdb_uhugeint_to_double(
       
 
     
-- `val`: The uhugeint value.
+- `val` : The uhugeint value.
 
 ##### 
         
@@ -3918,10 +4190,13 @@ The converted `double` element.
 
 #### 
         
-        `duckdb_double_to_uhugeint`
+        [`duckdb_double_to_uhugeint`](#duckdb_double_to_uhugeint)
+        
+      
 
     
-`duckdb_double_to_uhugeint`Converts a double value to a duckdb_uhugeint object.
+`duckdb_double_to_uhugeint`
+Converts a double value to a duckdb_uhugeint object.
 
 If the conversion fails because the double value is too big the result will be 0.
 
@@ -3944,7 +4219,7 @@ duckdb_uhugeint duckdb_double_to_uhugeint(
       
 
     
-- `val`: The double value.
+- `val` : The double value.
 
 ##### 
         
@@ -3957,10 +4232,13 @@ The converted `duckdb_uhugeint` element.
 
 #### 
         
-        `duckdb_double_to_decimal`
+        [`duckdb_double_to_decimal`](#duckdb_double_to_decimal)
+        
+      
 
     
-`duckdb_double_to_decimal`Converts a double value to a duckdb_decimal object.
+`duckdb_double_to_decimal`
+Converts a double value to a duckdb_decimal object.
 
 If the conversion fails because the double value is too big, or the width/scale are invalid the result will be 0.
 
@@ -3985,7 +4263,7 @@ duckdb_decimal duckdb_double_to_decimal(
       
 
     
-- `val`: The double value.
+- `val` : The double value.
 
 ##### 
         
@@ -3998,10 +4276,13 @@ The converted `duckdb_decimal` element.
 
 #### 
         
-        `duckdb_decimal_to_double`
+        [`duckdb_decimal_to_double`](#duckdb_decimal_to_double)
+        
+      
 
     
-`duckdb_decimal_to_double`Converts a duckdb_decimal object (as obtained from a `DUCKDB_TYPE_DECIMAL` column) into a double.
+`duckdb_decimal_to_double`
+Converts a duckdb_decimal object (as obtained from a `DUCKDB_TYPE_DECIMAL` column) into a double.
 
 ##### 
         
@@ -4022,7 +4303,7 @@ double duckdb_decimal_to_double(
       
 
     
-- `val`: The decimal value.
+- `val` : The decimal value.
 
 ##### 
         
@@ -4035,10 +4316,13 @@ The converted `double` element.
 
 #### 
         
-        `duckdb_prepare`
+        [`duckdb_prepare`](#duckdb_prepare)
+        
+      
 
     
-`duckdb_prepare`Create a prepared statement object from a query.
+`duckdb_prepare`
+Create a prepared statement object from a query.
 
 Note that after calling `duckdb_prepare`, the prepared statement should always be destroyed using
 `duckdb_destroy_prepare`, even if the prepare fails.
@@ -4066,9 +4350,9 @@ duckdb_state duckdb_prepare(
       
 
     
-- `connection`: The connection object
-- `query`: The SQL query to prepare
-- `out_prepared_statement`: The resulting prepared statement object
+- `connection` : The connection object
+- `query` : The SQL query to prepare
+- `out_prepared_statement` : The resulting prepared statement object
 
 ##### 
         
@@ -4081,10 +4365,13 @@ duckdb_state duckdb_prepare(
 
 #### 
         
-        `duckdb_destroy_prepare`
+        [`duckdb_destroy_prepare`](#duckdb_destroy_prepare)
+        
+      
 
     
-`duckdb_destroy_prepare`Closes the prepared statement and de-allocates all memory allocated for the statement.
+`duckdb_destroy_prepare`
+Closes the prepared statement and de-allocates all memory allocated for the statement.
 
 ##### 
         
@@ -4105,14 +4392,17 @@ void duckdb_destroy_prepare(
       
 
     
-- `prepared_statement`: The prepared statement to destroy.
+- `prepared_statement` : The prepared statement to destroy.
 
 #### 
         
-        `duckdb_prepare_error`
+        [`duckdb_prepare_error`](#duckdb_prepare_error)
+        
+      
 
     
-`duckdb_prepare_error`Returns the error message associated with the given prepared statement.
+`duckdb_prepare_error`
+Returns the error message associated with the given prepared statement.
 If the prepared statement has no error message, this returns `nullptr` instead.
 
 The error message should not be freed. It will be de-allocated when `duckdb_destroy_prepare` is called.
@@ -4136,7 +4426,7 @@ const char *duckdb_prepare_error(
       
 
     
-- `prepared_statement`: The prepared statement to obtain the error from.
+- `prepared_statement` : The prepared statement to obtain the error from.
 
 ##### 
         
@@ -4149,10 +4439,13 @@ The error message, or `nullptr` if there is none.
 
 #### 
         
-        `duckdb_nparams`
+        [`duckdb_nparams`](#duckdb_nparams)
+        
+      
 
     
-`duckdb_nparams`Returns the number of parameters that can be provided to the given prepared statement.
+`duckdb_nparams`
+Returns the number of parameters that can be provided to the given prepared statement.
 
 Returns 0 if the query was not successfully prepared.
 
@@ -4175,14 +4468,17 @@ idx_t duckdb_nparams(
       
 
     
-- `prepared_statement`: The prepared statement to obtain the number of parameters for.
+- `prepared_statement` : The prepared statement to obtain the number of parameters for.
 
 #### 
         
-        `duckdb_parameter_name`
+        [`duckdb_parameter_name`](#duckdb_parameter_name)
+        
+      
 
     
-`duckdb_parameter_name`Returns the name used to identify the parameter
+`duckdb_parameter_name`
+Returns the name used to identify the parameter
 The returned string should be freed using `duckdb_free`.
 
 Returns NULL if the index is out of range for the provided prepared statement.
@@ -4207,14 +4503,17 @@ const char *duckdb_parameter_name(
       
 
     
-- `prepared_statement`: The prepared statement for which to get the parameter name from.
+- `prepared_statement` : The prepared statement for which to get the parameter name from.
 
 #### 
         
-        `duckdb_param_type`
+        [`duckdb_param_type`](#duckdb_param_type)
+        
+      
 
     
-`duckdb_param_type`Returns the parameter type for the parameter at the given index.
+`duckdb_param_type`
+Returns the parameter type for the parameter at the given index.
 
 Returns `DUCKDB_TYPE_INVALID` if the parameter index is out of range or the statement was not successfully prepared.
 
@@ -4238,8 +4537,8 @@ duckdb_type duckdb_param_type(
       
 
     
-- `prepared_statement`: The prepared statement.
-- `param_idx`: The parameter index.
+- `prepared_statement` : The prepared statement.
+- `param_idx` : The parameter index.
 
 ##### 
         
@@ -4252,10 +4551,13 @@ The parameter type
 
 #### 
         
-        `duckdb_param_logical_type`
+        [`duckdb_param_logical_type`](#duckdb_param_logical_type)
+        
+      
 
     
-`duckdb_param_logical_type`Returns the logical type for the parameter at the given index.
+`duckdb_param_logical_type`
+Returns the logical type for the parameter at the given index.
 
 Returns `nullptr` if the parameter index is out of range or the statement was not successfully prepared.
 
@@ -4281,8 +4583,8 @@ duckdb_logical_type duckdb_param_logical_type(
       
 
     
-- `prepared_statement`: The prepared statement.
-- `param_idx`: The parameter index.
+- `prepared_statement` : The prepared statement.
+- `param_idx` : The parameter index.
 
 ##### 
         
@@ -4295,10 +4597,13 @@ The logical type of the parameter
 
 #### 
         
-        `duckdb_clear_bindings`
+        [`duckdb_clear_bindings`](#duckdb_clear_bindings)
+        
+      
 
     
-`duckdb_clear_bindings`Clear the params bind to the prepared statement.
+`duckdb_clear_bindings`
+Clear the params bind to the prepared statement.
 
 ##### 
         
@@ -4314,10 +4619,13 @@ duckdb_state duckdb_clear_bindings(
 ```
 #### 
         
-        `duckdb_prepared_statement_type`
+        [`duckdb_prepared_statement_type`](#duckdb_prepared_statement_type)
+        
+      
 
     
-`duckdb_prepared_statement_type`Returns the statement type of the statement to be executed
+`duckdb_prepared_statement_type`
+Returns the statement type of the statement to be executed
 
 ##### 
         
@@ -4338,7 +4646,7 @@ duckdb_statement_type duckdb_prepared_statement_type(
       
 
     
-- `statement`: The prepared statement.
+- `statement` : The prepared statement.
 
 ##### 
         
@@ -4351,10 +4659,13 @@ duckdb_statement_type value or DUCKDB_STATEMENT_TYPE_INVALID
 
 #### 
         
-        `duckdb_prepared_statement_column_count`
+        [`duckdb_prepared_statement_column_count`](#duckdb_prepared_statement_column_count)
+        
+      
 
     
-`duckdb_prepared_statement_column_count`Returns the number of columns present in a the result of the prepared statement. If any of the column types are invalid, the result will be 1.
+`duckdb_prepared_statement_column_count`
+Returns the number of columns present in a the result of the prepared statement. If any of the column types are invalid, the result will be 1.
 
 ##### 
         
@@ -4375,7 +4686,7 @@ idx_t duckdb_prepared_statement_column_count(
       
 
     
-- `prepared_statement`: The prepared statement.
+- `prepared_statement` : The prepared statement.
 
 ##### 
         
@@ -4388,10 +4699,13 @@ The number of columns present in the result of the prepared statement.
 
 #### 
         
-        `duckdb_prepared_statement_column_name`
+        [`duckdb_prepared_statement_column_name`](#duckdb_prepared_statement_column_name)
+        
+      
 
     
-`duckdb_prepared_statement_column_name`Returns the name of the specified column of the result of the prepared_statement.
+`duckdb_prepared_statement_column_name`
+Returns the name of the specified column of the result of the prepared_statement.
 The returned string should be freed using `duckdb_free`.
 
 Returns `nullptr` if the column is out of range.
@@ -4416,8 +4730,8 @@ const char *duckdb_prepared_statement_column_name(
       
 
     
-- `prepared_statement`: The prepared statement.
-- `col_idx`: The column index.
+- `prepared_statement` : The prepared statement.
+- `col_idx` : The column index.
 
 ##### 
         
@@ -4430,10 +4744,13 @@ The column name of the specified column.
 
 #### 
         
-        `duckdb_prepared_statement_column_logical_type`
+        [`duckdb_prepared_statement_column_logical_type`](#duckdb_prepared_statement_column_logical_type)
+        
+      
 
     
-`duckdb_prepared_statement_column_logical_type`Returns the column type of the specified column of the result of the prepared_statement.
+`duckdb_prepared_statement_column_logical_type`
+Returns the column type of the specified column of the result of the prepared_statement.
 
 Returns `DUCKDB_TYPE_INVALID` if the column is out of range.
 The return type of this call should be destroyed with `duckdb_destroy_logical_type`.
@@ -4458,8 +4775,8 @@ duckdb_logical_type duckdb_prepared_statement_column_logical_type(
       
 
     
-- `prepared_statement`: The prepared statement to fetch the column type from.
-- `col_idx`: The column index.
+- `prepared_statement` : The prepared statement to fetch the column type from.
+- `col_idx` : The column index.
 
 ##### 
         
@@ -4472,10 +4789,13 @@ The logical type of the specified column.
 
 #### 
         
-        `duckdb_prepared_statement_column_type`
+        [`duckdb_prepared_statement_column_type`](#duckdb_prepared_statement_column_type)
+        
+      
 
     
-`duckdb_prepared_statement_column_type`Returns the column type of the specified column of the result of the prepared_statement.
+`duckdb_prepared_statement_column_type`
+Returns the column type of the specified column of the result of the prepared_statement.
 
 Returns `DUCKDB_TYPE_INVALID` if the column is out of range.
 
@@ -4499,8 +4819,8 @@ duckdb_type duckdb_prepared_statement_column_type(
       
 
     
-- `prepared_statement`: The prepared statement to fetch the column type from.
-- `col_idx`: The column index.
+- `prepared_statement` : The prepared statement to fetch the column type from.
+- `col_idx` : The column index.
 
 ##### 
         
@@ -4513,10 +4833,13 @@ The type of the specified column.
 
 #### 
         
-        `duckdb_bind_value`
+        [`duckdb_bind_value`](#duckdb_bind_value)
+        
+      
 
     
-`duckdb_bind_value`Binds a value to the prepared statement at the specified index.
+`duckdb_bind_value`
+Binds a value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4534,10 +4857,13 @@ duckdb_state duckdb_bind_value(
 ```
 #### 
         
-        `duckdb_bind_parameter_index`
+        [`duckdb_bind_parameter_index`](#duckdb_bind_parameter_index)
+        
+      
 
     
-`duckdb_bind_parameter_index`Retrieve the index of the parameter for the prepared statement, identified by name
+`duckdb_bind_parameter_index`
+Retrieve the index of the parameter for the prepared statement, identified by name
 
 ##### 
         
@@ -4555,10 +4881,13 @@ duckdb_state duckdb_bind_parameter_index(
 ```
 #### 
         
-        `duckdb_bind_boolean`
+        [`duckdb_bind_boolean`](#duckdb_bind_boolean)
+        
+      
 
     
-`duckdb_bind_boolean`Binds a bool value to the prepared statement at the specified index.
+`duckdb_bind_boolean`
+Binds a bool value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4576,10 +4905,13 @@ duckdb_state duckdb_bind_boolean(
 ```
 #### 
         
-        `duckdb_bind_int8`
+        [`duckdb_bind_int8`](#duckdb_bind_int8)
+        
+      
 
     
-`duckdb_bind_int8`Binds an int8_t value to the prepared statement at the specified index.
+`duckdb_bind_int8`
+Binds an int8_t value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4597,10 +4929,13 @@ duckdb_state duckdb_bind_int8(
 ```
 #### 
         
-        `duckdb_bind_int16`
+        [`duckdb_bind_int16`](#duckdb_bind_int16)
+        
+      
 
     
-`duckdb_bind_int16`Binds an int16_t value to the prepared statement at the specified index.
+`duckdb_bind_int16`
+Binds an int16_t value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4618,10 +4953,13 @@ duckdb_state duckdb_bind_int16(
 ```
 #### 
         
-        `duckdb_bind_int32`
+        [`duckdb_bind_int32`](#duckdb_bind_int32)
+        
+      
 
     
-`duckdb_bind_int32`Binds an int32_t value to the prepared statement at the specified index.
+`duckdb_bind_int32`
+Binds an int32_t value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4639,10 +4977,13 @@ duckdb_state duckdb_bind_int32(
 ```
 #### 
         
-        `duckdb_bind_int64`
+        [`duckdb_bind_int64`](#duckdb_bind_int64)
+        
+      
 
     
-`duckdb_bind_int64`Binds an int64_t value to the prepared statement at the specified index.
+`duckdb_bind_int64`
+Binds an int64_t value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4660,10 +5001,13 @@ duckdb_state duckdb_bind_int64(
 ```
 #### 
         
-        `duckdb_bind_hugeint`
+        [`duckdb_bind_hugeint`](#duckdb_bind_hugeint)
+        
+      
 
     
-`duckdb_bind_hugeint`Binds a duckdb_hugeint value to the prepared statement at the specified index.
+`duckdb_bind_hugeint`
+Binds a duckdb_hugeint value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4681,10 +5025,13 @@ duckdb_state duckdb_bind_hugeint(
 ```
 #### 
         
-        `duckdb_bind_uhugeint`
+        [`duckdb_bind_uhugeint`](#duckdb_bind_uhugeint)
+        
+      
 
     
-`duckdb_bind_uhugeint`Binds a duckdb_uhugeint value to the prepared statement at the specified index.
+`duckdb_bind_uhugeint`
+Binds a duckdb_uhugeint value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4702,10 +5049,13 @@ duckdb_state duckdb_bind_uhugeint(
 ```
 #### 
         
-        `duckdb_bind_decimal`
+        [`duckdb_bind_decimal`](#duckdb_bind_decimal)
+        
+      
 
     
-`duckdb_bind_decimal`Binds a duckdb_decimal value to the prepared statement at the specified index.
+`duckdb_bind_decimal`
+Binds a duckdb_decimal value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4723,10 +5073,13 @@ duckdb_state duckdb_bind_decimal(
 ```
 #### 
         
-        `duckdb_bind_uint8`
+        [`duckdb_bind_uint8`](#duckdb_bind_uint8)
+        
+      
 
     
-`duckdb_bind_uint8`Binds a uint8_t value to the prepared statement at the specified index.
+`duckdb_bind_uint8`
+Binds a uint8_t value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4744,10 +5097,13 @@ duckdb_state duckdb_bind_uint8(
 ```
 #### 
         
-        `duckdb_bind_uint16`
+        [`duckdb_bind_uint16`](#duckdb_bind_uint16)
+        
+      
 
     
-`duckdb_bind_uint16`Binds a uint16_t value to the prepared statement at the specified index.
+`duckdb_bind_uint16`
+Binds a uint16_t value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4765,10 +5121,13 @@ duckdb_state duckdb_bind_uint16(
 ```
 #### 
         
-        `duckdb_bind_uint32`
+        [`duckdb_bind_uint32`](#duckdb_bind_uint32)
+        
+      
 
     
-`duckdb_bind_uint32`Binds a uint32_t value to the prepared statement at the specified index.
+`duckdb_bind_uint32`
+Binds a uint32_t value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4786,10 +5145,13 @@ duckdb_state duckdb_bind_uint32(
 ```
 #### 
         
-        `duckdb_bind_uint64`
+        [`duckdb_bind_uint64`](#duckdb_bind_uint64)
+        
+      
 
     
-`duckdb_bind_uint64`Binds a uint64_t value to the prepared statement at the specified index.
+`duckdb_bind_uint64`
+Binds a uint64_t value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4807,10 +5169,13 @@ duckdb_state duckdb_bind_uint64(
 ```
 #### 
         
-        `duckdb_bind_float`
+        [`duckdb_bind_float`](#duckdb_bind_float)
+        
+      
 
     
-`duckdb_bind_float`Binds a float value to the prepared statement at the specified index.
+`duckdb_bind_float`
+Binds a float value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4828,10 +5193,13 @@ duckdb_state duckdb_bind_float(
 ```
 #### 
         
-        `duckdb_bind_double`
+        [`duckdb_bind_double`](#duckdb_bind_double)
+        
+      
 
     
-`duckdb_bind_double`Binds a double value to the prepared statement at the specified index.
+`duckdb_bind_double`
+Binds a double value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4849,10 +5217,13 @@ duckdb_state duckdb_bind_double(
 ```
 #### 
         
-        `duckdb_bind_date`
+        [`duckdb_bind_date`](#duckdb_bind_date)
+        
+      
 
     
-`duckdb_bind_date`Binds a duckdb_date value to the prepared statement at the specified index.
+`duckdb_bind_date`
+Binds a duckdb_date value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4870,10 +5241,13 @@ duckdb_state duckdb_bind_date(
 ```
 #### 
         
-        `duckdb_bind_time`
+        [`duckdb_bind_time`](#duckdb_bind_time)
+        
+      
 
     
-`duckdb_bind_time`Binds a duckdb_time value to the prepared statement at the specified index.
+`duckdb_bind_time`
+Binds a duckdb_time value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4891,10 +5265,13 @@ duckdb_state duckdb_bind_time(
 ```
 #### 
         
-        `duckdb_bind_timestamp`
+        [`duckdb_bind_timestamp`](#duckdb_bind_timestamp)
+        
+      
 
     
-`duckdb_bind_timestamp`Binds a duckdb_timestamp value to the prepared statement at the specified index.
+`duckdb_bind_timestamp`
+Binds a duckdb_timestamp value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4912,10 +5289,13 @@ duckdb_state duckdb_bind_timestamp(
 ```
 #### 
         
-        `duckdb_bind_timestamp_tz`
+        [`duckdb_bind_timestamp_tz`](#duckdb_bind_timestamp_tz)
+        
+      
 
     
-`duckdb_bind_timestamp_tz`Binds a duckdb_timestamp value to the prepared statement at the specified index.
+`duckdb_bind_timestamp_tz`
+Binds a duckdb_timestamp value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4933,10 +5313,13 @@ duckdb_state duckdb_bind_timestamp_tz(
 ```
 #### 
         
-        `duckdb_bind_interval`
+        [`duckdb_bind_interval`](#duckdb_bind_interval)
+        
+      
 
     
-`duckdb_bind_interval`Binds a duckdb_interval value to the prepared statement at the specified index.
+`duckdb_bind_interval`
+Binds a duckdb_interval value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4954,10 +5337,13 @@ duckdb_state duckdb_bind_interval(
 ```
 #### 
         
-        `duckdb_bind_varchar`
+        [`duckdb_bind_varchar`](#duckdb_bind_varchar)
+        
+      
 
     
-`duckdb_bind_varchar`Binds a null-terminated varchar value to the prepared statement at the specified index.
+`duckdb_bind_varchar`
+Binds a null-terminated varchar value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4975,10 +5361,13 @@ duckdb_state duckdb_bind_varchar(
 ```
 #### 
         
-        `duckdb_bind_varchar_length`
+        [`duckdb_bind_varchar_length`](#duckdb_bind_varchar_length)
+        
+      
 
     
-`duckdb_bind_varchar_length`Binds a varchar value to the prepared statement at the specified index.
+`duckdb_bind_varchar_length`
+Binds a varchar value to the prepared statement at the specified index.
 
 ##### 
         
@@ -4997,10 +5386,13 @@ duckdb_state duckdb_bind_varchar_length(
 ```
 #### 
         
-        `duckdb_bind_blob`
+        [`duckdb_bind_blob`](#duckdb_bind_blob)
+        
+      
 
     
-`duckdb_bind_blob`Binds a blob value to the prepared statement at the specified index.
+`duckdb_bind_blob`
+Binds a blob value to the prepared statement at the specified index.
 
 ##### 
         
@@ -5019,10 +5411,13 @@ duckdb_state duckdb_bind_blob(
 ```
 #### 
         
-        `duckdb_bind_null`
+        [`duckdb_bind_null`](#duckdb_bind_null)
+        
+      
 
     
-`duckdb_bind_null`Binds a NULL value to the prepared statement at the specified index.
+`duckdb_bind_null`
+Binds a NULL value to the prepared statement at the specified index.
 
 ##### 
         
@@ -5039,10 +5434,13 @@ duckdb_state duckdb_bind_null(
 ```
 #### 
         
-        `duckdb_execute_prepared`
+        [`duckdb_execute_prepared`](#duckdb_execute_prepared)
+        
+      
 
     
-`duckdb_execute_prepared`Executes the prepared statement with the given bound parameters, and returns a materialized query result.
+`duckdb_execute_prepared`
+Executes the prepared statement with the given bound parameters, and returns a materialized query result.
 
 This method can be called multiple times for each prepared statement, and the parameters can be modified between calls to this function.
 
@@ -5068,8 +5466,8 @@ duckdb_state duckdb_execute_prepared(
       
 
     
-- `prepared_statement`: The prepared statement to execute.
-- `out_result`: The query result.
+- `prepared_statement` : The prepared statement to execute.
+- `out_result` : The query result.
 
 ##### 
         
@@ -5082,10 +5480,13 @@ duckdb_state duckdb_execute_prepared(
 
 #### 
         
-        `duckdb_execute_prepared_streaming`
+        [`duckdb_execute_prepared_streaming`](#duckdb_execute_prepared_streaming)
+        
+      
 
     
-`duckdb_execute_prepared_streaming`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_execute_prepared_streaming`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Executes the prepared statement with the given bound parameters, and returns an optionally-streaming query result.
 To determine if the resulting query was in fact streamed, use `duckdb_result_is_streaming`
@@ -5114,8 +5515,8 @@ duckdb_state duckdb_execute_prepared_streaming(
       
 
     
-- `prepared_statement`: The prepared statement to execute.
-- `out_result`: The query result.
+- `prepared_statement` : The prepared statement to execute.
+- `out_result` : The query result.
 
 ##### 
         
@@ -5128,10 +5529,13 @@ duckdb_state duckdb_execute_prepared_streaming(
 
 #### 
         
-        `duckdb_extract_statements`
+        [`duckdb_extract_statements`](#duckdb_extract_statements)
+        
+      
 
     
-`duckdb_extract_statements`Extract all statements from a query.
+`duckdb_extract_statements`
+Extract all statements from a query.
 Note that after calling `duckdb_extract_statements`, the extracted statements should always be destroyed using
 `duckdb_destroy_extracted`, even if no statements were extracted.
 
@@ -5158,9 +5562,9 @@ idx_t duckdb_extract_statements(
       
 
     
-- `connection`: The connection object
-- `query`: The SQL query to extract
-- `out_extracted_statements`: The resulting extracted statements object
+- `connection` : The connection object
+- `query` : The SQL query to extract
+- `out_extracted_statements` : The resulting extracted statements object
 
 ##### 
         
@@ -5173,10 +5577,13 @@ The number of extracted statements or 0 on failure.
 
 #### 
         
-        `duckdb_prepare_extracted_statement`
+        [`duckdb_prepare_extracted_statement`](#duckdb_prepare_extracted_statement)
+        
+      
 
     
-`duckdb_prepare_extracted_statement`Prepare an extracted statement.
+`duckdb_prepare_extracted_statement`
+Prepare an extracted statement.
 Note that after calling `duckdb_prepare_extracted_statement`, the prepared statement should always be destroyed using
 `duckdb_destroy_prepare`, even if the prepare fails.
 
@@ -5204,10 +5611,10 @@ duckdb_state duckdb_prepare_extracted_statement(
       
 
     
-- `connection`: The connection object
-- `extracted_statements`: The extracted statements object
-- `index`: The index of the extracted statement to prepare
-- `out_prepared_statement`: The resulting prepared statement object
+- `connection` : The connection object
+- `extracted_statements` : The extracted statements object
+- `index` : The index of the extracted statement to prepare
+- `out_prepared_statement` : The resulting prepared statement object
 
 ##### 
         
@@ -5220,10 +5627,13 @@ duckdb_state duckdb_prepare_extracted_statement(
 
 #### 
         
-        `duckdb_extract_statements_error`
+        [`duckdb_extract_statements_error`](#duckdb_extract_statements_error)
+        
+      
 
     
-`duckdb_extract_statements_error`Returns the error message contained within the extracted statements.
+`duckdb_extract_statements_error`
+Returns the error message contained within the extracted statements.
 The result of this function must not be freed. It will be cleaned up when `duckdb_destroy_extracted` is called.
 
 ##### 
@@ -5245,7 +5655,7 @@ const char *duckdb_extract_statements_error(
       
 
     
-- `extracted_statements`: The extracted statements to fetch the error from.
+- `extracted_statements` : The extracted statements to fetch the error from.
 
 ##### 
         
@@ -5258,10 +5668,13 @@ The error of the extracted statements.
 
 #### 
         
-        `duckdb_destroy_extracted`
+        [`duckdb_destroy_extracted`](#duckdb_destroy_extracted)
+        
+      
 
     
-`duckdb_destroy_extracted`De-allocates all memory allocated for the extracted statements.
+`duckdb_destroy_extracted`
+De-allocates all memory allocated for the extracted statements.
 
 ##### 
         
@@ -5282,14 +5695,17 @@ void duckdb_destroy_extracted(
       
 
     
-- `extracted_statements`: The extracted statements to destroy.
+- `extracted_statements` : The extracted statements to destroy.
 
 #### 
         
-        `duckdb_pending_prepared`
+        [`duckdb_pending_prepared`](#duckdb_pending_prepared)
+        
+      
 
     
-`duckdb_pending_prepared`Executes the prepared statement with the given bound parameters, and returns a pending result. The pending result represents an intermediate structure for a query that is not yet fully executed. The pending result can be used to incrementally execute a query, returning control to the client between tasks.
+`duckdb_pending_prepared`
+Executes the prepared statement with the given bound parameters, and returns a pending result. The pending result represents an intermediate structure for a query that is not yet fully executed. The pending result can be used to incrementally execute a query, returning control to the client between tasks.
 
 Note that after calling `duckdb_pending_prepared`, the pending result should always be destroyed using
 `duckdb_destroy_pending`, even if this function returns DuckDBError.
@@ -5314,8 +5730,8 @@ duckdb_state duckdb_pending_prepared(
       
 
     
-- `prepared_statement`: The prepared statement to execute.
-- `out_result`: The pending query result.
+- `prepared_statement` : The prepared statement to execute.
+- `out_result` : The pending query result.
 
 ##### 
         
@@ -5328,10 +5744,13 @@ duckdb_state duckdb_pending_prepared(
 
 #### 
         
-        `duckdb_pending_prepared_streaming`
+        [`duckdb_pending_prepared_streaming`](#duckdb_pending_prepared_streaming)
+        
+      
 
     
-`duckdb_pending_prepared_streaming`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_pending_prepared_streaming`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Executes the prepared statement with the given bound parameters, and returns a pending result. This pending result will create a streaming duckdb_result when executed. The pending result represents an intermediate structure for a query that is not yet fully executed.
 
@@ -5358,8 +5777,8 @@ duckdb_state duckdb_pending_prepared_streaming(
       
 
     
-- `prepared_statement`: The prepared statement to execute.
-- `out_result`: The pending query result.
+- `prepared_statement` : The prepared statement to execute.
+- `out_result` : The pending query result.
 
 ##### 
         
@@ -5372,10 +5791,13 @@ duckdb_state duckdb_pending_prepared_streaming(
 
 #### 
         
-        `duckdb_destroy_pending`
+        [`duckdb_destroy_pending`](#duckdb_destroy_pending)
+        
+      
 
     
-`duckdb_destroy_pending`Closes the pending result and de-allocates all memory allocated for the result.
+`duckdb_destroy_pending`
+Closes the pending result and de-allocates all memory allocated for the result.
 
 ##### 
         
@@ -5396,14 +5818,17 @@ void duckdb_destroy_pending(
       
 
     
-- `pending_result`: The pending result to destroy.
+- `pending_result` : The pending result to destroy.
 
 #### 
         
-        `duckdb_pending_error`
+        [`duckdb_pending_error`](#duckdb_pending_error)
+        
+      
 
     
-`duckdb_pending_error`Returns the error message contained within the pending result.
+`duckdb_pending_error`
+Returns the error message contained within the pending result.
 
 The result of this function must not be freed. It will be cleaned up when `duckdb_destroy_pending` is called.
 
@@ -5426,7 +5851,7 @@ const char *duckdb_pending_error(
       
 
     
-- `pending_result`: The pending result to fetch the error from.
+- `pending_result` : The pending result to fetch the error from.
 
 ##### 
         
@@ -5439,10 +5864,13 @@ The error of the pending result.
 
 #### 
         
-        `duckdb_pending_execute_task`
+        [`duckdb_pending_execute_task`](#duckdb_pending_execute_task)
+        
+      
 
     
-`duckdb_pending_execute_task`Executes a single task within the query, returning whether or not the query is ready.
+`duckdb_pending_execute_task`
+Executes a single task within the query, returning whether or not the query is ready.
 
 If this returns DUCKDB_PENDING_RESULT_READY, the duckdb_execute_pending function can be called to obtain the result. If this returns DUCKDB_PENDING_RESULT_NOT_READY, the duckdb_pending_execute_task function should be called again. If this returns DUCKDB_PENDING_ERROR, an error occurred during execution.
 
@@ -5467,7 +5895,7 @@ duckdb_pending_state duckdb_pending_execute_task(
       
 
     
-- `pending_result`: The pending result to execute a task within.
+- `pending_result` : The pending result to execute a task within.
 
 ##### 
         
@@ -5480,10 +5908,13 @@ The state of the pending result after the execution.
 
 #### 
         
-        `duckdb_pending_execute_check_state`
+        [`duckdb_pending_execute_check_state`](#duckdb_pending_execute_check_state)
+        
+      
 
     
-`duckdb_pending_execute_check_state`If this returns DUCKDB_PENDING_RESULT_READY, the duckdb_execute_pending function can be called to obtain the result. If this returns DUCKDB_PENDING_RESULT_NOT_READY, the duckdb_pending_execute_check_state function should be called again. If this returns DUCKDB_PENDING_ERROR, an error occurred during execution.
+`duckdb_pending_execute_check_state`
+If this returns DUCKDB_PENDING_RESULT_READY, the duckdb_execute_pending function can be called to obtain the result. If this returns DUCKDB_PENDING_RESULT_NOT_READY, the duckdb_pending_execute_check_state function should be called again. If this returns DUCKDB_PENDING_ERROR, an error occurred during execution.
 
 The error message can be obtained by calling duckdb_pending_error on the pending_result.
 
@@ -5506,7 +5937,7 @@ duckdb_pending_state duckdb_pending_execute_check_state(
       
 
     
-- `pending_result`: The pending result.
+- `pending_result` : The pending result.
 
 ##### 
         
@@ -5519,10 +5950,13 @@ The state of the pending result.
 
 #### 
         
-        `duckdb_execute_pending`
+        [`duckdb_execute_pending`](#duckdb_execute_pending)
+        
+      
 
     
-`duckdb_execute_pending`Fully execute a pending query result, returning the final query result.
+`duckdb_execute_pending`
+Fully execute a pending query result, returning the final query result.
 
 If duckdb_pending_execute_task has been called until DUCKDB_PENDING_RESULT_READY was returned, this will return fast. Otherwise, all remaining tasks must be executed first.
 
@@ -5548,8 +5982,8 @@ duckdb_state duckdb_execute_pending(
       
 
     
-- `pending_result`: The pending result to execute.
-- `out_result`: The result object.
+- `pending_result` : The pending result to execute.
+- `out_result` : The result object.
 
 ##### 
         
@@ -5562,10 +5996,13 @@ duckdb_state duckdb_execute_pending(
 
 #### 
         
-        `duckdb_pending_execution_is_finished`
+        [`duckdb_pending_execution_is_finished`](#duckdb_pending_execution_is_finished)
+        
+      
 
     
-`duckdb_pending_execution_is_finished`Returns whether a duckdb_pending_state is finished executing. For example if `pending_state` is
+`duckdb_pending_execution_is_finished`
+Returns whether a duckdb_pending_state is finished executing. For example if `pending_state` is
 DUCKDB_PENDING_RESULT_READY, this function will return true.
 
 ##### 
@@ -5587,7 +6024,7 @@ bool duckdb_pending_execution_is_finished(
       
 
     
-- `pending_state`: The pending state on which to decide whether to finish execution.
+- `pending_state` : The pending state on which to decide whether to finish execution.
 
 ##### 
         
@@ -5600,10 +6037,13 @@ Boolean indicating pending execution should be considered finished.
 
 #### 
         
-        `duckdb_destroy_value`
+        [`duckdb_destroy_value`](#duckdb_destroy_value)
+        
+      
 
     
-`duckdb_destroy_value`Destroys the value and de-allocates all memory allocated for that type.
+`duckdb_destroy_value`
+Destroys the value and de-allocates all memory allocated for that type.
 
 ##### 
         
@@ -5624,14 +6064,17 @@ void duckdb_destroy_value(
       
 
     
-- `value`: The value to destroy.
+- `value` : The value to destroy.
 
 #### 
         
-        `duckdb_create_varchar`
+        [`duckdb_create_varchar`](#duckdb_create_varchar)
+        
+      
 
     
-`duckdb_create_varchar`Creates a value from a null-terminated string
+`duckdb_create_varchar`
+Creates a value from a null-terminated string
 
 ##### 
         
@@ -5652,7 +6095,7 @@ duckdb_value duckdb_create_varchar(
       
 
     
-- `text`: The null-terminated string
+- `text` : The null-terminated string
 
 ##### 
         
@@ -5665,10 +6108,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_varchar_length`
+        [`duckdb_create_varchar_length`](#duckdb_create_varchar_length)
+        
+      
 
     
-`duckdb_create_varchar_length`Creates a value from a string
+`duckdb_create_varchar_length`
+Creates a value from a string
 
 ##### 
         
@@ -5690,8 +6136,8 @@ duckdb_value duckdb_create_varchar_length(
       
 
     
-- `text`: The text
-- `length`: The length of the text
+- `text` : The text
+- `length` : The length of the text
 
 ##### 
         
@@ -5704,10 +6150,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_bool`
+        [`duckdb_create_bool`](#duckdb_create_bool)
+        
+      
 
     
-`duckdb_create_bool`Creates a value from a boolean
+`duckdb_create_bool`
+Creates a value from a boolean
 
 ##### 
         
@@ -5728,7 +6177,7 @@ duckdb_value duckdb_create_bool(
       
 
     
-- `input`: The boolean value
+- `input` : The boolean value
 
 ##### 
         
@@ -5741,10 +6190,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_int8`
+        [`duckdb_create_int8`](#duckdb_create_int8)
+        
+      
 
     
-`duckdb_create_int8`Creates a value from an int8_t (a tinyint)
+`duckdb_create_int8`
+Creates a value from an int8_t (a tinyint)
 
 ##### 
         
@@ -5765,7 +6217,7 @@ duckdb_value duckdb_create_int8(
       
 
     
-- `input`: The tinyint value
+- `input` : The tinyint value
 
 ##### 
         
@@ -5778,10 +6230,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uint8`
+        [`duckdb_create_uint8`](#duckdb_create_uint8)
+        
+      
 
     
-`duckdb_create_uint8`Creates a value from a uint8_t (a utinyint)
+`duckdb_create_uint8`
+Creates a value from a uint8_t (a utinyint)
 
 ##### 
         
@@ -5802,7 +6257,7 @@ duckdb_value duckdb_create_uint8(
       
 
     
-- `input`: The utinyint value
+- `input` : The utinyint value
 
 ##### 
         
@@ -5815,10 +6270,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_int16`
+        [`duckdb_create_int16`](#duckdb_create_int16)
+        
+      
 
     
-`duckdb_create_int16`Creates a value from an int16_t (a smallint)
+`duckdb_create_int16`
+Creates a value from an int16_t (a smallint)
 
 ##### 
         
@@ -5839,7 +6297,7 @@ duckdb_value duckdb_create_int16(
       
 
     
-- `input`: The smallint value
+- `input` : The smallint value
 
 ##### 
         
@@ -5852,10 +6310,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uint16`
+        [`duckdb_create_uint16`](#duckdb_create_uint16)
+        
+      
 
     
-`duckdb_create_uint16`Creates a value from a uint16_t (a usmallint)
+`duckdb_create_uint16`
+Creates a value from a uint16_t (a usmallint)
 
 ##### 
         
@@ -5876,7 +6337,7 @@ duckdb_value duckdb_create_uint16(
       
 
     
-- `input`: The usmallint value
+- `input` : The usmallint value
 
 ##### 
         
@@ -5889,10 +6350,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_int32`
+        [`duckdb_create_int32`](#duckdb_create_int32)
+        
+      
 
     
-`duckdb_create_int32`Creates a value from an int32_t (an integer)
+`duckdb_create_int32`
+Creates a value from an int32_t (an integer)
 
 ##### 
         
@@ -5913,7 +6377,7 @@ duckdb_value duckdb_create_int32(
       
 
     
-- `input`: The integer value
+- `input` : The integer value
 
 ##### 
         
@@ -5926,10 +6390,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uint32`
+        [`duckdb_create_uint32`](#duckdb_create_uint32)
+        
+      
 
     
-`duckdb_create_uint32`Creates a value from a uint32_t (a uinteger)
+`duckdb_create_uint32`
+Creates a value from a uint32_t (a uinteger)
 
 ##### 
         
@@ -5950,7 +6417,7 @@ duckdb_value duckdb_create_uint32(
       
 
     
-- `input`: The uinteger value
+- `input` : The uinteger value
 
 ##### 
         
@@ -5963,10 +6430,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uint64`
+        [`duckdb_create_uint64`](#duckdb_create_uint64)
+        
+      
 
     
-`duckdb_create_uint64`Creates a value from a uint64_t (a ubigint)
+`duckdb_create_uint64`
+Creates a value from a uint64_t (a ubigint)
 
 ##### 
         
@@ -5987,7 +6457,7 @@ duckdb_value duckdb_create_uint64(
       
 
     
-- `input`: The ubigint value
+- `input` : The ubigint value
 
 ##### 
         
@@ -6000,10 +6470,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_int64`
+        [`duckdb_create_int64`](#duckdb_create_int64)
+        
+      
 
     
-`duckdb_create_int64`Creates a value from an int64
+`duckdb_create_int64`
+Creates a value from an int64
 
 ##### 
         
@@ -6028,10 +6501,13 @@ duckdb_value duckdb_create_int64(
 ```
 #### 
         
-        `duckdb_create_hugeint`
+        [`duckdb_create_hugeint`](#duckdb_create_hugeint)
+        
+      
 
     
-`duckdb_create_hugeint`Creates a value from a hugeint
+`duckdb_create_hugeint`
+Creates a value from a hugeint
 
 ##### 
         
@@ -6052,7 +6528,7 @@ duckdb_value duckdb_create_hugeint(
       
 
     
-- `input`: The hugeint value
+- `input` : The hugeint value
 
 ##### 
         
@@ -6065,10 +6541,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uhugeint`
+        [`duckdb_create_uhugeint`](#duckdb_create_uhugeint)
+        
+      
 
     
-`duckdb_create_uhugeint`Creates a value from a uhugeint
+`duckdb_create_uhugeint`
+Creates a value from a uhugeint
 
 ##### 
         
@@ -6089,7 +6568,7 @@ duckdb_value duckdb_create_uhugeint(
       
 
     
-- `input`: The uhugeint value
+- `input` : The uhugeint value
 
 ##### 
         
@@ -6102,10 +6581,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_bignum`
+        [`duckdb_create_bignum`](#duckdb_create_bignum)
+        
+      
 
     
-`duckdb_create_bignum`Creates a BIGNUM value from a duckdb_bignum
+`duckdb_create_bignum`
+Creates a BIGNUM value from a duckdb_bignum
 
 ##### 
         
@@ -6126,7 +6608,7 @@ duckdb_value duckdb_create_bignum(
       
 
     
-- `input`: The duckdb_bignum value
+- `input` : The duckdb_bignum value
 
 ##### 
         
@@ -6139,10 +6621,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_decimal`
+        [`duckdb_create_decimal`](#duckdb_create_decimal)
+        
+      
 
     
-`duckdb_create_decimal`Creates a DECIMAL value from a duckdb_decimal
+`duckdb_create_decimal`
+Creates a DECIMAL value from a duckdb_decimal
 
 ##### 
         
@@ -6163,7 +6648,7 @@ duckdb_value duckdb_create_decimal(
       
 
     
-- `input`: The duckdb_decimal value
+- `input` : The duckdb_decimal value
 
 ##### 
         
@@ -6176,10 +6661,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_float`
+        [`duckdb_create_float`](#duckdb_create_float)
+        
+      
 
     
-`duckdb_create_float`Creates a value from a float
+`duckdb_create_float`
+Creates a value from a float
 
 ##### 
         
@@ -6200,7 +6688,7 @@ duckdb_value duckdb_create_float(
       
 
     
-- `input`: The float value
+- `input` : The float value
 
 ##### 
         
@@ -6213,10 +6701,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_double`
+        [`duckdb_create_double`](#duckdb_create_double)
+        
+      
 
     
-`duckdb_create_double`Creates a value from a double
+`duckdb_create_double`
+Creates a value from a double
 
 ##### 
         
@@ -6237,7 +6728,7 @@ duckdb_value duckdb_create_double(
       
 
     
-- `input`: The double value
+- `input` : The double value
 
 ##### 
         
@@ -6250,10 +6741,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_date`
+        [`duckdb_create_date`](#duckdb_create_date)
+        
+      
 
     
-`duckdb_create_date`Creates a value from a date
+`duckdb_create_date`
+Creates a value from a date
 
 ##### 
         
@@ -6274,7 +6768,7 @@ duckdb_value duckdb_create_date(
       
 
     
-- `input`: The date value
+- `input` : The date value
 
 ##### 
         
@@ -6287,10 +6781,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_time`
+        [`duckdb_create_time`](#duckdb_create_time)
+        
+      
 
     
-`duckdb_create_time`Creates a value from a time
+`duckdb_create_time`
+Creates a value from a time
 
 ##### 
         
@@ -6311,7 +6808,7 @@ duckdb_value duckdb_create_time(
       
 
     
-- `input`: The time value
+- `input` : The time value
 
 ##### 
         
@@ -6324,10 +6821,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_time_ns`
+        [`duckdb_create_time_ns`](#duckdb_create_time_ns)
+        
+      
 
     
-`duckdb_create_time_ns`Creates a value from a time_ns
+`duckdb_create_time_ns`
+Creates a value from a time_ns
 
 ##### 
         
@@ -6348,7 +6848,7 @@ duckdb_value duckdb_create_time_ns(
       
 
     
-- `input`: The time value
+- `input` : The time value
 
 ##### 
         
@@ -6361,10 +6861,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_time_tz_value`
+        [`duckdb_create_time_tz_value`](#duckdb_create_time_tz_value)
+        
+      
 
     
-`duckdb_create_time_tz_value`Creates a value from a time_tz.
+`duckdb_create_time_tz_value`
+Creates a value from a time_tz.
 Not to be confused with `duckdb_create_time_tz`, which creates a duckdb_time_tz_t.
 
 ##### 
@@ -6386,7 +6889,7 @@ duckdb_value duckdb_create_time_tz_value(
       
 
     
-- `value`: The time_tz value
+- `value` : The time_tz value
 
 ##### 
         
@@ -6399,10 +6902,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_timestamp`
+        [`duckdb_create_timestamp`](#duckdb_create_timestamp)
+        
+      
 
     
-`duckdb_create_timestamp`Creates a TIMESTAMP value from a duckdb_timestamp
+`duckdb_create_timestamp`
+Creates a TIMESTAMP value from a duckdb_timestamp
 
 ##### 
         
@@ -6423,7 +6929,7 @@ duckdb_value duckdb_create_timestamp(
       
 
     
-- `input`: The duckdb_timestamp value
+- `input` : The duckdb_timestamp value
 
 ##### 
         
@@ -6436,10 +6942,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_timestamp_tz`
+        [`duckdb_create_timestamp_tz`](#duckdb_create_timestamp_tz)
+        
+      
 
     
-`duckdb_create_timestamp_tz`Creates a TIMESTAMP_TZ value from a duckdb_timestamp
+`duckdb_create_timestamp_tz`
+Creates a TIMESTAMP_TZ value from a duckdb_timestamp
 
 ##### 
         
@@ -6460,7 +6969,7 @@ duckdb_value duckdb_create_timestamp_tz(
       
 
     
-- `input`: The duckdb_timestamp value
+- `input` : The duckdb_timestamp value
 
 ##### 
         
@@ -6473,10 +6982,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_timestamp_s`
+        [`duckdb_create_timestamp_s`](#duckdb_create_timestamp_s)
+        
+      
 
     
-`duckdb_create_timestamp_s`Creates a TIMESTAMP_S value from a duckdb_timestamp_s
+`duckdb_create_timestamp_s`
+Creates a TIMESTAMP_S value from a duckdb_timestamp_s
 
 ##### 
         
@@ -6497,7 +7009,7 @@ duckdb_value duckdb_create_timestamp_s(
       
 
     
-- `input`: The duckdb_timestamp_s value
+- `input` : The duckdb_timestamp_s value
 
 ##### 
         
@@ -6510,10 +7022,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_timestamp_ms`
+        [`duckdb_create_timestamp_ms`](#duckdb_create_timestamp_ms)
+        
+      
 
     
-`duckdb_create_timestamp_ms`Creates a TIMESTAMP_MS value from a duckdb_timestamp_ms
+`duckdb_create_timestamp_ms`
+Creates a TIMESTAMP_MS value from a duckdb_timestamp_ms
 
 ##### 
         
@@ -6534,7 +7049,7 @@ duckdb_value duckdb_create_timestamp_ms(
       
 
     
-- `input`: The duckdb_timestamp_ms value
+- `input` : The duckdb_timestamp_ms value
 
 ##### 
         
@@ -6547,10 +7062,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_timestamp_ns`
+        [`duckdb_create_timestamp_ns`](#duckdb_create_timestamp_ns)
+        
+      
 
     
-`duckdb_create_timestamp_ns`Creates a TIMESTAMP_NS value from a duckdb_timestamp_ns
+`duckdb_create_timestamp_ns`
+Creates a TIMESTAMP_NS value from a duckdb_timestamp_ns
 
 ##### 
         
@@ -6571,7 +7089,7 @@ duckdb_value duckdb_create_timestamp_ns(
       
 
     
-- `input`: The duckdb_timestamp_ns value
+- `input` : The duckdb_timestamp_ns value
 
 ##### 
         
@@ -6584,10 +7102,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_interval`
+        [`duckdb_create_interval`](#duckdb_create_interval)
+        
+      
 
     
-`duckdb_create_interval`Creates a value from an interval
+`duckdb_create_interval`
+Creates a value from an interval
 
 ##### 
         
@@ -6608,7 +7129,7 @@ duckdb_value duckdb_create_interval(
       
 
     
-- `input`: The interval value
+- `input` : The interval value
 
 ##### 
         
@@ -6621,10 +7142,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_blob`
+        [`duckdb_create_blob`](#duckdb_create_blob)
+        
+      
 
     
-`duckdb_create_blob`Creates a value from a blob
+`duckdb_create_blob`
+Creates a value from a blob
 
 ##### 
         
@@ -6646,8 +7170,8 @@ duckdb_value duckdb_create_blob(
       
 
     
-- `data`: The blob data
-- `length`: The length of the blob data
+- `data` : The blob data
+- `length` : The length of the blob data
 
 ##### 
         
@@ -6660,10 +7184,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_bit`
+        [`duckdb_create_bit`](#duckdb_create_bit)
+        
+      
 
     
-`duckdb_create_bit`Creates a BIT value from a duckdb_bit
+`duckdb_create_bit`
+Creates a BIT value from a duckdb_bit
 
 ##### 
         
@@ -6684,7 +7211,7 @@ duckdb_value duckdb_create_bit(
       
 
     
-- `input`: The duckdb_bit value
+- `input` : The duckdb_bit value
 
 ##### 
         
@@ -6697,10 +7224,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_create_uuid`
+        [`duckdb_create_uuid`](#duckdb_create_uuid)
+        
+      
 
     
-`duckdb_create_uuid`Creates a UUID value from a uhugeint
+`duckdb_create_uuid`
+Creates a UUID value from a uhugeint
 
 ##### 
         
@@ -6721,7 +7251,7 @@ duckdb_value duckdb_create_uuid(
       
 
     
-- `input`: The duckdb_uhugeint containing the UUID
+- `input` : The duckdb_uhugeint containing the UUID
 
 ##### 
         
@@ -6734,10 +7264,13 @@ The value. This must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_get_bool`
+        [`duckdb_get_bool`](#duckdb_get_bool)
+        
+      
 
     
-`duckdb_get_bool`Returns the boolean value of the given value.
+`duckdb_get_bool`
+Returns the boolean value of the given value.
 
 ##### 
         
@@ -6758,7 +7291,7 @@ bool duckdb_get_bool(
       
 
     
-- `val`: A duckdb_value containing a boolean
+- `val` : A duckdb_value containing a boolean
 
 ##### 
         
@@ -6771,10 +7304,13 @@ A boolean, or false if the value cannot be converted
 
 #### 
         
-        `duckdb_get_int8`
+        [`duckdb_get_int8`](#duckdb_get_int8)
+        
+      
 
     
-`duckdb_get_int8`Returns the int8_t value of the given value.
+`duckdb_get_int8`
+Returns the int8_t value of the given value.
 
 ##### 
         
@@ -6795,7 +7331,7 @@ int8_t duckdb_get_int8(
       
 
     
-- `val`: A duckdb_value containing a tinyint
+- `val` : A duckdb_value containing a tinyint
 
 ##### 
         
@@ -6808,10 +7344,13 @@ A int8_t, or MinValue
 
 #### 
         
-        `duckdb_get_uint8`
+        [`duckdb_get_uint8`](#duckdb_get_uint8)
+        
+      
 
     
-`duckdb_get_uint8`Returns the uint8_t value of the given value.
+`duckdb_get_uint8`
+Returns the uint8_t value of the given value.
 
 ##### 
         
@@ -6832,7 +7371,7 @@ uint8_t duckdb_get_uint8(
       
 
     
-- `val`: A duckdb_value containing a utinyint
+- `val` : A duckdb_value containing a utinyint
 
 ##### 
         
@@ -6845,10 +7384,13 @@ A uint8_t, or MinValue
 
 #### 
         
-        `duckdb_get_int16`
+        [`duckdb_get_int16`](#duckdb_get_int16)
+        
+      
 
     
-`duckdb_get_int16`Returns the int16_t value of the given value.
+`duckdb_get_int16`
+Returns the int16_t value of the given value.
 
 ##### 
         
@@ -6869,7 +7411,7 @@ int16_t duckdb_get_int16(
       
 
     
-- `val`: A duckdb_value containing a smallint
+- `val` : A duckdb_value containing a smallint
 
 ##### 
         
@@ -6882,10 +7424,13 @@ A int16_t, or MinValue
 
 #### 
         
-        `duckdb_get_uint16`
+        [`duckdb_get_uint16`](#duckdb_get_uint16)
+        
+      
 
     
-`duckdb_get_uint16`Returns the uint16_t value of the given value.
+`duckdb_get_uint16`
+Returns the uint16_t value of the given value.
 
 ##### 
         
@@ -6906,7 +7451,7 @@ uint16_t duckdb_get_uint16(
       
 
     
-- `val`: A duckdb_value containing a usmallint
+- `val` : A duckdb_value containing a usmallint
 
 ##### 
         
@@ -6919,10 +7464,13 @@ A uint16_t, or MinValue
 
 #### 
         
-        `duckdb_get_int32`
+        [`duckdb_get_int32`](#duckdb_get_int32)
+        
+      
 
     
-`duckdb_get_int32`Returns the int32_t value of the given value.
+`duckdb_get_int32`
+Returns the int32_t value of the given value.
 
 ##### 
         
@@ -6943,7 +7491,7 @@ int32_t duckdb_get_int32(
       
 
     
-- `val`: A duckdb_value containing an integer
+- `val` : A duckdb_value containing an integer
 
 ##### 
         
@@ -6956,10 +7504,13 @@ A int32_t, or MinValue
 
 #### 
         
-        `duckdb_get_uint32`
+        [`duckdb_get_uint32`](#duckdb_get_uint32)
+        
+      
 
     
-`duckdb_get_uint32`Returns the uint32_t value of the given value.
+`duckdb_get_uint32`
+Returns the uint32_t value of the given value.
 
 ##### 
         
@@ -6980,7 +7531,7 @@ uint32_t duckdb_get_uint32(
       
 
     
-- `val`: A duckdb_value containing a uinteger
+- `val` : A duckdb_value containing a uinteger
 
 ##### 
         
@@ -6993,10 +7544,13 @@ A uint32_t, or MinValue
 
 #### 
         
-        `duckdb_get_int64`
+        [`duckdb_get_int64`](#duckdb_get_int64)
+        
+      
 
     
-`duckdb_get_int64`Returns the int64_t value of the given value.
+`duckdb_get_int64`
+Returns the int64_t value of the given value.
 
 ##### 
         
@@ -7017,7 +7571,7 @@ int64_t duckdb_get_int64(
       
 
     
-- `val`: A duckdb_value containing a bigint
+- `val` : A duckdb_value containing a bigint
 
 ##### 
         
@@ -7030,10 +7584,13 @@ A int64_t, or MinValue
 
 #### 
         
-        `duckdb_get_uint64`
+        [`duckdb_get_uint64`](#duckdb_get_uint64)
+        
+      
 
     
-`duckdb_get_uint64`Returns the uint64_t value of the given value.
+`duckdb_get_uint64`
+Returns the uint64_t value of the given value.
 
 ##### 
         
@@ -7054,7 +7611,7 @@ uint64_t duckdb_get_uint64(
       
 
     
-- `val`: A duckdb_value containing a ubigint
+- `val` : A duckdb_value containing a ubigint
 
 ##### 
         
@@ -7067,10 +7624,13 @@ A uint64_t, or MinValue
 
 #### 
         
-        `duckdb_get_hugeint`
+        [`duckdb_get_hugeint`](#duckdb_get_hugeint)
+        
+      
 
     
-`duckdb_get_hugeint`Returns the hugeint value of the given value.
+`duckdb_get_hugeint`
+Returns the hugeint value of the given value.
 
 ##### 
         
@@ -7091,7 +7651,7 @@ duckdb_hugeint duckdb_get_hugeint(
       
 
     
-- `val`: A duckdb_value containing a hugeint
+- `val` : A duckdb_value containing a hugeint
 
 ##### 
         
@@ -7104,10 +7664,13 @@ A duckdb_hugeint, or MinValue
 
 #### 
         
-        `duckdb_get_uhugeint`
+        [`duckdb_get_uhugeint`](#duckdb_get_uhugeint)
+        
+      
 
     
-`duckdb_get_uhugeint`Returns the uhugeint value of the given value.
+`duckdb_get_uhugeint`
+Returns the uhugeint value of the given value.
 
 ##### 
         
@@ -7128,7 +7691,7 @@ duckdb_uhugeint duckdb_get_uhugeint(
       
 
     
-- `val`: A duckdb_value containing a uhugeint
+- `val` : A duckdb_value containing a uhugeint
 
 ##### 
         
@@ -7141,10 +7704,13 @@ A duckdb_uhugeint, or MinValue
 
 #### 
         
-        `duckdb_get_bignum`
+        [`duckdb_get_bignum`](#duckdb_get_bignum)
+        
+      
 
     
-`duckdb_get_bignum`Returns the duckdb_bignum value of the given value.
+`duckdb_get_bignum`
+Returns the duckdb_bignum value of the given value.
 The `data` field must be destroyed with `duckdb_free`.
 
 ##### 
@@ -7166,7 +7732,7 @@ duckdb_bignum duckdb_get_bignum(
       
 
     
-- `val`: A duckdb_value containing a BIGNUM
+- `val` : A duckdb_value containing a BIGNUM
 
 ##### 
         
@@ -7179,10 +7745,13 @@ A duckdb_bignum. The `data` field must be destroyed with `duckdb_free`.
 
 #### 
         
-        `duckdb_get_decimal`
+        [`duckdb_get_decimal`](#duckdb_get_decimal)
+        
+      
 
     
-`duckdb_get_decimal`Returns the duckdb_decimal value of the given value.
+`duckdb_get_decimal`
+Returns the duckdb_decimal value of the given value.
 
 ##### 
         
@@ -7203,7 +7772,7 @@ duckdb_decimal duckdb_get_decimal(
       
 
     
-- `val`: A duckdb_value containing a DECIMAL
+- `val` : A duckdb_value containing a DECIMAL
 
 ##### 
         
@@ -7216,10 +7785,13 @@ A duckdb_decimal, or MinValue
 
 #### 
         
-        `duckdb_get_float`
+        [`duckdb_get_float`](#duckdb_get_float)
+        
+      
 
     
-`duckdb_get_float`Returns the float value of the given value.
+`duckdb_get_float`
+Returns the float value of the given value.
 
 ##### 
         
@@ -7240,7 +7812,7 @@ float duckdb_get_float(
       
 
     
-- `val`: A duckdb_value containing a float
+- `val` : A duckdb_value containing a float
 
 ##### 
         
@@ -7253,10 +7825,13 @@ A float, or NAN if the value cannot be converted
 
 #### 
         
-        `duckdb_get_double`
+        [`duckdb_get_double`](#duckdb_get_double)
+        
+      
 
     
-`duckdb_get_double`Returns the double value of the given value.
+`duckdb_get_double`
+Returns the double value of the given value.
 
 ##### 
         
@@ -7277,7 +7852,7 @@ double duckdb_get_double(
       
 
     
-- `val`: A duckdb_value containing a double
+- `val` : A duckdb_value containing a double
 
 ##### 
         
@@ -7290,10 +7865,13 @@ A double, or NAN if the value cannot be converted
 
 #### 
         
-        `duckdb_get_date`
+        [`duckdb_get_date`](#duckdb_get_date)
+        
+      
 
     
-`duckdb_get_date`Returns the date value of the given value.
+`duckdb_get_date`
+Returns the date value of the given value.
 
 ##### 
         
@@ -7314,7 +7892,7 @@ duckdb_date duckdb_get_date(
       
 
     
-- `val`: A duckdb_value containing a date
+- `val` : A duckdb_value containing a date
 
 ##### 
         
@@ -7327,10 +7905,13 @@ A duckdb_date, or MinValue
 
 #### 
         
-        `duckdb_get_time`
+        [`duckdb_get_time`](#duckdb_get_time)
+        
+      
 
     
-`duckdb_get_time`Returns the time value of the given value.
+`duckdb_get_time`
+Returns the time value of the given value.
 
 ##### 
         
@@ -7351,7 +7932,7 @@ duckdb_time duckdb_get_time(
       
 
     
-- `val`: A duckdb_value containing a time
+- `val` : A duckdb_value containing a time
 
 ##### 
         
@@ -7364,10 +7945,13 @@ A duckdb_time, or MinValue
 
 #### 
         
-        `duckdb_get_time_ns`
+        [`duckdb_get_time_ns`](#duckdb_get_time_ns)
+        
+      
 
     
-`duckdb_get_time_ns`Returns the time_ns value of the given value.
+`duckdb_get_time_ns`
+Returns the time_ns value of the given value.
 
 ##### 
         
@@ -7388,7 +7972,7 @@ duckdb_time_ns duckdb_get_time_ns(
       
 
     
-- `val`: A duckdb_value containing a time_ns
+- `val` : A duckdb_value containing a time_ns
 
 ##### 
         
@@ -7401,10 +7985,13 @@ A duckdb_time_ns, or MinValue
 
 #### 
         
-        `duckdb_get_time_tz`
+        [`duckdb_get_time_tz`](#duckdb_get_time_tz)
+        
+      
 
     
-`duckdb_get_time_tz`Returns the time_tz value of the given value.
+`duckdb_get_time_tz`
+Returns the time_tz value of the given value.
 
 ##### 
         
@@ -7425,7 +8012,7 @@ duckdb_time_tz duckdb_get_time_tz(
       
 
     
-- `val`: A duckdb_value containing a time_tz
+- `val` : A duckdb_value containing a time_tz
 
 ##### 
         
@@ -7438,10 +8025,13 @@ A duckdb_time_tz, or MinValue
 
 #### 
         
-        `duckdb_get_timestamp`
+        [`duckdb_get_timestamp`](#duckdb_get_timestamp)
+        
+      
 
     
-`duckdb_get_timestamp`Returns the TIMESTAMP value of the given value.
+`duckdb_get_timestamp`
+Returns the TIMESTAMP value of the given value.
 
 ##### 
         
@@ -7462,7 +8052,7 @@ duckdb_timestamp duckdb_get_timestamp(
       
 
     
-- `val`: A duckdb_value containing a TIMESTAMP
+- `val` : A duckdb_value containing a TIMESTAMP
 
 ##### 
         
@@ -7475,10 +8065,13 @@ A duckdb_timestamp, or MinValue
 
 #### 
         
-        `duckdb_get_timestamp_tz`
+        [`duckdb_get_timestamp_tz`](#duckdb_get_timestamp_tz)
+        
+      
 
     
-`duckdb_get_timestamp_tz`Returns the TIMESTAMP_TZ value of the given value.
+`duckdb_get_timestamp_tz`
+Returns the TIMESTAMP_TZ value of the given value.
 
 ##### 
         
@@ -7499,7 +8092,7 @@ duckdb_timestamp duckdb_get_timestamp_tz(
       
 
     
-- `val`: A duckdb_value containing a TIMESTAMP_TZ
+- `val` : A duckdb_value containing a TIMESTAMP_TZ
 
 ##### 
         
@@ -7512,10 +8105,13 @@ A duckdb_timestamp, or MinValue
 
 #### 
         
-        `duckdb_get_timestamp_s`
+        [`duckdb_get_timestamp_s`](#duckdb_get_timestamp_s)
+        
+      
 
     
-`duckdb_get_timestamp_s`Returns the duckdb_timestamp_s value of the given value.
+`duckdb_get_timestamp_s`
+Returns the duckdb_timestamp_s value of the given value.
 
 ##### 
         
@@ -7536,7 +8132,7 @@ duckdb_timestamp_s duckdb_get_timestamp_s(
       
 
     
-- `val`: A duckdb_value containing a TIMESTAMP_S
+- `val` : A duckdb_value containing a TIMESTAMP_S
 
 ##### 
         
@@ -7549,10 +8145,13 @@ A duckdb_timestamp_s, or MinValue
 
 #### 
         
-        `duckdb_get_timestamp_ms`
+        [`duckdb_get_timestamp_ms`](#duckdb_get_timestamp_ms)
+        
+      
 
     
-`duckdb_get_timestamp_ms`Returns the duckdb_timestamp_ms value of the given value.
+`duckdb_get_timestamp_ms`
+Returns the duckdb_timestamp_ms value of the given value.
 
 ##### 
         
@@ -7573,7 +8172,7 @@ duckdb_timestamp_ms duckdb_get_timestamp_ms(
       
 
     
-- `val`: A duckdb_value containing a TIMESTAMP_MS
+- `val` : A duckdb_value containing a TIMESTAMP_MS
 
 ##### 
         
@@ -7586,10 +8185,13 @@ A duckdb_timestamp_ms, or MinValue
 
 #### 
         
-        `duckdb_get_timestamp_ns`
+        [`duckdb_get_timestamp_ns`](#duckdb_get_timestamp_ns)
+        
+      
 
     
-`duckdb_get_timestamp_ns`Returns the duckdb_timestamp_ns value of the given value.
+`duckdb_get_timestamp_ns`
+Returns the duckdb_timestamp_ns value of the given value.
 
 ##### 
         
@@ -7610,7 +8212,7 @@ duckdb_timestamp_ns duckdb_get_timestamp_ns(
       
 
     
-- `val`: A duckdb_value containing a TIMESTAMP_NS
+- `val` : A duckdb_value containing a TIMESTAMP_NS
 
 ##### 
         
@@ -7623,10 +8225,13 @@ A duckdb_timestamp_ns, or MinValue
 
 #### 
         
-        `duckdb_get_interval`
+        [`duckdb_get_interval`](#duckdb_get_interval)
+        
+      
 
     
-`duckdb_get_interval`Returns the interval value of the given value.
+`duckdb_get_interval`
+Returns the interval value of the given value.
 
 ##### 
         
@@ -7647,7 +8252,7 @@ duckdb_interval duckdb_get_interval(
       
 
     
-- `val`: A duckdb_value containing a interval
+- `val` : A duckdb_value containing a interval
 
 ##### 
         
@@ -7660,10 +8265,13 @@ A duckdb_interval, or MinValue
 
 #### 
         
-        `duckdb_get_value_type`
+        [`duckdb_get_value_type`](#duckdb_get_value_type)
+        
+      
 
     
-`duckdb_get_value_type`Returns the type of the given value. The type is valid as long as the value is not destroyed. The type itself must not be destroyed.
+`duckdb_get_value_type`
+Returns the type of the given value. The type is valid as long as the value is not destroyed. The type itself must not be destroyed.
 
 ##### 
         
@@ -7684,7 +8292,7 @@ duckdb_logical_type duckdb_get_value_type(
       
 
     
-- `val`: A duckdb_value
+- `val` : A duckdb_value
 
 ##### 
         
@@ -7697,10 +8305,13 @@ A duckdb_logical_type.
 
 #### 
         
-        `duckdb_get_blob`
+        [`duckdb_get_blob`](#duckdb_get_blob)
+        
+      
 
     
-`duckdb_get_blob`Returns the blob value of the given value.
+`duckdb_get_blob`
+Returns the blob value of the given value.
 
 ##### 
         
@@ -7721,7 +8332,7 @@ duckdb_blob duckdb_get_blob(
       
 
     
-- `val`: A duckdb_value containing a blob
+- `val` : A duckdb_value containing a blob
 
 ##### 
         
@@ -7734,10 +8345,13 @@ A duckdb_blob
 
 #### 
         
-        `duckdb_get_bit`
+        [`duckdb_get_bit`](#duckdb_get_bit)
+        
+      
 
     
-`duckdb_get_bit`Returns the duckdb_bit value of the given value.
+`duckdb_get_bit`
+Returns the duckdb_bit value of the given value.
 The `data` field must be destroyed with `duckdb_free`.
 
 ##### 
@@ -7759,7 +8373,7 @@ duckdb_bit duckdb_get_bit(
       
 
     
-- `val`: A duckdb_value containing a BIT
+- `val` : A duckdb_value containing a BIT
 
 ##### 
         
@@ -7772,10 +8386,13 @@ A duckdb_bit
 
 #### 
         
-        `duckdb_get_uuid`
+        [`duckdb_get_uuid`](#duckdb_get_uuid)
+        
+      
 
     
-`duckdb_get_uuid`Returns a duckdb_uhugeint representing the UUID value of the given value.
+`duckdb_get_uuid`
+Returns a duckdb_uhugeint representing the UUID value of the given value.
 
 ##### 
         
@@ -7796,7 +8413,7 @@ duckdb_uhugeint duckdb_get_uuid(
       
 
     
-- `val`: A duckdb_value containing a UUID
+- `val` : A duckdb_value containing a UUID
 
 ##### 
         
@@ -7809,10 +8426,13 @@ A duckdb_uhugeint representing the UUID value
 
 #### 
         
-        `duckdb_get_varchar`
+        [`duckdb_get_varchar`](#duckdb_get_varchar)
+        
+      
 
     
-`duckdb_get_varchar`Obtains a string representation of the given value.
+`duckdb_get_varchar`
+Obtains a string representation of the given value.
 The result must be destroyed with `duckdb_free`.
 
 ##### 
@@ -7834,7 +8454,7 @@ char *duckdb_get_varchar(
       
 
     
-- `value`: The value
+- `value` : The value
 
 ##### 
         
@@ -7847,10 +8467,13 @@ The string value. This must be destroyed with `duckdb_free`.
 
 #### 
         
-        `duckdb_create_struct_value`
+        [`duckdb_create_struct_value`](#duckdb_create_struct_value)
+        
+      
 
     
-`duckdb_create_struct_value`Creates a struct value from a type and an array of values. Must be destroyed with `duckdb_destroy_value`.
+`duckdb_create_struct_value`
+Creates a struct value from a type and an array of values. Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
         
@@ -7872,8 +8495,8 @@ duckdb_value duckdb_create_struct_value(
       
 
     
-- `type`: The type of the struct
-- `values`: The values for the struct fields
+- `type` : The type of the struct
+- `values` : The values for the struct fields
 
 ##### 
         
@@ -7886,10 +8509,13 @@ The struct value, or nullptr, if any child type is `DUCKDB_TYPE_ANY` or `DUCKDB_
 
 #### 
         
-        `duckdb_create_list_value`
+        [`duckdb_create_list_value`](#duckdb_create_list_value)
+        
+      
 
     
-`duckdb_create_list_value`Creates a list value from a child (element) type and an array of values of length `value_count`.
+`duckdb_create_list_value`
+Creates a list value from a child (element) type and an array of values of length `value_count`.
 Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
@@ -7913,9 +8539,9 @@ duckdb_value duckdb_create_list_value(
       
 
     
-- `type`: The type of the list
-- `values`: The values for the list
-- `value_count`: The number of values in the list
+- `type` : The type of the list
+- `values` : The values for the list
+- `value_count` : The number of values in the list
 
 ##### 
         
@@ -7928,10 +8554,13 @@ The list value, or nullptr, if the child type is `DUCKDB_TYPE_ANY` or `DUCKDB_TY
 
 #### 
         
-        `duckdb_create_array_value`
+        [`duckdb_create_array_value`](#duckdb_create_array_value)
+        
+      
 
     
-`duckdb_create_array_value`Creates an array value from a child (element) type and an array of values of length `value_count`.
+`duckdb_create_array_value`
+Creates an array value from a child (element) type and an array of values of length `value_count`.
 Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
@@ -7955,9 +8584,9 @@ duckdb_value duckdb_create_array_value(
       
 
     
-- `type`: The type of the array
-- `values`: The values for the array
-- `value_count`: The number of values in the array
+- `type` : The type of the array
+- `values` : The values for the array
+- `value_count` : The number of values in the array
 
 ##### 
         
@@ -7970,10 +8599,13 @@ The array value, or nullptr, if the child type is `DUCKDB_TYPE_ANY` or `DUCKDB_T
 
 #### 
         
-        `duckdb_create_map_value`
+        [`duckdb_create_map_value`](#duckdb_create_map_value)
+        
+      
 
     
-`duckdb_create_map_value`Creates a map value from a map type and two arrays, one for the keys and one for the values, each of length
+`duckdb_create_map_value`
+Creates a map value from a map type and two arrays, one for the keys and one for the values, each of length
 `entry_count`. Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
@@ -7998,10 +8630,10 @@ duckdb_value duckdb_create_map_value(
       
 
     
-- `map_type`: The map type
-- `keys`: The keys of the map
-- `values`: The values of the map
-- `entry_count`: The number of entries (key-value pairs) in the map
+- `map_type` : The map type
+- `keys` : The keys of the map
+- `values` : The values of the map
+- `entry_count` : The number of entries (key-value pairs) in the map
 
 ##### 
         
@@ -8014,10 +8646,13 @@ The map value, or nullptr, if the parameters are invalid.
 
 #### 
         
-        `duckdb_create_union_value`
+        [`duckdb_create_union_value`](#duckdb_create_union_value)
+        
+      
 
     
-`duckdb_create_union_value`Creates a union value from a union type, a tag index, and a value.
+`duckdb_create_union_value`
+Creates a union value from a union type, a tag index, and a value.
 Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
@@ -8041,9 +8676,9 @@ duckdb_value duckdb_create_union_value(
       
 
     
-- `union_type`: The union type
-- `tag_index`: The index of the tag of the union
-- `value`: The value of the union for that tag
+- `union_type` : The union type
+- `tag_index` : The index of the tag of the union
+- `value` : The value of the union for that tag
 
 ##### 
         
@@ -8056,10 +8691,13 @@ The union value, or nullptr, if the parameters are invalid.
 
 #### 
         
-        `duckdb_get_map_size`
+        [`duckdb_get_map_size`](#duckdb_get_map_size)
+        
+      
 
     
-`duckdb_get_map_size`Returns the number of elements in a MAP value.
+`duckdb_get_map_size`
+Returns the number of elements in a MAP value.
 
 ##### 
         
@@ -8080,7 +8718,7 @@ idx_t duckdb_get_map_size(
       
 
     
-- `value`: The MAP value.
+- `value` : The MAP value.
 
 ##### 
         
@@ -8093,10 +8731,13 @@ The number of elements in the map.
 
 #### 
         
-        `duckdb_get_map_key`
+        [`duckdb_get_map_key`](#duckdb_get_map_key)
+        
+      
 
     
-`duckdb_get_map_key`Returns the MAP key at index as a duckdb_value.
+`duckdb_get_map_key`
+Returns the MAP key at index as a duckdb_value.
 
 ##### 
         
@@ -8118,8 +8759,8 @@ duckdb_value duckdb_get_map_key(
       
 
     
-- `value`: The MAP value.
-- `index`: The index of the key.
+- `value` : The MAP value.
+- `index` : The index of the key.
 
 ##### 
         
@@ -8132,10 +8773,13 @@ The key as a duckdb_value.
 
 #### 
         
-        `duckdb_get_map_value`
+        [`duckdb_get_map_value`](#duckdb_get_map_value)
+        
+      
 
     
-`duckdb_get_map_value`Returns the MAP value at index as a duckdb_value.
+`duckdb_get_map_value`
+Returns the MAP value at index as a duckdb_value.
 
 ##### 
         
@@ -8157,8 +8801,8 @@ duckdb_value duckdb_get_map_value(
       
 
     
-- `value`: The MAP value.
-- `index`: The index of the value.
+- `value` : The MAP value.
+- `index` : The index of the value.
 
 ##### 
         
@@ -8171,10 +8815,13 @@ The value as a duckdb_value.
 
 #### 
         
-        `duckdb_is_null_value`
+        [`duckdb_is_null_value`](#duckdb_is_null_value)
+        
+      
 
     
-`duckdb_is_null_value`Returns whether the value's type is SQLNULL or not.
+`duckdb_is_null_value`
+Returns whether the value's type is SQLNULL or not.
 
 ##### 
         
@@ -8195,7 +8842,7 @@ bool duckdb_is_null_value(
       
 
     
-- `value`: The value to check.
+- `value` : The value to check.
 
 ##### 
         
@@ -8208,10 +8855,13 @@ True, if the value's type is SQLNULL, otherwise false.
 
 #### 
         
-        `duckdb_create_null_value`
+        [`duckdb_create_null_value`](#duckdb_create_null_value)
+        
+      
 
     
-`duckdb_create_null_value`Creates a value of type SQLNULL.
+`duckdb_create_null_value`
+Creates a value of type SQLNULL.
 
 ##### 
         
@@ -8236,10 +8886,13 @@ duckdb_value duckdb_create_null_value(
 ```
 #### 
         
-        `duckdb_get_list_size`
+        [`duckdb_get_list_size`](#duckdb_get_list_size)
+        
+      
 
     
-`duckdb_get_list_size`Returns the number of elements in a LIST value.
+`duckdb_get_list_size`
+Returns the number of elements in a LIST value.
 
 ##### 
         
@@ -8260,7 +8913,7 @@ idx_t duckdb_get_list_size(
       
 
     
-- `value`: The LIST value.
+- `value` : The LIST value.
 
 ##### 
         
@@ -8273,10 +8926,13 @@ The number of elements in the list.
 
 #### 
         
-        `duckdb_get_list_child`
+        [`duckdb_get_list_child`](#duckdb_get_list_child)
+        
+      
 
     
-`duckdb_get_list_child`Returns the LIST child at index as a duckdb_value.
+`duckdb_get_list_child`
+Returns the LIST child at index as a duckdb_value.
 
 ##### 
         
@@ -8298,8 +8954,8 @@ duckdb_value duckdb_get_list_child(
       
 
     
-- `value`: The LIST value.
-- `index`: The index of the child.
+- `value` : The LIST value.
+- `index` : The index of the child.
 
 ##### 
         
@@ -8312,10 +8968,13 @@ The child as a duckdb_value.
 
 #### 
         
-        `duckdb_create_enum_value`
+        [`duckdb_create_enum_value`](#duckdb_create_enum_value)
+        
+      
 
     
-`duckdb_create_enum_value`Creates an enum value from a type and a value. Must be destroyed with `duckdb_destroy_value`.
+`duckdb_create_enum_value`
+Creates an enum value from a type and a value. Must be destroyed with `duckdb_destroy_value`.
 
 ##### 
         
@@ -8337,8 +8996,8 @@ duckdb_value duckdb_create_enum_value(
       
 
     
-- `type`: The type of the enum
-- `value`: The value for the enum
+- `type` : The type of the enum
+- `value` : The value for the enum
 
 ##### 
         
@@ -8351,10 +9010,13 @@ The enum value, or nullptr.
 
 #### 
         
-        `duckdb_get_enum_value`
+        [`duckdb_get_enum_value`](#duckdb_get_enum_value)
+        
+      
 
     
-`duckdb_get_enum_value`Returns the enum value of the given value.
+`duckdb_get_enum_value`
+Returns the enum value of the given value.
 
 ##### 
         
@@ -8375,7 +9037,7 @@ uint64_t duckdb_get_enum_value(
       
 
     
-- `value`: A duckdb_value containing an enum
+- `value` : A duckdb_value containing an enum
 
 ##### 
         
@@ -8388,10 +9050,13 @@ A uint64_t, or MinValue
 
 #### 
         
-        `duckdb_get_struct_child`
+        [`duckdb_get_struct_child`](#duckdb_get_struct_child)
+        
+      
 
     
-`duckdb_get_struct_child`Returns the STRUCT child at index as a duckdb_value.
+`duckdb_get_struct_child`
+Returns the STRUCT child at index as a duckdb_value.
 
 ##### 
         
@@ -8413,8 +9078,8 @@ duckdb_value duckdb_get_struct_child(
       
 
     
-- `value`: The STRUCT value.
-- `index`: The index of the child.
+- `value` : The STRUCT value.
+- `index` : The index of the child.
 
 ##### 
         
@@ -8427,10 +9092,13 @@ The child as a duckdb_value.
 
 #### 
         
-        `duckdb_value_to_string`
+        [`duckdb_value_to_string`](#duckdb_value_to_string)
+        
+      
 
     
-`duckdb_value_to_string`Returns the SQL string representation of the given value.
+`duckdb_value_to_string`
+Returns the SQL string representation of the given value.
 
 ##### 
         
@@ -8451,7 +9119,7 @@ char *duckdb_value_to_string(
       
 
     
-- `value`: A duckdb_value.
+- `value` : A duckdb_value.
 
 ##### 
         
@@ -8464,10 +9132,13 @@ The SQL string representation as a null-terminated string. The result must be fr
 
 #### 
         
-        `duckdb_create_logical_type`
+        [`duckdb_create_logical_type`](#duckdb_create_logical_type)
+        
+      
 
     
-`duckdb_create_logical_type`Creates a `duckdb_logical_type` from a primitive type.
+`duckdb_create_logical_type`
+Creates a `duckdb_logical_type` from a primitive type.
 The resulting logical type must be destroyed with `duckdb_destroy_logical_type`.
 
 Returns an invalid logical type, if type is: `DUCKDB_TYPE_INVALID`, `DUCKDB_TYPE_DECIMAL`, `DUCKDB_TYPE_ENUM`,
@@ -8492,7 +9163,7 @@ duckdb_logical_type duckdb_create_logical_type(
       
 
     
-- `type`: The primitive type to create.
+- `type` : The primitive type to create.
 
 ##### 
         
@@ -8505,10 +9176,13 @@ The logical type.
 
 #### 
         
-        `duckdb_logical_type_get_alias`
+        [`duckdb_logical_type_get_alias`](#duckdb_logical_type_get_alias)
+        
+      
 
     
-`duckdb_logical_type_get_alias`Returns the alias of a duckdb_logical_type, if set, else `nullptr`.
+`duckdb_logical_type_get_alias`
+Returns the alias of a duckdb_logical_type, if set, else `nullptr`.
 The result must be destroyed with `duckdb_free`.
 
 ##### 
@@ -8530,7 +9204,7 @@ char *duckdb_logical_type_get_alias(
       
 
     
-- `type`: The logical type
+- `type` : The logical type
 
 ##### 
         
@@ -8543,10 +9217,13 @@ The alias or `nullptr`
 
 #### 
         
-        `duckdb_logical_type_set_alias`
+        [`duckdb_logical_type_set_alias`](#duckdb_logical_type_set_alias)
+        
+      
 
     
-`duckdb_logical_type_set_alias`Sets the alias of a duckdb_logical_type.
+`duckdb_logical_type_set_alias`
+Sets the alias of a duckdb_logical_type.
 
 ##### 
         
@@ -8568,15 +9245,18 @@ void duckdb_logical_type_set_alias(
       
 
     
-- `type`: The logical type
-- `alias`: The alias to set
+- `type` : The logical type
+- `alias` : The alias to set
 
 #### 
         
-        `duckdb_create_list_type`
+        [`duckdb_create_list_type`](#duckdb_create_list_type)
+        
+      
 
     
-`duckdb_create_list_type`Creates a LIST type from its child type.
+`duckdb_create_list_type`
+Creates a LIST type from its child type.
 The return type must be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -8598,7 +9278,7 @@ duckdb_logical_type duckdb_create_list_type(
       
 
     
-- `type`: The child type of the list
+- `type` : The child type of the list
 
 ##### 
         
@@ -8611,10 +9291,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_array_type`
+        [`duckdb_create_array_type`](#duckdb_create_array_type)
+        
+      
 
     
-`duckdb_create_array_type`Creates an ARRAY type from its child type.
+`duckdb_create_array_type`
+Creates an ARRAY type from its child type.
 The return type must be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -8637,8 +9320,8 @@ duckdb_logical_type duckdb_create_array_type(
       
 
     
-- `type`: The child type of the array.
-- `array_size`: The number of elements in the array.
+- `type` : The child type of the array.
+- `array_size` : The number of elements in the array.
 
 ##### 
         
@@ -8651,10 +9334,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_map_type`
+        [`duckdb_create_map_type`](#duckdb_create_map_type)
+        
+      
 
     
-`duckdb_create_map_type`Creates a MAP type from its key type and value type.
+`duckdb_create_map_type`
+Creates a MAP type from its key type and value type.
 The return type must be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -8677,8 +9363,8 @@ duckdb_logical_type duckdb_create_map_type(
       
 
     
-- `key_type`: The map's key type.
-- `value_type`: The map's value type.
+- `key_type` : The map's key type.
+- `value_type` : The map's value type.
 
 ##### 
         
@@ -8691,10 +9377,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_union_type`
+        [`duckdb_create_union_type`](#duckdb_create_union_type)
+        
+      
 
     
-`duckdb_create_union_type`Creates a UNION type from the passed arrays.
+`duckdb_create_union_type`
+Creates a UNION type from the passed arrays.
 The return type must be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -8718,9 +9407,9 @@ duckdb_logical_type duckdb_create_union_type(
       
 
     
-- `member_types`: The array of union member types.
-- `member_names`: The union member names.
-- `member_count`: The number of union members.
+- `member_types` : The array of union member types.
+- `member_names` : The union member names.
+- `member_count` : The number of union members.
 
 ##### 
         
@@ -8733,10 +9422,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_struct_type`
+        [`duckdb_create_struct_type`](#duckdb_create_struct_type)
+        
+      
 
     
-`duckdb_create_struct_type`Creates a STRUCT type based on the member types and names.
+`duckdb_create_struct_type`
+Creates a STRUCT type based on the member types and names.
 The resulting type must be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -8760,9 +9452,9 @@ duckdb_logical_type duckdb_create_struct_type(
       
 
     
-- `member_types`: The array of types of the struct members.
-- `member_names`: The array of names of the struct members.
-- `member_count`: The number of members of the struct.
+- `member_types` : The array of types of the struct members.
+- `member_names` : The array of names of the struct members.
+- `member_count` : The number of members of the struct.
 
 ##### 
         
@@ -8775,10 +9467,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_enum_type`
+        [`duckdb_create_enum_type`](#duckdb_create_enum_type)
+        
+      
 
     
-`duckdb_create_enum_type`Creates an ENUM type from the passed member name array.
+`duckdb_create_enum_type`
+Creates an ENUM type from the passed member name array.
 The resulting type should be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -8801,8 +9496,8 @@ duckdb_logical_type duckdb_create_enum_type(
       
 
     
-- `member_names`: The array of names that the enum should consist of.
-- `member_count`: The number of elements that were specified in the array.
+- `member_names` : The array of names that the enum should consist of.
+- `member_count` : The number of elements that were specified in the array.
 
 ##### 
         
@@ -8815,10 +9510,13 @@ The logical type.
 
 #### 
         
-        `duckdb_create_decimal_type`
+        [`duckdb_create_decimal_type`](#duckdb_create_decimal_type)
+        
+      
 
     
-`duckdb_create_decimal_type`Creates a DECIMAL type with the specified width and scale.
+`duckdb_create_decimal_type`
+Creates a DECIMAL type with the specified width and scale.
 The resulting type should be destroyed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -8841,8 +9539,8 @@ duckdb_logical_type duckdb_create_decimal_type(
       
 
     
-- `width`: The width of the decimal type
-- `scale`: The scale of the decimal type
+- `width` : The width of the decimal type
+- `scale` : The scale of the decimal type
 
 ##### 
         
@@ -8855,10 +9553,13 @@ The logical type.
 
 #### 
         
-        `duckdb_get_type_id`
+        [`duckdb_get_type_id`](#duckdb_get_type_id)
+        
+      
 
     
-`duckdb_get_type_id`Retrieves the enum `duckdb_type` of a `duckdb_logical_type`.
+`duckdb_get_type_id`
+Retrieves the enum `duckdb_type` of a `duckdb_logical_type`.
 
 ##### 
         
@@ -8879,7 +9580,7 @@ duckdb_type duckdb_get_type_id(
       
 
     
-- `type`: The logical type.
+- `type` : The logical type.
 
 ##### 
         
@@ -8892,10 +9593,13 @@ The `duckdb_type` id.
 
 #### 
         
-        `duckdb_decimal_width`
+        [`duckdb_decimal_width`](#duckdb_decimal_width)
+        
+      
 
     
-`duckdb_decimal_width`Retrieves the width of a decimal type.
+`duckdb_decimal_width`
+Retrieves the width of a decimal type.
 
 ##### 
         
@@ -8916,7 +9620,7 @@ uint8_t duckdb_decimal_width(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -8929,10 +9633,13 @@ The width of the decimal type
 
 #### 
         
-        `duckdb_decimal_scale`
+        [`duckdb_decimal_scale`](#duckdb_decimal_scale)
+        
+      
 
     
-`duckdb_decimal_scale`Retrieves the scale of a decimal type.
+`duckdb_decimal_scale`
+Retrieves the scale of a decimal type.
 
 ##### 
         
@@ -8953,7 +9660,7 @@ uint8_t duckdb_decimal_scale(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -8966,10 +9673,13 @@ The scale of the decimal type
 
 #### 
         
-        `duckdb_decimal_internal_type`
+        [`duckdb_decimal_internal_type`](#duckdb_decimal_internal_type)
+        
+      
 
     
-`duckdb_decimal_internal_type`Retrieves the internal storage type of a decimal type.
+`duckdb_decimal_internal_type`
+Retrieves the internal storage type of a decimal type.
 
 ##### 
         
@@ -8990,7 +9700,7 @@ duckdb_type duckdb_decimal_internal_type(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -9003,10 +9713,13 @@ The internal type of the decimal type
 
 #### 
         
-        `duckdb_enum_internal_type`
+        [`duckdb_enum_internal_type`](#duckdb_enum_internal_type)
+        
+      
 
     
-`duckdb_enum_internal_type`Retrieves the internal storage type of an enum type.
+`duckdb_enum_internal_type`
+Retrieves the internal storage type of an enum type.
 
 ##### 
         
@@ -9027,7 +9740,7 @@ duckdb_type duckdb_enum_internal_type(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -9040,10 +9753,13 @@ The internal type of the enum type
 
 #### 
         
-        `duckdb_enum_dictionary_size`
+        [`duckdb_enum_dictionary_size`](#duckdb_enum_dictionary_size)
+        
+      
 
     
-`duckdb_enum_dictionary_size`Retrieves the dictionary size of the enum type.
+`duckdb_enum_dictionary_size`
+Retrieves the dictionary size of the enum type.
 
 ##### 
         
@@ -9064,7 +9780,7 @@ uint32_t duckdb_enum_dictionary_size(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -9077,10 +9793,13 @@ The dictionary size of the enum type
 
 #### 
         
-        `duckdb_enum_dictionary_value`
+        [`duckdb_enum_dictionary_value`](#duckdb_enum_dictionary_value)
+        
+      
 
     
-`duckdb_enum_dictionary_value`Retrieves the dictionary value at the specified position from the enum.
+`duckdb_enum_dictionary_value`
+Retrieves the dictionary value at the specified position from the enum.
 
 The result must be freed with `duckdb_free`.
 
@@ -9104,8 +9823,8 @@ char *duckdb_enum_dictionary_value(
       
 
     
-- `type`: The logical type object
-- `index`: The index in the dictionary
+- `type` : The logical type object
+- `index` : The index in the dictionary
 
 ##### 
         
@@ -9118,10 +9837,13 @@ The string value of the enum type. Must be freed with `duckdb_free`.
 
 #### 
         
-        `duckdb_list_type_child_type`
+        [`duckdb_list_type_child_type`](#duckdb_list_type_child_type)
+        
+      
 
     
-`duckdb_list_type_child_type`Retrieves the child type of the given LIST type. Also accepts MAP types.
+`duckdb_list_type_child_type`
+Retrieves the child type of the given LIST type. Also accepts MAP types.
 The result must be freed with `duckdb_destroy_logical_type`.
 
 ##### 
@@ -9143,7 +9865,7 @@ duckdb_logical_type duckdb_list_type_child_type(
       
 
     
-- `type`: The logical type, either LIST or MAP.
+- `type` : The logical type, either LIST or MAP.
 
 ##### 
         
@@ -9156,10 +9878,13 @@ The child type of the LIST or MAP type.
 
 #### 
         
-        `duckdb_array_type_child_type`
+        [`duckdb_array_type_child_type`](#duckdb_array_type_child_type)
+        
+      
 
     
-`duckdb_array_type_child_type`Retrieves the child type of the given ARRAY type.
+`duckdb_array_type_child_type`
+Retrieves the child type of the given ARRAY type.
 
 The result must be freed with `duckdb_destroy_logical_type`.
 
@@ -9182,7 +9907,7 @@ duckdb_logical_type duckdb_array_type_child_type(
       
 
     
-- `type`: The logical type. Must be ARRAY.
+- `type` : The logical type. Must be ARRAY.
 
 ##### 
         
@@ -9195,10 +9920,13 @@ The child type of the ARRAY type.
 
 #### 
         
-        `duckdb_array_type_array_size`
+        [`duckdb_array_type_array_size`](#duckdb_array_type_array_size)
+        
+      
 
     
-`duckdb_array_type_array_size`Retrieves the array size of the given array type.
+`duckdb_array_type_array_size`
+Retrieves the array size of the given array type.
 
 ##### 
         
@@ -9219,7 +9947,7 @@ idx_t duckdb_array_type_array_size(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -9232,10 +9960,13 @@ The fixed number of elements the values of this array type can store.
 
 #### 
         
-        `duckdb_map_type_key_type`
+        [`duckdb_map_type_key_type`](#duckdb_map_type_key_type)
+        
+      
 
     
-`duckdb_map_type_key_type`Retrieves the key type of the given map type.
+`duckdb_map_type_key_type`
+Retrieves the key type of the given map type.
 
 The result must be freed with `duckdb_destroy_logical_type`.
 
@@ -9258,7 +9989,7 @@ duckdb_logical_type duckdb_map_type_key_type(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -9271,10 +10002,13 @@ The key type of the map type. Must be destroyed with `duckdb_destroy_logical_typ
 
 #### 
         
-        `duckdb_map_type_value_type`
+        [`duckdb_map_type_value_type`](#duckdb_map_type_value_type)
+        
+      
 
     
-`duckdb_map_type_value_type`Retrieves the value type of the given map type.
+`duckdb_map_type_value_type`
+Retrieves the value type of the given map type.
 
 The result must be freed with `duckdb_destroy_logical_type`.
 
@@ -9297,7 +10031,7 @@ duckdb_logical_type duckdb_map_type_value_type(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -9310,10 +10044,13 @@ The value type of the map type. Must be destroyed with `duckdb_destroy_logical_t
 
 #### 
         
-        `duckdb_struct_type_child_count`
+        [`duckdb_struct_type_child_count`](#duckdb_struct_type_child_count)
+        
+      
 
     
-`duckdb_struct_type_child_count`Returns the number of children of a struct type.
+`duckdb_struct_type_child_count`
+Returns the number of children of a struct type.
 
 ##### 
         
@@ -9334,7 +10071,7 @@ idx_t duckdb_struct_type_child_count(
       
 
     
-- `type`: The logical type object
+- `type` : The logical type object
 
 ##### 
         
@@ -9347,10 +10084,13 @@ The number of children of a struct type.
 
 #### 
         
-        `duckdb_struct_type_child_name`
+        [`duckdb_struct_type_child_name`](#duckdb_struct_type_child_name)
+        
+      
 
     
-`duckdb_struct_type_child_name`Retrieves the name of the struct child.
+`duckdb_struct_type_child_name`
+Retrieves the name of the struct child.
 
 The result must be freed with `duckdb_free`.
 
@@ -9374,8 +10114,8 @@ char *duckdb_struct_type_child_name(
       
 
     
-- `type`: The logical type object
-- `index`: The child index
+- `type` : The logical type object
+- `index` : The child index
 
 ##### 
         
@@ -9388,10 +10128,13 @@ The name of the struct type. Must be freed with `duckdb_free`.
 
 #### 
         
-        `duckdb_struct_type_child_type`
+        [`duckdb_struct_type_child_type`](#duckdb_struct_type_child_type)
+        
+      
 
     
-`duckdb_struct_type_child_type`Retrieves the child type of the given struct type at the specified index.
+`duckdb_struct_type_child_type`
+Retrieves the child type of the given struct type at the specified index.
 
 The result must be freed with `duckdb_destroy_logical_type`.
 
@@ -9415,8 +10158,8 @@ duckdb_logical_type duckdb_struct_type_child_type(
       
 
     
-- `type`: The logical type object
-- `index`: The child index
+- `type` : The logical type object
+- `index` : The child index
 
 ##### 
         
@@ -9429,10 +10172,13 @@ The child type of the struct type. Must be destroyed with `duckdb_destroy_logica
 
 #### 
         
-        `duckdb_union_type_member_count`
+        [`duckdb_union_type_member_count`](#duckdb_union_type_member_count)
+        
+      
 
     
-`duckdb_union_type_member_count`Returns the number of members that the union type has.
+`duckdb_union_type_member_count`
+Returns the number of members that the union type has.
 
 ##### 
         
@@ -9453,7 +10199,7 @@ idx_t duckdb_union_type_member_count(
       
 
     
-- `type`: The logical type (union) object
+- `type` : The logical type (union) object
 
 ##### 
         
@@ -9466,10 +10212,13 @@ The number of members of a union type.
 
 #### 
         
-        `duckdb_union_type_member_name`
+        [`duckdb_union_type_member_name`](#duckdb_union_type_member_name)
+        
+      
 
     
-`duckdb_union_type_member_name`Retrieves the name of the union member.
+`duckdb_union_type_member_name`
+Retrieves the name of the union member.
 
 The result must be freed with `duckdb_free`.
 
@@ -9493,8 +10242,8 @@ char *duckdb_union_type_member_name(
       
 
     
-- `type`: The logical type object
-- `index`: The child index
+- `type` : The logical type object
+- `index` : The child index
 
 ##### 
         
@@ -9507,10 +10256,13 @@ The name of the union member. Must be freed with `duckdb_free`.
 
 #### 
         
-        `duckdb_union_type_member_type`
+        [`duckdb_union_type_member_type`](#duckdb_union_type_member_type)
+        
+      
 
     
-`duckdb_union_type_member_type`Retrieves the child type of the given union member at the specified index.
+`duckdb_union_type_member_type`
+Retrieves the child type of the given union member at the specified index.
 
 The result must be freed with `duckdb_destroy_logical_type`.
 
@@ -9534,8 +10286,8 @@ duckdb_logical_type duckdb_union_type_member_type(
       
 
     
-- `type`: The logical type object
-- `index`: The child index
+- `type` : The logical type object
+- `index` : The child index
 
 ##### 
         
@@ -9548,10 +10300,13 @@ The child type of the union member. Must be destroyed with `duckdb_destroy_logic
 
 #### 
         
-        `duckdb_destroy_logical_type`
+        [`duckdb_destroy_logical_type`](#duckdb_destroy_logical_type)
+        
+      
 
     
-`duckdb_destroy_logical_type`Destroys the logical type and de-allocates all memory allocated for that type.
+`duckdb_destroy_logical_type`
+Destroys the logical type and de-allocates all memory allocated for that type.
 
 ##### 
         
@@ -9572,14 +10327,17 @@ void duckdb_destroy_logical_type(
       
 
     
-- `type`: The logical type to destroy.
+- `type` : The logical type to destroy.
 
 #### 
         
-        `duckdb_register_logical_type`
+        [`duckdb_register_logical_type`](#duckdb_register_logical_type)
+        
+      
 
     
-`duckdb_register_logical_type`Registers a custom type within the given connection. The type must have an alias
+`duckdb_register_logical_type`
+Registers a custom type within the given connection. The type must have an alias
 
 ##### 
         
@@ -9602,8 +10360,8 @@ duckdb_state duckdb_register_logical_type(
       
 
     
-- `con`: The connection to use
-- `type`: The custom type to register
+- `con` : The connection to use
+- `type` : The custom type to register
 
 ##### 
         
@@ -9616,10 +10374,13 @@ Whether or not the registration was successful.
 
 #### 
         
-        `duckdb_create_data_chunk`
+        [`duckdb_create_data_chunk`](#duckdb_create_data_chunk)
+        
+      
 
     
-`duckdb_create_data_chunk`Creates an empty data chunk with the specified column types.
+`duckdb_create_data_chunk`
+Creates an empty data chunk with the specified column types.
 The result must be destroyed with `duckdb_destroy_data_chunk`.
 
 ##### 
@@ -9642,8 +10403,8 @@ duckdb_data_chunk duckdb_create_data_chunk(
       
 
     
-- `types`: An array of column types. Column types can not contain ANY and INVALID types.
-- `column_count`: The number of columns.
+- `types` : An array of column types. Column types can not contain ANY and INVALID types.
+- `column_count` : The number of columns.
 
 ##### 
         
@@ -9656,10 +10417,13 @@ The data chunk.
 
 #### 
         
-        `duckdb_destroy_data_chunk`
+        [`duckdb_destroy_data_chunk`](#duckdb_destroy_data_chunk)
+        
+      
 
     
-`duckdb_destroy_data_chunk`Destroys the data chunk and de-allocates all memory allocated for that chunk.
+`duckdb_destroy_data_chunk`
+Destroys the data chunk and de-allocates all memory allocated for that chunk.
 
 ##### 
         
@@ -9680,14 +10444,17 @@ void duckdb_destroy_data_chunk(
       
 
     
-- `chunk`: The data chunk to destroy.
+- `chunk` : The data chunk to destroy.
 
 #### 
         
-        `duckdb_data_chunk_reset`
+        [`duckdb_data_chunk_reset`](#duckdb_data_chunk_reset)
+        
+      
 
     
-`duckdb_data_chunk_reset`Resets a data chunk, clearing the validity masks and setting the cardinality of the data chunk to 0.
+`duckdb_data_chunk_reset`
+Resets a data chunk, clearing the validity masks and setting the cardinality of the data chunk to 0.
 After calling this method, you must call `duckdb_vector_get_validity` and `duckdb_vector_get_data` to obtain current
 data and validity pointers
 
@@ -9710,14 +10477,17 @@ void duckdb_data_chunk_reset(
       
 
     
-- `chunk`: The data chunk to reset.
+- `chunk` : The data chunk to reset.
 
 #### 
         
-        `duckdb_data_chunk_get_column_count`
+        [`duckdb_data_chunk_get_column_count`](#duckdb_data_chunk_get_column_count)
+        
+      
 
     
-`duckdb_data_chunk_get_column_count`Retrieves the number of columns in a data chunk.
+`duckdb_data_chunk_get_column_count`
+Retrieves the number of columns in a data chunk.
 
 ##### 
         
@@ -9738,7 +10508,7 @@ idx_t duckdb_data_chunk_get_column_count(
       
 
     
-- `chunk`: The data chunk to get the data from
+- `chunk` : The data chunk to get the data from
 
 ##### 
         
@@ -9751,10 +10521,13 @@ The number of columns in the data chunk
 
 #### 
         
-        `duckdb_data_chunk_get_vector`
+        [`duckdb_data_chunk_get_vector`](#duckdb_data_chunk_get_vector)
+        
+      
 
     
-`duckdb_data_chunk_get_vector`Retrieves the vector at the specified column index in the data chunk.
+`duckdb_data_chunk_get_vector`
+Retrieves the vector at the specified column index in the data chunk.
 
 The pointer to the vector is valid for as long as the chunk is alive. It does NOT need to be destroyed.
 
@@ -9778,7 +10551,7 @@ duckdb_vector duckdb_data_chunk_get_vector(
       
 
     
-- `chunk`: The data chunk to get the data from
+- `chunk` : The data chunk to get the data from
 
 ##### 
         
@@ -9791,10 +10564,13 @@ The vector
 
 #### 
         
-        `duckdb_data_chunk_get_size`
+        [`duckdb_data_chunk_get_size`](#duckdb_data_chunk_get_size)
+        
+      
 
     
-`duckdb_data_chunk_get_size`Retrieves the current number of tuples in a data chunk.
+`duckdb_data_chunk_get_size`
+Retrieves the current number of tuples in a data chunk.
 
 ##### 
         
@@ -9815,7 +10591,7 @@ idx_t duckdb_data_chunk_get_size(
       
 
     
-- `chunk`: The data chunk to get the data from
+- `chunk` : The data chunk to get the data from
 
 ##### 
         
@@ -9828,10 +10604,13 @@ The number of tuples in the data chunk
 
 #### 
         
-        `duckdb_data_chunk_set_size`
+        [`duckdb_data_chunk_set_size`](#duckdb_data_chunk_set_size)
+        
+      
 
     
-`duckdb_data_chunk_set_size`Sets the current number of tuples in a data chunk.
+`duckdb_data_chunk_set_size`
+Sets the current number of tuples in a data chunk.
 
 ##### 
         
@@ -9853,15 +10632,18 @@ void duckdb_data_chunk_set_size(
       
 
     
-- `chunk`: The data chunk to set the size in
-- `size`: The number of tuples in the data chunk
+- `chunk` : The data chunk to set the size in
+- `size` : The number of tuples in the data chunk
 
 #### 
         
-        `duckdb_create_vector`
+        [`duckdb_create_vector`](#duckdb_create_vector)
+        
+      
 
     
-`duckdb_create_vector`Creates a flat vector. Must be destroyed with `duckdb_destroy_vector`.
+`duckdb_create_vector`
+Creates a flat vector. Must be destroyed with `duckdb_destroy_vector`.
 
 ##### 
         
@@ -9883,8 +10665,8 @@ duckdb_vector duckdb_create_vector(
       
 
     
-- `type`: The logical type of the vector.
-- `capacity`: The capacity of the vector.
+- `type` : The logical type of the vector.
+- `capacity` : The capacity of the vector.
 
 ##### 
         
@@ -9897,10 +10679,13 @@ The vector.
 
 #### 
         
-        `duckdb_destroy_vector`
+        [`duckdb_destroy_vector`](#duckdb_destroy_vector)
+        
+      
 
     
-`duckdb_destroy_vector`Destroys the vector and de-allocates its memory.
+`duckdb_destroy_vector`
+Destroys the vector and de-allocates its memory.
 
 ##### 
         
@@ -9921,14 +10706,17 @@ void duckdb_destroy_vector(
       
 
     
-- `vector`: A pointer to the vector.
+- `vector` : A pointer to the vector.
 
 #### 
         
-        `duckdb_vector_get_column_type`
+        [`duckdb_vector_get_column_type`](#duckdb_vector_get_column_type)
+        
+      
 
     
-`duckdb_vector_get_column_type`Retrieves the column type of the specified vector.
+`duckdb_vector_get_column_type`
+Retrieves the column type of the specified vector.
 
 The result must be destroyed with `duckdb_destroy_logical_type`.
 
@@ -9951,7 +10739,7 @@ duckdb_logical_type duckdb_vector_get_column_type(
       
 
     
-- `vector`: The vector get the data from
+- `vector` : The vector get the data from
 
 ##### 
         
@@ -9964,10 +10752,13 @@ The type of the vector
 
 #### 
         
-        `duckdb_vector_get_data`
+        [`duckdb_vector_get_data`](#duckdb_vector_get_data)
+        
+      
 
     
-`duckdb_vector_get_data`Retrieves the data pointer of the vector.
+`duckdb_vector_get_data`
+Retrieves the data pointer of the vector.
 
 The data pointer can be used to read or write values from the vector. How to read or write values depends on the type of the vector.
 
@@ -9990,7 +10781,7 @@ void *duckdb_vector_get_data(
       
 
     
-- `vector`: The vector to get the data from
+- `vector` : The vector to get the data from
 
 ##### 
         
@@ -10003,10 +10794,13 @@ The data pointer
 
 #### 
         
-        `duckdb_vector_get_validity`
+        [`duckdb_vector_get_validity`](#duckdb_vector_get_validity)
+        
+      
 
     
-`duckdb_vector_get_validity`Retrieves the validity mask pointer of the specified vector.
+`duckdb_vector_get_validity`
+Retrieves the validity mask pointer of the specified vector.
 
 If all values are valid, this function MIGHT return NULL!
 
@@ -10037,7 +10831,7 @@ uint64_t *duckdb_vector_get_validity(
       
 
     
-- `vector`: The vector to get the data from
+- `vector` : The vector to get the data from
 
 ##### 
         
@@ -10050,10 +10844,13 @@ The pointer to the validity mask, or NULL if no validity mask is present
 
 #### 
         
-        `duckdb_vector_ensure_validity_writable`
+        [`duckdb_vector_ensure_validity_writable`](#duckdb_vector_ensure_validity_writable)
+        
+      
 
     
-`duckdb_vector_ensure_validity_writable`Ensures the validity mask is writable by allocating it.
+`duckdb_vector_ensure_validity_writable`
+Ensures the validity mask is writable by allocating it.
 
 After this function is called, `duckdb_vector_get_validity` will ALWAYS return non-NULL.
 This allows NULL values to be written to the vector, regardless of whether a validity mask was present before.
@@ -10077,14 +10874,17 @@ void duckdb_vector_ensure_validity_writable(
       
 
     
-- `vector`: The vector to alter
+- `vector` : The vector to alter
 
 #### 
         
-        `duckdb_vector_assign_string_element`
+        [`duckdb_vector_assign_string_element`](#duckdb_vector_assign_string_element)
+        
+      
 
     
-`duckdb_vector_assign_string_element`Assigns a string element in the vector at the specified location.
+`duckdb_vector_assign_string_element`
+Assigns a string element in the vector at the specified location.
 
 ##### 
         
@@ -10107,16 +10907,19 @@ void duckdb_vector_assign_string_element(
       
 
     
-- `vector`: The vector to alter
-- `index`: The row position in the vector to assign the string to
-- `str`: The null-terminated string
+- `vector` : The vector to alter
+- `index` : The row position in the vector to assign the string to
+- `str` : The null-terminated string
 
 #### 
         
-        `duckdb_vector_assign_string_element_len`
+        [`duckdb_vector_assign_string_element_len`](#duckdb_vector_assign_string_element_len)
+        
+      
 
     
-`duckdb_vector_assign_string_element_len`Assigns a string element in the vector at the specified location. You may also use this function to assign BLOBs.
+`duckdb_vector_assign_string_element_len`
+Assigns a string element in the vector at the specified location. You may also use this function to assign BLOBs.
 
 ##### 
         
@@ -10140,17 +10943,20 @@ void duckdb_vector_assign_string_element_len(
       
 
     
-- `vector`: The vector to alter
-- `index`: The row position in the vector to assign the string to
-- `str`: The string
-- `str_len`: The length of the string (in bytes)
+- `vector` : The vector to alter
+- `index` : The row position in the vector to assign the string to
+- `str` : The string
+- `str_len` : The length of the string (in bytes)
 
 #### 
         
-        `duckdb_list_vector_get_child`
+        [`duckdb_list_vector_get_child`](#duckdb_list_vector_get_child)
+        
+      
 
     
-`duckdb_list_vector_get_child`Retrieves the child vector of a list vector.
+`duckdb_list_vector_get_child`
+Retrieves the child vector of a list vector.
 
 The resulting vector is valid as long as the parent vector is valid.
 
@@ -10173,7 +10979,7 @@ duckdb_vector duckdb_list_vector_get_child(
       
 
     
-- `vector`: The vector
+- `vector` : The vector
 
 ##### 
         
@@ -10186,10 +10992,13 @@ The child vector
 
 #### 
         
-        `duckdb_list_vector_get_size`
+        [`duckdb_list_vector_get_size`](#duckdb_list_vector_get_size)
+        
+      
 
     
-`duckdb_list_vector_get_size`Returns the size of the child vector of the list.
+`duckdb_list_vector_get_size`
+Returns the size of the child vector of the list.
 
 ##### 
         
@@ -10210,7 +11019,7 @@ idx_t duckdb_list_vector_get_size(
       
 
     
-- `vector`: The vector
+- `vector` : The vector
 
 ##### 
         
@@ -10223,10 +11032,13 @@ The size of the child list
 
 #### 
         
-        `duckdb_list_vector_set_size`
+        [`duckdb_list_vector_set_size`](#duckdb_list_vector_set_size)
+        
+      
 
     
-`duckdb_list_vector_set_size`Sets the total size of the underlying child-vector of a list vector.
+`duckdb_list_vector_set_size`
+Sets the total size of the underlying child-vector of a list vector.
 
 ##### 
         
@@ -10248,8 +11060,8 @@ duckdb_state duckdb_list_vector_set_size(
       
 
     
-- `vector`: The list vector.
-- `size`: The size of the child list.
+- `vector` : The list vector.
+- `size` : The size of the child list.
 
 ##### 
         
@@ -10262,10 +11074,13 @@ The duckdb state. Returns DuckDBError if the vector is nullptr.
 
 #### 
         
-        `duckdb_list_vector_reserve`
+        [`duckdb_list_vector_reserve`](#duckdb_list_vector_reserve)
+        
+      
 
     
-`duckdb_list_vector_reserve`Sets the total capacity of the underlying child-vector of a list.
+`duckdb_list_vector_reserve`
+Sets the total capacity of the underlying child-vector of a list.
 
 After calling this method, you must call `duckdb_vector_get_validity` and `duckdb_vector_get_data` to obtain current
 data and validity pointers
@@ -10290,8 +11105,8 @@ duckdb_state duckdb_list_vector_reserve(
       
 
     
-- `vector`: The list vector.
-- `required_capacity`: the total capacity to reserve.
+- `vector` : The list vector.
+- `required_capacity` : the total capacity to reserve.
 
 ##### 
         
@@ -10304,10 +11119,13 @@ The duckdb state. Returns DuckDBError if the vector is nullptr.
 
 #### 
         
-        `duckdb_struct_vector_get_child`
+        [`duckdb_struct_vector_get_child`](#duckdb_struct_vector_get_child)
+        
+      
 
     
-`duckdb_struct_vector_get_child`Retrieves the child vector of a struct vector. The resulting vector is valid as long as the parent vector is valid.
+`duckdb_struct_vector_get_child`
+Retrieves the child vector of a struct vector. The resulting vector is valid as long as the parent vector is valid.
 
 ##### 
         
@@ -10329,8 +11147,8 @@ duckdb_vector duckdb_struct_vector_get_child(
       
 
     
-- `vector`: The vector
-- `index`: The child index
+- `vector` : The vector
+- `index` : The child index
 
 ##### 
         
@@ -10343,10 +11161,13 @@ The child vector
 
 #### 
         
-        `duckdb_array_vector_get_child`
+        [`duckdb_array_vector_get_child`](#duckdb_array_vector_get_child)
+        
+      
 
     
-`duckdb_array_vector_get_child`Retrieves the child vector of an array vector. The resulting vector is valid as long as the parent vector is valid. The resulting vector has the size of the parent vector multiplied by the array size.
+`duckdb_array_vector_get_child`
+Retrieves the child vector of an array vector. The resulting vector is valid as long as the parent vector is valid. The resulting vector has the size of the parent vector multiplied by the array size.
 
 ##### 
         
@@ -10367,7 +11188,7 @@ duckdb_vector duckdb_array_vector_get_child(
       
 
     
-- `vector`: The vector
+- `vector` : The vector
 
 ##### 
         
@@ -10380,10 +11201,13 @@ The child vector
 
 #### 
         
-        `duckdb_slice_vector`
+        [`duckdb_slice_vector`](#duckdb_slice_vector)
+        
+      
 
     
-`duckdb_slice_vector`Slice a vector with a selection vector. The length of the selection vector must be less than or equal to the length of the vector. Turns the vector into a dictionary vector.
+`duckdb_slice_vector`
+Slice a vector with a selection vector. The length of the selection vector must be less than or equal to the length of the vector. Turns the vector into a dictionary vector.
 
 ##### 
         
@@ -10406,16 +11230,19 @@ void duckdb_slice_vector(
       
 
     
-- `vector`: The vector to slice.
-- `sel`: The selection vector.
-- `len`: The length of the selection vector.
+- `vector` : The vector to slice.
+- `sel` : The selection vector.
+- `len` : The length of the selection vector.
 
 #### 
         
-        `duckdb_vector_copy_sel`
+        [`duckdb_vector_copy_sel`](#duckdb_vector_copy_sel)
+        
+      
 
     
-`duckdb_vector_copy_sel`Copy the src vector to the dst with a selection vector that identifies which indices to copy.
+`duckdb_vector_copy_sel`
+Copy the src vector to the dst with a selection vector that identifies which indices to copy.
 
 ##### 
         
@@ -10441,19 +11268,25 @@ void duckdb_vector_copy_sel(
       
 
     
-- `src`: The vector to copy from.
-- `dst`: The vector to copy to.
-- `sel`: The selection vector. The length of the selection vector should not be more than the length of the src vector
-- `src_count`: The number of entries from selection vector to copy. Think of this as the effective length of the selection vector starting from index 0
-- `src_offset`: The offset in the selection vector to copy from (important: actual number of items copied = src_count - src_offset).
-- `dst_offset`: The offset in the dst vector to start copying to.
+- `src` : The vector to copy from.
+- `dst` : The vector to copy to.
+- `sel` : The selection vector. The length of the selection vector should not be more than the length of the src
+vector
+- `src_count` : The number of entries from selection vector to copy. Think of this as the effective length of the
+selection vector starting from index 0
+- `src_offset` : The offset in the selection vector to copy from (important: actual number of items copied =
+src_count - src_offset).
+- `dst_offset` : The offset in the dst vector to start copying to.
 
 #### 
         
-        `duckdb_vector_reference_value`
+        [`duckdb_vector_reference_value`](#duckdb_vector_reference_value)
+        
+      
 
     
-`duckdb_vector_reference_value`Copies the value from `value` to `vector`.
+`duckdb_vector_reference_value`
+Copies the value from `value` to `vector`.
 
 ##### 
         
@@ -10475,15 +11308,18 @@ void duckdb_vector_reference_value(
       
 
     
-- `vector`: The receiving vector.
-- `value`: The value to copy into the vector.
+- `vector` : The receiving vector.
+- `value` : The value to copy into the vector.
 
 #### 
         
-        `duckdb_vector_reference_vector`
+        [`duckdb_vector_reference_vector`](#duckdb_vector_reference_vector)
+        
+      
 
     
-`duckdb_vector_reference_vector`Changes `to_vector` to reference `from_vector. After, the vectors share ownership of the data.
+`duckdb_vector_reference_vector`
+Changes `to_vector` to reference `from_vector. After, the vectors share ownership of the data.
 
 ##### 
         
@@ -10505,15 +11341,18 @@ void duckdb_vector_reference_vector(
       
 
     
-- `to_vector`: The receiving vector.
-- `from_vector`: The vector to reference.
+- `to_vector` : The receiving vector.
+- `from_vector` : The vector to reference.
 
 #### 
         
-        `duckdb_validity_row_is_valid`
+        [`duckdb_validity_row_is_valid`](#duckdb_validity_row_is_valid)
+        
+      
 
     
-`duckdb_validity_row_is_valid`Returns whether or not a row is valid (i.e., not NULL) in the given validity mask.
+`duckdb_validity_row_is_valid`
+Returns whether or not a row is valid (i.e., not NULL) in the given validity mask.
 
 ##### 
         
@@ -10535,8 +11374,8 @@ bool duckdb_validity_row_is_valid(
       
 
     
-- `validity`: The validity mask, as obtained through- `duckdb_vector_get_validity`
-- `row`: The row index
+- `validity` : The validity mask, as obtained through`duckdb_vector_get_validity`
+- `row` : The row index
 
 ##### 
         
@@ -10549,10 +11388,13 @@ true if the row is valid, false otherwise
 
 #### 
         
-        `duckdb_validity_set_row_validity`
+        [`duckdb_validity_set_row_validity`](#duckdb_validity_set_row_validity)
+        
+      
 
     
-`duckdb_validity_set_row_validity`In a validity mask, sets a specific row to either valid or invalid.
+`duckdb_validity_set_row_validity`
+In a validity mask, sets a specific row to either valid or invalid.
 
 Note that `duckdb_vector_ensure_validity_writable` should be called before calling `duckdb_vector_get_validity`,
 to ensure that there is a validity mask to write to.
@@ -10578,16 +11420,19 @@ void duckdb_validity_set_row_validity(
       
 
     
-- `validity`: The validity mask, as obtained through- `duckdb_vector_get_validity`.
-- `row`: The row index
-- `valid`: Whether or not to set the row to valid, or invalid
+- `validity` : The validity mask, as obtained through`duckdb_vector_get_validity` .
+- `row` : The row index
+- `valid` : Whether or not to set the row to valid, or invalid
 
 #### 
         
-        `duckdb_validity_set_row_invalid`
+        [`duckdb_validity_set_row_invalid`](#duckdb_validity_set_row_invalid)
+        
+      
 
     
-`duckdb_validity_set_row_invalid`In a validity mask, sets a specific row to invalid.
+`duckdb_validity_set_row_invalid`
+In a validity mask, sets a specific row to invalid.
 
 Equivalent to `duckdb_validity_set_row_validity` with valid set to false.
 
@@ -10611,15 +11456,18 @@ void duckdb_validity_set_row_invalid(
       
 
     
-- `validity`: The validity mask
-- `row`: The row index
+- `validity` : The validity mask
+- `row` : The row index
 
 #### 
         
-        `duckdb_validity_set_row_valid`
+        [`duckdb_validity_set_row_valid`](#duckdb_validity_set_row_valid)
+        
+      
 
     
-`duckdb_validity_set_row_valid`In a validity mask, sets a specific row to valid.
+`duckdb_validity_set_row_valid`
+In a validity mask, sets a specific row to valid.
 
 Equivalent to `duckdb_validity_set_row_validity` with valid set to true.
 
@@ -10643,15 +11491,18 @@ void duckdb_validity_set_row_valid(
       
 
     
-- `validity`: The validity mask
-- `row`: The row index
+- `validity` : The validity mask
+- `row` : The row index
 
 #### 
         
-        `duckdb_create_scalar_function`
+        [`duckdb_create_scalar_function`](#duckdb_create_scalar_function)
+        
+      
 
     
-`duckdb_create_scalar_function`Creates a new empty scalar function.
+`duckdb_create_scalar_function`
+Creates a new empty scalar function.
 
 The return value must be destroyed with `duckdb_destroy_scalar_function`.
 
@@ -10678,10 +11529,13 @@ duckdb_scalar_function duckdb_create_scalar_function(
 ```
 #### 
         
-        `duckdb_destroy_scalar_function`
+        [`duckdb_destroy_scalar_function`](#duckdb_destroy_scalar_function)
+        
+      
 
     
-`duckdb_destroy_scalar_function`Destroys the given scalar function object.
+`duckdb_destroy_scalar_function`
+Destroys the given scalar function object.
 
 ##### 
         
@@ -10702,14 +11556,17 @@ void duckdb_destroy_scalar_function(
       
 
     
-- `scalar_function`: The scalar function to destroy
+- `scalar_function` : The scalar function to destroy
 
 #### 
         
-        `duckdb_scalar_function_set_name`
+        [`duckdb_scalar_function_set_name`](#duckdb_scalar_function_set_name)
+        
+      
 
     
-`duckdb_scalar_function_set_name`Sets the name of the given scalar function.
+`duckdb_scalar_function_set_name`
+Sets the name of the given scalar function.
 
 ##### 
         
@@ -10731,15 +11588,18 @@ void duckdb_scalar_function_set_name(
       
 
     
-- `scalar_function`: The scalar function
-- `name`: The name of the scalar function
+- `scalar_function` : The scalar function
+- `name` : The name of the scalar function
 
 #### 
         
-        `duckdb_scalar_function_set_varargs`
+        [`duckdb_scalar_function_set_varargs`](#duckdb_scalar_function_set_varargs)
+        
+      
 
     
-`duckdb_scalar_function_set_varargs`Sets the parameters of the given scalar function to varargs. Does not require adding parameters with duckdb_scalar_function_add_parameter.
+`duckdb_scalar_function_set_varargs`
+Sets the parameters of the given scalar function to varargs. Does not require adding parameters with duckdb_scalar_function_add_parameter.
 
 ##### 
         
@@ -10761,8 +11621,8 @@ void duckdb_scalar_function_set_varargs(
       
 
     
-- `scalar_function`: The scalar function.
-- `type`: The type of the arguments.
+- `scalar_function` : The scalar function.
+- `type` : The type of the arguments.
 
 ##### 
         
@@ -10775,10 +11635,13 @@ The parameter type. Cannot contain INVALID.
 
 #### 
         
-        `duckdb_scalar_function_set_special_handling`
+        [`duckdb_scalar_function_set_special_handling`](#duckdb_scalar_function_set_special_handling)
+        
+      
 
     
-`duckdb_scalar_function_set_special_handling`Sets the scalar function's null-handling behavior to special.
+`duckdb_scalar_function_set_special_handling`
+Sets the scalar function's null-handling behavior to special.
 
 ##### 
         
@@ -10799,14 +11662,17 @@ void duckdb_scalar_function_set_special_handling(
       
 
     
-- `scalar_function`: The scalar function.
+- `scalar_function` : The scalar function.
 
 #### 
         
-        `duckdb_scalar_function_set_volatile`
+        [`duckdb_scalar_function_set_volatile`](#duckdb_scalar_function_set_volatile)
+        
+      
 
     
-`duckdb_scalar_function_set_volatile`Sets the Function Stability of the scalar function to VOLATILE, indicating the function should be re-run for every row. This limits optimization that can be performed for the function.
+`duckdb_scalar_function_set_volatile`
+Sets the Function Stability of the scalar function to VOLATILE, indicating the function should be re-run for every row. This limits optimization that can be performed for the function.
 
 ##### 
         
@@ -10827,14 +11693,17 @@ void duckdb_scalar_function_set_volatile(
       
 
     
-- `scalar_function`: The scalar function.
+- `scalar_function` : The scalar function.
 
 #### 
         
-        `duckdb_scalar_function_add_parameter`
+        [`duckdb_scalar_function_add_parameter`](#duckdb_scalar_function_add_parameter)
+        
+      
 
     
-`duckdb_scalar_function_add_parameter`Adds a parameter to the scalar function.
+`duckdb_scalar_function_add_parameter`
+Adds a parameter to the scalar function.
 
 ##### 
         
@@ -10856,15 +11725,18 @@ void duckdb_scalar_function_add_parameter(
       
 
     
-- `scalar_function`: The scalar function.
-- `type`: The parameter type. Cannot contain INVALID.
+- `scalar_function` : The scalar function.
+- `type` : The parameter type. Cannot contain INVALID.
 
 #### 
         
-        `duckdb_scalar_function_set_return_type`
+        [`duckdb_scalar_function_set_return_type`](#duckdb_scalar_function_set_return_type)
+        
+      
 
     
-`duckdb_scalar_function_set_return_type`Sets the return type of the scalar function.
+`duckdb_scalar_function_set_return_type`
+Sets the return type of the scalar function.
 
 ##### 
         
@@ -10886,15 +11758,18 @@ void duckdb_scalar_function_set_return_type(
       
 
     
-- `scalar_function`: The scalar function
-- `type`: Cannot contain INVALID or ANY.
+- `scalar_function` : The scalar function
+- `type` : Cannot contain INVALID or ANY.
 
 #### 
         
-        `duckdb_scalar_function_set_extra_info`
+        [`duckdb_scalar_function_set_extra_info`](#duckdb_scalar_function_set_extra_info)
+        
+      
 
     
-`duckdb_scalar_function_set_extra_info`Assigns extra information to the scalar function that can be fetched during binding, etc.
+`duckdb_scalar_function_set_extra_info`
+Assigns extra information to the scalar function that can be fetched during binding, etc.
 
 ##### 
         
@@ -10917,16 +11792,19 @@ void duckdb_scalar_function_set_extra_info(
       
 
     
-- `scalar_function`: The scalar function
-- `extra_info`: The extra information
-- `destroy`: The callback that will be called to destroy the extra information (if any)
+- `scalar_function` : The scalar function
+- `extra_info` : The extra information
+- `destroy` : The callback that will be called to destroy the extra information (if any)
 
 #### 
         
-        `duckdb_scalar_function_set_bind`
+        [`duckdb_scalar_function_set_bind`](#duckdb_scalar_function_set_bind)
+        
+      
 
     
-`duckdb_scalar_function_set_bind`Sets the (optional) bind function of the scalar function.
+`duckdb_scalar_function_set_bind`
+Sets the (optional) bind function of the scalar function.
 
 ##### 
         
@@ -10948,15 +11826,18 @@ void duckdb_scalar_function_set_bind(
       
 
     
-- `scalar_function`: The scalar function.
-- `bind`: The bind function.
+- `scalar_function` : The scalar function.
+- `bind` : The bind function.
 
 #### 
         
-        `duckdb_scalar_function_set_bind_data`
+        [`duckdb_scalar_function_set_bind_data`](#duckdb_scalar_function_set_bind_data)
+        
+      
 
     
-`duckdb_scalar_function_set_bind_data`Sets the user-provided bind data in the bind object of the scalar function. The bind data object can be retrieved again during execution. In most case, you also need to set the copy-callback of your bind data via duckdb_scalar_function_set_bind_data_copy.
+`duckdb_scalar_function_set_bind_data`
+Sets the user-provided bind data in the bind object of the scalar function. The bind data object can be retrieved again during execution. In most case, you also need to set the copy-callback of your bind data via duckdb_scalar_function_set_bind_data_copy.
 
 ##### 
         
@@ -10979,16 +11860,19 @@ void duckdb_scalar_function_set_bind_data(
       
 
     
-- `info`: The bind info of the scalar function.
-- `bind_data`: The bind data object.
-- `destroy`: The callback to destroy the bind data (if any).
+- `info` : The bind info of the scalar function.
+- `bind_data` : The bind data object.
+- `destroy` : The callback to destroy the bind data (if any).
 
 #### 
         
-        `duckdb_scalar_function_set_bind_data_copy`
+        [`duckdb_scalar_function_set_bind_data_copy`](#duckdb_scalar_function_set_bind_data_copy)
+        
+      
 
     
-`duckdb_scalar_function_set_bind_data_copy`Sets the copy-callback for the user-provided bind data in the bind object of the scalar function.
+`duckdb_scalar_function_set_bind_data_copy`
+Sets the copy-callback for the user-provided bind data in the bind object of the scalar function.
 
 ##### 
         
@@ -11010,15 +11894,18 @@ void duckdb_scalar_function_set_bind_data_copy(
       
 
     
-- `info`: The bind info of the scalar function.
-- `copy`: The callback to copy the bind data (if any).
+- `info` : The bind info of the scalar function.
+- `copy` : The callback to copy the bind data (if any).
 
 #### 
         
-        `duckdb_scalar_function_bind_set_error`
+        [`duckdb_scalar_function_bind_set_error`](#duckdb_scalar_function_bind_set_error)
+        
+      
 
     
-`duckdb_scalar_function_bind_set_error`Report that an error has occurred while calling bind on a scalar function.
+`duckdb_scalar_function_bind_set_error`
+Report that an error has occurred while calling bind on a scalar function.
 
 ##### 
         
@@ -11040,15 +11927,18 @@ void duckdb_scalar_function_bind_set_error(
       
 
     
-- `info`: The bind info object.
-- `error`: The error message.
+- `info` : The bind info object.
+- `error` : The error message.
 
 #### 
         
-        `duckdb_scalar_function_set_function`
+        [`duckdb_scalar_function_set_function`](#duckdb_scalar_function_set_function)
+        
+      
 
     
-`duckdb_scalar_function_set_function`Sets the main function of the scalar function.
+`duckdb_scalar_function_set_function`
+Sets the main function of the scalar function.
 
 ##### 
         
@@ -11070,15 +11960,18 @@ void duckdb_scalar_function_set_function(
       
 
     
-- `scalar_function`: The scalar function
-- `function`: The function
+- `scalar_function` : The scalar function
+- `function` : The function
 
 #### 
         
-        `duckdb_register_scalar_function`
+        [`duckdb_register_scalar_function`](#duckdb_register_scalar_function)
+        
+      
 
     
-`duckdb_register_scalar_function`Register the scalar function object within the given connection.
+`duckdb_register_scalar_function`
+Register the scalar function object within the given connection.
 
 The function requires at least a name, a function and a return type.
 
@@ -11104,8 +11997,8 @@ duckdb_state duckdb_register_scalar_function(
       
 
     
-- `con`: The connection to register it in.
-- `scalar_function`: The function pointer
+- `con` : The connection to register it in.
+- `scalar_function` : The function pointer
 
 ##### 
         
@@ -11118,10 +12011,13 @@ Whether or not the registration was successful.
 
 #### 
         
-        `duckdb_scalar_function_get_extra_info`
+        [`duckdb_scalar_function_get_extra_info`](#duckdb_scalar_function_get_extra_info)
+        
+      
 
     
-`duckdb_scalar_function_get_extra_info`Retrieves the extra info of the function as set in `duckdb_scalar_function_set_extra_info`.
+`duckdb_scalar_function_get_extra_info`
+Retrieves the extra info of the function as set in `duckdb_scalar_function_set_extra_info`.
 
 ##### 
         
@@ -11142,7 +12038,7 @@ void *duckdb_scalar_function_get_extra_info(
       
 
     
-- `info`: The info object.
+- `info` : The info object.
 
 ##### 
         
@@ -11155,10 +12051,13 @@ The extra info.
 
 #### 
         
-        `duckdb_scalar_function_bind_get_extra_info`
+        [`duckdb_scalar_function_bind_get_extra_info`](#duckdb_scalar_function_bind_get_extra_info)
+        
+      
 
     
-`duckdb_scalar_function_bind_get_extra_info`Retrieves the extra info of the function as set in the bind info.
+`duckdb_scalar_function_bind_get_extra_info`
+Retrieves the extra info of the function as set in the bind info.
 
 ##### 
         
@@ -11179,7 +12078,7 @@ void *duckdb_scalar_function_bind_get_extra_info(
       
 
     
-- `info`: The info object.
+- `info` : The info object.
 
 ##### 
         
@@ -11192,10 +12091,13 @@ The extra info.
 
 #### 
         
-        `duckdb_scalar_function_get_bind_data`
+        [`duckdb_scalar_function_get_bind_data`](#duckdb_scalar_function_get_bind_data)
+        
+      
 
     
-`duckdb_scalar_function_get_bind_data`Gets the scalar function's bind data set by `duckdb_scalar_function_set_bind_data`.
+`duckdb_scalar_function_get_bind_data`
+Gets the scalar function's bind data set by `duckdb_scalar_function_set_bind_data`.
 Note that the bind data is read-only.
 
 ##### 
@@ -11217,7 +12119,7 @@ void *duckdb_scalar_function_get_bind_data(
       
 
     
-- `info`: The function info.
+- `info` : The function info.
 
 ##### 
         
@@ -11230,10 +12132,13 @@ The bind data object.
 
 #### 
         
-        `duckdb_scalar_function_get_client_context`
+        [`duckdb_scalar_function_get_client_context`](#duckdb_scalar_function_get_client_context)
+        
+      
 
     
-`duckdb_scalar_function_get_client_context`Retrieves the client context of the bind info of a scalar function.
+`duckdb_scalar_function_get_client_context`
+Retrieves the client context of the bind info of a scalar function.
 
 ##### 
         
@@ -11255,15 +12160,18 @@ void duckdb_scalar_function_get_client_context(
       
 
     
-- `info`: The bind info object of the scalar function.
-- `out_context`: The client context of the bind info. Must be destroyed with- `duckdb_destroy_client_context`.
+- `info` : The bind info object of the scalar function.
+- `out_context` : The client context of the bind info. Must be destroyed with`duckdb_destroy_client_context` .
 
 #### 
         
-        `duckdb_scalar_function_set_error`
+        [`duckdb_scalar_function_set_error`](#duckdb_scalar_function_set_error)
+        
+      
 
     
-`duckdb_scalar_function_set_error`Report that an error has occurred while executing the scalar function.
+`duckdb_scalar_function_set_error`
+Report that an error has occurred while executing the scalar function.
 
 ##### 
         
@@ -11285,15 +12193,18 @@ void duckdb_scalar_function_set_error(
       
 
     
-- `info`: The info object.
-- `error`: The error message
+- `info` : The info object.
+- `error` : The error message
 
 #### 
         
-        `duckdb_create_scalar_function_set`
+        [`duckdb_create_scalar_function_set`](#duckdb_create_scalar_function_set)
+        
+      
 
     
-`duckdb_create_scalar_function_set`Creates a new empty scalar function set.
+`duckdb_create_scalar_function_set`
+Creates a new empty scalar function set.
 
 The return value must be destroyed with `duckdb_destroy_scalar_function_set`.
 
@@ -11320,10 +12231,13 @@ duckdb_scalar_function_set duckdb_create_scalar_function_set(
 ```
 #### 
         
-        `duckdb_destroy_scalar_function_set`
+        [`duckdb_destroy_scalar_function_set`](#duckdb_destroy_scalar_function_set)
+        
+      
 
     
-`duckdb_destroy_scalar_function_set`Destroys the given scalar function set object.
+`duckdb_destroy_scalar_function_set`
+Destroys the given scalar function set object.
 
 ##### 
         
@@ -11339,10 +12253,13 @@ void duckdb_destroy_scalar_function_set(
 ```
 #### 
         
-        `duckdb_add_scalar_function_to_set`
+        [`duckdb_add_scalar_function_to_set`](#duckdb_add_scalar_function_to_set)
+        
+      
 
     
-`duckdb_add_scalar_function_to_set`Adds the scalar function as a new overload to the scalar function set.
+`duckdb_add_scalar_function_to_set`
+Adds the scalar function as a new overload to the scalar function set.
 
 Returns DuckDBError if the function could not be added, for example if the overload already exists.
 
@@ -11366,15 +12283,18 @@ duckdb_state duckdb_add_scalar_function_to_set(
       
 
     
-- `set`: The scalar function set
-- `function`: The function to add
+- `set` : The scalar function set
+- `function` : The function to add
 
 #### 
         
-        `duckdb_register_scalar_function_set`
+        [`duckdb_register_scalar_function_set`](#duckdb_register_scalar_function_set)
+        
+      
 
     
-`duckdb_register_scalar_function_set`Register the scalar function set within the given connection.
+`duckdb_register_scalar_function_set`
+Register the scalar function set within the given connection.
 
 The set requires at least a single valid overload.
 
@@ -11400,8 +12320,8 @@ duckdb_state duckdb_register_scalar_function_set(
       
 
     
-- `con`: The connection to register it in.
-- `set`: The function set to register
+- `con` : The connection to register it in.
+- `set` : The function set to register
 
 ##### 
         
@@ -11414,10 +12334,13 @@ Whether or not the registration was successful.
 
 #### 
         
-        `duckdb_scalar_function_bind_get_argument_count`
+        [`duckdb_scalar_function_bind_get_argument_count`](#duckdb_scalar_function_bind_get_argument_count)
+        
+      
 
     
-`duckdb_scalar_function_bind_get_argument_count`Returns the number of input arguments of the scalar function.
+`duckdb_scalar_function_bind_get_argument_count`
+Returns the number of input arguments of the scalar function.
 
 ##### 
         
@@ -11438,7 +12361,7 @@ idx_t duckdb_scalar_function_bind_get_argument_count(
       
 
     
-- `info`: The bind info.
+- `info` : The bind info.
 
 ##### 
         
@@ -11451,10 +12374,13 @@ The number of input arguments.
 
 #### 
         
-        `duckdb_scalar_function_bind_get_argument`
+        [`duckdb_scalar_function_bind_get_argument`](#duckdb_scalar_function_bind_get_argument)
+        
+      
 
     
-`duckdb_scalar_function_bind_get_argument`Returns the input argument at index of the scalar function.
+`duckdb_scalar_function_bind_get_argument`
+Returns the input argument at index of the scalar function.
 
 ##### 
         
@@ -11476,8 +12402,8 @@ duckdb_expression duckdb_scalar_function_bind_get_argument(
       
 
     
-- `info`: The bind info.
-- `index`: The argument index.
+- `info` : The bind info.
+- `index` : The argument index.
 
 ##### 
         
@@ -11490,10 +12416,13 @@ The input argument at index. Must be destroyed with `duckdb_destroy_expression`.
 
 #### 
         
-        `duckdb_create_selection_vector`
+        [`duckdb_create_selection_vector`](#duckdb_create_selection_vector)
+        
+      
 
     
-`duckdb_create_selection_vector`Creates a new selection vector of size `size`.
+`duckdb_create_selection_vector`
+Creates a new selection vector of size `size`.
 Must be destroyed with `duckdb_destroy_selection_vector`.
 
 ##### 
@@ -11515,7 +12444,7 @@ duckdb_selection_vector duckdb_create_selection_vector(
       
 
     
-- `size`: The size of the selection vector.
+- `size` : The size of the selection vector.
 
 ##### 
         
@@ -11528,10 +12457,13 @@ The selection vector.
 
 #### 
         
-        `duckdb_destroy_selection_vector`
+        [`duckdb_destroy_selection_vector`](#duckdb_destroy_selection_vector)
+        
+      
 
     
-`duckdb_destroy_selection_vector`Destroys the selection vector and de-allocates its memory.
+`duckdb_destroy_selection_vector`
+Destroys the selection vector and de-allocates its memory.
 
 ##### 
         
@@ -11552,14 +12484,17 @@ void duckdb_destroy_selection_vector(
       
 
     
-- `sel`: The selection vector.
+- `sel` : The selection vector.
 
 #### 
         
-        `duckdb_selection_vector_get_data_ptr`
+        [`duckdb_selection_vector_get_data_ptr`](#duckdb_selection_vector_get_data_ptr)
+        
+      
 
     
-`duckdb_selection_vector_get_data_ptr`Access the data pointer of a selection vector.
+`duckdb_selection_vector_get_data_ptr`
+Access the data pointer of a selection vector.
 
 ##### 
         
@@ -11580,7 +12515,7 @@ sel_t *duckdb_selection_vector_get_data_ptr(
       
 
     
-- `sel`: The selection vector.
+- `sel` : The selection vector.
 
 ##### 
         
@@ -11593,10 +12528,13 @@ The data pointer.
 
 #### 
         
-        `duckdb_create_aggregate_function`
+        [`duckdb_create_aggregate_function`](#duckdb_create_aggregate_function)
+        
+      
 
     
-`duckdb_create_aggregate_function`Creates a new empty aggregate function.
+`duckdb_create_aggregate_function`
+Creates a new empty aggregate function.
 
 The return value should be destroyed with `duckdb_destroy_aggregate_function`.
 
@@ -11623,10 +12561,13 @@ duckdb_aggregate_function duckdb_create_aggregate_function(
 ```
 #### 
         
-        `duckdb_destroy_aggregate_function`
+        [`duckdb_destroy_aggregate_function`](#duckdb_destroy_aggregate_function)
+        
+      
 
     
-`duckdb_destroy_aggregate_function`Destroys the given aggregate function object.
+`duckdb_destroy_aggregate_function`
+Destroys the given aggregate function object.
 
 ##### 
         
@@ -11642,10 +12583,13 @@ void duckdb_destroy_aggregate_function(
 ```
 #### 
         
-        `duckdb_aggregate_function_set_name`
+        [`duckdb_aggregate_function_set_name`](#duckdb_aggregate_function_set_name)
+        
+      
 
     
-`duckdb_aggregate_function_set_name`Sets the name of the given aggregate function.
+`duckdb_aggregate_function_set_name`
+Sets the name of the given aggregate function.
 
 ##### 
         
@@ -11667,15 +12611,18 @@ void duckdb_aggregate_function_set_name(
       
 
     
-- `aggregate_function`: The aggregate function
-- `name`: The name of the aggregate function
+- `aggregate_function` : The aggregate function
+- `name` : The name of the aggregate function
 
 #### 
         
-        `duckdb_aggregate_function_add_parameter`
+        [`duckdb_aggregate_function_add_parameter`](#duckdb_aggregate_function_add_parameter)
+        
+      
 
     
-`duckdb_aggregate_function_add_parameter`Adds a parameter to the aggregate function.
+`duckdb_aggregate_function_add_parameter`
+Adds a parameter to the aggregate function.
 
 ##### 
         
@@ -11697,15 +12644,18 @@ void duckdb_aggregate_function_add_parameter(
       
 
     
-- `aggregate_function`: The aggregate function.
-- `type`: The parameter type. Cannot contain INVALID.
+- `aggregate_function` : The aggregate function.
+- `type` : The parameter type. Cannot contain INVALID.
 
 #### 
         
-        `duckdb_aggregate_function_set_return_type`
+        [`duckdb_aggregate_function_set_return_type`](#duckdb_aggregate_function_set_return_type)
+        
+      
 
     
-`duckdb_aggregate_function_set_return_type`Sets the return type of the aggregate function.
+`duckdb_aggregate_function_set_return_type`
+Sets the return type of the aggregate function.
 
 ##### 
         
@@ -11727,15 +12677,18 @@ void duckdb_aggregate_function_set_return_type(
       
 
     
-- `aggregate_function`: The aggregate function.
-- `type`: The return type. Cannot contain INVALID or ANY.
+- `aggregate_function` : The aggregate function.
+- `type` : The return type. Cannot contain INVALID or ANY.
 
 #### 
         
-        `duckdb_aggregate_function_set_functions`
+        [`duckdb_aggregate_function_set_functions`](#duckdb_aggregate_function_set_functions)
+        
+      
 
     
-`duckdb_aggregate_function_set_functions`Sets the main functions of the aggregate function.
+`duckdb_aggregate_function_set_functions`
+Sets the main functions of the aggregate function.
 
 ##### 
         
@@ -11761,19 +12714,22 @@ void duckdb_aggregate_function_set_functions(
       
 
     
-- `aggregate_function`: The aggregate function
-- `state_size`: state size
-- `state_init`: state init function
-- `update`: update states
-- `combine`: combine states
-- `finalize`: finalize states
+- `aggregate_function` : The aggregate function
+- `state_size` : state size
+- `state_init` : state init function
+- `update` : update states
+- `combine` : combine states
+- `finalize` : finalize states
 
 #### 
         
-        `duckdb_aggregate_function_set_destructor`
+        [`duckdb_aggregate_function_set_destructor`](#duckdb_aggregate_function_set_destructor)
+        
+      
 
     
-`duckdb_aggregate_function_set_destructor`Sets the state destructor callback of the aggregate function (optional)
+`duckdb_aggregate_function_set_destructor`
+Sets the state destructor callback of the aggregate function (optional)
 
 ##### 
         
@@ -11795,15 +12751,18 @@ void duckdb_aggregate_function_set_destructor(
       
 
     
-- `aggregate_function`: The aggregate function
-- `destroy`: state destroy callback
+- `aggregate_function` : The aggregate function
+- `destroy` : state destroy callback
 
 #### 
         
-        `duckdb_register_aggregate_function`
+        [`duckdb_register_aggregate_function`](#duckdb_register_aggregate_function)
+        
+      
 
     
-`duckdb_register_aggregate_function`Register the aggregate function object within the given connection.
+`duckdb_register_aggregate_function`
+Register the aggregate function object within the given connection.
 
 The function requires at least a name, functions and a return type.
 
@@ -11829,7 +12788,7 @@ duckdb_state duckdb_register_aggregate_function(
       
 
     
-- `con`: The connection to register it in.
+- `con` : The connection to register it in.
 
 ##### 
         
@@ -11842,10 +12801,13 @@ Whether or not the registration was successful.
 
 #### 
         
-        `duckdb_aggregate_function_set_special_handling`
+        [`duckdb_aggregate_function_set_special_handling`](#duckdb_aggregate_function_set_special_handling)
+        
+      
 
     
-`duckdb_aggregate_function_set_special_handling`Sets the NULL handling of the aggregate function to SPECIAL_HANDLING.
+`duckdb_aggregate_function_set_special_handling`
+Sets the NULL handling of the aggregate function to SPECIAL_HANDLING.
 
 ##### 
         
@@ -11866,14 +12828,17 @@ void duckdb_aggregate_function_set_special_handling(
       
 
     
-- `aggregate_function`: The aggregate function
+- `aggregate_function` : The aggregate function
 
 #### 
         
-        `duckdb_aggregate_function_set_extra_info`
+        [`duckdb_aggregate_function_set_extra_info`](#duckdb_aggregate_function_set_extra_info)
+        
+      
 
     
-`duckdb_aggregate_function_set_extra_info`Assigns extra information to the scalar function that can be fetched during binding, etc.
+`duckdb_aggregate_function_set_extra_info`
+Assigns extra information to the scalar function that can be fetched during binding, etc.
 
 ##### 
         
@@ -11896,16 +12861,19 @@ void duckdb_aggregate_function_set_extra_info(
       
 
     
-- `aggregate_function`: The aggregate function
-- `extra_info`: The extra information
-- `destroy`: The callback that will be called to destroy the extra information (if any)
+- `aggregate_function` : The aggregate function
+- `extra_info` : The extra information
+- `destroy` : The callback that will be called to destroy the extra information (if any)
 
 #### 
         
-        `duckdb_aggregate_function_get_extra_info`
+        [`duckdb_aggregate_function_get_extra_info`](#duckdb_aggregate_function_get_extra_info)
+        
+      
 
     
-`duckdb_aggregate_function_get_extra_info`Retrieves the extra info of the function as set in `duckdb_aggregate_function_set_extra_info`.
+`duckdb_aggregate_function_get_extra_info`
+Retrieves the extra info of the function as set in `duckdb_aggregate_function_set_extra_info`.
 
 ##### 
         
@@ -11926,7 +12894,7 @@ void *duckdb_aggregate_function_get_extra_info(
       
 
     
-- `info`: The info object
+- `info` : The info object
 
 ##### 
         
@@ -11939,10 +12907,13 @@ The extra info
 
 #### 
         
-        `duckdb_aggregate_function_set_error`
+        [`duckdb_aggregate_function_set_error`](#duckdb_aggregate_function_set_error)
+        
+      
 
     
-`duckdb_aggregate_function_set_error`Report that an error has occurred while executing the aggregate function.
+`duckdb_aggregate_function_set_error`
+Report that an error has occurred while executing the aggregate function.
 
 ##### 
         
@@ -11964,15 +12935,18 @@ void duckdb_aggregate_function_set_error(
       
 
     
-- `info`: The info object
-- `error`: The error message
+- `info` : The info object
+- `error` : The error message
 
 #### 
         
-        `duckdb_create_aggregate_function_set`
+        [`duckdb_create_aggregate_function_set`](#duckdb_create_aggregate_function_set)
+        
+      
 
     
-`duckdb_create_aggregate_function_set`Creates a new empty aggregate function set.
+`duckdb_create_aggregate_function_set`
+Creates a new empty aggregate function set.
 
 The return value should be destroyed with `duckdb_destroy_aggregate_function_set`.
 
@@ -11999,10 +12973,13 @@ duckdb_aggregate_function_set duckdb_create_aggregate_function_set(
 ```
 #### 
         
-        `duckdb_destroy_aggregate_function_set`
+        [`duckdb_destroy_aggregate_function_set`](#duckdb_destroy_aggregate_function_set)
+        
+      
 
     
-`duckdb_destroy_aggregate_function_set`Destroys the given aggregate function set object.
+`duckdb_destroy_aggregate_function_set`
+Destroys the given aggregate function set object.
 
 ##### 
         
@@ -12018,10 +12995,13 @@ void duckdb_destroy_aggregate_function_set(
 ```
 #### 
         
-        `duckdb_add_aggregate_function_to_set`
+        [`duckdb_add_aggregate_function_to_set`](#duckdb_add_aggregate_function_to_set)
+        
+      
 
     
-`duckdb_add_aggregate_function_to_set`Adds the aggregate function as a new overload to the aggregate function set.
+`duckdb_add_aggregate_function_to_set`
+Adds the aggregate function as a new overload to the aggregate function set.
 
 Returns DuckDBError if the function could not be added, for example if the overload already exists.
 
@@ -12045,15 +13025,18 @@ duckdb_state duckdb_add_aggregate_function_to_set(
       
 
     
-- `set`: The aggregate function set
-- `function`: The function to add
+- `set` : The aggregate function set
+- `function` : The function to add
 
 #### 
         
-        `duckdb_register_aggregate_function_set`
+        [`duckdb_register_aggregate_function_set`](#duckdb_register_aggregate_function_set)
+        
+      
 
     
-`duckdb_register_aggregate_function_set`Register the aggregate function set within the given connection.
+`duckdb_register_aggregate_function_set`
+Register the aggregate function set within the given connection.
 
 The set requires at least a single valid overload.
 
@@ -12079,8 +13062,8 @@ duckdb_state duckdb_register_aggregate_function_set(
       
 
     
-- `con`: The connection to register it in.
-- `set`: The function set to register
+- `con` : The connection to register it in.
+- `set` : The function set to register
 
 ##### 
         
@@ -12093,10 +13076,13 @@ Whether or not the registration was successful.
 
 #### 
         
-        `duckdb_create_table_function`
+        [`duckdb_create_table_function`](#duckdb_create_table_function)
+        
+      
 
     
-`duckdb_create_table_function`Creates a new empty table function.
+`duckdb_create_table_function`
+Creates a new empty table function.
 
 The return value should be destroyed with `duckdb_destroy_table_function`.
 
@@ -12123,10 +13109,13 @@ duckdb_table_function duckdb_create_table_function(
 ```
 #### 
         
-        `duckdb_destroy_table_function`
+        [`duckdb_destroy_table_function`](#duckdb_destroy_table_function)
+        
+      
 
     
-`duckdb_destroy_table_function`Destroys the given table function object.
+`duckdb_destroy_table_function`
+Destroys the given table function object.
 
 ##### 
         
@@ -12147,14 +13136,17 @@ void duckdb_destroy_table_function(
       
 
     
-- `table_function`: The table function to destroy
+- `table_function` : The table function to destroy
 
 #### 
         
-        `duckdb_table_function_set_name`
+        [`duckdb_table_function_set_name`](#duckdb_table_function_set_name)
+        
+      
 
     
-`duckdb_table_function_set_name`Sets the name of the given table function.
+`duckdb_table_function_set_name`
+Sets the name of the given table function.
 
 ##### 
         
@@ -12176,15 +13168,18 @@ void duckdb_table_function_set_name(
       
 
     
-- `table_function`: The table function
-- `name`: The name of the table function
+- `table_function` : The table function
+- `name` : The name of the table function
 
 #### 
         
-        `duckdb_table_function_add_parameter`
+        [`duckdb_table_function_add_parameter`](#duckdb_table_function_add_parameter)
+        
+      
 
     
-`duckdb_table_function_add_parameter`Adds a parameter to the table function.
+`duckdb_table_function_add_parameter`
+Adds a parameter to the table function.
 
 ##### 
         
@@ -12206,15 +13201,18 @@ void duckdb_table_function_add_parameter(
       
 
     
-- `table_function`: The table function.
-- `type`: The parameter type. Cannot contain INVALID.
+- `table_function` : The table function.
+- `type` : The parameter type. Cannot contain INVALID.
 
 #### 
         
-        `duckdb_table_function_add_named_parameter`
+        [`duckdb_table_function_add_named_parameter`](#duckdb_table_function_add_named_parameter)
+        
+      
 
     
-`duckdb_table_function_add_named_parameter`Adds a named parameter to the table function.
+`duckdb_table_function_add_named_parameter`
+Adds a named parameter to the table function.
 
 ##### 
         
@@ -12237,16 +13235,19 @@ void duckdb_table_function_add_named_parameter(
       
 
     
-- `table_function`: The table function.
-- `name`: The parameter name.
-- `type`: The parameter type. Cannot contain INVALID.
+- `table_function` : The table function.
+- `name` : The parameter name.
+- `type` : The parameter type. Cannot contain INVALID.
 
 #### 
         
-        `duckdb_table_function_set_extra_info`
+        [`duckdb_table_function_set_extra_info`](#duckdb_table_function_set_extra_info)
+        
+      
 
     
-`duckdb_table_function_set_extra_info`Assigns extra information to the table function that can be fetched during binding, etc.
+`duckdb_table_function_set_extra_info`
+Assigns extra information to the table function that can be fetched during binding, etc.
 
 ##### 
         
@@ -12269,16 +13270,19 @@ void duckdb_table_function_set_extra_info(
       
 
     
-- `table_function`: The table function
-- `extra_info`: The extra information
-- `destroy`: The callback that will be called to destroy the extra information (if any)
+- `table_function` : The table function
+- `extra_info` : The extra information
+- `destroy` : The callback that will be called to destroy the extra information (if any)
 
 #### 
         
-        `duckdb_table_function_set_bind`
+        [`duckdb_table_function_set_bind`](#duckdb_table_function_set_bind)
+        
+      
 
     
-`duckdb_table_function_set_bind`Sets the bind function of the table function.
+`duckdb_table_function_set_bind`
+Sets the bind function of the table function.
 
 ##### 
         
@@ -12300,15 +13304,18 @@ void duckdb_table_function_set_bind(
       
 
     
-- `table_function`: The table function
-- `bind`: The bind function
+- `table_function` : The table function
+- `bind` : The bind function
 
 #### 
         
-        `duckdb_table_function_set_init`
+        [`duckdb_table_function_set_init`](#duckdb_table_function_set_init)
+        
+      
 
     
-`duckdb_table_function_set_init`Sets the init function of the table function.
+`duckdb_table_function_set_init`
+Sets the init function of the table function.
 
 ##### 
         
@@ -12330,15 +13337,18 @@ void duckdb_table_function_set_init(
       
 
     
-- `table_function`: The table function
-- `init`: The init function
+- `table_function` : The table function
+- `init` : The init function
 
 #### 
         
-        `duckdb_table_function_set_local_init`
+        [`duckdb_table_function_set_local_init`](#duckdb_table_function_set_local_init)
+        
+      
 
     
-`duckdb_table_function_set_local_init`Sets the thread-local init function of the table function.
+`duckdb_table_function_set_local_init`
+Sets the thread-local init function of the table function.
 
 ##### 
         
@@ -12360,15 +13370,18 @@ void duckdb_table_function_set_local_init(
       
 
     
-- `table_function`: The table function
-- `init`: The init function
+- `table_function` : The table function
+- `init` : The init function
 
 #### 
         
-        `duckdb_table_function_set_function`
+        [`duckdb_table_function_set_function`](#duckdb_table_function_set_function)
+        
+      
 
     
-`duckdb_table_function_set_function`Sets the main function of the table function.
+`duckdb_table_function_set_function`
+Sets the main function of the table function.
 
 ##### 
         
@@ -12390,15 +13403,18 @@ void duckdb_table_function_set_function(
       
 
     
-- `table_function`: The table function
-- `function`: The function
+- `table_function` : The table function
+- `function` : The function
 
 #### 
         
-        `duckdb_table_function_supports_projection_pushdown`
+        [`duckdb_table_function_supports_projection_pushdown`](#duckdb_table_function_supports_projection_pushdown)
+        
+      
 
     
-`duckdb_table_function_supports_projection_pushdown`Sets whether or not the given table function supports projection pushdown.
+`duckdb_table_function_supports_projection_pushdown`
+Sets whether or not the given table function supports projection pushdown.
 
 If this is set to true, the system will provide a list of all required columns in the `init` stage through
 the `duckdb_init_get_column_count` and `duckdb_init_get_column_index` functions.
@@ -12424,15 +13440,18 @@ void duckdb_table_function_supports_projection_pushdown(
       
 
     
-- `table_function`: The table function
-- `pushdown`: True if the table function supports projection pushdown, false otherwise.
+- `table_function` : The table function
+- `pushdown` : True if the table function supports projection pushdown, false otherwise.
 
 #### 
         
-        `duckdb_register_table_function`
+        [`duckdb_register_table_function`](#duckdb_register_table_function)
+        
+      
 
     
-`duckdb_register_table_function`Register the table function object within the given connection.
+`duckdb_register_table_function`
+Register the table function object within the given connection.
 
 The function requires at least a name, a bind function, an init function and a main function.
 
@@ -12458,8 +13477,8 @@ duckdb_state duckdb_register_table_function(
       
 
     
-- `con`: The connection to register it in.
-- `function`: The function pointer
+- `con` : The connection to register it in.
+- `function` : The function pointer
 
 ##### 
         
@@ -12472,10 +13491,13 @@ Whether or not the registration was successful.
 
 #### 
         
-        `duckdb_bind_get_extra_info`
+        [`duckdb_bind_get_extra_info`](#duckdb_bind_get_extra_info)
+        
+      
 
     
-`duckdb_bind_get_extra_info`Retrieves the extra info of the function as set in `duckdb_table_function_set_extra_info`.
+`duckdb_bind_get_extra_info`
+Retrieves the extra info of the function as set in `duckdb_table_function_set_extra_info`.
 
 ##### 
         
@@ -12496,7 +13518,7 @@ void *duckdb_bind_get_extra_info(
       
 
     
-- `info`: The info object
+- `info` : The info object
 
 ##### 
         
@@ -12509,10 +13531,13 @@ The extra info
 
 #### 
         
-        `duckdb_table_function_get_client_context`
+        [`duckdb_table_function_get_client_context`](#duckdb_table_function_get_client_context)
+        
+      
 
     
-`duckdb_table_function_get_client_context`Retrieves the client context of the bind info of a table function.
+`duckdb_table_function_get_client_context`
+Retrieves the client context of the bind info of a table function.
 
 ##### 
         
@@ -12534,15 +13559,18 @@ void duckdb_table_function_get_client_context(
       
 
     
-- `info`: The bind info object of the table function.
-- `out_context`: The client context of the bind info. Must be destroyed with- `duckdb_destroy_client_context`.
+- `info` : The bind info object of the table function.
+- `out_context` : The client context of the bind info. Must be destroyed with`duckdb_destroy_client_context` .
 
 #### 
         
-        `duckdb_bind_add_result_column`
+        [`duckdb_bind_add_result_column`](#duckdb_bind_add_result_column)
+        
+      
 
     
-`duckdb_bind_add_result_column`Adds a result column to the output of the table function.
+`duckdb_bind_add_result_column`
+Adds a result column to the output of the table function.
 
 ##### 
         
@@ -12565,16 +13593,19 @@ void duckdb_bind_add_result_column(
       
 
     
-- `info`: The table function's bind info.
-- `name`: The column name.
-- `type`: The logical column type.
+- `info` : The table function's bind info.
+- `name` : The column name.
+- `type` : The logical column type.
 
 #### 
         
-        `duckdb_bind_get_parameter_count`
+        [`duckdb_bind_get_parameter_count`](#duckdb_bind_get_parameter_count)
+        
+      
 
     
-`duckdb_bind_get_parameter_count`Retrieves the number of regular (non-named) parameters to the function.
+`duckdb_bind_get_parameter_count`
+Retrieves the number of regular (non-named) parameters to the function.
 
 ##### 
         
@@ -12595,7 +13626,7 @@ idx_t duckdb_bind_get_parameter_count(
       
 
     
-- `info`: The info object
+- `info` : The info object
 
 ##### 
         
@@ -12608,10 +13639,13 @@ The number of parameters
 
 #### 
         
-        `duckdb_bind_get_parameter`
+        [`duckdb_bind_get_parameter`](#duckdb_bind_get_parameter)
+        
+      
 
     
-`duckdb_bind_get_parameter`Retrieves the parameter at the given index.
+`duckdb_bind_get_parameter`
+Retrieves the parameter at the given index.
 
 The result must be destroyed with `duckdb_destroy_value`.
 
@@ -12635,8 +13669,8 @@ duckdb_value duckdb_bind_get_parameter(
       
 
     
-- `info`: The info object
-- `index`: The index of the parameter to get
+- `info` : The info object
+- `index` : The index of the parameter to get
 
 ##### 
         
@@ -12649,10 +13683,13 @@ The value of the parameter. Must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_bind_get_named_parameter`
+        [`duckdb_bind_get_named_parameter`](#duckdb_bind_get_named_parameter)
+        
+      
 
     
-`duckdb_bind_get_named_parameter`Retrieves a named parameter with the given name.
+`duckdb_bind_get_named_parameter`
+Retrieves a named parameter with the given name.
 
 The result must be destroyed with `duckdb_destroy_value`.
 
@@ -12676,8 +13713,8 @@ duckdb_value duckdb_bind_get_named_parameter(
       
 
     
-- `info`: The info object
-- `name`: The name of the parameter
+- `info` : The info object
+- `name` : The name of the parameter
 
 ##### 
         
@@ -12690,10 +13727,13 @@ The value of the parameter. Must be destroyed with `duckdb_destroy_value`.
 
 #### 
         
-        `duckdb_bind_set_bind_data`
+        [`duckdb_bind_set_bind_data`](#duckdb_bind_set_bind_data)
+        
+      
 
     
-`duckdb_bind_set_bind_data`Sets the user-provided bind data in the bind object of the table function. This object can be retrieved again during execution.
+`duckdb_bind_set_bind_data`
+Sets the user-provided bind data in the bind object of the table function. This object can be retrieved again during execution.
 
 ##### 
         
@@ -12716,16 +13756,19 @@ void duckdb_bind_set_bind_data(
       
 
     
-- `info`: The bind info of the table function.
-- `bind_data`: The bind data object.
-- `destroy`: The callback to destroy the bind data (if any).
+- `info` : The bind info of the table function.
+- `bind_data` : The bind data object.
+- `destroy` : The callback to destroy the bind data (if any).
 
 #### 
         
-        `duckdb_bind_set_cardinality`
+        [`duckdb_bind_set_cardinality`](#duckdb_bind_set_cardinality)
+        
+      
 
     
-`duckdb_bind_set_cardinality`Sets the cardinality estimate for the table function, used for optimization.
+`duckdb_bind_set_cardinality`
+Sets the cardinality estimate for the table function, used for optimization.
 
 ##### 
         
@@ -12748,15 +13791,18 @@ void duckdb_bind_set_cardinality(
       
 
     
-- `info`: The bind data object.
-- `is_exact`: Whether or not the cardinality estimate is exact, or an approximation
+- `info` : The bind data object.
+- `is_exact` : Whether or not the cardinality estimate is exact, or an approximation
 
 #### 
         
-        `duckdb_bind_set_error`
+        [`duckdb_bind_set_error`](#duckdb_bind_set_error)
+        
+      
 
     
-`duckdb_bind_set_error`Report that an error has occurred while calling bind on a table function.
+`duckdb_bind_set_error`
+Report that an error has occurred while calling bind on a table function.
 
 ##### 
         
@@ -12778,15 +13824,18 @@ void duckdb_bind_set_error(
       
 
     
-- `info`: The info object
-- `error`: The error message
+- `info` : The info object
+- `error` : The error message
 
 #### 
         
-        `duckdb_init_get_extra_info`
+        [`duckdb_init_get_extra_info`](#duckdb_init_get_extra_info)
+        
+      
 
     
-`duckdb_init_get_extra_info`Retrieves the extra info of the function as set in `duckdb_table_function_set_extra_info`.
+`duckdb_init_get_extra_info`
+Retrieves the extra info of the function as set in `duckdb_table_function_set_extra_info`.
 
 ##### 
         
@@ -12807,7 +13856,7 @@ void *duckdb_init_get_extra_info(
       
 
     
-- `info`: The info object
+- `info` : The info object
 
 ##### 
         
@@ -12820,10 +13869,13 @@ The extra info
 
 #### 
         
-        `duckdb_init_get_bind_data`
+        [`duckdb_init_get_bind_data`](#duckdb_init_get_bind_data)
+        
+      
 
     
-`duckdb_init_get_bind_data`Gets the bind data set by `duckdb_bind_set_bind_data` during the bind.
+`duckdb_init_get_bind_data`
+Gets the bind data set by `duckdb_bind_set_bind_data` during the bind.
 
 Note that the bind data should be considered as read-only. For tracking state, use the init data instead.
 
@@ -12846,7 +13898,7 @@ void *duckdb_init_get_bind_data(
       
 
     
-- `info`: The info object
+- `info` : The info object
 
 ##### 
         
@@ -12859,10 +13911,13 @@ The bind data object
 
 #### 
         
-        `duckdb_init_set_init_data`
+        [`duckdb_init_set_init_data`](#duckdb_init_set_init_data)
+        
+      
 
     
-`duckdb_init_set_init_data`Sets the user-provided init data in the init object. This object can be retrieved again during execution.
+`duckdb_init_set_init_data`
+Sets the user-provided init data in the init object. This object can be retrieved again during execution.
 
 ##### 
         
@@ -12885,16 +13940,19 @@ void duckdb_init_set_init_data(
       
 
     
-- `info`: The info object
-- `init_data`: The init data object.
-- `destroy`: The callback that will be called to destroy the init data (if any)
+- `info` : The info object
+- `init_data` : The init data object.
+- `destroy` : The callback that will be called to destroy the init data (if any)
 
 #### 
         
-        `duckdb_init_get_column_count`
+        [`duckdb_init_get_column_count`](#duckdb_init_get_column_count)
+        
+      
 
     
-`duckdb_init_get_column_count`Returns the number of projected columns.
+`duckdb_init_get_column_count`
+Returns the number of projected columns.
 
 This function must be used if projection pushdown is enabled to figure out which columns to emit.
 
@@ -12917,7 +13975,7 @@ idx_t duckdb_init_get_column_count(
       
 
     
-- `info`: The info object
+- `info` : The info object
 
 ##### 
         
@@ -12930,10 +13988,13 @@ The number of projected columns.
 
 #### 
         
-        `duckdb_init_get_column_index`
+        [`duckdb_init_get_column_index`](#duckdb_init_get_column_index)
+        
+      
 
     
-`duckdb_init_get_column_index`Returns the column index of the projected column at the specified position.
+`duckdb_init_get_column_index`
+Returns the column index of the projected column at the specified position.
 
 This function must be used if projection pushdown is enabled to figure out which columns to emit.
 
@@ -12957,8 +14018,8 @@ idx_t duckdb_init_get_column_index(
       
 
     
-- `info`: The info object
-- `column_index`: The index at which to get the projected column index, from 0..duckdb_init_get_column_count(info)
+- `info` : The info object
+- `column_index` : The index at which to get the projected column index, from 0..duckdb_init_get_column_count(info)
 
 ##### 
         
@@ -12971,10 +14032,13 @@ The column index of the projected column.
 
 #### 
         
-        `duckdb_init_set_max_threads`
+        [`duckdb_init_set_max_threads`](#duckdb_init_set_max_threads)
+        
+      
 
     
-`duckdb_init_set_max_threads`Sets how many threads can process this table function in parallel (default: 1)
+`duckdb_init_set_max_threads`
+Sets how many threads can process this table function in parallel (default: 1)
 
 ##### 
         
@@ -12996,15 +14060,18 @@ void duckdb_init_set_max_threads(
       
 
     
-- `info`: The info object
-- `max_threads`: The maximum amount of threads that can process this table function
+- `info` : The info object
+- `max_threads` : The maximum amount of threads that can process this table function
 
 #### 
         
-        `duckdb_init_set_error`
+        [`duckdb_init_set_error`](#duckdb_init_set_error)
+        
+      
 
     
-`duckdb_init_set_error`Report that an error has occurred while calling init.
+`duckdb_init_set_error`
+Report that an error has occurred while calling init.
 
 ##### 
         
@@ -13026,15 +14093,18 @@ void duckdb_init_set_error(
       
 
     
-- `info`: The info object
-- `error`: The error message
+- `info` : The info object
+- `error` : The error message
 
 #### 
         
-        `duckdb_function_get_extra_info`
+        [`duckdb_function_get_extra_info`](#duckdb_function_get_extra_info)
+        
+      
 
     
-`duckdb_function_get_extra_info`Retrieves the extra info of the function as set in `duckdb_table_function_set_extra_info`.
+`duckdb_function_get_extra_info`
+Retrieves the extra info of the function as set in `duckdb_table_function_set_extra_info`.
 
 ##### 
         
@@ -13055,7 +14125,7 @@ void *duckdb_function_get_extra_info(
       
 
     
-- `info`: The info object
+- `info` : The info object
 
 ##### 
         
@@ -13068,10 +14138,13 @@ The extra info
 
 #### 
         
-        `duckdb_function_get_bind_data`
+        [`duckdb_function_get_bind_data`](#duckdb_function_get_bind_data)
+        
+      
 
     
-`duckdb_function_get_bind_data`Gets the table function's bind data set by `duckdb_bind_set_bind_data`.
+`duckdb_function_get_bind_data`
+Gets the table function's bind data set by `duckdb_bind_set_bind_data`.
 
 Note that the bind data is read-only. For tracking state, use the init data instead.
 
@@ -13094,7 +14167,7 @@ void *duckdb_function_get_bind_data(
       
 
     
-- `info`: The function info object.
+- `info` : The function info object.
 
 ##### 
         
@@ -13107,10 +14180,13 @@ The bind data object.
 
 #### 
         
-        `duckdb_function_get_init_data`
+        [`duckdb_function_get_init_data`](#duckdb_function_get_init_data)
+        
+      
 
     
-`duckdb_function_get_init_data`Gets the init data set by `duckdb_init_set_init_data` during the init.
+`duckdb_function_get_init_data`
+Gets the init data set by `duckdb_init_set_init_data` during the init.
 
 ##### 
         
@@ -13131,7 +14207,7 @@ void *duckdb_function_get_init_data(
       
 
     
-- `info`: The info object
+- `info` : The info object
 
 ##### 
         
@@ -13144,10 +14220,13 @@ The init data object
 
 #### 
         
-        `duckdb_function_get_local_init_data`
+        [`duckdb_function_get_local_init_data`](#duckdb_function_get_local_init_data)
+        
+      
 
     
-`duckdb_function_get_local_init_data`Gets the thread-local init data set by `duckdb_init_set_init_data` during the local_init.
+`duckdb_function_get_local_init_data`
+Gets the thread-local init data set by `duckdb_init_set_init_data` during the local_init.
 
 ##### 
         
@@ -13168,7 +14247,7 @@ void *duckdb_function_get_local_init_data(
       
 
     
-- `info`: The info object
+- `info` : The info object
 
 ##### 
         
@@ -13181,10 +14260,13 @@ The init data object
 
 #### 
         
-        `duckdb_function_set_error`
+        [`duckdb_function_set_error`](#duckdb_function_set_error)
+        
+      
 
     
-`duckdb_function_set_error`Report that an error has occurred while executing the function.
+`duckdb_function_set_error`
+Report that an error has occurred while executing the function.
 
 ##### 
         
@@ -13206,15 +14288,18 @@ void duckdb_function_set_error(
       
 
     
-- `info`: The info object
-- `error`: The error message
+- `info` : The info object
+- `error` : The error message
 
 #### 
         
-        `duckdb_add_replacement_scan`
+        [`duckdb_add_replacement_scan`](#duckdb_add_replacement_scan)
+        
+      
 
     
-`duckdb_add_replacement_scan`Add a replacement scan definition to the specified database.
+`duckdb_add_replacement_scan`
+Add a replacement scan definition to the specified database.
 
 ##### 
         
@@ -13238,17 +14323,20 @@ void duckdb_add_replacement_scan(
       
 
     
-- `db`: The database object to add the replacement scan to
-- `replacement`: The replacement scan callback
-- `extra_data`: Extra data that is passed back into the specified callback
-- `delete_callback`: The delete callback to call on the extra data, if any
+- `db` : The database object to add the replacement scan to
+- `replacement` : The replacement scan callback
+- `extra_data` : Extra data that is passed back into the specified callback
+- `delete_callback` : The delete callback to call on the extra data, if any
 
 #### 
         
-        `duckdb_replacement_scan_set_function_name`
+        [`duckdb_replacement_scan_set_function_name`](#duckdb_replacement_scan_set_function_name)
+        
+      
 
     
-`duckdb_replacement_scan_set_function_name`Sets the replacement function name. If this function is called in the replacement callback, the replacement scan is performed. If it is not called, the replacement callback is not performed.
+`duckdb_replacement_scan_set_function_name`
+Sets the replacement function name. If this function is called in the replacement callback, the replacement scan is performed. If it is not called, the replacement callback is not performed.
 
 ##### 
         
@@ -13270,15 +14358,18 @@ void duckdb_replacement_scan_set_function_name(
       
 
     
-- `info`: The info object
-- `function_name`: The function name to substitute.
+- `info` : The info object
+- `function_name` : The function name to substitute.
 
 #### 
         
-        `duckdb_replacement_scan_add_parameter`
+        [`duckdb_replacement_scan_add_parameter`](#duckdb_replacement_scan_add_parameter)
+        
+      
 
     
-`duckdb_replacement_scan_add_parameter`Adds a parameter to the replacement scan function.
+`duckdb_replacement_scan_add_parameter`
+Adds a parameter to the replacement scan function.
 
 ##### 
         
@@ -13300,15 +14391,18 @@ void duckdb_replacement_scan_add_parameter(
       
 
     
-- `info`: The info object
-- `parameter`: The parameter to add.
+- `info` : The info object
+- `parameter` : The parameter to add.
 
 #### 
         
-        `duckdb_replacement_scan_set_error`
+        [`duckdb_replacement_scan_set_error`](#duckdb_replacement_scan_set_error)
+        
+      
 
     
-`duckdb_replacement_scan_set_error`Report that an error has occurred while executing the replacement scan.
+`duckdb_replacement_scan_set_error`
+Report that an error has occurred while executing the replacement scan.
 
 ##### 
         
@@ -13330,15 +14424,18 @@ void duckdb_replacement_scan_set_error(
       
 
     
-- `info`: The info object
-- `error`: The error message
+- `info` : The info object
+- `error` : The error message
 
 #### 
         
-        `duckdb_get_profiling_info`
+        [`duckdb_get_profiling_info`](#duckdb_get_profiling_info)
+        
+      
 
     
-`duckdb_get_profiling_info`Returns the root node of the profiling information. Returns nullptr, if profiling is not enabled.
+`duckdb_get_profiling_info`
+Returns the root node of the profiling information. Returns nullptr, if profiling is not enabled.
 
 ##### 
         
@@ -13359,7 +14456,7 @@ duckdb_profiling_info duckdb_get_profiling_info(
       
 
     
-- `connection`: A connection object.
+- `connection` : A connection object.
 
 ##### 
         
@@ -13372,10 +14469,13 @@ A profiling information object.
 
 #### 
         
-        `duckdb_profiling_info_get_value`
+        [`duckdb_profiling_info_get_value`](#duckdb_profiling_info_get_value)
+        
+      
 
     
-`duckdb_profiling_info_get_value`Returns the value of the metric of the current profiling info node. Returns nullptr, if the metric does not exist or is not enabled. Currently, the value holds a string, and you can retrieve the string by calling the corresponding function: char *duckdb_get_varchar(duckdb_value value).
+`duckdb_profiling_info_get_value`
+Returns the value of the metric of the current profiling info node. Returns nullptr, if the metric does not exist or is not enabled. Currently, the value holds a string, and you can retrieve the string by calling the corresponding function: char *duckdb_get_varchar(duckdb_value value).
 
 ##### 
         
@@ -13397,8 +14497,8 @@ duckdb_value duckdb_profiling_info_get_value(
       
 
     
-- `info`: A profiling information object.
-- `key`: The name of the requested metric.
+- `info` : A profiling information object.
+- `key` : The name of the requested metric.
 
 ##### 
         
@@ -13411,10 +14511,13 @@ The value of the metric. Must be freed with `duckdb_destroy_value`
 
 #### 
         
-        `duckdb_profiling_info_get_metrics`
+        [`duckdb_profiling_info_get_metrics`](#duckdb_profiling_info_get_metrics)
+        
+      
 
     
-`duckdb_profiling_info_get_metrics`Returns the key-value metric map of this profiling node as a MAP duckdb_value. The individual elements are accessible via the duckdb_value MAP functions.
+`duckdb_profiling_info_get_metrics`
+Returns the key-value metric map of this profiling node as a MAP duckdb_value. The individual elements are accessible via the duckdb_value MAP functions.
 
 ##### 
         
@@ -13435,7 +14538,7 @@ duckdb_value duckdb_profiling_info_get_metrics(
       
 
     
-- `info`: A profiling information object.
+- `info` : A profiling information object.
 
 ##### 
         
@@ -13448,10 +14551,13 @@ The key-value metric map as a MAP duckdb_value.
 
 #### 
         
-        `duckdb_profiling_info_get_child_count`
+        [`duckdb_profiling_info_get_child_count`](#duckdb_profiling_info_get_child_count)
+        
+      
 
     
-`duckdb_profiling_info_get_child_count`Returns the number of children in the current profiling info node.
+`duckdb_profiling_info_get_child_count`
+Returns the number of children in the current profiling info node.
 
 ##### 
         
@@ -13472,7 +14578,7 @@ idx_t duckdb_profiling_info_get_child_count(
       
 
     
-- `info`: A profiling information object.
+- `info` : A profiling information object.
 
 ##### 
         
@@ -13485,10 +14591,13 @@ The number of children in the current node.
 
 #### 
         
-        `duckdb_profiling_info_get_child`
+        [`duckdb_profiling_info_get_child`](#duckdb_profiling_info_get_child)
+        
+      
 
     
-`duckdb_profiling_info_get_child`Returns the child node at the specified index.
+`duckdb_profiling_info_get_child`
+Returns the child node at the specified index.
 
 ##### 
         
@@ -13510,8 +14619,8 @@ duckdb_profiling_info duckdb_profiling_info_get_child(
       
 
     
-- `info`: A profiling information object.
-- `index`: The index of the child node.
+- `info` : A profiling information object.
+- `index` : The index of the child node.
 
 ##### 
         
@@ -13524,10 +14633,13 @@ The child node at the specified index.
 
 #### 
         
-        `duckdb_appender_create`
+        [`duckdb_appender_create`](#duckdb_appender_create)
+        
+      
 
     
-`duckdb_appender_create`Creates an appender object.
+`duckdb_appender_create`
+Creates an appender object.
 
 Note that the object must be destroyed with `duckdb_appender_destroy`.
 
@@ -13553,10 +14665,10 @@ duckdb_state duckdb_appender_create(
       
 
     
-- `connection`: The connection context to create the appender in.
-- `schema`: The schema of the table to append to, or- `nullptr`for the default schema.
-- `table`: The table name to append to.
-- `out_appender`: The resulting appender object.
+- `connection` : The connection context to create the appender in.
+- `schema` : The schema of the table to append to, or`nullptr` for the default schema.
+- `table` : The table name to append to.
+- `out_appender` : The resulting appender object.
 
 ##### 
         
@@ -13569,10 +14681,13 @@ duckdb_state duckdb_appender_create(
 
 #### 
         
-        `duckdb_appender_create_ext`
+        [`duckdb_appender_create_ext`](#duckdb_appender_create_ext)
+        
+      
 
     
-`duckdb_appender_create_ext`Creates an appender object.
+`duckdb_appender_create_ext`
+Creates an appender object.
 
 Note that the object must be destroyed with `duckdb_appender_destroy`.
 
@@ -13599,11 +14714,11 @@ duckdb_state duckdb_appender_create_ext(
       
 
     
-- `connection`: The connection context to create the appender in.
-- `catalog`: The catalog of the table to append to, or- `nullptr`for the default catalog.
-- `schema`: The schema of the table to append to, or- `nullptr`for the default schema.
-- `table`: The table name to append to.
-- `out_appender`: The resulting appender object.
+- `connection` : The connection context to create the appender in.
+- `catalog` : The catalog of the table to append to, or`nullptr` for the default catalog.
+- `schema` : The schema of the table to append to, or`nullptr` for the default schema.
+- `table` : The table name to append to.
+- `out_appender` : The resulting appender object.
 
 ##### 
         
@@ -13616,10 +14731,13 @@ duckdb_state duckdb_appender_create_ext(
 
 #### 
         
-        `duckdb_appender_create_query`
+        [`duckdb_appender_create_query`](#duckdb_appender_create_query)
+        
+      
 
     
-`duckdb_appender_create_query`Creates an appender object that executes the given query with any data appended to it.
+`duckdb_appender_create_query`
+Creates an appender object that executes the given query with any data appended to it.
 
 Note that the object must be destroyed with `duckdb_appender_destroy`.
 
@@ -13648,13 +14766,13 @@ duckdb_state duckdb_appender_create_query(
       
 
     
-- `connection`: The connection context to create the appender in.
-- `query`: The query to execute, can be an INSERT, DELETE, UPDATE or MERGE INTO statement.
-- `column_count`: The number of columns to append.
-- `types`: The types of the columns to append.
-- `table_name`: (optionally) the table name used to refer to the appended data, defaults to "appended_data".
-- `column_names`: (optionally) the list of column names, defaults to "col1", "col2", …
-- `out_appender`: The resulting appender object.
+- `connection` : The connection context to create the appender in.
+- `query` : The query to execute, can be an INSERT, DELETE, UPDATE or MERGE INTO statement.
+- `column_count` : The number of columns to append.
+- `types` : The types of the columns to append.
+- `table_name` : (optionally) the table name used to refer to the appended data, defaults to "appended_data".
+- `column_names` : (optionally) the list of column names, defaults to "col1", "col2", …
+- `out_appender` : The resulting appender object.
 
 ##### 
         
@@ -13667,10 +14785,13 @@ duckdb_state duckdb_appender_create_query(
 
 #### 
         
-        `duckdb_appender_column_count`
+        [`duckdb_appender_column_count`](#duckdb_appender_column_count)
+        
+      
 
     
-`duckdb_appender_column_count`Returns the number of columns that belong to the appender. If there is no active column list, then this equals the table's physical columns.
+`duckdb_appender_column_count`
+Returns the number of columns that belong to the appender. If there is no active column list, then this equals the table's physical columns.
 
 ##### 
         
@@ -13691,7 +14812,7 @@ idx_t duckdb_appender_column_count(
       
 
     
-- `appender`: The appender to get the column count from.
+- `appender` : The appender to get the column count from.
 
 ##### 
         
@@ -13704,10 +14825,13 @@ The number of columns in the data chunks.
 
 #### 
         
-        `duckdb_appender_column_type`
+        [`duckdb_appender_column_type`](#duckdb_appender_column_type)
+        
+      
 
     
-`duckdb_appender_column_type`Returns the type of the column at the specified index. This is either a type in the active column list, or the same type as a column in the receiving table.
+`duckdb_appender_column_type`
+Returns the type of the column at the specified index. This is either a type in the active column list, or the same type as a column in the receiving table.
 
 Note: The resulting type must be destroyed with `duckdb_destroy_logical_type`.
 
@@ -13731,8 +14855,8 @@ duckdb_logical_type duckdb_appender_column_type(
       
 
     
-- `appender`: The appender to get the column type from.
-- `col_idx`: The index of the column to get the type of.
+- `appender` : The appender to get the column type from.
+- `col_idx` : The index of the column to get the type of.
 
 ##### 
         
@@ -13745,10 +14869,13 @@ The `duckdb_logical_type` of the column.
 
 #### 
         
-        `duckdb_appender_error`
+        [`duckdb_appender_error`](#duckdb_appender_error)
+        
+      
 
     
-`duckdb_appender_error`Warning Deprecation notice. This method is scheduled for removal in a future release. Use duckdb_appender_error_data instead.
+`duckdb_appender_error`
+  Warning Deprecation notice. This method is scheduled for removal in a future release. Use duckdb_appender_error_data instead.
 
 Returns the error message associated with the appender.
 If the appender has no error message, this returns `nullptr` instead.
@@ -13774,7 +14901,7 @@ const char *duckdb_appender_error(
       
 
     
-- `appender`: The appender to get the error from.
+- `appender` : The appender to get the error from.
 
 ##### 
         
@@ -13787,10 +14914,13 @@ The error message, or `nullptr` if there is none.
 
 #### 
         
-        `duckdb_appender_error_data`
+        [`duckdb_appender_error_data`](#duckdb_appender_error_data)
+        
+      
 
     
-`duckdb_appender_error_data`Returns the error data associated with the appender. Must be destroyed with duckdb_destroy_error_data.
+`duckdb_appender_error_data`
+Returns the error data associated with the appender. Must be destroyed with duckdb_destroy_error_data.
 
 ##### 
         
@@ -13811,7 +14941,7 @@ duckdb_error_data duckdb_appender_error_data(
       
 
     
-- `appender`: The appender to get the error data from.
+- `appender` : The appender to get the error data from.
 
 ##### 
         
@@ -13824,10 +14954,13 @@ The error data.
 
 #### 
         
-        `duckdb_appender_flush`
+        [`duckdb_appender_flush`](#duckdb_appender_flush)
+        
+      
 
     
-`duckdb_appender_flush`Flush the appender to the table, forcing the cache of the appender to be cleared. If flushing the data triggers a constraint violation or any other error, then all data is invalidated, and this function returns DuckDBError. It is not possible to append more values. Call duckdb_appender_error_data to obtain the error data followed by duckdb_appender_destroy to destroy the invalidated appender.
+`duckdb_appender_flush`
+Flush the appender to the table, forcing the cache of the appender to be cleared. If flushing the data triggers a constraint violation or any other error, then all data is invalidated, and this function returns DuckDBError. It is not possible to append more values. Call duckdb_appender_error_data to obtain the error data followed by duckdb_appender_destroy to destroy the invalidated appender.
 
 ##### 
         
@@ -13848,7 +14981,7 @@ duckdb_state duckdb_appender_flush(
       
 
     
-- `appender`: The appender to flush.
+- `appender` : The appender to flush.
 
 ##### 
         
@@ -13861,10 +14994,13 @@ duckdb_state duckdb_appender_flush(
 
 #### 
         
-        `duckdb_appender_close`
+        [`duckdb_appender_close`](#duckdb_appender_close)
+        
+      
 
     
-`duckdb_appender_close`Closes the appender by flushing all intermediate states and closing it for further appends. If flushing the data triggers a constraint violation or any other error, then all data is invalidated, and this function returns DuckDBError. Call duckdb_appender_error_data to obtain the error data followed by duckdb_appender_destroy to destroy the invalidated appender.
+`duckdb_appender_close`
+Closes the appender by flushing all intermediate states and closing it for further appends. If flushing the data triggers a constraint violation or any other error, then all data is invalidated, and this function returns DuckDBError. Call duckdb_appender_error_data to obtain the error data followed by duckdb_appender_destroy to destroy the invalidated appender.
 
 ##### 
         
@@ -13885,7 +15021,7 @@ duckdb_state duckdb_appender_close(
       
 
     
-- `appender`: The appender to flush and close.
+- `appender` : The appender to flush and close.
 
 ##### 
         
@@ -13898,10 +15034,13 @@ duckdb_state duckdb_appender_close(
 
 #### 
         
-        `duckdb_appender_destroy`
+        [`duckdb_appender_destroy`](#duckdb_appender_destroy)
+        
+      
 
     
-`duckdb_appender_destroy`Closes the appender by flushing all intermediate states to the table and destroying it. By destroying it, this function de-allocates all memory associated with the appender. If flushing the data triggers a constraint violation, then all data is invalidated, and this function returns DuckDBError. Due to the destruction of the appender, it is no longer possible to obtain the specific error message with duckdb_appender_error. Therefore, call duckdb_appender_close before destroying the appender, if you need insights into the specific error.
+`duckdb_appender_destroy`
+Closes the appender by flushing all intermediate states to the table and destroying it. By destroying it, this function de-allocates all memory associated with the appender. If flushing the data triggers a constraint violation, then all data is invalidated, and this function returns DuckDBError. Due to the destruction of the appender, it is no longer possible to obtain the specific error message with duckdb_appender_error. Therefore, call duckdb_appender_close before destroying the appender, if you need insights into the specific error.
 
 ##### 
         
@@ -13922,7 +15061,7 @@ duckdb_state duckdb_appender_destroy(
       
 
     
-- `appender`: The appender to flush, close and destroy.
+- `appender` : The appender to flush, close and destroy.
 
 ##### 
         
@@ -13935,10 +15074,13 @@ duckdb_state duckdb_appender_destroy(
 
 #### 
         
-        `duckdb_appender_add_column`
+        [`duckdb_appender_add_column`](#duckdb_appender_add_column)
+        
+      
 
     
-`duckdb_appender_add_column`Appends a column to the active column list of the appender. Immediately flushes all previous data.
+`duckdb_appender_add_column`
+Appends a column to the active column list of the appender. Immediately flushes all previous data.
 
 The active column list specifies all columns that are expected when flushing the data. Any non-active columns are filled with their default values, or NULL.
 
@@ -13962,7 +15104,7 @@ duckdb_state duckdb_appender_add_column(
       
 
     
-- `appender`: The appender to add the column to.
+- `appender` : The appender to add the column to.
 
 ##### 
         
@@ -13975,10 +15117,13 @@ duckdb_state duckdb_appender_add_column(
 
 #### 
         
-        `duckdb_appender_clear_columns`
+        [`duckdb_appender_clear_columns`](#duckdb_appender_clear_columns)
+        
+      
 
     
-`duckdb_appender_clear_columns`Removes all columns from the active column list of the appender, resetting the appender to treat all columns as active. Immediately flushes all previous data.
+`duckdb_appender_clear_columns`
+Removes all columns from the active column list of the appender, resetting the appender to treat all columns as active. Immediately flushes all previous data.
 
 ##### 
         
@@ -13999,7 +15144,7 @@ duckdb_state duckdb_appender_clear_columns(
       
 
     
-- `appender`: The appender to clear the columns from.
+- `appender` : The appender to clear the columns from.
 
 ##### 
         
@@ -14012,10 +15157,13 @@ duckdb_state duckdb_appender_clear_columns(
 
 #### 
         
-        `duckdb_appender_begin_row`
+        [`duckdb_appender_begin_row`](#duckdb_appender_begin_row)
+        
+      
 
     
-`duckdb_appender_begin_row`A nop function, provided for backwards compatibility reasons. Does nothing. Only `duckdb_appender_end_row` is required.
+`duckdb_appender_begin_row`
+A nop function, provided for backwards compatibility reasons. Does nothing. Only `duckdb_appender_end_row` is required.
 
 ##### 
         
@@ -14031,10 +15179,13 @@ duckdb_state duckdb_appender_begin_row(
 ```
 #### 
         
-        `duckdb_appender_end_row`
+        [`duckdb_appender_end_row`](#duckdb_appender_end_row)
+        
+      
 
     
-`duckdb_appender_end_row`Finish the current row of appends. After end_row is called, the next row can be appended.
+`duckdb_appender_end_row`
+Finish the current row of appends. After end_row is called, the next row can be appended.
 
 ##### 
         
@@ -14055,7 +15206,7 @@ duckdb_state duckdb_appender_end_row(
       
 
     
-- `appender`: The appender.
+- `appender` : The appender.
 
 ##### 
         
@@ -14068,10 +15219,13 @@ duckdb_state duckdb_appender_end_row(
 
 #### 
         
-        `duckdb_append_default`
+        [`duckdb_append_default`](#duckdb_append_default)
+        
+      
 
     
-`duckdb_append_default`Append a DEFAULT value (NULL if DEFAULT not available for column) to the appender.
+`duckdb_append_default`
+Append a DEFAULT value (NULL if DEFAULT not available for column) to the appender.
 
 ##### 
         
@@ -14087,10 +15241,13 @@ duckdb_state duckdb_append_default(
 ```
 #### 
         
-        `duckdb_append_default_to_chunk`
+        [`duckdb_append_default_to_chunk`](#duckdb_append_default_to_chunk)
+        
+      
 
     
-`duckdb_append_default_to_chunk`Append a DEFAULT value, at the specified row and column, (NULL if DEFAULT not available for column) to the chunk created from the specified appender. The default value of the column must be a constant value. Non-deterministic expressions like nextval('seq') or random() are not supported.
+`duckdb_append_default_to_chunk`
+Append a DEFAULT value, at the specified row and column, (NULL if DEFAULT not available for column) to the chunk created from the specified appender. The default value of the column must be a constant value. Non-deterministic expressions like nextval('seq') or random() are not supported.
 
 ##### 
         
@@ -14114,10 +15271,10 @@ duckdb_state duckdb_append_default_to_chunk(
       
 
     
-- `appender`: The appender to get the default value from.
-- `chunk`: The data chunk to append the default value to.
-- `col`: The chunk column index to append the default value to.
-- `row`: The chunk row index to append the default value to.
+- `appender` : The appender to get the default value from.
+- `chunk` : The data chunk to append the default value to.
+- `col` : The chunk column index to append the default value to.
+- `row` : The chunk row index to append the default value to.
 
 ##### 
         
@@ -14130,10 +15287,13 @@ duckdb_state duckdb_append_default_to_chunk(
 
 #### 
         
-        `duckdb_append_bool`
+        [`duckdb_append_bool`](#duckdb_append_bool)
+        
+      
 
     
-`duckdb_append_bool`Append a bool value to the appender.
+`duckdb_append_bool`
+Append a bool value to the appender.
 
 ##### 
         
@@ -14150,10 +15310,13 @@ duckdb_state duckdb_append_bool(
 ```
 #### 
         
-        `duckdb_append_int8`
+        [`duckdb_append_int8`](#duckdb_append_int8)
+        
+      
 
     
-`duckdb_append_int8`Append an int8_t value to the appender.
+`duckdb_append_int8`
+Append an int8_t value to the appender.
 
 ##### 
         
@@ -14170,10 +15333,13 @@ duckdb_state duckdb_append_int8(
 ```
 #### 
         
-        `duckdb_append_int16`
+        [`duckdb_append_int16`](#duckdb_append_int16)
+        
+      
 
     
-`duckdb_append_int16`Append an int16_t value to the appender.
+`duckdb_append_int16`
+Append an int16_t value to the appender.
 
 ##### 
         
@@ -14190,10 +15356,13 @@ duckdb_state duckdb_append_int16(
 ```
 #### 
         
-        `duckdb_append_int32`
+        [`duckdb_append_int32`](#duckdb_append_int32)
+        
+      
 
     
-`duckdb_append_int32`Append an int32_t value to the appender.
+`duckdb_append_int32`
+Append an int32_t value to the appender.
 
 ##### 
         
@@ -14210,10 +15379,13 @@ duckdb_state duckdb_append_int32(
 ```
 #### 
         
-        `duckdb_append_int64`
+        [`duckdb_append_int64`](#duckdb_append_int64)
+        
+      
 
     
-`duckdb_append_int64`Append an int64_t value to the appender.
+`duckdb_append_int64`
+Append an int64_t value to the appender.
 
 ##### 
         
@@ -14230,10 +15402,13 @@ duckdb_state duckdb_append_int64(
 ```
 #### 
         
-        `duckdb_append_hugeint`
+        [`duckdb_append_hugeint`](#duckdb_append_hugeint)
+        
+      
 
     
-`duckdb_append_hugeint`Append a duckdb_hugeint value to the appender.
+`duckdb_append_hugeint`
+Append a duckdb_hugeint value to the appender.
 
 ##### 
         
@@ -14250,10 +15425,13 @@ duckdb_state duckdb_append_hugeint(
 ```
 #### 
         
-        `duckdb_append_uint8`
+        [`duckdb_append_uint8`](#duckdb_append_uint8)
+        
+      
 
     
-`duckdb_append_uint8`Append a uint8_t value to the appender.
+`duckdb_append_uint8`
+Append a uint8_t value to the appender.
 
 ##### 
         
@@ -14270,10 +15448,13 @@ duckdb_state duckdb_append_uint8(
 ```
 #### 
         
-        `duckdb_append_uint16`
+        [`duckdb_append_uint16`](#duckdb_append_uint16)
+        
+      
 
     
-`duckdb_append_uint16`Append a uint16_t value to the appender.
+`duckdb_append_uint16`
+Append a uint16_t value to the appender.
 
 ##### 
         
@@ -14290,10 +15471,13 @@ duckdb_state duckdb_append_uint16(
 ```
 #### 
         
-        `duckdb_append_uint32`
+        [`duckdb_append_uint32`](#duckdb_append_uint32)
+        
+      
 
     
-`duckdb_append_uint32`Append a uint32_t value to the appender.
+`duckdb_append_uint32`
+Append a uint32_t value to the appender.
 
 ##### 
         
@@ -14310,10 +15494,13 @@ duckdb_state duckdb_append_uint32(
 ```
 #### 
         
-        `duckdb_append_uint64`
+        [`duckdb_append_uint64`](#duckdb_append_uint64)
+        
+      
 
     
-`duckdb_append_uint64`Append a uint64_t value to the appender.
+`duckdb_append_uint64`
+Append a uint64_t value to the appender.
 
 ##### 
         
@@ -14330,10 +15517,13 @@ duckdb_state duckdb_append_uint64(
 ```
 #### 
         
-        `duckdb_append_uhugeint`
+        [`duckdb_append_uhugeint`](#duckdb_append_uhugeint)
+        
+      
 
     
-`duckdb_append_uhugeint`Append a duckdb_uhugeint value to the appender.
+`duckdb_append_uhugeint`
+Append a duckdb_uhugeint value to the appender.
 
 ##### 
         
@@ -14350,10 +15540,13 @@ duckdb_state duckdb_append_uhugeint(
 ```
 #### 
         
-        `duckdb_append_float`
+        [`duckdb_append_float`](#duckdb_append_float)
+        
+      
 
     
-`duckdb_append_float`Append a float value to the appender.
+`duckdb_append_float`
+Append a float value to the appender.
 
 ##### 
         
@@ -14370,10 +15563,13 @@ duckdb_state duckdb_append_float(
 ```
 #### 
         
-        `duckdb_append_double`
+        [`duckdb_append_double`](#duckdb_append_double)
+        
+      
 
     
-`duckdb_append_double`Append a double value to the appender.
+`duckdb_append_double`
+Append a double value to the appender.
 
 ##### 
         
@@ -14390,10 +15586,13 @@ duckdb_state duckdb_append_double(
 ```
 #### 
         
-        `duckdb_append_date`
+        [`duckdb_append_date`](#duckdb_append_date)
+        
+      
 
     
-`duckdb_append_date`Append a duckdb_date value to the appender.
+`duckdb_append_date`
+Append a duckdb_date value to the appender.
 
 ##### 
         
@@ -14410,10 +15609,13 @@ duckdb_state duckdb_append_date(
 ```
 #### 
         
-        `duckdb_append_time`
+        [`duckdb_append_time`](#duckdb_append_time)
+        
+      
 
     
-`duckdb_append_time`Append a duckdb_time value to the appender.
+`duckdb_append_time`
+Append a duckdb_time value to the appender.
 
 ##### 
         
@@ -14430,10 +15632,13 @@ duckdb_state duckdb_append_time(
 ```
 #### 
         
-        `duckdb_append_timestamp`
+        [`duckdb_append_timestamp`](#duckdb_append_timestamp)
+        
+      
 
     
-`duckdb_append_timestamp`Append a duckdb_timestamp value to the appender.
+`duckdb_append_timestamp`
+Append a duckdb_timestamp value to the appender.
 
 ##### 
         
@@ -14450,10 +15655,13 @@ duckdb_state duckdb_append_timestamp(
 ```
 #### 
         
-        `duckdb_append_interval`
+        [`duckdb_append_interval`](#duckdb_append_interval)
+        
+      
 
     
-`duckdb_append_interval`Append a duckdb_interval value to the appender.
+`duckdb_append_interval`
+Append a duckdb_interval value to the appender.
 
 ##### 
         
@@ -14470,10 +15678,13 @@ duckdb_state duckdb_append_interval(
 ```
 #### 
         
-        `duckdb_append_varchar`
+        [`duckdb_append_varchar`](#duckdb_append_varchar)
+        
+      
 
     
-`duckdb_append_varchar`Append a varchar value to the appender.
+`duckdb_append_varchar`
+Append a varchar value to the appender.
 
 ##### 
         
@@ -14490,10 +15701,13 @@ duckdb_state duckdb_append_varchar(
 ```
 #### 
         
-        `duckdb_append_varchar_length`
+        [`duckdb_append_varchar_length`](#duckdb_append_varchar_length)
+        
+      
 
     
-`duckdb_append_varchar_length`Append a varchar value to the appender.
+`duckdb_append_varchar_length`
+Append a varchar value to the appender.
 
 ##### 
         
@@ -14511,10 +15725,13 @@ duckdb_state duckdb_append_varchar_length(
 ```
 #### 
         
-        `duckdb_append_blob`
+        [`duckdb_append_blob`](#duckdb_append_blob)
+        
+      
 
     
-`duckdb_append_blob`Append a blob value to the appender.
+`duckdb_append_blob`
+Append a blob value to the appender.
 
 ##### 
         
@@ -14532,10 +15749,13 @@ duckdb_state duckdb_append_blob(
 ```
 #### 
         
-        `duckdb_append_null`
+        [`duckdb_append_null`](#duckdb_append_null)
+        
+      
 
     
-`duckdb_append_null`Append a NULL value to the appender (of any type).
+`duckdb_append_null`
+Append a NULL value to the appender (of any type).
 
 ##### 
         
@@ -14551,10 +15771,13 @@ duckdb_state duckdb_append_null(
 ```
 #### 
         
-        `duckdb_append_value`
+        [`duckdb_append_value`](#duckdb_append_value)
+        
+      
 
     
-`duckdb_append_value`Append a duckdb_value to the appender.
+`duckdb_append_value`
+Append a duckdb_value to the appender.
 
 ##### 
         
@@ -14571,10 +15794,13 @@ duckdb_state duckdb_append_value(
 ```
 #### 
         
-        `duckdb_append_data_chunk`
+        [`duckdb_append_data_chunk`](#duckdb_append_data_chunk)
+        
+      
 
     
-`duckdb_append_data_chunk`Appends a pre-filled data chunk to the specified appender. Attempts casting, if the data chunk types do not match the active appender types.
+`duckdb_append_data_chunk`
+Appends a pre-filled data chunk to the specified appender. Attempts casting, if the data chunk types do not match the active appender types.
 
 ##### 
         
@@ -14596,8 +15822,8 @@ duckdb_state duckdb_append_data_chunk(
       
 
     
-- `appender`: The appender to append to.
-- `chunk`: The data chunk to append.
+- `appender` : The appender to append to.
+- `chunk` : The data chunk to append.
 
 ##### 
         
@@ -14610,10 +15836,13 @@ duckdb_state duckdb_append_data_chunk(
 
 #### 
         
-        `duckdb_table_description_create`
+        [`duckdb_table_description_create`](#duckdb_table_description_create)
+        
+      
 
     
-`duckdb_table_description_create`Creates a table description object. Note that `duckdb_table_description_destroy` should always be called on the
+`duckdb_table_description_create`
+Creates a table description object. Note that `duckdb_table_description_destroy` should always be called on the
 resulting table_description, even if the function returns `DuckDBError`.
 
 ##### 
@@ -14638,10 +15867,10 @@ duckdb_state duckdb_table_description_create(
       
 
     
-- `connection`: The connection context.
-- `schema`: The schema of the table, or- `nullptr`for the default schema.
-- `table`: The table name.
-- `out`: The resulting table description object.
+- `connection` : The connection context.
+- `schema` : The schema of the table, or`nullptr` for the default schema.
+- `table` : The table name.
+- `out` : The resulting table description object.
 
 ##### 
         
@@ -14654,10 +15883,13 @@ duckdb_state duckdb_table_description_create(
 
 #### 
         
-        `duckdb_table_description_create_ext`
+        [`duckdb_table_description_create_ext`](#duckdb_table_description_create_ext)
+        
+      
 
     
-`duckdb_table_description_create_ext`Creates a table description object. Note that `duckdb_table_description_destroy` must be called on the resulting
+`duckdb_table_description_create_ext`
+Creates a table description object. Note that `duckdb_table_description_destroy` must be called on the resulting
 table_description, even if the function returns `DuckDBError`.
 
 ##### 
@@ -14683,11 +15915,11 @@ duckdb_state duckdb_table_description_create_ext(
       
 
     
-- `connection`: The connection context.
-- `catalog`: The catalog (database) name of the table, or- `nullptr`for the default catalog.
-- `schema`: The schema of the table, or- `nullptr`for the default schema.
-- `table`: The table name.
-- `out`: The resulting table description object.
+- `connection` : The connection context.
+- `catalog` : The catalog (database) name of the table, or`nullptr` for the default catalog.
+- `schema` : The schema of the table, or`nullptr` for the default schema.
+- `table` : The table name.
+- `out` : The resulting table description object.
 
 ##### 
         
@@ -14700,10 +15932,13 @@ duckdb_state duckdb_table_description_create_ext(
 
 #### 
         
-        `duckdb_table_description_destroy`
+        [`duckdb_table_description_destroy`](#duckdb_table_description_destroy)
+        
+      
 
     
-`duckdb_table_description_destroy`Destroy the TableDescription object.
+`duckdb_table_description_destroy`
+Destroy the TableDescription object.
 
 ##### 
         
@@ -14724,14 +15959,17 @@ void duckdb_table_description_destroy(
       
 
     
-- `table_description`: The table_description to destroy.
+- `table_description` : The table_description to destroy.
 
 #### 
         
-        `duckdb_table_description_error`
+        [`duckdb_table_description_error`](#duckdb_table_description_error)
+        
+      
 
     
-`duckdb_table_description_error`Returns the error message associated with the given table_description.
+`duckdb_table_description_error`
+Returns the error message associated with the given table_description.
 If the table_description has no error message, this returns `nullptr` instead.
 The error message should not be freed. It will be de-allocated when `duckdb_table_description_destroy` is called.
 
@@ -14754,7 +15992,7 @@ const char *duckdb_table_description_error(
       
 
     
-- `table_description`: The table_description to get the error from.
+- `table_description` : The table_description to get the error from.
 
 ##### 
         
@@ -14767,10 +16005,13 @@ The error message, or `nullptr` if there is none.
 
 #### 
         
-        `duckdb_column_has_default`
+        [`duckdb_column_has_default`](#duckdb_column_has_default)
+        
+      
 
     
-`duckdb_column_has_default`Check if the column at 'index' index of the table has a DEFAULT expression.
+`duckdb_column_has_default`
+Check if the column at 'index' index of the table has a DEFAULT expression.
 
 ##### 
         
@@ -14793,9 +16034,9 @@ duckdb_state duckdb_column_has_default(
       
 
     
-- `table_description`: The table_description to query.
-- `index`: The index of the column to query.
-- `out`: The out-parameter used to store the result.
+- `table_description` : The table_description to query.
+- `index` : The index of the column to query.
+- `out` : The out-parameter used to store the result.
 
 ##### 
         
@@ -14808,10 +16049,13 @@ duckdb_state duckdb_column_has_default(
 
 #### 
         
-        `duckdb_table_description_get_column_name`
+        [`duckdb_table_description_get_column_name`](#duckdb_table_description_get_column_name)
+        
+      
 
     
-`duckdb_table_description_get_column_name`Obtain the column name at 'index'.
+`duckdb_table_description_get_column_name`
+Obtain the column name at 'index'.
 The out result must be destroyed with `duckdb_free`.
 
 ##### 
@@ -14834,8 +16078,8 @@ char *duckdb_table_description_get_column_name(
       
 
     
-- `table_description`: The table_description to query.
-- `index`: The index of the column to query.
+- `table_description` : The table_description to query.
+- `index` : The index of the column to query.
 
 ##### 
         
@@ -14848,10 +16092,13 @@ The column name.
 
 #### 
         
-        `duckdb_to_arrow_schema`
+        [`duckdb_to_arrow_schema`](#duckdb_to_arrow_schema)
+        
+      
 
     
-`duckdb_to_arrow_schema`Transforms a DuckDB Schema into an Arrow Schema
+`duckdb_to_arrow_schema`
+Transforms a DuckDB Schema into an Arrow Schema
 
 ##### 
         
@@ -14876,11 +16123,11 @@ duckdb_error_data duckdb_to_arrow_schema(
       
 
     
-- `arrow_options`: The Arrow settings used to produce arrow.
-- `types`: The DuckDB logical types for each column in the schema.
-- `names`: The names for each column in the schema.
-- `column_count`: The number of columns that exist in the schema.
-- `out_schema`: The resulting arrow schema. Must be destroyed with- `out_schema->release(out_schema)`.
+- `arrow_options` : The Arrow settings used to produce arrow.
+- `types` : The DuckDB logical types for each column in the schema.
+- `names` : The names for each column in the schema.
+- `column_count` : The number of columns that exist in the schema.
+- `out_schema` : The resulting arrow schema. Must be destroyed with`out_schema->release(out_schema)` .
 
 ##### 
         
@@ -14893,10 +16140,13 @@ The error data. Must be destroyed with `duckdb_destroy_error_data`.
 
 #### 
         
-        `duckdb_data_chunk_to_arrow`
+        [`duckdb_data_chunk_to_arrow`](#duckdb_data_chunk_to_arrow)
+        
+      
 
     
-`duckdb_data_chunk_to_arrow`Transforms a DuckDB data chunk into an Arrow array.
+`duckdb_data_chunk_to_arrow`
+Transforms a DuckDB data chunk into an Arrow array.
 
 ##### 
         
@@ -14919,9 +16169,9 @@ duckdb_error_data duckdb_data_chunk_to_arrow(
       
 
     
-- `arrow_options`: The Arrow settings used to produce arrow.
-- `chunk`: The DuckDB data chunk to convert.
-- `out_arrow_array`: The output Arrow structure that will hold the converted data. Must be released with- `out_arrow_array->release(out_arrow_array)`
+- `arrow_options` : The Arrow settings used to produce arrow.
+- `chunk` : The DuckDB data chunk to convert.
+- `out_arrow_array` : The output Arrow structure that will hold the converted data. Must be released with`out_arrow_array->release(out_arrow_array)`
 
 ##### 
         
@@ -14934,10 +16184,13 @@ The error data. Must be destroyed with `duckdb_destroy_error_data`.
 
 #### 
         
-        `duckdb_schema_from_arrow`
+        [`duckdb_schema_from_arrow`](#duckdb_schema_from_arrow)
+        
+      
 
     
-`duckdb_schema_from_arrow`Transforms an Arrow Schema into a DuckDB Schema.
+`duckdb_schema_from_arrow`
+Transforms an Arrow Schema into a DuckDB Schema.
 
 ##### 
         
@@ -14960,9 +16213,9 @@ duckdb_error_data duckdb_schema_from_arrow(
       
 
     
-- `connection`: The connection to get the transformation settings from.
-- `schema`: The input Arrow schema. Must be released with- `schema->release(schema)`.
-- `out_types`: The Arrow converted schema with extra information about the arrow types. Must be destroyed with- `duckdb_destroy_arrow_converted_schema`.
+- `connection` : The connection to get the transformation settings from.
+- `schema` : The input Arrow schema. Must be released with`schema->release(schema)` .
+- `out_types` : The Arrow converted schema with extra information about the arrow types. Must be destroyed with`duckdb_destroy_arrow_converted_schema` .
 
 ##### 
         
@@ -14975,10 +16228,13 @@ The error data. Must be destroyed with `duckdb_destroy_error_data`.
 
 #### 
         
-        `duckdb_data_chunk_from_arrow`
+        [`duckdb_data_chunk_from_arrow`](#duckdb_data_chunk_from_arrow)
+        
+      
 
     
-`duckdb_data_chunk_from_arrow`Transforms an Arrow array into a DuckDB data chunk. The data chunk will retain ownership of the underlying Arrow data.
+`duckdb_data_chunk_from_arrow`
+Transforms an Arrow array into a DuckDB data chunk. The data chunk will retain ownership of the underlying Arrow data.
 
 ##### 
         
@@ -15002,10 +16258,11 @@ duckdb_error_data duckdb_data_chunk_from_arrow(
       
 
     
-- `connection`: The connection to get the transformation settings from.
-- `arrow_array`: The input Arrow array. Data ownership is passed on to DuckDB's DataChunk, the underlying object does not need to be released and won't have ownership of the data.
-- `converted_schema`: The Arrow converted schema with extra information about the arrow types.
-- `out_chunk`: The resulting DuckDB data chunk. Must be destroyed by duckdb_destroy_data_chunk.
+- `connection` : The connection to get the transformation settings from.
+- `arrow_array` : The input Arrow array. Data ownership is passed on to DuckDB's DataChunk, the underlying object
+does not need to be released and won't have ownership of the data.
+- `converted_schema` : The Arrow converted schema with extra information about the arrow types.
+- `out_chunk` : The resulting DuckDB data chunk. Must be destroyed by duckdb_destroy_data_chunk.
 
 ##### 
         
@@ -15018,10 +16275,13 @@ The error data. Must be destroyed with `duckdb_destroy_error_data`.
 
 #### 
         
-        `duckdb_destroy_arrow_converted_schema`
+        [`duckdb_destroy_arrow_converted_schema`](#duckdb_destroy_arrow_converted_schema)
+        
+      
 
     
-`duckdb_destroy_arrow_converted_schema`Destroys the arrow converted schema and de-allocates all memory allocated for that arrow converted schema.
+`duckdb_destroy_arrow_converted_schema`
+Destroys the arrow converted schema and de-allocates all memory allocated for that arrow converted schema.
 
 ##### 
         
@@ -15042,14 +16302,17 @@ void duckdb_destroy_arrow_converted_schema(
       
 
     
-- `arrow_converted_schema`: The arrow converted schema to destroy.
+- `arrow_converted_schema` : The arrow converted schema to destroy.
 
 #### 
         
-        `duckdb_query_arrow`
+        [`duckdb_query_arrow`](#duckdb_query_arrow)
+        
+      
 
     
-`duckdb_query_arrow`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_query_arrow`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Executes a SQL query within a connection and stores the full (materialized) result in an arrow structure.
 If the query fails to execute, DuckDBError is returned and the error message can be retrieved by calling
@@ -15079,9 +16342,9 @@ duckdb_state duckdb_query_arrow(
       
 
     
-- `connection`: The connection to perform the query in.
-- `query`: The SQL query to run.
-- `out_result`: The query result.
+- `connection` : The connection to perform the query in.
+- `query` : The SQL query to run.
+- `out_result` : The query result.
 
 ##### 
         
@@ -15094,10 +16357,13 @@ duckdb_state duckdb_query_arrow(
 
 #### 
         
-        `duckdb_query_arrow_schema`
+        [`duckdb_query_arrow_schema`](#duckdb_query_arrow_schema)
+        
+      
 
     
-`duckdb_query_arrow_schema`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_query_arrow_schema`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Fetch the internal arrow schema from the arrow result. Remember to call release on the respective ArrowSchema object.
 
@@ -15121,8 +16387,8 @@ duckdb_state duckdb_query_arrow_schema(
       
 
     
-- `result`: The result to fetch the schema from.
-- `out_schema`: The output schema.
+- `result` : The result to fetch the schema from.
+- `out_schema` : The output schema.
 
 ##### 
         
@@ -15135,10 +16401,13 @@ duckdb_state duckdb_query_arrow_schema(
 
 #### 
         
-        `duckdb_prepared_arrow_schema`
+        [`duckdb_prepared_arrow_schema`](#duckdb_prepared_arrow_schema)
+        
+      
 
     
-`duckdb_prepared_arrow_schema`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_prepared_arrow_schema`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Fetch the internal arrow schema from the prepared statement. Remember to call release on the respective ArrowSchema object.
 
@@ -15162,8 +16431,8 @@ duckdb_state duckdb_prepared_arrow_schema(
       
 
     
-- `prepared`: The prepared statement to fetch the schema from.
-- `out_schema`: The output schema.
+- `prepared` : The prepared statement to fetch the schema from.
+- `out_schema` : The output schema.
 
 ##### 
         
@@ -15176,10 +16445,13 @@ duckdb_state duckdb_prepared_arrow_schema(
 
 #### 
         
-        `duckdb_result_arrow_array`
+        [`duckdb_result_arrow_array`](#duckdb_result_arrow_array)
+        
+      
 
     
-`duckdb_result_arrow_array`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_result_arrow_array`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Convert a data chunk into an arrow struct array. Remember to call release on the respective ArrowArray object.
 
@@ -15204,16 +16476,19 @@ void duckdb_result_arrow_array(
       
 
     
-- `result`: The result object the data chunk have been fetched from.
-- `chunk`: The data chunk to convert.
-- `out_array`: The output array.
+- `result` : The result object the data chunk have been fetched from.
+- `chunk` : The data chunk to convert.
+- `out_array` : The output array.
 
 #### 
         
-        `duckdb_query_arrow_array`
+        [`duckdb_query_arrow_array`](#duckdb_query_arrow_array)
+        
+      
 
     
-`duckdb_query_arrow_array`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_query_arrow_array`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Fetch an internal arrow struct array from the arrow result. Remember to call release on the respective ArrowArray object.
 
@@ -15239,8 +16514,8 @@ duckdb_state duckdb_query_arrow_array(
       
 
     
-- `result`: The result to fetch the array from.
-- `out_array`: The output array.
+- `result` : The result to fetch the array from.
+- `out_array` : The output array.
 
 ##### 
         
@@ -15253,10 +16528,13 @@ duckdb_state duckdb_query_arrow_array(
 
 #### 
         
-        `duckdb_arrow_column_count`
+        [`duckdb_arrow_column_count`](#duckdb_arrow_column_count)
+        
+      
 
     
-`duckdb_arrow_column_count`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_arrow_column_count`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Returns the number of columns present in the arrow result object.
 
@@ -15279,7 +16557,7 @@ idx_t duckdb_arrow_column_count(
       
 
     
-- `result`: The result object.
+- `result` : The result object.
 
 ##### 
         
@@ -15292,10 +16570,13 @@ The number of columns present in the result object.
 
 #### 
         
-        `duckdb_arrow_row_count`
+        [`duckdb_arrow_row_count`](#duckdb_arrow_row_count)
+        
+      
 
     
-`duckdb_arrow_row_count`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_arrow_row_count`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Returns the number of rows present in the arrow result object.
 
@@ -15318,7 +16599,7 @@ idx_t duckdb_arrow_row_count(
       
 
     
-- `result`: The result object.
+- `result` : The result object.
 
 ##### 
         
@@ -15331,10 +16612,13 @@ The number of rows present in the result object.
 
 #### 
         
-        `duckdb_arrow_rows_changed`
+        [`duckdb_arrow_rows_changed`](#duckdb_arrow_rows_changed)
+        
+      
 
     
-`duckdb_arrow_rows_changed`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_arrow_rows_changed`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Returns the number of rows changed by the query stored in the arrow result. This is relevant only for INSERT/UPDATE/DELETE queries. For other queries the rows_changed will be 0.
 
@@ -15357,7 +16641,7 @@ idx_t duckdb_arrow_rows_changed(
       
 
     
-- `result`: The result object.
+- `result` : The result object.
 
 ##### 
         
@@ -15370,10 +16654,13 @@ The number of rows changed.
 
 #### 
         
-        `duckdb_query_arrow_error`
+        [`duckdb_query_arrow_error`](#duckdb_query_arrow_error)
+        
+      
 
     
-`duckdb_query_arrow_error`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_query_arrow_error`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Returns the error message contained within the result. The error is only set if `duckdb_query_arrow` returns
 `DuckDBError`.
@@ -15399,7 +16686,7 @@ const char *duckdb_query_arrow_error(
       
 
     
-- `result`: The result object to fetch the error from.
+- `result` : The result object to fetch the error from.
 
 ##### 
         
@@ -15412,10 +16699,13 @@ The error of the result.
 
 #### 
         
-        `duckdb_destroy_arrow`
+        [`duckdb_destroy_arrow`](#duckdb_destroy_arrow)
+        
+      
 
     
-`duckdb_destroy_arrow`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_destroy_arrow`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Closes the result and de-allocates all memory allocated for the arrow result.
 
@@ -15438,14 +16728,17 @@ void duckdb_destroy_arrow(
       
 
     
-- `result`: The result to destroy.
+- `result` : The result to destroy.
 
 #### 
         
-        `duckdb_destroy_arrow_stream`
+        [`duckdb_destroy_arrow_stream`](#duckdb_destroy_arrow_stream)
+        
+      
 
     
-`duckdb_destroy_arrow_stream`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_destroy_arrow_stream`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Releases the arrow array stream and de-allocates its memory.
 
@@ -15468,14 +16761,17 @@ void duckdb_destroy_arrow_stream(
       
 
     
-- `stream_p`: The arrow array stream to destroy.
+- `stream_p` : The arrow array stream to destroy.
 
 #### 
         
-        `duckdb_execute_prepared_arrow`
+        [`duckdb_execute_prepared_arrow`](#duckdb_execute_prepared_arrow)
+        
+      
 
     
-`duckdb_execute_prepared_arrow`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_execute_prepared_arrow`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Executes the prepared statement with the given bound parameters, and returns an arrow query result.
 Note that after running `duckdb_execute_prepared_arrow`, `duckdb_destroy_arrow` must be called on the result object.
@@ -15500,8 +16796,8 @@ duckdb_state duckdb_execute_prepared_arrow(
       
 
     
-- `prepared_statement`: The prepared statement to execute.
-- `out_result`: The query result.
+- `prepared_statement` : The prepared statement to execute.
+- `out_result` : The query result.
 
 ##### 
         
@@ -15514,10 +16810,13 @@ duckdb_state duckdb_execute_prepared_arrow(
 
 #### 
         
-        `duckdb_arrow_scan`
+        [`duckdb_arrow_scan`](#duckdb_arrow_scan)
+        
+      
 
     
-`duckdb_arrow_scan`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_arrow_scan`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Scans the Arrow stream and creates a view with the given name.
 
@@ -15542,9 +16841,9 @@ duckdb_state duckdb_arrow_scan(
       
 
     
-- `connection`: The connection on which to execute the scan.
-- `table_name`: Name of the temporary view to create.
-- `arrow`: Arrow stream wrapper.
+- `connection` : The connection on which to execute the scan.
+- `table_name` : Name of the temporary view to create.
+- `arrow` : Arrow stream wrapper.
 
 ##### 
         
@@ -15557,10 +16856,13 @@ duckdb_state duckdb_arrow_scan(
 
 #### 
         
-        `duckdb_arrow_array_scan`
+        [`duckdb_arrow_array_scan`](#duckdb_arrow_array_scan)
+        
+      
 
     
-`duckdb_arrow_array_scan`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_arrow_array_scan`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Scans the Arrow array and creates a view with the given name.
 Note that after running `duckdb_arrow_array_scan`, `duckdb_destroy_arrow_stream` must be called on the out stream.
@@ -15588,11 +16890,11 @@ duckdb_state duckdb_arrow_array_scan(
       
 
     
-- `connection`: The connection on which to execute the scan.
-- `table_name`: Name of the temporary view to create.
-- `arrow_schema`: Arrow schema wrapper.
-- `arrow_array`: Arrow array wrapper.
-- `out_stream`: Output array stream that wraps around the passed schema, for releasing/deleting once done.
+- `connection` : The connection on which to execute the scan.
+- `table_name` : Name of the temporary view to create.
+- `arrow_schema` : Arrow schema wrapper.
+- `arrow_array` : Arrow array wrapper.
+- `out_stream` : Output array stream that wraps around the passed schema, for releasing/deleting once done.
 
 ##### 
         
@@ -15605,10 +16907,13 @@ duckdb_state duckdb_arrow_array_scan(
 
 #### 
         
-        `duckdb_execute_tasks`
+        [`duckdb_execute_tasks`](#duckdb_execute_tasks)
+        
+      
 
     
-`duckdb_execute_tasks`Execute DuckDB tasks on this thread.
+`duckdb_execute_tasks`
+Execute DuckDB tasks on this thread.
 
 Will return after `max_tasks` have been executed, or if there are no more tasks present.
 
@@ -15632,15 +16937,18 @@ void duckdb_execute_tasks(
       
 
     
-- `database`: The database object to execute tasks for
-- `max_tasks`: The maximum amount of tasks to execute
+- `database` : The database object to execute tasks for
+- `max_tasks` : The maximum amount of tasks to execute
 
 #### 
         
-        `duckdb_create_task_state`
+        [`duckdb_create_task_state`](#duckdb_create_task_state)
+        
+      
 
     
-`duckdb_create_task_state`Creates a task state that can be used with duckdb_execute_tasks_state to execute tasks until
+`duckdb_create_task_state`
+Creates a task state that can be used with duckdb_execute_tasks_state to execute tasks until
 `duckdb_finish_execution` is called on the state.
 
 `duckdb_destroy_state` must be called on the result.
@@ -15664,7 +16972,7 @@ duckdb_task_state duckdb_create_task_state(
       
 
     
-- `database`: The database object to create the task state for
+- `database` : The database object to create the task state for
 
 ##### 
         
@@ -15677,10 +16985,13 @@ The task state that can be used with duckdb_execute_tasks_state.
 
 #### 
         
-        `duckdb_execute_tasks_state`
+        [`duckdb_execute_tasks_state`](#duckdb_execute_tasks_state)
+        
+      
 
     
-`duckdb_execute_tasks_state`Execute DuckDB tasks on this thread.
+`duckdb_execute_tasks_state`
+Execute DuckDB tasks on this thread.
 
 The thread will keep on executing tasks forever, until duckdb_finish_execution is called on the state. Multiple threads can share the same duckdb_task_state.
 
@@ -15703,14 +17014,17 @@ void duckdb_execute_tasks_state(
       
 
     
-- `state`: The task state of the executor
+- `state` : The task state of the executor
 
 #### 
         
-        `duckdb_execute_n_tasks_state`
+        [`duckdb_execute_n_tasks_state`](#duckdb_execute_n_tasks_state)
+        
+      
 
     
-`duckdb_execute_n_tasks_state`Execute DuckDB tasks on this thread.
+`duckdb_execute_n_tasks_state`
+Execute DuckDB tasks on this thread.
 
 The thread will keep on executing tasks until either duckdb_finish_execution is called on the state, max_tasks tasks have been executed or there are no more tasks to be executed.
 
@@ -15736,8 +17050,8 @@ idx_t duckdb_execute_n_tasks_state(
       
 
     
-- `state`: The task state of the executor
-- `max_tasks`: The maximum amount of tasks to execute
+- `state` : The task state of the executor
+- `max_tasks` : The maximum amount of tasks to execute
 
 ##### 
         
@@ -15750,10 +17064,13 @@ The amount of tasks that have actually been executed
 
 #### 
         
-        `duckdb_finish_execution`
+        [`duckdb_finish_execution`](#duckdb_finish_execution)
+        
+      
 
     
-`duckdb_finish_execution`Finish execution on a specific task.
+`duckdb_finish_execution`
+Finish execution on a specific task.
 
 ##### 
         
@@ -15774,14 +17091,17 @@ void duckdb_finish_execution(
       
 
     
-- `state`: The task state to finish execution
+- `state` : The task state to finish execution
 
 #### 
         
-        `duckdb_task_state_is_finished`
+        [`duckdb_task_state_is_finished`](#duckdb_task_state_is_finished)
+        
+      
 
     
-`duckdb_task_state_is_finished`Check if the provided duckdb_task_state has finished execution
+`duckdb_task_state_is_finished`
+Check if the provided duckdb_task_state has finished execution
 
 ##### 
         
@@ -15802,7 +17122,7 @@ bool duckdb_task_state_is_finished(
       
 
     
-- `state`: The task state to inspect
+- `state` : The task state to inspect
 
 ##### 
         
@@ -15815,10 +17135,13 @@ Whether or not duckdb_finish_execution has been called on the task state
 
 #### 
         
-        `duckdb_destroy_task_state`
+        [`duckdb_destroy_task_state`](#duckdb_destroy_task_state)
+        
+      
 
     
-`duckdb_destroy_task_state`Destroys the task state returned from duckdb_create_task_state.
+`duckdb_destroy_task_state`
+Destroys the task state returned from duckdb_create_task_state.
 
 Note that this should not be called while there is an active duckdb_execute_tasks_state running on the task state.
 
@@ -15841,14 +17164,17 @@ void duckdb_destroy_task_state(
       
 
     
-- `state`: The task state to clean up
+- `state` : The task state to clean up
 
 #### 
         
-        `duckdb_execution_is_finished`
+        [`duckdb_execution_is_finished`](#duckdb_execution_is_finished)
+        
+      
 
     
-`duckdb_execution_is_finished`Returns true if the execution of the current query is finished.
+`duckdb_execution_is_finished`
+Returns true if the execution of the current query is finished.
 
 ##### 
         
@@ -15869,14 +17195,17 @@ bool duckdb_execution_is_finished(
       
 
     
-- `con`: The connection on which to check
+- `con` : The connection on which to check
 
 #### 
         
-        `duckdb_stream_fetch_chunk`
+        [`duckdb_stream_fetch_chunk`](#duckdb_stream_fetch_chunk)
+        
+      
 
     
-`duckdb_stream_fetch_chunk`Warning Deprecation notice. This method is scheduled for removal in a future release.
+`duckdb_stream_fetch_chunk`
+  Warning Deprecation notice. This method is scheduled for removal in a future release.
 
 Fetches a data chunk from the (streaming) duckdb_result. This function should be called repeatedly until the result is exhausted.
 
@@ -15907,7 +17236,7 @@ duckdb_data_chunk duckdb_stream_fetch_chunk(
       
 
     
-- `result`: The result object to fetch the data chunk from.
+- `result` : The result object to fetch the data chunk from.
 
 ##### 
         
@@ -15920,10 +17249,13 @@ The resulting data chunk. Returns `NULL` if the result has an error.
 
 #### 
         
-        `duckdb_fetch_chunk`
+        [`duckdb_fetch_chunk`](#duckdb_fetch_chunk)
+        
+      
 
     
-`duckdb_fetch_chunk`Fetches a data chunk from a duckdb_result. This function should be called repeatedly until the result is exhausted.
+`duckdb_fetch_chunk`
+Fetches a data chunk from a duckdb_result. This function should be called repeatedly until the result is exhausted.
 
 The result must be destroyed with `duckdb_destroy_data_chunk`.
 
@@ -15948,7 +17280,7 @@ duckdb_data_chunk duckdb_fetch_chunk(
       
 
     
-- `result`: The result object to fetch the data chunk from.
+- `result` : The result object to fetch the data chunk from.
 
 ##### 
         
@@ -15961,10 +17293,13 @@ The resulting data chunk. Returns `NULL` if the result has an error.
 
 #### 
         
-        `duckdb_create_cast_function`
+        [`duckdb_create_cast_function`](#duckdb_create_cast_function)
+        
+      
 
     
-`duckdb_create_cast_function`Creates a new cast function object.
+`duckdb_create_cast_function`
+Creates a new cast function object.
 
 ##### 
         
@@ -15989,10 +17324,13 @@ duckdb_cast_function duckdb_create_cast_function(
 ```
 #### 
         
-        `duckdb_cast_function_set_source_type`
+        [`duckdb_cast_function_set_source_type`](#duckdb_cast_function_set_source_type)
+        
+      
 
     
-`duckdb_cast_function_set_source_type`Sets the source type of the cast function.
+`duckdb_cast_function_set_source_type`
+Sets the source type of the cast function.
 
 ##### 
         
@@ -16014,15 +17352,18 @@ void duckdb_cast_function_set_source_type(
       
 
     
-- `cast_function`: The cast function object.
-- `source_type`: The source type to set.
+- `cast_function` : The cast function object.
+- `source_type` : The source type to set.
 
 #### 
         
-        `duckdb_cast_function_set_target_type`
+        [`duckdb_cast_function_set_target_type`](#duckdb_cast_function_set_target_type)
+        
+      
 
     
-`duckdb_cast_function_set_target_type`Sets the target type of the cast function.
+`duckdb_cast_function_set_target_type`
+Sets the target type of the cast function.
 
 ##### 
         
@@ -16044,15 +17385,18 @@ void duckdb_cast_function_set_target_type(
       
 
     
-- `cast_function`: The cast function object.
-- `target_type`: The target type to set.
+- `cast_function` : The cast function object.
+- `target_type` : The target type to set.
 
 #### 
         
-        `duckdb_cast_function_set_implicit_cast_cost`
+        [`duckdb_cast_function_set_implicit_cast_cost`](#duckdb_cast_function_set_implicit_cast_cost)
+        
+      
 
     
-`duckdb_cast_function_set_implicit_cast_cost`Sets the "cost" of implicitly casting the source type to the target type using this function.
+`duckdb_cast_function_set_implicit_cast_cost`
+Sets the "cost" of implicitly casting the source type to the target type using this function.
 
 ##### 
         
@@ -16074,15 +17418,18 @@ void duckdb_cast_function_set_implicit_cast_cost(
       
 
     
-- `cast_function`: The cast function object.
-- `cost`: The cost to set.
+- `cast_function` : The cast function object.
+- `cost` : The cost to set.
 
 #### 
         
-        `duckdb_cast_function_set_function`
+        [`duckdb_cast_function_set_function`](#duckdb_cast_function_set_function)
+        
+      
 
     
-`duckdb_cast_function_set_function`Sets the actual cast function to use.
+`duckdb_cast_function_set_function`
+Sets the actual cast function to use.
 
 ##### 
         
@@ -16104,15 +17451,18 @@ void duckdb_cast_function_set_function(
       
 
     
-- `cast_function`: The cast function object.
-- `function`: The function to set.
+- `cast_function` : The cast function object.
+- `function` : The function to set.
 
 #### 
         
-        `duckdb_cast_function_set_extra_info`
+        [`duckdb_cast_function_set_extra_info`](#duckdb_cast_function_set_extra_info)
+        
+      
 
     
-`duckdb_cast_function_set_extra_info`Assigns extra information to the cast function that can be fetched during execution, etc.
+`duckdb_cast_function_set_extra_info`
+Assigns extra information to the cast function that can be fetched during execution, etc.
 
 ##### 
         
@@ -16135,15 +17485,18 @@ void duckdb_cast_function_set_extra_info(
       
 
     
-- `extra_info`: The extra information
-- `destroy`: The callback that will be called to destroy the extra information (if any)
+- `extra_info` : The extra information
+- `destroy` : The callback that will be called to destroy the extra information (if any)
 
 #### 
         
-        `duckdb_cast_function_get_extra_info`
+        [`duckdb_cast_function_get_extra_info`](#duckdb_cast_function_get_extra_info)
+        
+      
 
     
-`duckdb_cast_function_get_extra_info`Retrieves the extra info of the function as set in `duckdb_cast_function_set_extra_info`.
+`duckdb_cast_function_get_extra_info`
+Retrieves the extra info of the function as set in `duckdb_cast_function_set_extra_info`.
 
 ##### 
         
@@ -16164,7 +17517,7 @@ void *duckdb_cast_function_get_extra_info(
       
 
     
-- `info`: The info object.
+- `info` : The info object.
 
 ##### 
         
@@ -16177,10 +17530,13 @@ The extra info.
 
 #### 
         
-        `duckdb_cast_function_get_cast_mode`
+        [`duckdb_cast_function_get_cast_mode`](#duckdb_cast_function_get_cast_mode)
+        
+      
 
     
-`duckdb_cast_function_get_cast_mode`Get the cast execution mode from the given function info.
+`duckdb_cast_function_get_cast_mode`
+Get the cast execution mode from the given function info.
 
 ##### 
         
@@ -16201,7 +17557,7 @@ duckdb_cast_mode duckdb_cast_function_get_cast_mode(
       
 
     
-- `info`: The info object.
+- `info` : The info object.
 
 ##### 
         
@@ -16214,10 +17570,13 @@ The cast mode.
 
 #### 
         
-        `duckdb_cast_function_set_error`
+        [`duckdb_cast_function_set_error`](#duckdb_cast_function_set_error)
+        
+      
 
     
-`duckdb_cast_function_set_error`Report that an error has occurred while executing the cast function.
+`duckdb_cast_function_set_error`
+Report that an error has occurred while executing the cast function.
 
 ##### 
         
@@ -16239,15 +17598,18 @@ void duckdb_cast_function_set_error(
       
 
     
-- `info`: The info object.
-- `error`: The error message.
+- `info` : The info object.
+- `error` : The error message.
 
 #### 
         
-        `duckdb_cast_function_set_row_error`
+        [`duckdb_cast_function_set_row_error`](#duckdb_cast_function_set_row_error)
+        
+      
 
     
-`duckdb_cast_function_set_row_error`Report that an error has occurred while executing the cast function, setting the corresponding output row to NULL.
+`duckdb_cast_function_set_row_error`
+Report that an error has occurred while executing the cast function, setting the corresponding output row to NULL.
 
 ##### 
         
@@ -16271,17 +17633,20 @@ void duckdb_cast_function_set_row_error(
       
 
     
-- `info`: The info object.
-- `error`: The error message.
-- `row`: The index of the row within the output vector to set to NULL.
-- `output`: The output vector.
+- `info` : The info object.
+- `error` : The error message.
+- `row` : The index of the row within the output vector to set to NULL.
+- `output` : The output vector.
 
 #### 
         
-        `duckdb_register_cast_function`
+        [`duckdb_register_cast_function`](#duckdb_register_cast_function)
+        
+      
 
     
-`duckdb_register_cast_function`Registers a cast function within the given connection.
+`duckdb_register_cast_function`
+Registers a cast function within the given connection.
 
 ##### 
         
@@ -16303,8 +17668,8 @@ duckdb_state duckdb_register_cast_function(
       
 
     
-- `con`: The connection to use.
-- `cast_function`: The cast function to register.
+- `con` : The connection to use.
+- `cast_function` : The cast function to register.
 
 ##### 
         
@@ -16317,10 +17682,13 @@ Whether or not the registration was successful.
 
 #### 
         
-        `duckdb_destroy_cast_function`
+        [`duckdb_destroy_cast_function`](#duckdb_destroy_cast_function)
+        
+      
 
     
-`duckdb_destroy_cast_function`Destroys the cast function object.
+`duckdb_destroy_cast_function`
+Destroys the cast function object.
 
 ##### 
         
@@ -16341,14 +17709,17 @@ void duckdb_destroy_cast_function(
       
 
     
-- `cast_function`: The cast function object.
+- `cast_function` : The cast function object.
 
 #### 
         
-        `duckdb_destroy_expression`
+        [`duckdb_destroy_expression`](#duckdb_destroy_expression)
+        
+      
 
     
-`duckdb_destroy_expression`Destroys the expression and de-allocates its memory.
+`duckdb_destroy_expression`
+Destroys the expression and de-allocates its memory.
 
 ##### 
         
@@ -16369,14 +17740,17 @@ void duckdb_destroy_expression(
       
 
     
-- `expr`: A pointer to the expression.
+- `expr` : A pointer to the expression.
 
 #### 
         
-        `duckdb_expression_return_type`
+        [`duckdb_expression_return_type`](#duckdb_expression_return_type)
+        
+      
 
     
-`duckdb_expression_return_type`Returns the return type of an expression.
+`duckdb_expression_return_type`
+Returns the return type of an expression.
 
 ##### 
         
@@ -16397,7 +17771,7 @@ duckdb_logical_type duckdb_expression_return_type(
       
 
     
-- `expr`: The expression.
+- `expr` : The expression.
 
 ##### 
         
@@ -16410,10 +17784,13 @@ The return type. Must be destroyed with `duckdb_destroy_logical_type`.
 
 #### 
         
-        `duckdb_expression_is_foldable`
+        [`duckdb_expression_is_foldable`](#duckdb_expression_is_foldable)
+        
+      
 
     
-`duckdb_expression_is_foldable`Returns whether the expression is foldable into a value or not.
+`duckdb_expression_is_foldable`
+Returns whether the expression is foldable into a value or not.
 
 ##### 
         
@@ -16434,7 +17811,7 @@ bool duckdb_expression_is_foldable(
       
 
     
-- `expr`: The expression.
+- `expr` : The expression.
 
 ##### 
         
@@ -16447,10 +17824,13 @@ True, if the expression is foldable, else false.
 
 #### 
         
-        `duckdb_expression_fold`
+        [`duckdb_expression_fold`](#duckdb_expression_fold)
+        
+      
 
     
-`duckdb_expression_fold`Folds an expression creating a folded value.
+`duckdb_expression_fold`
+Folds an expression creating a folded value.
 
 ##### 
         
@@ -16473,9 +17853,9 @@ duckdb_error_data duckdb_expression_fold(
       
 
     
-- `context`: The client context.
-- `expr`: The expression. Must be foldable.
-- `out_value`: The folded value, if folding was successful. Must be destroyed with- `duckdb_destroy_value`.
+- `context` : The client context.
+- `expr` : The expression. Must be foldable.
+- `out_value` : The folded value, if folding was successful. Must be destroyed with`duckdb_destroy_value` .
 
 ##### 
         

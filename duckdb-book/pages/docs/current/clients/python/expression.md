@@ -10,7 +10,7 @@ description: 'The Expression class represents an instance of an expression. Why 
   import pandas as pd df = pd.DataFrame({ ''a'': [1, 2, 3, 4], ''b'': [True, None,
   False, True], ''c'': [42, 21, 13,…'
 resource: https://duckdb.org/docs/current/clients/python/expression
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 The `Expression` class represents an instance of an [expression](/docs/current/sql/expressions/overview.html).
@@ -281,8 +281,8 @@ The Expression class also contains many operations that can be applied to any Ex
 |---|---|
 | `.alias(name: str)` | Applies an alias to the expression | 
 | `.cast(type: DuckDBPyType)` | Applies a cast to the provided type on the expression | 
-| `.isin(*exprs: Expression)` | Creates an against the provided expressions as the list`IN`expression | 
-| `.isnotin(*exprs: Expression)` | Creates a against the provided expressions as the list`NOT IN`expression | 
+| `.isin(*exprs: Expression)` | Creates an [`IN` expression](/docs/current/sql/expressions/in.html#in) against the provided expressions as the list | 
+| `.isnotin(*exprs: Expression)` | Creates a [`NOT IN` expression](/docs/current/sql/expressions/in.html#not-in) against the provided expressions as the list | 
 | `.isnotnull()` | Checks whether the expression is not `NULL` | 
 | `.isnull()` | Checks whether the expression is `NULL` | 
 

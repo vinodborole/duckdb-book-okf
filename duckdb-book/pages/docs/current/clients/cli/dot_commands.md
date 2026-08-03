@@ -9,7 +9,7 @@ description: Dot commands are available in the DuckDB CLI client. To use one of 
   on a single line, and no whitespace may occur before the period. No semicolon is
   required at the end of the line. To see available commands, use the .help command.…
 resource: https://duckdb.org/docs/current/clients/cli/dot_commands
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 Dot commands are available in the DuckDB CLI client. To use one of these commands, begin the line with a period (`.`) immediately followed by the name of the command you wish to execute. Additional arguments to the command are entered, space separated, after the command. If an argument must contain a space, either single or double quotes may be used to wrap that parameter. Dot commands must be entered on a single line, and no whitespace may occur before the period. No semicolon is required at the end of the line. To see available commands, use the `.help` command.
@@ -24,64 +24,65 @@ Dot commands are available in the DuckDB CLI client. To use one of these command
 | Command | Description | 
 |---|---|
 | `.bail on/off` | Stop after hitting an error. Default: `off` | 
-| `.binary on/off` | Turn binary output `on`or`off`. Default:`off` | 
+| `.binary on/off` | Turn binary output `on` or`off` . Default:`off` | 
 | `.cd DIRECTORY` | Change the working directory to `DIRECTORY` | 
 | `.changes on/off` | Show number of rows changed by SQL | 
 | `.columns` | Column-wise rendering of query results | 
 | `.constant COLOR` | Sets the syntax highlighting color used for constant values | 
 | `.constantcode CODE` | Sets the syntax highlighting terminal code used for constant values | 
 | `.databases` | List names and files of attached databases | 
-| `.dump TABLE` | Render database content as SQL. `TABLE`is afor the tables to dump`LIKE`pattern | 
-| `.echo on/off` | Turn command echo `on`or`off` | 
+| `.dump TABLE` | Render database content as SQL. `TABLE` is a[`LIKE` pattern](/docs/current/sql/functions/pattern_matching.html) for the tables to dump | 
+| `.echo on/off` | Turn command echo `on` or`off` | 
 | `.exit CODE` | Exit this program with return-code `CODE` | 
-| `.headers on/off` | Turn display of headers `on`or`off`. Does not apply to duckbox mode | 
-| `.help -all PATTERN` | Show help text for `PATTERN`. Use`.help shortcuts`to display keyboard shortcuts | 
-| `.highlight on/off` | Toggle syntax highlighting in the shell `on`/`off`. See the[query syntax highlighting section](#configuring-the-query-syntax-highlighter)for more details | 
-| `.highlight_colors COMPONENT COLOR` | Configure the color of each component in (duckbox only). See the [result syntax highlighting section](#configuring-the-query-syntax-highlighter)for more details | 
-| `.highlight_mode mixed/dark/light` | Toggle the highlight mode. See the [dark/light mode section](/docs/current/clients/cli/friendly_cli.html#darklight-mode)for details | 
-| `.highlight_results on/off` | Toggle highlighting in result tables `on`/`off`(duckbox only). See the[result syntax highlighting section](#configuring-the-query-syntax-highlighter)for more details | 
-| `.import FILE TABLE` | Import data from `FILE`into`TABLE`. Supports`--csv`,`--json`,`--parquet`options | 
+| `.headers on/off` | Turn display of headers `on` or`off` . Does not apply to duckbox mode | 
+| `.help -all PATTERN` | Show help text for `PATTERN` . Use`.help shortcuts` to display keyboard shortcuts | 
+| `.highlight on/off` | Toggle syntax highlighting in the shell `on` /`off` . See the[query syntax highlighting section](#configuring-the-query-syntax-highlighter) for more details | 
+| `.highlight_colors COMPONENT COLOR` | Configure the color of each component in (duckbox only). See the [result syntax highlighting section](#configuring-the-query-syntax-highlighter) for more details | 
+| `.highlight_mode mixed/dark/light` | Toggle the highlight mode. See the [dark/light mode section](/docs/current/clients/cli/friendly_cli.html#darklight-mode) for details | 
+| `.highlight_results on/off` | Toggle highlighting in result tables `on` /`off` (duckbox only). See the[result syntax highlighting section](#configuring-the-query-syntax-highlighter) for more details | 
+| `.import FILE TABLE` | Import data from `FILE` into`TABLE` . Supports`--csv` ,`--json` ,`--parquet` options | 
 | `.indexes TABLE` | Show names of indexes | 
 | `.keyword COLOR` | Sets the syntax highlighting color used for keywords | 
 | `.keywordcode CODE` | Sets the syntax highlighting terminal code used for keywords | 
-| `.large_number_rendering all/footer/off` | Toggle readable rendering of large numbers (duckbox only, default: `footer`) | 
+| `.large_number_rendering all/footer/off` | Toggle readable rendering of large numbers (duckbox only, default: `footer` ) | 
 | `.last` | Render the last result without truncating. Useful for navigating with the pager | 
-| `.log FILE/off` | Turn logging `on`or`off`.`FILE`can be`stderr`/`stdout` | 
+| `.log FILE/off` | Turn logging `on` or`off` .`FILE` can be`stderr` /`stdout` | 
 | `.maxrows COUNT` | Sets the maximum number of rows for display. Only for [duckbox mode](/docs/current/clients/cli/output_formats.html) | 
 | `.maxwidth COUNT` | Sets the maximum width in characters. 0 defaults to terminal width. Only for [duckbox mode](/docs/current/clients/cli/output_formats.html) | 
 | `.mode MODE TABLE` | Set [output mode](/docs/current/clients/cli/output_formats.html) | 
 | `.multiline` | Set multi-line mode (default) | 
-| `.nullvalue STRING` | Use `STRING`in place of`NULL`values. Default:`NULL` | 
+| `.nullvalue STRING` | Use `STRING` in place of`NULL` values. Default:`NULL` | 
 | `.once OPTIONS FILE` | Output for the next SQL command only to `FILE` | 
-| `.open OPTIONS FILE` | Close existing database and reopen `FILE`. Options:`--new`,`--nofollow`,`--readonly`,`--sql` | 
-| `.output FILE` | Send output to `FILE`or`stdout`if`FILE`is omitted | 
-| `.pager OPTIONS` | Control pager usage for output. See the [paging section](/docs/current/clients/cli/output_formats.html#paging)for details | 
+| `.open OPTIONS FILE` | Close existing database and reopen `FILE` . Options:`--new` ,`--nofollow` ,`--readonly` ,`--sql` | 
+| `.output FILE` | Send output to `FILE` or`stdout` if`FILE` is omitted | 
+| `.pager OPTIONS` | Control pager usage for output. See the [paging section](/docs/current/clients/cli/output_formats.html#paging) for details | 
 | `.print STRING...` | Print literal `STRING` | 
-| `.progress_bar COMPONENT ` | Set the progress bar component styles | 
+| `.progress_bar COMPONENT`  | Set the progress bar component styles | 
 | `.prompt OPTIONS CONTINUE` | Replace the standard prompts | 
 | `.quit` | Exit this program | 
 | `.read FILE` | Read input from `FILE` | 
 | `.rows` | Row-wise rendering of query results (default) | 
 | `.safe_mode` | Activates [safe mode](/docs/current/clients/cli/safe_mode.html) | 
-| `.schema PATTERN` | Show the `CREATE`statements matching`PATTERN` | 
+| `.schema PATTERN` | Show the `CREATE` statements matching`PATTERN` | 
 | `.separator COL ROW` | Change the column and row separators | 
-| `.shell CMD ARGS...` | Run `CMD`with`ARGS...`in a system shell | 
+| `.shell CMD ARGS...` | Run `CMD` with`ARGS...` in a system shell | 
 | `.show` | Show the current values for various settings | 
 | `.singleline` | Set single-line mode | 
 | `.startup_text none/version/all` | Controls the start-up text displayed when launching the CLI. Set this as the first line in `~/.duckdbrc` | 
-| `.system CMD ARGS...` | Run `CMD`with`ARGS...`in a system shell | 
-| `.tables TABLE` | List tables [matching ](/docs/current/sql/functions/pattern_matching.html)`LIKE`pattern`TABLE`with column names, types and row counts, grouped by database and schema | 
-| `.timer on/off` | Turn SQL timer `on`or`off`. SQL statements separated by`;`butnotseparated via newline are measured together | 
+| `.system CMD ARGS...` | Run `CMD` with`ARGS...` in a system shell | 
+| `.tables TABLE` | List tables [matching `LIKE` pattern](/docs/current/sql/functions/pattern_matching.html)`TABLE` with column names, types and row counts, grouped by database and schema | 
+| `.timer on/off` | Turn SQL timer `on` or`off` . SQL statements separated by`;` but*not* separated via newline are measured together | 
 | `.width NUM1 NUM2 ...` | Set minimum column widths for columnar output | 
 
 ## 
         
-        [Using the ](#using-the-help-command)`.help` Command
+        [Using the `.help` Command](#using-the-help-command)
         
       
 
     
-`.help` CommandThe `.help` text may be filtered by passing in a text string as the first argument.
+`.help` Command
+The `.help` text may be filtered by passing in a text string as the first argument.
 
 ```
 .help m
@@ -93,10 +94,13 @@ Dot commands are available in the DuckDB CLI client. To use one of these command
 ```
 ## 
         
-        `.output`: Writing Results to a File
+        [`.output`: Writing Results to a File](#output-writing-results-to-a-file)
+        
+      
 
     
-`.output`: Writing Results to a FileBy default, the DuckDB CLI sends results to the terminal's standard output. However, this can be modified using either the `.output` or `.once` commands. Pass in the desired output file location as a parameter. The `.once` command will only output the next set of results and then revert to standard out, but `.output` will redirect all subsequent output to that file location. Note that each result will overwrite the entire file at that destination. To revert back to standard output, enter `.output` with no file parameter.
+`.output`: Writing Results to a File
+By default, the DuckDB CLI sends results to the terminal's standard output. However, this can be modified using either the `.output` or `.once` commands. Pass in the desired output file location as a parameter. The `.once` command will only output the next set of results and then revert to standard out, but `.output` will redirect all subsequent output to that file location. Note that each result will overwrite the entire file at that destination. To revert back to standard output, enter `.output` with no file parameter.
 
 In this example, the output format is changed to `markdown`, the destination is identified as a Markdown file, and then DuckDB will write the output of the SQL statement to that file. Output is then reverted to standard output using `.output` with no parameter.
 
@@ -145,11 +149,9 @@ SELECT 'quack' AS hello;
 ```
 The results then open in the default text file editor of the system, for example:
 
-Tip macOS users can copy the results to their clipboards using
+  Tip macOS users can copy the results to their clipboards using [`pbcopy`](https://ss64.com/mac/pbcopy.html) by using `.once` to output to `pbcopy` via a pipe: `.once |pbcopy`
 
-[by using](https://ss64.com/mac/pbcopy.html)`pbcopy``.once`to output to`pbcopy`via a pipe:`.once |pbcopy`Combining this with the
-
-`.headers off`and`.mode lines`options can be particularly effective.
+Combining this with the `.headers off` and `.mode lines` options can be particularly effective.
 
 ## 
         
@@ -159,7 +161,7 @@ Tip macOS users can copy the results to their clipboards using
 
     
 All DuckDB clients support [querying the database schema with SQL](/docs/current/sql/meta/information_schema.html), but the CLI has additional [dot commands](/docs/current/clients/cli/dot_commands.html) that can make it easier to understand the contents of a database.
-The `.tables` command will return a list of tables in the database. It has an optional argument that will filter the results according to a [ LIKE pattern](/docs/current/sql/functions/pattern_matching.html#like).
+The `.tables` command will return a list of tables in the database. It has an optional argument that will filter the results according to a [`LIKE` pattern](/docs/current/sql/functions/pattern_matching.html#like).
 
 ```
 CREATE TABLE swimmers AS SELECT 'duck' AS animal;
@@ -200,7 +202,7 @@ The `.dump` command renders the database content as SQL statements, including bo
 ```
 .dump
 ```
-An optional `TABLE` argument filters the output using a [ LIKE pattern](/docs/current/sql/functions/pattern_matching.html#like). Multiple patterns can be provided as additional arguments.
+An optional `TABLE` argument filters the output using a [`LIKE` pattern](/docs/current/sql/functions/pattern_matching.html#like). Multiple patterns can be provided as additional arguments.
 
 ```
 .dump %swim%
@@ -250,8 +252,7 @@ To set that progress bar component to a red text that displays the current time 
 ```
 .progress_bar --add "{align:right}{min_size:20}{color:red}Time: {sql:select (current_time::varchar).split('.')[1]}{color:reset} "
 ```
-
-`.progress_bar --add`commands are additive, issuing multiple`--add`calls will stack additional components on the progress bar.
+  `.progress_bar --add` commands are additive, issuing multiple `--add` calls will stack additional components on the progress bar.
 
 To set that progress bar component to a blue text that displays the file cache RAM usage on the progress bar:
 
@@ -327,7 +328,7 @@ For example:
 By default, the result highlighting makes a few small modifications:
 
 - Bold column names.
-- `NULL`values are greyed out.
+- `NULL` values are greyed out.
 - Layout elements are grayed out.
 
 The highlighting of each of the components can be customized using the `.highlight_colors` command.
@@ -361,7 +362,7 @@ Is equivalent to:
 ```
 .mode markdown
 ```
-Tip Avoid using shorthands in SQL scripts to improve readability and ensure that the scripts are future-proof.
+  Tip Avoid using shorthands in SQL scripts to improve readability and ensure that the scripts are future-proof.
 
 ## 
         

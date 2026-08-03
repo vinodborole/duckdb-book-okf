@@ -10,12 +10,12 @@ description: Installation To use the DuckDB CLI client, visit the CLI installati
   line shell, so CLI-client-specific functionality is similar to what is described
   in the SQLite documentation (although DuckDB's SQL syntax follows…
 resource: https://duckdb.org/docs/current/clients/cli/overview
-timestamp: '2026-07-27T09:58:58.846218+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
-Installation To use the DuckDB CLI client, visit the
+Installation To use the DuckDB CLI client, visit the [CLI installation page](/install/?environment=cli).
 
-[CLI installation page](/install/?environment=cli).The latest stable version of the DuckDB command line client is 1.5.5.
+The latest stable version of the DuckDB command line client is 1.5.5.
 
 ## 
         
@@ -28,9 +28,8 @@ The DuckDB CLI (Command Line Interface) is a single, dependency-free executable.
 
 The DuckDB CLI is based on the SQLite command line shell, so CLI-client-specific functionality is similar to what is described in the [SQLite documentation](https://www.sqlite.org/cli.html) (although DuckDB's SQL syntax follows PostgreSQL conventions with a [few exceptions](/docs/current/sql/dialect/postgresql_compatibility.html)).
 
-DuckDB has a
-
-[tldr page](https://tldr.inbrowser.app/pages/common/duckdb), which summarizes the most common uses of the CLI client. If you have[tldr](https://github.com/tldr-pages/tldr)installed, you can display it by running`tldr duckdb`.
+  DuckDB has a [tldr page](https://tldr.inbrowser.app/pages/common/duckdb), which summarizes the most common uses of the CLI client.
+If you have [tldr](https://github.com/tldr-pages/tldr) installed, you can display it by running `tldr duckdb`.
 
 ## 
         
@@ -64,9 +63,9 @@ duckdb ⟨OPTIONS⟩ ⟨FILENAME⟩
     
 The `OPTIONS` part encodes [arguments for the CLI client](/docs/current/clients/cli/arguments.html). Common options include:
 
-- `-csv`: sets the output mode to CSV
-- `-json`: sets the output mode to JSON
-- `-readonly`: open the database in read-only mode (see- [concurrency in DuckDB](/docs/current/connect/concurrency.html#handling-concurrency))
+- `-csv` : sets the output mode to CSV
+- `-json` : sets the output mode to JSON
+- `-readonly` : open the database in read-only mode (see[concurrency in DuckDB](/docs/current/connect/concurrency.html#handling-concurrency) )
 
 For a full list of options, see the [command line arguments page](/docs/current/clients/cli/arguments.html).
 
@@ -142,9 +141,11 @@ In addition to SQL syntax, special [dot commands](/docs/current/clients/cli/dot_
 
 Frequently-used configurations can be stored in the file `~/.duckdbrc`, which will be loaded when starting the CLI client. See the [Configuring the CLI](#configuring-the-cli) section below for further information on these options.
 
-Tip To prevent the DuckDB CLI client from reading the
+  Tip To prevent the DuckDB CLI client from reading the `~/.duckdbrc` file, start it as follows:
 
-`~/.duckdbrc`file, start it as follows:`duckdb -init /dev/null`
+```
+duckdb -init /dev/null
+```
 
 Below, we summarize a few important dot commands. To see all available commands, see the [dot commands page](/docs/current/clients/cli/dot_commands.html) or use the `.help` command.
 
@@ -165,9 +166,8 @@ The `.open` command optionally accepts several options, but the final parameter 
 ```
 .open persistent.duckdb
 ```
-Warning
-
-`.open`closes the current database. To keep the current database, while adding a new database, use the[.](/docs/current/sql/statements/attach.html)`ATTACH`statement
+  Warning `.open` closes the current database.
+To keep the current database, while adding a new database, use the [`ATTACH` statement](/docs/current/sql/statements/attach.html).
 
 One important option accepted by `.open` is the `--readonly` flag. This disallows any editing of the database. To open in read only mode, the database must already exist. This also means that a new in-memory database can't be opened in read only mode since in-memory databases are created upon connection.
 
@@ -408,10 +408,10 @@ SET default_null_order = getenv('DEFAULT_NULL_ORDER');
       
 
     
-The `getenv` function can only be run when the [ enable_external_access](/docs/current/configuration/overview.html#configuration-reference) option is set to 
+The `getenv` function can only be run when the [`enable_external_access`](/docs/current/configuration/overview.html#configuration-reference) option is set to `true` (the default setting).
+It is only available in the CLI client and is not supported in other DuckDB clients.
 
-`true` (the default setting).
-It is only available in the CLI client and is not supported in other DuckDB clients.## 
+## 
         
         [Prepared Statements](#prepared-statements)
         
@@ -441,9 +441,9 @@ When executing queries in the DuckDB CLI, the progress bar displays an estimated
     
 DuckDB calculates the estimated time to completion through the following process:
 
-- Progress Monitoring: DuckDB's internal progress API reports the estimated completion percentage for the running query
-- Statistical Filtering: A Kalman filter smooths noisy progress measurements and accounts for execution variability
-- Continuous Refinement: The system continuously updates predicted completion time as new progress data becomes available, improving accuracy throughout execution
+1. Progress Monitoring: DuckDB's internal progress API reports the estimated completion percentage for the running query
+2. Statistical Filtering: A Kalman filter smooths noisy progress measurements and accounts for execution variability
+3. Continuous Refinement: The system continuously updates predicted completion time as new progress data becomes available, improving accuracy throughout execution
 
 The Kalman filter adapts to changing execution conditions such as memory pressure, I/O bottlenecks, or network delays. This adaptive approach means estimated completion times may not always decrease linearly—estimates can increase when query execution becomes less predictable.
 

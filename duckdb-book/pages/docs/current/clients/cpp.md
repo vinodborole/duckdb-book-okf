@@ -10,16 +10,16 @@ description: Installation To use the DuckDB C++ API, download the libduckdb arch
   API Usage DuckDB implements a custom C++ API. This is built around the abstractions
   of a database…
 resource: https://duckdb.org/docs/current/clients/cpp
-timestamp: '2026-07-27T09:58:58.846218+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
-Installation To use the DuckDB C++ API, download the
+Installation To use the DuckDB C++ API, download the [`libduckdb` archive](/install/?environment=c) for your platform.
 
-[for your platform.](/install/?environment=c)`libduckdb`archiveThe latest stable version of the DuckDB C++ API is 1.5.5.
+The latest stable version of the DuckDB C++ API is 1.5.5.
 
-Warning DuckDB's C++ API is internal. It is not guaranteed to be stable and can change without notice. If you would like to build an application on DuckDB, we recommend using the
-
-[C API](/docs/current/clients/c/overview.html).
+  Warning DuckDB's C++ API is internal.
+It is not guaranteed to be stable and can change without notice.
+If you would like to build an application on DuckDB, we recommend using the [C API](/docs/current/clients/c/overview.html).
 
 ## 
         
@@ -103,9 +103,7 @@ DuckDB also supports prepared statements in the C++ API with the `Prepare()` met
 std::unique_ptr<PreparedStatement> prepare = con.Prepare("SELECT count(*) FROM a WHERE i = $1");
 std::unique_ptr<QueryResult> result = prepare->Execute(12);
 ```
-Warning Do
-
-notuse prepared statements to insert large amounts of data into DuckDB. See the[data import documentation](/docs/current/data/overview.html)for better options.
+  Warning Do **not** use prepared statements to insert large amounts of data into DuckDB. See the [data import documentation](/docs/current/data/overview.html) for better options.
 
 ### 
         
@@ -142,22 +140,22 @@ template<typename TR, typename... Args>
 void CreateScalarFunction(string name, TR (*udf_func)(Args…))
 ```
 - template parameters:
-    - **TR**is the return type of the UDF function.
-- **Args**are the arguments up to 3 for the UDF function (this method only supports until ternary functions).
- 
-- **name**is the name to register the UDF function.
-- **udf_func**is a pointer to the UDF function.
+    
+  - **TR** is the return type of the UDF function.
+  - **Args** are the arguments up to 3 for the UDF function (this method only supports until ternary functions).
+- **name** is the name to register the UDF function.
+- **udf_func** is a pointer to the UDF function.
 
 This method automatically discovers from the template typenames the corresponding LogicalTypes:
 
-- `bool`→- `LogicalType::BOOLEAN`
-- `int8_t`→- `LogicalType::TINYINT`
-- `int16_t`→- `LogicalType::SMALLINT`
-- `int32_t`→- `LogicalType::INTEGER`
-- `int64_t`→- `LogicalType::BIGINT`
-- `float`→- `LogicalType::FLOAT`
-- `double`→- `LogicalType::DOUBLE`
-- `string_t`→- `LogicalType::VARCHAR`
+- `bool` →`LogicalType::BOOLEAN`
+- `int8_t` →`LogicalType::TINYINT`
+- `int16_t` →`LogicalType::SMALLINT`
+- `int32_t` →`LogicalType::INTEGER`
+- `int64_t` →`LogicalType::BIGINT`
+- `float` →`LogicalType::FLOAT`
+- `double` →`LogicalType::DOUBLE`
+- `string_t` →`LogicalType::VARCHAR`
 
 In DuckDB some primitive types, e.g., `int32_t`, are mapped to the same `LogicalType`: `INTEGER`, `TIME` and `DATE`, then for disambiguation the users can use the following overloaded method.
 
@@ -179,13 +177,13 @@ con.CreateScalarFunction<int32_t, int32_t>("udf_date", {LogicalType::DATE}, Logi
 con.Query("SELECT udf_date(d) FROM dates")->Print();
 ```
 - template parameters:
-    - **TR**is the return type of the UDF function.
-- **Args**are the arguments up to 3 for the UDF function (this method only supports until ternary functions).
- 
-- **name**is the name to register the UDF function.
-- **args**are the LogicalType arguments that the function uses, which should match with the template Args types.
-- **ret_type**is the LogicalType of return of the function, which should match with the template TR type.
-- **udf_func**is a pointer to the UDF function.
+    
+  - **TR** is the return type of the UDF function.
+  - **Args** are the arguments up to 3 for the UDF function (this method only supports until ternary functions).
+- **name** is the name to register the UDF function.
+- **args** are the LogicalType arguments that the function uses, which should match with the template Args types.
+- **ret_type** is the LogicalType of return of the function, which should match with the template TR type.
+- **udf_func** is a pointer to the UDF function.
 
 This function checks the template types against the LogicalTypes passed as arguments and they must match as follows:
 
@@ -243,9 +241,9 @@ The Vectorized UDF is a pointer of the type *scalar_function_t*:
 ```
 typedef std::function<void(DataChunk &args, ExpressionState &expr, Vector &result)> scalar_function_t;
 ```
-- **args**is a- [DataChunk](https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/common/types/data_chunk.hpp)that holds a set of input vectors for the UDF that all have the same length.
-- **expr**is an- [ExpressionState](https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/execution/expression_executor_state.hpp)that provides information to the query's expression state.
-- **result**is a- [Vector](https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/common/types/vector.hpp)to store the result values.
+- **args** is a[DataChunk](https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/common/types/data_chunk.hpp) that holds a set of input vectors for the UDF that all have the same length.
+- **expr** is an[ExpressionState](https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/execution/expression_executor_state.hpp) that provides information to the query's expression state.
+- **result** is a[Vector](https://github.com/duckdb/duckdb/blob/main/src/include/duckdb/common/types/vector.hpp) to store the result values.
 
 There are different vector types to handle in a Vectorized UDF:
 
@@ -266,23 +264,23 @@ template<typename TR, typename... Args>
 void CreateVectorizedFunction(string name, scalar_function_t udf_func, LogicalType varargs = LogicalType::INVALID)
 ```
 - template parameters:
-    - **TR**is the return type of the UDF function.
-- **Args**are the arguments up to 3 for the UDF function.
- 
-- **name**is the name to register the UDF function.
-- **udf_func**is a- *vectorized*UDF function.
-- **varargs**The type of varargs to support, or LogicalTypeId::INVALID (default value) if the function does not accept variable length arguments.
+    
+  - **TR** is the return type of the UDF function.
+  - **Args** are the arguments up to 3 for the UDF function.
+- **name** is the name to register the UDF function.
+- **udf_func** is a*vectorized* UDF function.
+- **varargs** The type of varargs to support, or LogicalTypeId::INVALID (default value) if the function does not accept variable length arguments.
 
 This method automatically discovers from the template typenames the corresponding LogicalTypes:
 
-- `bool`→- `LogicalType::BOOLEAN`
-- `int8_t`→- `LogicalType::TINYINT`
-- `int16_t`→- `LogicalType::SMALLINT`
-- `int32_t`→- `LogicalType::INTEGER`
-- `int64_t`→- `LogicalType::BIGINT`
-- `float`→- `LogicalType::FLOAT`
-- `double`→- `LogicalType::DOUBLE`
-- `string_t`→- `LogicalType::VARCHAR`
+- `bool` →`LogicalType::BOOLEAN`
+- `int8_t` →`LogicalType::TINYINT`
+- `int16_t` →`LogicalType::SMALLINT`
+- `int32_t` →`LogicalType::INTEGER`
+- `int64_t` →`LogicalType::BIGINT`
+- `float` →`LogicalType::FLOAT`
+- `double` →`LogicalType::DOUBLE`
+- `string_t` →`LogicalType::VARCHAR`
 
 **2.**
 

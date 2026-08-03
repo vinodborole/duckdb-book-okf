@@ -12,17 +12,17 @@ description: DuckDB provides functions to serialize and deserialize SELECT state
   of json serialized statements. PRAGMA json_execute_serialized_sql(varchar) Pragma
   Pragma version of the json_execute_serialized_sql function. The json_serialize_sql(varchar)…
 resource: https://duckdb.org/docs/current/data/json/sql_to_and_from_json
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 DuckDB provides functions to serialize and deserialize `SELECT` statements between SQL and JSON, as well as executing JSON serialized statements.
 
 | Function | Type | Description | 
 |---|---|---|
-| `json_deserialize_sql(json)` | Scalar | Deserialize one or many `json`serialized statements back to an equivalent SQL string. | 
-| `json_execute_serialized_sql(varchar)` | Table | Execute `json`serialized statements and return the resulting rows. Only one statement at a time is supported for now. | 
-| `json_serialize_sql(varchar, skip_default := boolean, skip_empty := boolean, skip_null := boolean, format := boolean)` | Scalar | Serialize a set of semicolon-separated ( `;`) select statements to an equivalent list of`json`serialized statements. | 
-| `PRAGMA json_execute_serialized_sql(varchar)` | Pragma | Pragma version of the `json_execute_serialized_sql`function. | 
+| `json_deserialize_sql(json)` | Scalar | Deserialize one or many `json` serialized statements back to an equivalent SQL string. | 
+| `json_execute_serialized_sql(varchar)` | Table | Execute `json` serialized statements and return the resulting rows. Only one statement at a time is supported for now. | 
+| `json_serialize_sql(varchar, skip_default := boolean, skip_empty := boolean, skip_null := boolean, format := boolean)` | Scalar | Serialize a set of semicolon-separated ( `;` ) select statements to an equivalent list of`json` serialized statements. | 
+| `PRAGMA json_execute_serialized_sql(varchar)` | Pragma | Pragma version of the `json_execute_serialized_sql` function. | 
 
 The `json_serialize_sql(varchar)` function takes three optional parameters, `skip_empty`, `skip_null` and `format` that can be used to control the output of the serialized statements.
 

@@ -10,20 +10,21 @@ description: 'The DuckDB JSON reader can automatically infer which configuration
   out the correct configuration of the JSON reader. It also automatically deduces
   types of columns. In the following example, we use the todos.json…'
 resource: https://duckdb.org/docs/current/data/json/loading_json
-timestamp: '2026-07-09T12:17:10.843759+00:00'
+timestamp: '2026-08-03T09:53:51.508916+00:00'
 ---
 
 The DuckDB JSON reader can automatically infer which configuration flags to use by analyzing the JSON file. This will work correctly in most situations, and should be the first option attempted. In rare situations where the JSON reader cannot figure out the correct configuration, it is possible to manually configure the JSON reader to correctly parse the JSON file.
 
 ## 
         
-        [The ](#the-read_json-function)`read_json` Function
+        [The `read_json` Function](#the-read_json-function)
         
       
 
     
-`read_json` FunctionThe `read_json` is the simplest method of loading JSON files: it automatically attempts to figure out the correct configuration of the JSON reader. It also automatically deduces types of columns.
-In the following example, we use the [ todos.json](/data/json/todos.json) file,
+`read_json` Function
+The `read_json` is the simplest method of loading JSON files: it automatically attempts to figure out the correct configuration of the JSON reader. It also automatically deduces types of columns.
+In the following example, we use the [`todos.json`](/data/json/todos.json) file,
 
 ```
 SELECT *
@@ -86,9 +87,9 @@ The following table functions are used to read JSON:
 
 | Function | Description | 
 |---|---|
-| `read_json_objects(filename)` | Read a JSON object from `filename`, where`filename`can also be a list of files or a glob pattern. | 
-| `read_ndjson_objects(filename)` | Alias for `read_json_objects`with the parameter`format`set to`newline_delimited`. | 
-| `read_json_objects_auto(filename)` | Alias for `read_json_objects`with the parameter`format`set to`auto`. | 
+| `read_json_objects(filename)` | Read a JSON object from `filename` , where`filename` can also be a list of files or a glob pattern. | 
+| `read_ndjson_objects(filename)` | Alias for `read_json_objects` with the parameter`format` set to`newline_delimited` . | 
+| `read_json_objects_auto(filename)` | Alias for `read_json_objects` with the parameter`format` set to`auto` . | 
 
 ### 
         
@@ -101,11 +102,11 @@ These functions have the following parameters:
 
 | Name | Description | Type | Default | 
 |---|---|---|---|
-| `compression` | The compression type for the file. By default this will be detected automatically from the file extension (e.g., `t.json.gz`will use gzip,`t.json`will use none). Options are`none`,`gzip`,`zstd`and`auto_detect`. | `VARCHAR` | `auto_detect` | 
-| `filename` | Whether or not an extra `filename`column should be included in the result. Since DuckDB v1.3.0, the`filename`column is added automatically as a virtual column and this option is only kept for compatibility reasons. | `BOOL` | `false` | 
-| `format` | Can be one of `auto`,`unstructured`,`newline_delimited`and`array`. | `VARCHAR` | `array` | 
-| `hive_partitioning` | Whether or not to interpret the path as a [Hive partitioned path](/docs/current/data/partitioning/hive_partitioning.html). | `BOOL` | (auto-detected) | 
-| `ignore_errors` | Whether to ignore parse errors (only possible when `format`is`newline_delimited`). | `BOOL` | `false` | 
+| `compression` | The compression type for the file. By default this will be detected automatically from the file extension (e.g., `t.json.gz` will use gzip,`t.json` will use none). Options are`none` ,`gzip` ,`zstd` and`auto_detect` . | `VARCHAR` | `auto_detect` | 
+| `filename` | Whether or not an extra `filename` column should be included in the result. Since DuckDB v1.3.0, the`filename` column is added automatically as a virtual column and this option is only kept for compatibility reasons. | `BOOL` | `false` | 
+| `format` | Can be one of `auto` ,`unstructured` ,`newline_delimited` and`array` . | `VARCHAR` | `array` | 
+| `hive_partitioning` | Whether or not to interpret the path as a [Hive partitioned path](/docs/current/data/partitioning/hive_partitioning.html) . | `BOOL` | (auto-detected) | 
+| `ignore_errors` | Whether to ignore parse errors (only possible when `format` is`newline_delimited` ). | `BOOL` | `false` | 
 | `maximum_sample_files` | The maximum number of JSON files sampled for auto-detection. | `BIGINT` | `32` | 
 | `maximum_object_size` | The maximum size of a JSON object (in bytes). | `UINTEGER` | `16777216` | 
 
@@ -191,10 +192,10 @@ DuckDB also supports reading JSON as a table, using the following functions:
 
 | Function | Description | 
 |---|---|
-| `read_json(filename)` | Read JSON from `filename`, where`filename`can also be a list of files, or a glob pattern. | 
-| `read_json_auto(filename)` | Alias for `read_json`. | 
-| `read_ndjson(filename)` | Alias for `read_json`with parameter`format`set to`newline_delimited`. | 
-| `read_ndjson_auto(filename)` | Alias for `read_json`with parameter`format`set to`newline_delimited`. | 
+| `read_json(filename)` | Read JSON from `filename` , where`filename` can also be a list of files, or a glob pattern. | 
+| `read_json_auto(filename)` | Alias for `read_json` . | 
+| `read_ndjson(filename)` | Alias for `read_json` with parameter`format` set to`newline_delimited` . | 
+| `read_ndjson_auto(filename)` | Alias for `read_json` with parameter`format` set to`newline_delimited` . | 
 
 ### 
         
@@ -208,15 +209,15 @@ Besides the `maximum_object_size`, `format`, `ignore_errors` and `compression`, 
 | Name | Description | Type | Default | 
 |---|---|---|---|
 | `auto_detect` | Whether to auto-detect the names of the keys and data types of the values automatically | `BOOL` | `true` | 
-| `columns` | A struct that specifies the key names and value types contained within the JSON file (e.g., `{key1: 'INTEGER', key2: 'VARCHAR'}`). If`auto_detect`is enabled these will be inferred | `STRUCT` | `(empty)` | 
+| `columns` | A struct that specifies the key names and value types contained within the JSON file (e.g., `{key1: 'INTEGER', key2: 'VARCHAR'}` ). If`auto_detect` is enabled these will be inferred | `STRUCT` | `(empty)` | 
 | `dateformat` | Specifies the date format to use when parsing dates. See [Date Format](/docs/current/sql/functions/dateformat.html) | `VARCHAR` | `iso` | 
 | `maximum_depth` | Maximum nesting depth to which the automatic schema detection detects types. Set to -1 to fully detect nested JSON types | `BIGINT` | `-1` | 
-| `records` | Can be one of `auto`,`true`,`false` | `VARCHAR` | `auto` | 
+| `records` | Can be one of `auto` ,`true` ,`false` | `VARCHAR` | `auto` | 
 | `sample_size` | Option to define number of sample objects for automatic JSON type detection. Set to -1 to scan the entire input file | `UBIGINT` | `20480` | 
-| `timestampformat` | Specifies the date format to use when parsing timestamps. See [Date Format](/docs/current/sql/functions/dateformat.html). When set to`iso`(the default), ISO 8601 timestamps with timezone offsets (e.g.,`2024-01-01T12:00:00+05:00`) and fractional seconds (e.g.,`2024-01-01T12:00:00.123Z`) are automatically inferred as`TIMESTAMP`. | `VARCHAR` | `iso` | 
+| `timestampformat` | Specifies the date format to use when parsing timestamps. See [Date Format](/docs/current/sql/functions/dateformat.html) . When set to`iso` (the default), ISO 8601 timestamps with timezone offsets (e.g.,`2024-01-01T12:00:00+05:00` ) and fractional seconds (e.g.,`2024-01-01T12:00:00.123Z` ) are automatically inferred as`TIMESTAMP` . | `VARCHAR` | `iso` | 
 | `union_by_name` | Whether the schemas of multiple JSON files should be [unified](/docs/current/data/multiple_files/combining_schemas.html) | `BOOL` | `false` | 
-| `map_inference_threshold` | Controls the threshold for number of columns whose schema will be auto-detected; if JSON schema auto-detection would infer a `STRUCT`type for a field that hasmorethan this threshold number of subfields, it infers a`MAP`type instead. Set to`-1`to disable`MAP`inference. | `BIGINT` | `200` | 
-| `field_appearance_threshold` | The JSON reader divides the number of appearances of each JSON field by the auto-detection sample size. If the average over the fields of an object is less than this threshold, it will default to using a `MAP`type with value type of merged field types. | `DOUBLE` | `0.1` | 
+| `map_inference_threshold` | Controls the threshold for number of columns whose schema will be auto-detected; if JSON schema auto-detection would infer a `STRUCT` type for a field that has*more* than this threshold number of subfields, it infers a`MAP` type instead. Set to`-1` to disable`MAP` inference. | `BIGINT` | `200` | 
+| `field_appearance_threshold` | The JSON reader divides the number of appearances of each JSON field by the auto-detection sample size. If the average over the fields of an object is less than this threshold, it will default to using a `MAP` type with value type of merged field types. | `DOUBLE` | `0.1` | 
 
 Note that DuckDB can convert JSON arrays directly to its internal `LIST` type, and missing keys become `NULL`:
 
@@ -308,16 +309,15 @@ For additional examples reading more complex data, please see the [“Shredding 
 
 ## 
         
-        [Loading with the ](#loading-with-the-copy-statement-using-format-json)`COPY` Statement Using `FORMAT json`
+        [Loading with the `COPY` Statement Using `FORMAT json`](#loading-with-the-copy-statement-using-format-json)
         
       
 
     
-`COPY` Statement Using `FORMAT json`When the `json` extension is installed, `FORMAT json` is supported for `COPY FROM`, `IMPORT DATABASE`, as well as `COPY TO` and `EXPORT DATABASE`. See the [ COPY statement](/docs/current/sql/statements/copy.html) and the 
+`COPY` Statement Using `FORMAT json`
+When the `json` extension is installed, `FORMAT json` is supported for `COPY FROM`, `IMPORT DATABASE`, as well as `COPY TO` and `EXPORT DATABASE`. See the [`COPY` statement](/docs/current/sql/statements/copy.html) and the [`IMPORT` / `EXPORT` clauses](/docs/current/sql/statements/export.html).
 
-[.](/docs/current/sql/statements/export.html)
-
-`IMPORT` / `EXPORT` clausesBy default, `COPY` expects newline-delimited JSON. If you prefer copying data to/from a JSON array, you can specify `ARRAY true`, e.g.,
+By default, `COPY` expects newline-delimited JSON. If you prefer copying data to/from a JSON array, you can specify `ARRAY true`, e.g.,
 
 ```
 COPY (SELECT * FROM range(5) r(i))
@@ -362,20 +362,20 @@ CREATE TABLE numbers AS
 | Name | Description | Type | Default | 
 |---|---|---|---|
 | `auto_detect` | Whether to auto-detect the names of the keys and data types of the values automatically | `BOOL` | `false` | 
-| `columns` | A struct that specifies the key names and value types contained within the JSON file (e.g., `{key1: 'INTEGER', key2: 'VARCHAR'}`). If`auto_detect`is enabled these will be inferred | `STRUCT` | `(empty)` | 
-| `compression` | The compression type for the file. By default this will be detected automatically from the file extension (e.g., `t.json.gz`will use gzip,`t.json`will use none). Options are`uncompressed`,`gzip`,`zstd`and`auto_detect`. | `VARCHAR` | `auto_detect` | 
+| `columns` | A struct that specifies the key names and value types contained within the JSON file (e.g., `{key1: 'INTEGER', key2: 'VARCHAR'}` ). If`auto_detect` is enabled these will be inferred | `STRUCT` | `(empty)` | 
+| `compression` | The compression type for the file. By default this will be detected automatically from the file extension (e.g., `t.json.gz` will use gzip,`t.json` will use none). Options are`uncompressed` ,`gzip` ,`zstd` and`auto_detect` . | `VARCHAR` | `auto_detect` | 
 | `convert_strings_to_integers` | Whether strings representing integer values should be converted to a numerical type. | `BOOL` | `false` | 
 | `dateformat` | Specifies the date format to use when parsing dates. See [Date Format](/docs/current/sql/functions/dateformat.html) | `VARCHAR` | `iso` | 
-| `filename` | Whether or not an extra `filename`column should be included in the result. | `BOOL` | `false` | 
+| `filename` | Whether or not an extra `filename` column should be included in the result. | `BOOL` | `false` | 
 | `format` | Can be one of `auto, unstructured, newline_delimited, array` | `VARCHAR` | `array` | 
-| `hive_partitioning` | Whether or not to interpret the path as a [Hive partitioned path](/docs/current/data/partitioning/hive_partitioning.html). | `BOOL` | `false` | 
-| `ignore_errors` | Whether to ignore parse errors (only possible when `format`is`newline_delimited`) | `BOOL` | `false` | 
+| `hive_partitioning` | Whether or not to interpret the path as a [Hive partitioned path](/docs/current/data/partitioning/hive_partitioning.html) . | `BOOL` | `false` | 
+| `ignore_errors` | Whether to ignore parse errors (only possible when `format` is`newline_delimited` ) | `BOOL` | `false` | 
 | `maximum_depth` | Maximum nesting depth to which the automatic schema detection detects types. Set to -1 to fully detect nested JSON types | `BIGINT` | `-1` | 
 | `maximum_object_size` | The maximum size of a JSON object (in bytes) | `UINTEGER` | `16777216` | 
-| `records` | Can be one of `auto`,`true`,`false` | `VARCHAR` | `records` | 
+| `records` | Can be one of `auto` ,`true` ,`false` | `VARCHAR` | `records` | 
 | `sample_size` | Option to define number of sample objects for automatic JSON type detection. Set to -1 to scan the entire input file | `UBIGINT` | `20480` | 
 | `timestampformat` | Specifies the date format to use when parsing timestamps. See [Date Format](/docs/current/sql/functions/dateformat.html) | `VARCHAR` | `iso` | 
-| `union_by_name` | Whether the schemas of multiple JSON files should be [unified](/docs/current/data/multiple_files/combining_schemas.html). | `BOOL` | `false` |
+| `union_by_name` | Whether the schemas of multiple JSON files should be [unified](/docs/current/data/multiple_files/combining_schemas.html) . | `BOOL` | `false` |
 
 # Citations
 
