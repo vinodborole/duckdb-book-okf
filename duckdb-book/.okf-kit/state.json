@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://duckdb.org/docs/stable",
-  "updated_at": "2026-08-03T09:53:52.164759+00:00",
+  "updated_at": "2026-08-10T07:48:43.370445+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 80,
@@ -232,7 +232,7 @@
       "path": "pages/docs/current/clients/overview.md",
       "url": "https://duckdb.org/docs/current/clients/overview",
       "title": "Client Overview – DuckDB",
-      "hash": "370672d0cbb0aa5139b4bdd55fd86566f27c3aaba7a813d63e93736211f4bc57"
+      "hash": "404354508f178e54401f47ecf97f9c105548e75b44efed637179a166eb431819"
     },
     {
       "path": "pages/docs/current/clients/python/conversion.md",
@@ -292,7 +292,7 @@
       "path": "pages/docs/current/connect/overview.md",
       "url": "https://duckdb.org/docs/current/connect/overview",
       "title": "Connect – DuckDB",
-      "hash": "33bfe2ff065d1b6d228aa96354459087eeba820e07c276c042f8f825c1ad5dcf"
+      "hash": "76424f4e556ff5caeb207f92bdd0c84bbca4cb15e726df10a08a12603702b447"
     },
     {
       "path": "pages/docs/current/data/appender.md",
@@ -20728,9 +20728,9 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-08-03T09:53:51.554122+00:00",
+    "synced_at": "2026-08-10T07:48:42.174837+00:00",
     "added": 0,
-    "changed": 79,
+    "changed": 2,
     "removed": 0,
     "pages": 80
   }

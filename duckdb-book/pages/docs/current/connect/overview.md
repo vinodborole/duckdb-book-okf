@@ -3,14 +3,14 @@ type: Web Page
 title: Connect – DuckDB
 description: Connect or Create a Database To use DuckDB, you must first create a connection
   to a database. The exact syntax varies between the client APIs but it typically
-  involves passing an argument to configure persistence. Persistence DuckDB can operate
-  in both persistent mode, where the data is saved to disk, and in in-memory mode,
-  where the entire dataset is stored in the main memory. Tip Both persistent and in-memory
-  databases use spilling to disk to facilitate larger-than-memory workloads (i.e.,
-  out-of-core-processing). Persistent Database To create or open a persistent database,
-  set the path of the database file, e.g., my_database.duckdb, when creating…
+  involves passing an argument to configure persistence. Starting from DuckDB v1.5.2,
+  you can use the Quack protocol to set up a client-server connection. Note that Quack
+  is currently experimental and is expected to mature by fall 2026. Persistence DuckDB
+  can operate in both persistent mode, where the data is saved to disk, and in in-memory
+  mode, where the entire dataset is stored in the main memory. Tip Both persistent
+  and in-memory databases…
 resource: https://duckdb.org/docs/current/connect/overview
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-10T07:48:42.170324+00:00'
 ---
 
 - 
@@ -219,6 +219,8 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 
     
 To use DuckDB, you must first create a connection to a database. The exact syntax varies between the [client APIs](/docs/current/clients/overview.html) but it typically involves passing an argument to configure persistence.
+
+Starting from DuckDB v1.5.2, you can use the [Quack protocol](/docs/current/quack/overview.html) to set up a client-server connection. Note that Quack is currently experimental and is expected to mature by fall 2026.
 
 ## 
         

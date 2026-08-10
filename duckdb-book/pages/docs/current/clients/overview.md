@@ -13,7 +13,7 @@ description: DuckDB is an in-process database system and offers client APIs (“
   }}{% else %}{{ site.lts_duckdb_java_short_version }}{% endif %} Go Core team {%
   include tooltip.html…
 resource: https://duckdb.org/docs/current/clients/overview
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-10T07:48:42.170324+00:00'
 ---
 
 - 
@@ -225,11 +225,11 @@ DuckDB is an in-process database system and offers client APIs (“drivers”) f
 | [Node.js (node-neo)](/docs/current/clients/node_neo/overview.html) | [Jeff Raymakers](https://github.com/jraymakers) | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=nodejs) | 
 | [ODBC](/docs/current/clients/odbc/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=odbc) | 
 | [Python](/docs/current/clients/python/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=python) | 
-| [R](/docs/current/clients/r.html) | [Kirill Müller](https://github.com/krlmlr) | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](/install/?version=current&environment=r) | 
+| [R](/docs/current/clients/r.html) | [Kirill Müller](https://github.com/krlmlr) | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=r) | 
 | [Rust](/docs/current/clients/rust.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=rust) | 
-| [WebAssembly (Wasm)](/docs/current/clients/wasm/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.4](https://github.com/duckdb/duckdb-wasm#readme) | 
+| [WebAssembly (Wasm)](/docs/current/clients/wasm/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](https://github.com/duckdb/duckdb-wasm#readme) | 
 | [ADBC (Arrow)](/docs/current/clients/adbc.html) | Core team | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.5](/docs/current/clients/adbc.html) | 
-| [C# (.NET)](https://duckdb.net/) | [Giorgi](https://github.com/Giorgi) | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.3](https://www.nuget.org/packages?q=Tags%3A%22DuckDB%22+Author%3A%22Giorgi%22&includeComputedFrameworks=true&prerel=true&sortby=relevance) | 
+| [C# (.NET)](https://duckdb.net/) | [Giorgi](https://github.com/Giorgi) | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.5](https://www.nuget.org/packages?q=Tags%3A%22DuckDB%22+Author%3A%22Giorgi%22&includeComputedFrameworks=true&prerel=true&sortby=relevance) | 
 | [C++](/docs/current/clients/cpp.html) | Core team | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.5](/install/?version=current&environment=c) | 
 
 The table above lists the DuckDB clients with the primary and secondary [support tiers](#support-tiers).
