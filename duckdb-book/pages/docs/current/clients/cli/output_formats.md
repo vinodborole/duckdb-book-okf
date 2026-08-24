@@ -10,7 +10,7 @@ description: The .mode dot command may be used to change the appearance of the t
   latex mode is useful for writing academic papers. Warning Unicode handling in Windows
   Terminal When long results are displayed…
 resource: https://duckdb.org/docs/current/clients/cli/output_formats
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -207,7 +207,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

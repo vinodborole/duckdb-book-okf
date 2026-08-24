@@ -10,7 +10,7 @@ description: The linenoise-based CLI editor is available for macOS, Linux and Wi
   line. When on last line, move to next history entry Home Move to beginning of buffer
   End…
 resource: https://duckdb.org/docs/current/clients/cli/editing
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -211,7 +211,7 @@ Search Shortcut cmd + k | ctrl + k
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

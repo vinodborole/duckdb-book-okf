@@ -9,7 +9,7 @@ description: 'The table below summarizes DuckDB''s command line options. To list
   -column Set output mode to column   -cmd COMMAND Run COMMAND before reading stdin
     -c COMMAND Run COMMAND and exit   -csv Set output…'
 resource: https://duckdb.org/docs/current/clients/cli/arguments
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -210,7 +210,7 @@ Search Shortcut cmd + k | ctrl + k
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

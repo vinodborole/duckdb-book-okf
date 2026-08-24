@@ -13,7 +13,7 @@ description: 'Driver Manager A driver manager is required to manage communicatio
   [arm64 (AArch64)](https://github.com/duckdb/duckdb-odbc/releases/download/v{% if
   site.current_duckdb_odbc_version != "" %}{{ site.current_duckdb_odbc_version }}{%…'
 resource: https://duckdb.org/docs/current/clients/odbc/linux
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -210,7 +210,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

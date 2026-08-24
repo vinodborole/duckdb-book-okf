@@ -11,7 +11,7 @@ description: INSERT statements are the standard way of loading data into a relat
   the amount of data that is inserted per statement. If you must use INSERT statements
   to…
 resource: https://duckdb.org/docs/current/data/insert
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -208,7 +208,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

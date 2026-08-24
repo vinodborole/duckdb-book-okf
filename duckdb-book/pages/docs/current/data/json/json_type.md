@@ -11,7 +11,7 @@ description: 'DuckDB supports json via the JSON logical type. For example: SELEC
   whitespace is significant: SELECT ''{ "a": 5 }''::JSON = ''{"a":5}''::JSON; false
   Please note that…'
 resource: https://duckdb.org/docs/current/data/json/json_type
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -208,7 +208,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

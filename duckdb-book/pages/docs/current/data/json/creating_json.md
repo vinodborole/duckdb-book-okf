@@ -10,7 +10,7 @@ description: JSON Creation Functions The following functions are used to create 
   value, ...) Create a JSON object from key, value pairs in the argument list. Requires
   an even number of arguments. json_merge_patch(json, json) Merge two JSON…
 resource: https://duckdb.org/docs/current/data/json/creating_json
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -211,7 +211,7 @@ Search Shortcut cmd + k | ctrl + k
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

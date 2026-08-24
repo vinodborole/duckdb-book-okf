@@ -11,7 +11,7 @@ description: 'Handling Concurrency Single Process In in-process mode, DuckDB has
   concurrency model is to allow for the caching of data in RAM for faster analytical
   queries, rather than going…'
 resource: https://duckdb.org/docs/current/connect/concurrency
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -208,7 +208,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

@@ -12,7 +12,7 @@ description: Configuration options can be provided to change different settings 
   "default_order", "DESC"); // open the database using the configuration if (duckdb_open_ext(NULL,
   &db, config, NULL) == DuckDBError) { // handle error }…
 resource: https://duckdb.org/docs/current/clients/c/config
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -209,7 +209,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

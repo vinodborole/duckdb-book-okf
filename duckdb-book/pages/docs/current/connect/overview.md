@@ -10,7 +10,7 @@ description: Connect or Create a Database To use DuckDB, you must first create a
   mode, where the entire dataset is stored in the main memory. Tip Both persistent
   and in-memory databases…
 resource: https://duckdb.org/docs/current/connect/overview
-timestamp: '2026-08-10T07:48:42.170324+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -207,7 +207,7 @@ timestamp: '2026-08-10T07:48:42.170324+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

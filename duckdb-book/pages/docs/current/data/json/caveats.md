@@ -9,7 +9,7 @@ description: 'Equality Comparison Warning Currently, equality comparison of JSON
   d[0], -- Equality because space was removed from physical content of fields: a =
   c[0], -- Indeed, field is equal to empty list without space... b != c[0], --…'
 resource: https://duckdb.org/docs/current/data/json/caveats
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -210,7 +210,7 @@ Search Shortcut cmd + k | ctrl + k
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

@@ -6,7 +6,7 @@ description: Connecting to DuckDB DuckDB connection overview Client APIs C C++ C
   client APIs SQL Introduction Statements Other Guides Installation Building DuckDB
   Browsing offline
 resource: https://duckdb.org/docs/lts
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -53,8 +53,7 @@ Search Shortcut cmd + k | ctrl + k
 								 [Dart](/docs/lts/clients/dart)
 - 
 								 [Go](/docs/lts/clients/go)
-- 
-								 [Java (JDBC)](/docs/lts/clients/java)
+- Java (JDBC)
 - 
 								 [Julia](/docs/lts/clients/julia)
 - Node.js (Deprecated)
@@ -223,7 +222,7 @@ Search Shortcut cmd + k | ctrl + k
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

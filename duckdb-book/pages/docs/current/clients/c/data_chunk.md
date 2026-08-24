@@ -10,7 +10,7 @@ description: Data chunks represent a horizontal slice of a table. They hold a nu
   DuckDB using the data chunk API does require knowledge of DuckDB's internal vector
   format. Data chunks can be used in…
 resource: https://duckdb.org/docs/current/clients/c/data_chunk
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -207,7 +207,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

@@ -11,7 +11,7 @@ description: 'Examples Read data from a Hive partitioned dataset: SELECT * FROM 
   on the hive_partitioning parameter. FROM read_parquet(''test/*/*/*.parquet'', hive_partitioning
   = false); -- will not include year, month…'
 resource: https://duckdb.org/docs/current/data/partitioning/hive_partitioning
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -208,7 +208,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

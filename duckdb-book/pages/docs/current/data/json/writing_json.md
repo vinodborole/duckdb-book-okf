@@ -7,7 +7,7 @@ description: 'The contents of tables or the result of queries can be written dir
   This will result in cities.json with the following content: {"name":"Amsterdam","id":1}
   {"name":"London","id":2} See the COPY statement for more information.'
 resource: https://duckdb.org/docs/current/data/json/writing_json
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -208,7 +208,7 @@ Search Shortcut cmd + k | ctrl + k
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

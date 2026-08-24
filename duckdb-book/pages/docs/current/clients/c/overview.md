@@ -10,7 +10,7 @@ description: Installation To use the DuckDB C API, download the libduckdb archiv
   can re-link to DuckDB and it should continue working. See the shell_helpers.cpp
   file in our source…
 resource: https://duckdb.org/docs/current/clients/c/overview
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -211,7 +211,7 @@ Search Shortcut cmd + k | ctrl + k
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

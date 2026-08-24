@@ -11,7 +11,7 @@ description: 'Handling Concurrency DuckDB has two configurable options for concu
   analytical queries, rather than going back and forth to disk during each query.
   It…'
 resource: https://duckdb.org/docs/lts/connect/concurrency
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -54,8 +54,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 								 [Dart](/docs/lts/clients/dart)
 - 
 								 [Go](/docs/lts/clients/go)
-- 
-								 [Java (JDBC)](/docs/lts/clients/java)
+- Java (JDBC)
 - 
 								 [Julia](/docs/lts/clients/julia)
 - Node.js (Deprecated)
@@ -224,7 +223,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

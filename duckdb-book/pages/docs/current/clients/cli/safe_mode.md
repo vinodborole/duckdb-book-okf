@@ -10,7 +10,7 @@ description: 'The DuckDB CLI client supports “safe mode”. In safe mode, the 
   is disabled. The enable_external_access option is set to false. This implies that:
   ATTACH cannot attach to a database in a file. COPY cannot read…'
 resource: https://duckdb.org/docs/current/clients/cli/safe_mode
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -211,7 +211,7 @@ Search Shortcut cmd + k | ctrl + k
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

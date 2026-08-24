@@ -11,7 +11,7 @@ description: 'This page documents the files using the ODBC configuration, odbc.i
   between the brackets is a DSN for the DuckDB. Driver: Describes the driver''s name,
   as well…'
 resource: https://duckdb.org/docs/current/clients/odbc/configuration
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -208,7 +208,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

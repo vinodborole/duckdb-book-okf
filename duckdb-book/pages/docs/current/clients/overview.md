@@ -13,7 +13,7 @@ description: DuckDB is an in-process database system and offers client APIs (“
   }}{% else %}{{ site.lts_duckdb_java_short_version }}{% endif %} Go Core team {%
   include tooltip.html…
 resource: https://duckdb.org/docs/current/clients/overview
-timestamp: '2026-08-10T07:48:42.170324+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -210,7 +210,7 @@ timestamp: '2026-08-10T07:48:42.170324+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
@@ -220,7 +220,7 @@ DuckDB is an in-process database system and offers client APIs (“drivers”) f
 |---|---|---|---|
 | [C](/docs/current/clients/c/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=c) | 
 | [CLI (command line interface)](/docs/current/clients/cli/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=cli) | 
-| [Java (JDBC)](/docs/current/clients/java.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=java) | 
+| [Java (JDBC)](/docs/current/clients/java/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=java) | 
 | [Go](/docs/current/clients/go.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=go) | 
 | [Node.js (node-neo)](/docs/current/clients/node_neo/overview.html) | [Jeff Raymakers](https://github.com/jraymakers) | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=nodejs) | 
 | [ODBC](/docs/current/clients/odbc/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=odbc) | 

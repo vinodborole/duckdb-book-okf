@@ -9,7 +9,7 @@ description: 'DuckDB can read multiple files of different types (CSV, Parquet, J
   deep: SELECT * FROM ''*/*/*.csv''; Read all files with a name ending in .csv, at
   any depth in the folder dir: SELECT * FROM ''dir/**/*.csv''; Read the CSV…'
 resource: https://duckdb.org/docs/current/data/multiple_files/overview
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -206,7 +206,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

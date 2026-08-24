@@ -11,7 +11,7 @@ description: Syntax highlighting in the CLI is currently only available for macO
   .error red Continuation .cont brightblack Continuation (Selected) .cont_sel green
   The components can be configured…
 resource: https://duckdb.org/docs/current/clients/cli/syntax_highlighting
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -208,7 +208,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

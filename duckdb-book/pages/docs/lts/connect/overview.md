@@ -10,7 +10,7 @@ description: Connect or Create a Database To use DuckDB, you must first create a
   out-of-core-processing). Persistent Database To create or open a persistent database,
   set the path of the database file, e.g., my_database.duckdb, when creating…
 resource: https://duckdb.org/docs/lts/connect/overview
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -53,8 +53,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 								 [Dart](/docs/lts/clients/dart)
 - 
 								 [Go](/docs/lts/clients/go)
-- 
-								 [Java (JDBC)](/docs/lts/clients/java)
+- Java (JDBC)
 - 
 								 [Julia](/docs/lts/clients/julia)
 - Node.js (Deprecated)
@@ -223,7 +222,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

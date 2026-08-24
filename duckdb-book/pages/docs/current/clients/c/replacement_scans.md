@@ -12,7 +12,7 @@ description: The replacement scan API can be used to register a callback that is
   info, const char *function_name); void duckdb_replacement_scan_add_parameter(duckdb_replacement_scan_info
   info, duckdb_value parameter); void duckdb_replacement_scan_set_error(duckdb_replacement_scan_info…
 resource: https://duckdb.org/docs/current/clients/c/replacement_scans
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -209,7 +209,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

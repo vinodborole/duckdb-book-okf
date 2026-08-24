@@ -10,7 +10,7 @@ description: 'The JSON extension can attempt to determine the format of a JSON f
   JSON can be parsed. Each line is a JSON. We use the example file records.json with
   the following content:…'
 resource: https://duckdb.org/docs/current/data/json/format_settings
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -207,7 +207,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

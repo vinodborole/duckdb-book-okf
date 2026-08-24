@@ -10,7 +10,7 @@ description: 'Below is a collection of tips to help when dealing with Parquet fi
   structure are good ways to transparently handle multiple files. Enabling PER_THREAD_OUTPUT
   If the final number of Parquet files is not important,…'
 resource: https://duckdb.org/docs/current/data/parquet/tips
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -207,7 +207,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

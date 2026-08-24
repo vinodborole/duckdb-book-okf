@@ -11,7 +11,7 @@ description: 'The shell offers context-aware autocomplete of SQL queries through
   to trigger. For example: SELECT s student_id SELECT student_id F FROM SELECT student_id
   FROM g grades SELECT…'
 resource: https://duckdb.org/docs/current/clients/cli/autocomplete
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -212,7 +212,7 @@ Search Shortcut cmd + k | ctrl + k
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

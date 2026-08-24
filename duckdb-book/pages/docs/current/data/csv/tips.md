@@ -10,7 +10,7 @@ description: Below is a collection of tips to help when attempting to import com
   by default. You can provide your own names with the names option. SELECT * FROM
   read_csv('flights.csv', names…
 resource: https://duckdb.org/docs/current/data/csv/tips
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -207,7 +207,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

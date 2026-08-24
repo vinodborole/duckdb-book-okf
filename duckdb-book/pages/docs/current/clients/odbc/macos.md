@@ -12,7 +12,7 @@ description: 'A driver manager is required to manage communication between appli
   }}{% else %}{{ site.lts_duckdb_odbc_version }}{% endif %}/duckdb_odbc-osx-universal.zip
   The archive contains the libduckdb_odbc.dylib artifact. To extract it to a directory,…'
 resource: https://duckdb.org/docs/current/clients/odbc/macos
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -209,7 +209,7 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 

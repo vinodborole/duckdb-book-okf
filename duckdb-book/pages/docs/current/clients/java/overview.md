@@ -1,16 +1,17 @@
 ---
 type: Web Page
-title: Types API – DuckDB
-description: The DuckDBPyType class represents a type instance of our data types.
-  Converting from Other Types To make the API as easy to use as possible, we have
-  added implicit conversions from existing type objects to a DuckDBPyType instance.
-  This means that wherever a DuckDBPyType object is expected, it is also possible
-  to provide any of the options listed below. Python Built-Ins The table below shows
-  the mapping of Python Built-in types to DuckDB type. Built-in types DuckDB type
-  bool BOOLEAN bytearray BLOB bytes BLOB float DOUBLE int BIGINT str VARCHAR Numpy
-  DTypes The table below shows the mapping of Numpy…
-resource: https://duckdb.org/docs/current/clients/python/types
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+title: Java (JDBC) Client – DuckDB
+description: Installation To use the DuckDB Java (JDBC) client, visit the Java installation
+  page. The latest stable version of the DuckDB Java (JDBC) client is {% if site.current_duckdb_java_short_version
+  != "" %}{{ site.current_duckdb_java_short_version }}{% else %}{{ site.lts_duckdb_java_short_version
+  }}{% endif %}. The DuckDB Java (JDBC) client lets Java applications query DuckDB
+  through the standard JDBC API, extended with DuckDB-specific features for bulk loading,
+  Apache Arrow interchange, user-defined functions, and profiling. This page covers
+  installation; the other pages in this section cover connecting and each feature
+  in detail. Installation The DuckDB Java JDBC API can be installed from Maven Central.
+  Please see the installation…
+resource: https://duckdb.org/docs/current/clients/java/overview
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 - 
@@ -207,255 +208,80 @@ timestamp: '2026-08-03T09:53:51.508916+00:00'
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-The `DuckDBPyType` class represents a type instance of our [data types](/docs/current/sql/data_types/overview.html).
+  Installation To use the DuckDB Java (JDBC) client, visit the [Java installation page](/install/?environment=java).
+
+The latest stable version of the DuckDB Java (JDBC) client is 1.5.5.
+
+The DuckDB Java (JDBC) client lets Java applications query DuckDB through the standard JDBC API, extended with DuckDB-specific features for bulk loading, [Apache Arrow](https://arrow.apache.org/) interchange, user-defined functions, and profiling. This page covers installation; the other pages in this section cover connecting and each feature in detail.
 
 ## 
         
-        [Converting from Other Types](#converting-from-other-types)
+        [Installation](#installation)
         
       
 
     
-To make the API as easy to use as possible, we have added implicit conversions from existing type objects to a DuckDBPyType instance. This means that wherever a DuckDBPyType object is expected, it is also possible to provide any of the options listed below.
+The DuckDB Java JDBC API can be installed from [Maven Central](https://search.maven.org/artifact/org.duckdb/duckdb_jdbc). Please see the [installation page](/install/?environment=java) for details.
+
+  Tip To try features before they reach a stable release, preview (nightly) builds of the JDBC driver are published as `SNAPSHOT` versions to DuckDB's snapshot repository at `https://duckdb-staging.duckdb.org/duckdb/duckdb-java/maven`. This is an object storage repository with no browseable web page; it is consumed directly by Maven. Add the repository to your build and depend on a `duckdb_jdbc` `SNAPSHOT` version. See the [preview builds page](/install/preview.html) for a full Maven example.
+
+## 
+        
+        [Basic API Usage](#basic-api-usage)
+        
+      
+
+    
+DuckDB's JDBC API implements the main parts of the standard Java Database Connectivity (JDBC) API, version 4.1. Describing JDBC is beyond the scope of this page, see the [official documentation](https://docs.oracle.com/javase/tutorial/jdbc/basics/index.html) for details. Below we focus on the DuckDB-specific parts.
+
+Refer to the externally hosted [API Reference](https://javadoc.io/doc/org.duckdb/duckdb_jdbc) for more information about our extensions to the JDBC specification, or the [Arrow Methods](/docs/current/clients/java/result_handling.html#arrow-methods).
 
 ### 
         
-        [Python Built-Ins](#python-built-ins)
+        [Opening a Connection](#opening-a-connection)
         
       
 
     
-The table below shows the mapping of Python Built-in types to DuckDB type.
+In JDBC, database connections are created through the standard `java.sql.DriverManager` class, using the `jdbc:duckdb:` JDBC URL prefix:
 
-| Built-in types | DuckDB type | 
-|---|---|
-| bool | BOOLEAN | 
-| bytearray | BLOB | 
-| bytes | BLOB | 
-| float | DOUBLE | 
-| int | BIGINT | 
-| str | VARCHAR | 
+```
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+Connection conn = DriverManager.getConnection("jdbc:duckdb:");
+```
+Used on its own, `jdbc:duckdb:` opens an in-memory database. Appending a file name, for example `jdbc:duckdb:/tmp/my_database`, opens a persistent database instead.
 
-### 
+To confirm that the driver is on the classpath and a connection can be opened, run a trivial query:
+
+```
+try (Statement stmt = conn.createStatement();
+     ResultSet rs = stmt.executeQuery("SELECT 42")) {
+    rs.next();
+    System.out.println(rs.getInt(1)); // prints 42
+}
+```
+[Define Connections](/docs/current/clients/java/connecting.html) covers the connection lifecycle in full: the URL forms the driver accepts, DuckDB and driver configuration options, read-only mode, instance caching, threading, and shutdown.
+
+## 
         
-        [Numpy DTypes](#numpy-dtypes)
+        [Further Reading](#further-reading)
         
       
 
     
-The table below shows the mapping of Numpy DType to DuckDB type.
-
-| Type | DuckDB type | 
-|---|---|
-| bool | BOOLEAN | 
-| float32 | FLOAT | 
-| float64 | DOUBLE | 
-| int16 | SMALLINT | 
-| int32 | INTEGER | 
-| int64 | BIGINT | 
-| int8 | TINYINT | 
-| uint16 | USMALLINT | 
-| uint32 | UINTEGER | 
-| uint64 | UBIGINT | 
-| uint8 | UTINYINT | 
-
-### 
-        
-        [Nested Types](#nested-types)
-        
-      
-
-    
-      #### 
-        
-        [`list\[child_type\]`](#listchild_type)
-        
-      
-
-    
-`list[child_type]`
-`list` type objects map to a `LIST` type of the child type.
-Which can also be arbitrarily nested.
-
-```
-import duckdb.sqltypes
-from typing import Union
-duckdb.sqltypes.DuckDBPyType(list[dict[Union[str, int], str]])
-```
-```
-MAP(UNION(u1 VARCHAR, u2 BIGINT), VARCHAR)[]
-```
-#### 
-        
-        [`dict\[key_type, value_type\]`](#dictkey_type-value_type)
-        
-      
-
-    
-`dict[key_type, value_type]`
-`dict` type objects map to a `MAP` type of the key type and the value type.
-
-```
-import duckdb.sqltypes
-print(duckdb.sqltypes.DuckDBPyType(dict[str, int]))
-```
-```
-MAP(VARCHAR, BIGINT)
-```
-#### 
-        
-        [`{'a': field_one, 'b': field_two, ..., 'n': field_n}`](#a-field_one-b-field_two--n-field_n)
-        
-      
-
-    
-`dict` objects map to a `STRUCT` composed of the keys and values of the dict.
-
-```
-import duckdb.sqltypes
-print(duckdb.sqltypes.DuckDBPyType({'a': str, 'b': int}))
-```
-```
-STRUCT(a VARCHAR, b BIGINT)
-```
-#### 
-        
-        [`Union\[type_1, ... type_n\]`](#uniontype_1--type_n)
-        
-      
-
-    
-`Union[type_1, ... type_n]`
-`typing.Union` objects map to a `UNION` type of the provided types.
-
-```
-import duckdb.sqltypes
-from typing import Union
-print(duckdb.sqltypes.DuckDBPyType(Union[int, str, bool, bytearray]))
-```
-```
-UNION(u1 BIGINT, u2 VARCHAR, u3 BOOLEAN, u4 BLOB)
-```
-### 
-        
-        [Creation Functions](#creation-functions)
-        
-      
-
-    
-For the built-in types, you can use the constants defined in `duckdb.sqltypes`:
-
-| DuckDB type | 
-|---|
-| BIGINT | 
-| BIT | 
-| BLOB | 
-| BOOLEAN | 
-| DATE | 
-| DOUBLE | 
-| FLOAT | 
-| HUGEINT | 
-| INTEGER | 
-| INTERVAL | 
-| SMALLINT | 
-| SQLNULL | 
-| TIME_TZ | 
-| TIME | 
-| TIMESTAMP_MS | 
-| TIMESTAMP_NS | 
-| TIMESTAMP_S | 
-| TIMESTAMP_TZ | 
-| TIMESTAMP | 
-| TINYINT | 
-| UBIGINT | 
-| UHUGEINT | 
-| UINTEGER | 
-| USMALLINT | 
-| UTINYINT | 
-| UUID | 
-| VARCHAR | 
-
-For the complex types there are methods available on the `DuckDBPyConnection` object or the `duckdb` module.
-Anywhere a `DuckDBPyType` is accepted, we will also accept one of the type objects that can implicitly convert to a `DuckDBPyType`.
-
-#### 
-        
-        [`list_type` | `array_type`](#list_type--array_type)
-        
-      
-
-    
-`list_type` | `array_type`
-Parameters:
-
-- `child_type: DuckDBPyType`
-
-#### 
-        
-        [`struct_type` | `row_type`](#struct_type--row_type)
-        
-      
-
-    
-`struct_type` | `row_type`
-Parameters:
-
-- `fields: Union[list[DuckDBPyType], dict[str, DuckDBPyType]]`
-
-#### 
-        
-        [`map_type`](#map_type)
-        
-      
-
-    
-`map_type`
-Parameters:
-
-- `key_type: DuckDBPyType`
-- `value_type: DuckDBPyType`
-
-#### 
-        
-        [`decimal_type`](#decimal_type)
-        
-      
-
-    
-`decimal_type`
-Parameters:
-
-- `width: int`
-- `scale: int`
-
-#### 
-        
-        [`union_type`](#union_type)
-        
-      
-
-    
-`union_type`
-Parameters:
-
-- `members: Union[list[DuckDBPyType], dict[str, DuckDBPyType]]`
-
-#### 
-        
-        [`string_type`](#string_type)
-        
-      
-
-    
-`string_type`
-Parameters:
-
-- `collation: Optional[str]`
+- [Define Connections](/docs/current/clients/java/connecting.html) — the JDBC URL forms, configuration options, instance caching, threading, and connection shutdown.
+- [Run Queries](/docs/current/clients/java/querying.html) — sending queries with`Statement` and`PreparedStatement` , and reading DuckDB's nested types.
+- [Import Data](/docs/current/clients/java/data_import.html) — bulk-loading data with the Appender and the JDBC batch writer.
+- [Handle Results](/docs/current/clients/java/result_handling.html) — Apache Arrow interchange, result streaming, and chunked results.
+- [Clients Overview](/docs/current/clients/overview.html) — the other client APIs DuckDB provides alongside JDBC.
 
 # Citations
 
-1. Source page: https://duckdb.org/docs/current/clients/python/types
+1. Source page: https://duckdb.org/docs/current/clients/java/overview

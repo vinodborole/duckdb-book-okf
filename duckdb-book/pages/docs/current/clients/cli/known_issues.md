@@ -11,7 +11,7 @@ description: 'Incorrect Memory Values on Old Linux Distributions and WSL 2 On Wi
   │ varchar │ varchar │ ├──────────────┼────────────┼─────────────────────────────────────────────┼────────────┼─────────┤
   │ max_memory │ 1638.3 PiB │…'
 resource: https://duckdb.org/docs/current/clients/cli/known_issues
-timestamp: '2026-08-03T09:53:51.508916+00:00'
+timestamp: '2026-08-24T07:05:55.104476+00:00'
 ---
 
 Search Shortcut cmd + k | ctrl + k
@@ -212,7 +212,7 @@ Search Shortcut cmd + k | ctrl + k
 - Testing
 - Internals
 - 
-				 [Sitemap](/docs/sitemap)
+				 [Sitemap](/sitemap.html)
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
