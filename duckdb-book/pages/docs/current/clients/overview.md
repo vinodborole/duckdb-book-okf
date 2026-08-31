@@ -13,7 +13,7 @@ description: DuckDB is an in-process database system and offers client APIs (“
   }}{% else %}{{ site.lts_duckdb_java_short_version }}{% endif %} Go Core team {%
   include tooltip.html…
 resource: https://duckdb.org/docs/current/clients/overview
-timestamp: '2026-08-24T07:05:55.104476+00:00'
+timestamp: '2026-08-31T13:09:59.989662+00:00'
 ---
 
 - 
@@ -226,7 +226,7 @@ DuckDB is an in-process database system and offers client APIs (“drivers”) f
 | [ODBC](/docs/current/clients/odbc/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=odbc) | 
 | [Python](/docs/current/clients/python/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=python) | 
 | [R](/docs/current/clients/r.html) | [Kirill Müller](https://github.com/krlmlr) | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=r) | 
-| [Rust](/docs/current/clients/rust.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=rust) | 
+| [Rust](/docs/current/clients/rust/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](/install/?version=current&environment=rust) | 
 | [WebAssembly (Wasm)](/docs/current/clients/wasm/overview.html) | Core team | PrimaryPrimary clients are the first to receive new features and are covered by community support. | [1.5.5](https://github.com/duckdb/duckdb-wasm#readme) | 
 | [ADBC (Arrow)](/docs/current/clients/adbc.html) | Core team | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.5](/docs/current/clients/adbc.html) | 
 | [C# (.NET)](https://duckdb.net/) | [Giorgi](https://github.com/Giorgi) | SecondarySecondary clients receive new features but are not covered by community support. | [1.5.5](https://www.nuget.org/packages?q=Tags%3A%22DuckDB%22+Author%3A%22Giorgi%22&includeComputedFrameworks=true&prerel=true&sortby=relevance) | 
@@ -257,7 +257,7 @@ Finally, there are no feature or support guarantees for tertiary clients.
 
     
 All DuckDB clients support the same DuckDB SQL syntax and use the same on-disk [database format](/docs/current/internals/storage.html).
-[DuckDB extensions](/docs/current/extensions/overview.html) are also portable between clients with some exceptions (see [Wasm extensions](/docs/current/clients/wasm/extensions.html#list-of-officially-available-extensions)).
+[DuckDB extensions](/docs/current/extensions/overview.html) are also portable between clients with some exceptions (see [Wasm extensions](/docs/current/clients/wasm/extensions.html#available-extensions)).
 
 # Citations
 

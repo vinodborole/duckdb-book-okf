@@ -2,7 +2,7 @@
   "generator": "okf-kit",
   "okf_version": "0.1",
   "root_url": "https://duckdb.org/docs/stable",
-  "updated_at": "2026-08-24T07:05:56.312647+00:00",
+  "updated_at": "2026-08-31T13:10:01.218104+00:00",
   "config": {
     "max_depth": 3,
     "max_pages": 80,
@@ -189,8 +189,8 @@
     {
       "path": "pages/docs/current/clients/java/connecting.md",
       "url": "https://duckdb.org/docs/current/clients/java/connecting",
-      "title": "Define Connections – DuckDB",
-      "hash": "c4e05fc0a3522c4c81c8dacd72178d8c2e940a98f3fec487c80bc71d70069150"
+      "title": "Connect – DuckDB",
+      "hash": "443e9b1ca85792d98b694e12671d2a76adc577ea61702d9ca52ef7a94caa49ab"
     },
     {
       "path": "pages/docs/current/clients/java/data_import.md",
@@ -199,22 +199,22 @@
       "hash": "383b28133a82b0a397d28f8f55e7f3ee256abef2b574846e6014ca97c60aee83"
     },
     {
-      "path": "pages/docs/current/clients/java/functions.md",
-      "url": "https://duckdb.org/docs/current/clients/java/functions",
-      "title": "Define Functions – DuckDB",
-      "hash": "d0cc8ae70fea804bd1c15acc7ea4fd89fcdf8c1a5167c6e4bd3bd32d1d1f7499"
+      "path": "pages/docs/current/clients/java/deploy_native_image.md",
+      "url": "https://duckdb.org/docs/current/clients/java/deploy_native_image",
+      "title": "Deploy as Native Image – DuckDB",
+      "hash": "1284c29b6251cf6597661e2a0193f5ed4376258bcd6828150aaedcbc37c74cf7"
     },
     {
-      "path": "pages/docs/current/clients/java/known_issues.md",
-      "url": "https://duckdb.org/docs/current/clients/java/known_issues",
-      "title": "Troubleshoot – DuckDB",
-      "hash": "662ef6900abaeffb49f2b9212e1d24da94670b791b7e2fdd367ef639c9020e31"
+      "path": "pages/docs/current/clients/java/functions.md",
+      "url": "https://duckdb.org/docs/current/clients/java/functions",
+      "title": "Write User Defined Functions – DuckDB",
+      "hash": "d0cc8ae70fea804bd1c15acc7ea4fd89fcdf8c1a5167c6e4bd3bd32d1d1f7499"
     },
     {
       "path": "pages/docs/current/clients/java/overview.md",
       "url": "https://duckdb.org/docs/current/clients/java/overview",
       "title": "Java (JDBC) Client – DuckDB",
-      "hash": "d749f0b1f09231453ca48bc55a69a9f7015e0696ed0c6bed5e76bd1a598f3c5a"
+      "hash": "26b1b65b7291f5dcb264f9562ad5e875f6f6d5f788488ba12b2f27656694c693"
     },
     {
       "path": "pages/docs/current/clients/java/profiling.md",
@@ -233,6 +233,12 @@
       "url": "https://duckdb.org/docs/current/clients/java/result_handling",
       "title": "Handle Results – DuckDB",
       "hash": "5b9c492f5193b436c57d448fbfa1f9eca05808bc19296307d0eb6c749eb9b7de"
+    },
+    {
+      "path": "pages/docs/current/clients/java/troubleshoot.md",
+      "url": "https://duckdb.org/docs/current/clients/java/troubleshoot",
+      "title": "Troubleshoot – DuckDB",
+      "hash": "4ae38cfbe514b7c07b9f514c8a1dd619cd54934f33afcafd432740a22763ec76"
     },
     {
       "path": "pages/docs/current/clients/node_neo/overview.md",
@@ -274,13 +280,7 @@
       "path": "pages/docs/current/clients/overview.md",
       "url": "https://duckdb.org/docs/current/clients/overview",
       "title": "Client Overview – DuckDB",
-      "hash": "059a1bf80deb61e5b657c8f7781c3e7d1acda99d5ccefb5de98cb11254cb0068"
-    },
-    {
-      "path": "pages/docs/current/clients/python/overview.md",
-      "url": "https://duckdb.org/docs/current/clients/python/overview",
-      "title": "Python API – DuckDB",
-      "hash": "5672cbafbe0de2b619bbf31836a208637a646f0aef5a1f7fc1ec30f31cd3772f"
+      "hash": "3c892a43e899e07b3365c334a3d840ddf4149f30495564837194551d163506a8"
     },
     {
       "path": "pages/docs/current/connect/concurrency.md",
@@ -298,7 +298,7 @@
       "path": "pages/docs/current/data/appender.md",
       "url": "https://duckdb.org/docs/current/data/appender",
       "title": "Appender – DuckDB",
-      "hash": "9bb98c8cea58557e2f4dc16b02cfeb68f53f65c07ec7269b721d09e48db13fe8"
+      "hash": "bb98d8317424bcc92a708a133043c2f1d4b59b3dffd9b4c61511fb4affd9dd10"
     },
     {
       "path": "pages/docs/current/data/csv/auto_detection.md",
@@ -608,11 +608,11 @@
     ],
     [
       "pages/docs/current.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current.md",
@@ -629,6 +629,10 @@
     [
       "pages/docs/current.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current.md",
@@ -657,10 +661,6 @@
     [
       "pages/docs/current.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current.md",
@@ -888,11 +888,11 @@
     ],
     [
       "pages/docs/current/clients/adbc.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/adbc.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/adbc.md",
@@ -909,6 +909,10 @@
     [
       "pages/docs/current/clients/adbc.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/adbc.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/adbc.md",
@@ -937,10 +941,6 @@
     [
       "pages/docs/current/clients/adbc.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/adbc.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/adbc.md",
@@ -1168,11 +1168,11 @@
     ],
     [
       "pages/docs/current/clients/c/api.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/api.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/api.md",
@@ -1189,6 +1189,10 @@
     [
       "pages/docs/current/clients/c/api.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/api.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/api.md",
@@ -1217,10 +1221,6 @@
     [
       "pages/docs/current/clients/c/api.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/api.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/api.md",
@@ -1448,11 +1448,11 @@
     ],
     [
       "pages/docs/current/clients/c/appender.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/appender.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/appender.md",
@@ -1469,6 +1469,10 @@
     [
       "pages/docs/current/clients/c/appender.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/appender.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/appender.md",
@@ -1497,10 +1501,6 @@
     [
       "pages/docs/current/clients/c/appender.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/appender.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/appender.md",
@@ -1728,11 +1728,11 @@
     ],
     [
       "pages/docs/current/clients/c/config.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/config.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/config.md",
@@ -1749,6 +1749,10 @@
     [
       "pages/docs/current/clients/c/config.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/config.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/config.md",
@@ -1777,10 +1781,6 @@
     [
       "pages/docs/current/clients/c/config.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/config.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/config.md",
@@ -2008,11 +2008,11 @@
     ],
     [
       "pages/docs/current/clients/c/connect.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/connect.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/connect.md",
@@ -2029,6 +2029,10 @@
     [
       "pages/docs/current/clients/c/connect.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/connect.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/connect.md",
@@ -2057,10 +2061,6 @@
     [
       "pages/docs/current/clients/c/connect.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/connect.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/connect.md",
@@ -2288,11 +2288,11 @@
     ],
     [
       "pages/docs/current/clients/c/data_chunk.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/data_chunk.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/data_chunk.md",
@@ -2309,6 +2309,10 @@
     [
       "pages/docs/current/clients/c/data_chunk.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/data_chunk.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/data_chunk.md",
@@ -2337,10 +2341,6 @@
     [
       "pages/docs/current/clients/c/data_chunk.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/data_chunk.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/data_chunk.md",
@@ -2568,11 +2568,11 @@
     ],
     [
       "pages/docs/current/clients/c/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/overview.md",
@@ -2589,6 +2589,10 @@
     [
       "pages/docs/current/clients/c/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/overview.md",
@@ -2617,10 +2621,6 @@
     [
       "pages/docs/current/clients/c/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/overview.md",
@@ -2848,11 +2848,11 @@
     ],
     [
       "pages/docs/current/clients/c/prepared.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/prepared.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/prepared.md",
@@ -2869,6 +2869,10 @@
     [
       "pages/docs/current/clients/c/prepared.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/prepared.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/prepared.md",
@@ -2897,10 +2901,6 @@
     [
       "pages/docs/current/clients/c/prepared.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/prepared.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/prepared.md",
@@ -3128,11 +3128,11 @@
     ],
     [
       "pages/docs/current/clients/c/query.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/query.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/query.md",
@@ -3149,6 +3149,10 @@
     [
       "pages/docs/current/clients/c/query.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/query.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/query.md",
@@ -3177,10 +3181,6 @@
     [
       "pages/docs/current/clients/c/query.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/query.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/query.md",
@@ -3408,11 +3408,11 @@
     ],
     [
       "pages/docs/current/clients/c/replacement_scans.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/replacement_scans.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/replacement_scans.md",
@@ -3429,6 +3429,10 @@
     [
       "pages/docs/current/clients/c/replacement_scans.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/replacement_scans.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/replacement_scans.md",
@@ -3457,10 +3461,6 @@
     [
       "pages/docs/current/clients/c/replacement_scans.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/replacement_scans.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/replacement_scans.md",
@@ -3688,11 +3688,11 @@
     ],
     [
       "pages/docs/current/clients/c/table_functions.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/table_functions.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/table_functions.md",
@@ -3709,6 +3709,10 @@
     [
       "pages/docs/current/clients/c/table_functions.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/table_functions.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/table_functions.md",
@@ -3737,10 +3741,6 @@
     [
       "pages/docs/current/clients/c/table_functions.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/table_functions.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/table_functions.md",
@@ -3968,11 +3968,11 @@
     ],
     [
       "pages/docs/current/clients/c/types.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/types.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/types.md",
@@ -3989,6 +3989,10 @@
     [
       "pages/docs/current/clients/c/types.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/types.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/types.md",
@@ -4017,10 +4021,6 @@
     [
       "pages/docs/current/clients/c/types.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/types.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/types.md",
@@ -4248,11 +4248,11 @@
     ],
     [
       "pages/docs/current/clients/c/value.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/value.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/value.md",
@@ -4269,6 +4269,10 @@
     [
       "pages/docs/current/clients/c/value.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/value.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/value.md",
@@ -4297,10 +4301,6 @@
     [
       "pages/docs/current/clients/c/value.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/value.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/value.md",
@@ -4528,11 +4528,11 @@
     ],
     [
       "pages/docs/current/clients/c/vector.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/c/vector.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/c/vector.md",
@@ -4549,6 +4549,10 @@
     [
       "pages/docs/current/clients/c/vector.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/c/vector.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/c/vector.md",
@@ -4577,10 +4581,6 @@
     [
       "pages/docs/current/clients/c/vector.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/c/vector.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/c/vector.md",
@@ -4808,11 +4808,11 @@
     ],
     [
       "pages/docs/current/clients/cli/arguments.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cli/arguments.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cli/arguments.md",
@@ -4829,6 +4829,10 @@
     [
       "pages/docs/current/clients/cli/arguments.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cli/arguments.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cli/arguments.md",
@@ -4857,10 +4861,6 @@
     [
       "pages/docs/current/clients/cli/arguments.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cli/arguments.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cli/arguments.md",
@@ -5088,11 +5088,11 @@
     ],
     [
       "pages/docs/current/clients/cli/autocomplete.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cli/autocomplete.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cli/autocomplete.md",
@@ -5109,6 +5109,10 @@
     [
       "pages/docs/current/clients/cli/autocomplete.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cli/autocomplete.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cli/autocomplete.md",
@@ -5137,10 +5141,6 @@
     [
       "pages/docs/current/clients/cli/autocomplete.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cli/autocomplete.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cli/autocomplete.md",
@@ -5368,11 +5368,11 @@
     ],
     [
       "pages/docs/current/clients/cli/dot_commands.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cli/dot_commands.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cli/dot_commands.md",
@@ -5389,6 +5389,10 @@
     [
       "pages/docs/current/clients/cli/dot_commands.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cli/dot_commands.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cli/dot_commands.md",
@@ -5417,10 +5421,6 @@
     [
       "pages/docs/current/clients/cli/dot_commands.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cli/dot_commands.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cli/dot_commands.md",
@@ -5648,11 +5648,11 @@
     ],
     [
       "pages/docs/current/clients/cli/editing.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cli/editing.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cli/editing.md",
@@ -5669,6 +5669,10 @@
     [
       "pages/docs/current/clients/cli/editing.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cli/editing.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cli/editing.md",
@@ -5697,10 +5701,6 @@
     [
       "pages/docs/current/clients/cli/editing.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cli/editing.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cli/editing.md",
@@ -5928,11 +5928,11 @@
     ],
     [
       "pages/docs/current/clients/cli/friendly_cli.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cli/friendly_cli.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cli/friendly_cli.md",
@@ -5949,6 +5949,10 @@
     [
       "pages/docs/current/clients/cli/friendly_cli.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cli/friendly_cli.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cli/friendly_cli.md",
@@ -5977,10 +5981,6 @@
     [
       "pages/docs/current/clients/cli/friendly_cli.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cli/friendly_cli.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cli/friendly_cli.md",
@@ -6208,11 +6208,11 @@
     ],
     [
       "pages/docs/current/clients/cli/known_issues.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cli/known_issues.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cli/known_issues.md",
@@ -6229,6 +6229,10 @@
     [
       "pages/docs/current/clients/cli/known_issues.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cli/known_issues.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cli/known_issues.md",
@@ -6257,10 +6261,6 @@
     [
       "pages/docs/current/clients/cli/known_issues.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cli/known_issues.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cli/known_issues.md",
@@ -6488,11 +6488,11 @@
     ],
     [
       "pages/docs/current/clients/cli/output_formats.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cli/output_formats.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cli/output_formats.md",
@@ -6509,6 +6509,10 @@
     [
       "pages/docs/current/clients/cli/output_formats.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cli/output_formats.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cli/output_formats.md",
@@ -6537,10 +6541,6 @@
     [
       "pages/docs/current/clients/cli/output_formats.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cli/output_formats.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cli/output_formats.md",
@@ -6768,11 +6768,11 @@
     ],
     [
       "pages/docs/current/clients/cli/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cli/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cli/overview.md",
@@ -6789,6 +6789,10 @@
     [
       "pages/docs/current/clients/cli/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cli/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cli/overview.md",
@@ -6817,10 +6821,6 @@
     [
       "pages/docs/current/clients/cli/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cli/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cli/overview.md",
@@ -7048,11 +7048,11 @@
     ],
     [
       "pages/docs/current/clients/cli/safe_mode.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cli/safe_mode.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cli/safe_mode.md",
@@ -7069,6 +7069,10 @@
     [
       "pages/docs/current/clients/cli/safe_mode.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cli/safe_mode.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cli/safe_mode.md",
@@ -7097,10 +7101,6 @@
     [
       "pages/docs/current/clients/cli/safe_mode.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cli/safe_mode.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cli/safe_mode.md",
@@ -7328,11 +7328,11 @@
     ],
     [
       "pages/docs/current/clients/cli/syntax_highlighting.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cli/syntax_highlighting.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cli/syntax_highlighting.md",
@@ -7349,6 +7349,10 @@
     [
       "pages/docs/current/clients/cli/syntax_highlighting.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cli/syntax_highlighting.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cli/syntax_highlighting.md",
@@ -7377,10 +7381,6 @@
     [
       "pages/docs/current/clients/cli/syntax_highlighting.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cli/syntax_highlighting.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cli/syntax_highlighting.md",
@@ -7608,11 +7608,11 @@
     ],
     [
       "pages/docs/current/clients/cpp.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/cpp.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/cpp.md",
@@ -7629,6 +7629,10 @@
     [
       "pages/docs/current/clients/cpp.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/cpp.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/cpp.md",
@@ -7657,10 +7661,6 @@
     [
       "pages/docs/current/clients/cpp.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/cpp.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/cpp.md",
@@ -7888,11 +7888,11 @@
     ],
     [
       "pages/docs/current/clients/go.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/go.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/go.md",
@@ -7909,6 +7909,10 @@
     [
       "pages/docs/current/clients/go.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/go.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/go.md",
@@ -7937,10 +7941,6 @@
     [
       "pages/docs/current/clients/go.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/go.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/go.md",
@@ -8168,11 +8168,11 @@
     ],
     [
       "pages/docs/current/clients/java/connecting.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/java/connecting.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/java/connecting.md",
@@ -8189,6 +8189,10 @@
     [
       "pages/docs/current/clients/java/connecting.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/java/connecting.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/java/connecting.md",
@@ -8217,10 +8221,6 @@
     [
       "pages/docs/current/clients/java/connecting.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/connecting.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/java/connecting.md",
@@ -8448,11 +8448,11 @@
     ],
     [
       "pages/docs/current/clients/java/data_import.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/java/data_import.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/java/data_import.md",
@@ -8469,6 +8469,10 @@
     [
       "pages/docs/current/clients/java/data_import.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/java/data_import.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/java/data_import.md",
@@ -8497,10 +8501,6 @@
     [
       "pages/docs/current/clients/java/data_import.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/data_import.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/java/data_import.md",
@@ -8616,6 +8616,286 @@
     ],
     [
       "pages/docs/current/clients/java/data_import.md",
+      "pages/docs/current/lakehouse_formats.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/adbc.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/api.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/appender.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/config.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/connect.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/data_chunk.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/prepared.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/query.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/replacement_scans.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/table_functions.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/types.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/value.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/c/vector.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cli/arguments.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cli/autocomplete.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cli/dot_commands.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cli/editing.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cli/friendly_cli.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cli/known_issues.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cli/output_formats.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cli/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cli/safe_mode.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cli/syntax_highlighting.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/cpp.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/go.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/java/connecting.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/java/data_import.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/java/functions.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/java/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/java/profiling.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/java/querying.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/node_neo/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/odbc/configuration.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/odbc/linux.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/odbc/macos.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/odbc/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/odbc/windows.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/clients/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/connect/concurrency.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/connect/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/appender.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/csv/auto_detection.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/csv/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/csv/reading_faulty_csv_files.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/csv/tips.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/data_sources.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/insert.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/json/caveats.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/json/creating_json.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/json/format_settings.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/json/installing_and_loading.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/json/json_functions.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/json/json_type.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/json/loading_json.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/json/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/json/sql_to_and_from_json.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/json/writing_json.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/multiple_files/combining_schemas.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/multiple_files/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/parquet/encryption.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/parquet/metadata.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/parquet/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/parquet/tips.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/partitioning/hive_partitioning.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
+      "pages/docs/current/data/partitioning/partitioned_writes.md"
+    ],
+    [
+      "pages/docs/current/clients/java/deploy_native_image.md",
       "pages/docs/current/lakehouse_formats.md"
     ],
     [
@@ -8732,7 +9012,7 @@
     ],
     [
       "pages/docs/current/clients/java/functions.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/java/functions.md",
@@ -8749,6 +9029,10 @@
     [
       "pages/docs/current/clients/java/functions.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/java/functions.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/java/functions.md",
@@ -8777,10 +9061,6 @@
     [
       "pages/docs/current/clients/java/functions.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/functions.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/java/functions.md",
@@ -8899,286 +9179,6 @@
       "pages/docs/current/lakehouse_formats.md"
     ],
     [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/adbc.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/api.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/appender.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/config.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/connect.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/data_chunk.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/prepared.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/query.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/replacement_scans.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/table_functions.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/types.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/value.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/c/vector.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cli/arguments.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cli/autocomplete.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cli/dot_commands.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cli/editing.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cli/friendly_cli.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cli/known_issues.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cli/output_formats.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cli/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cli/safe_mode.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cli/syntax_highlighting.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/cpp.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/go.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/java/connecting.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/java/data_import.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/java/functions.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/java/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/java/profiling.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/java/querying.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/java/result_handling.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/node_neo/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/odbc/configuration.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/odbc/linux.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/odbc/macos.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/odbc/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/odbc/windows.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/clients/python/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/connect/concurrency.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/connect/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/appender.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/csv/auto_detection.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/csv/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/csv/reading_faulty_csv_files.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/csv/tips.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/data_sources.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/insert.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/json/caveats.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/json/creating_json.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/json/format_settings.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/json/installing_and_loading.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/json/json_functions.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/json/json_type.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/json/loading_json.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/json/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/json/sql_to_and_from_json.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/json/writing_json.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/multiple_files/combining_schemas.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/multiple_files/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/parquet/encryption.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/parquet/metadata.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/parquet/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/parquet/tips.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/partitioning/hive_partitioning.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/data/partitioning/partitioned_writes.md"
-    ],
-    [
-      "pages/docs/current/clients/java/known_issues.md",
-      "pages/docs/current/lakehouse_formats.md"
-    ],
-    [
       "pages/docs/current/clients/java/overview.md",
       "pages/docs/current/clients/adbc.md"
     ],
@@ -9292,11 +9292,11 @@
     ],
     [
       "pages/docs/current/clients/java/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/java/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/java/overview.md",
@@ -9309,6 +9309,10 @@
     [
       "pages/docs/current/clients/java/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/java/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/java/overview.md",
@@ -9337,10 +9341,6 @@
     [
       "pages/docs/current/clients/java/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/java/overview.md",
@@ -9572,11 +9572,11 @@
     ],
     [
       "pages/docs/current/clients/java/profiling.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/java/profiling.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/java/profiling.md",
@@ -9589,6 +9589,10 @@
     [
       "pages/docs/current/clients/java/profiling.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/java/profiling.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/java/profiling.md",
@@ -9617,10 +9621,6 @@
     [
       "pages/docs/current/clients/java/profiling.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/profiling.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/java/profiling.md",
@@ -9852,11 +9852,11 @@
     ],
     [
       "pages/docs/current/clients/java/querying.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/java/querying.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/java/querying.md",
@@ -9869,6 +9869,10 @@
     [
       "pages/docs/current/clients/java/querying.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/java/querying.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/java/querying.md",
@@ -9897,10 +9901,6 @@
     [
       "pages/docs/current/clients/java/querying.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/querying.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/java/querying.md",
@@ -10132,11 +10132,11 @@
     ],
     [
       "pages/docs/current/clients/java/result_handling.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/java/result_handling.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/java/result_handling.md",
@@ -10149,6 +10149,10 @@
     [
       "pages/docs/current/clients/java/result_handling.md",
       "pages/docs/current/clients/java/querying.md"
+    ],
+    [
+      "pages/docs/current/clients/java/result_handling.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/java/result_handling.md",
@@ -10177,10 +10181,6 @@
     [
       "pages/docs/current/clients/java/result_handling.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/java/result_handling.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/java/result_handling.md",
@@ -10299,6 +10299,286 @@
       "pages/docs/current/lakehouse_formats.md"
     ],
     [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/adbc.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/api.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/appender.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/config.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/connect.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/data_chunk.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/prepared.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/query.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/replacement_scans.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/table_functions.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/types.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/value.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/c/vector.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cli/arguments.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cli/autocomplete.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cli/dot_commands.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cli/editing.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cli/friendly_cli.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cli/known_issues.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cli/output_formats.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cli/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cli/safe_mode.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cli/syntax_highlighting.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/cpp.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/go.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/java/connecting.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/java/data_import.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/java/deploy_native_image.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/java/functions.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/java/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/java/profiling.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/java/querying.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/node_neo/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/odbc/configuration.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/odbc/linux.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/odbc/macos.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/odbc/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/odbc/windows.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/clients/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/connect/concurrency.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/connect/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/appender.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/csv/auto_detection.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/csv/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/csv/reading_faulty_csv_files.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/csv/tips.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/data_sources.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/insert.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/json/caveats.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/json/creating_json.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/json/format_settings.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/json/installing_and_loading.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/json/json_functions.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/json/json_type.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/json/loading_json.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/json/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/json/sql_to_and_from_json.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/json/writing_json.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/multiple_files/combining_schemas.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/multiple_files/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/parquet/encryption.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/parquet/metadata.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/parquet/overview.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/parquet/tips.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/partitioning/hive_partitioning.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/data/partitioning/partitioned_writes.md"
+    ],
+    [
+      "pages/docs/current/clients/java/troubleshoot.md",
+      "pages/docs/current/lakehouse_formats.md"
+    ],
+    [
       "pages/docs/current/clients/node_neo/overview.md",
       "pages/docs/current/clients/adbc.md"
     ],
@@ -10412,11 +10692,11 @@
     ],
     [
       "pages/docs/current/clients/node_neo/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/node_neo/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/node_neo/overview.md",
@@ -10433,6 +10713,10 @@
     [
       "pages/docs/current/clients/node_neo/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/node_neo/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/node_neo/overview.md",
@@ -10457,10 +10741,6 @@
     [
       "pages/docs/current/clients/node_neo/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/node_neo/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/node_neo/overview.md",
@@ -10692,11 +10972,11 @@
     ],
     [
       "pages/docs/current/clients/odbc/configuration.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/odbc/configuration.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/odbc/configuration.md",
@@ -10713,6 +10993,10 @@
     [
       "pages/docs/current/clients/odbc/configuration.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/odbc/configuration.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/odbc/configuration.md",
@@ -10737,10 +11021,6 @@
     [
       "pages/docs/current/clients/odbc/configuration.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/odbc/configuration.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/odbc/configuration.md",
@@ -10972,11 +11252,11 @@
     ],
     [
       "pages/docs/current/clients/odbc/linux.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/odbc/linux.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/odbc/linux.md",
@@ -10993,6 +11273,10 @@
     [
       "pages/docs/current/clients/odbc/linux.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/odbc/linux.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/odbc/linux.md",
@@ -11017,10 +11301,6 @@
     [
       "pages/docs/current/clients/odbc/linux.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/odbc/linux.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/odbc/linux.md",
@@ -11252,11 +11532,11 @@
     ],
     [
       "pages/docs/current/clients/odbc/macos.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/odbc/macos.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/odbc/macos.md",
@@ -11273,6 +11553,10 @@
     [
       "pages/docs/current/clients/odbc/macos.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/odbc/macos.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/odbc/macos.md",
@@ -11297,10 +11581,6 @@
     [
       "pages/docs/current/clients/odbc/macos.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/odbc/macos.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/odbc/macos.md",
@@ -11532,11 +11812,11 @@
     ],
     [
       "pages/docs/current/clients/odbc/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/odbc/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/odbc/overview.md",
@@ -11553,6 +11833,10 @@
     [
       "pages/docs/current/clients/odbc/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/odbc/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/odbc/overview.md",
@@ -11577,10 +11861,6 @@
     [
       "pages/docs/current/clients/odbc/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/odbc/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/odbc/overview.md",
@@ -11812,11 +12092,11 @@
     ],
     [
       "pages/docs/current/clients/odbc/windows.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/odbc/windows.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/odbc/windows.md",
@@ -11833,6 +12113,10 @@
     [
       "pages/docs/current/clients/odbc/windows.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/odbc/windows.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/odbc/windows.md",
@@ -11857,10 +12141,6 @@
     [
       "pages/docs/current/clients/odbc/windows.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/odbc/windows.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/odbc/windows.md",
@@ -12092,11 +12372,11 @@
     ],
     [
       "pages/docs/current/clients/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/clients/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/clients/overview.md",
@@ -12113,6 +12393,10 @@
     [
       "pages/docs/current/clients/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/clients/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/clients/overview.md",
@@ -12137,10 +12421,6 @@
     [
       "pages/docs/current/clients/overview.md",
       "pages/docs/current/clients/odbc/windows.md"
-    ],
-    [
-      "pages/docs/current/clients/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/clients/overview.md",
@@ -12259,286 +12539,6 @@
       "pages/docs/current/lakehouse_formats.md"
     ],
     [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/adbc.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/api.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/appender.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/config.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/connect.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/data_chunk.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/prepared.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/query.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/replacement_scans.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/table_functions.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/types.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/value.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/c/vector.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cli/arguments.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cli/autocomplete.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cli/dot_commands.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cli/editing.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cli/friendly_cli.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cli/known_issues.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cli/output_formats.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cli/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cli/safe_mode.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cli/syntax_highlighting.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/cpp.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/go.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/java/connecting.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/java/data_import.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/java/functions.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/java/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/java/profiling.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/java/querying.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/java/result_handling.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/node_neo/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/odbc/configuration.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/odbc/linux.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/odbc/macos.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/odbc/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/odbc/windows.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/connect/concurrency.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/connect/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/appender.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/csv/auto_detection.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/csv/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/csv/reading_faulty_csv_files.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/csv/tips.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/data_sources.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/insert.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/json/caveats.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/json/creating_json.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/json/format_settings.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/json/installing_and_loading.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/json/json_functions.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/json/json_type.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/json/loading_json.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/json/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/json/sql_to_and_from_json.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/json/writing_json.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/multiple_files/combining_schemas.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/multiple_files/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/parquet/encryption.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/parquet/metadata.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/parquet/overview.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/parquet/tips.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/partitioning/hive_partitioning.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/data/partitioning/partitioned_writes.md"
-    ],
-    [
-      "pages/docs/current/clients/python/overview.md",
-      "pages/docs/current/lakehouse_formats.md"
-    ],
-    [
       "pages/docs/current/connect/concurrency.md",
       "pages/docs/current/clients/adbc.md"
     ],
@@ -12652,11 +12652,11 @@
     ],
     [
       "pages/docs/current/connect/concurrency.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/connect/concurrency.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/connect/concurrency.md",
@@ -12673,6 +12673,10 @@
     [
       "pages/docs/current/connect/concurrency.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/connect/concurrency.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/connect/concurrency.md",
@@ -12701,10 +12705,6 @@
     [
       "pages/docs/current/connect/concurrency.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/connect/concurrency.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/connect/concurrency.md",
@@ -12932,11 +12932,11 @@
     ],
     [
       "pages/docs/current/connect/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/connect/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/connect/overview.md",
@@ -12953,6 +12953,10 @@
     [
       "pages/docs/current/connect/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/connect/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/connect/overview.md",
@@ -12981,10 +12985,6 @@
     [
       "pages/docs/current/connect/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/connect/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/connect/overview.md",
@@ -13212,11 +13212,11 @@
     ],
     [
       "pages/docs/current/data/appender.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/appender.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/appender.md",
@@ -13233,6 +13233,10 @@
     [
       "pages/docs/current/data/appender.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/appender.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/appender.md",
@@ -13261,10 +13265,6 @@
     [
       "pages/docs/current/data/appender.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/appender.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/appender.md",
@@ -13492,11 +13492,11 @@
     ],
     [
       "pages/docs/current/data/csv/auto_detection.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/csv/auto_detection.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/csv/auto_detection.md",
@@ -13513,6 +13513,10 @@
     [
       "pages/docs/current/data/csv/auto_detection.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/csv/auto_detection.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/csv/auto_detection.md",
@@ -13541,10 +13545,6 @@
     [
       "pages/docs/current/data/csv/auto_detection.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/csv/auto_detection.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/csv/auto_detection.md",
@@ -13772,11 +13772,11 @@
     ],
     [
       "pages/docs/current/data/csv/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/csv/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/csv/overview.md",
@@ -13793,6 +13793,10 @@
     [
       "pages/docs/current/data/csv/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/csv/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/csv/overview.md",
@@ -13821,10 +13825,6 @@
     [
       "pages/docs/current/data/csv/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/csv/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/csv/overview.md",
@@ -14052,11 +14052,11 @@
     ],
     [
       "pages/docs/current/data/csv/reading_faulty_csv_files.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/csv/reading_faulty_csv_files.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/csv/reading_faulty_csv_files.md",
@@ -14073,6 +14073,10 @@
     [
       "pages/docs/current/data/csv/reading_faulty_csv_files.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/csv/reading_faulty_csv_files.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/csv/reading_faulty_csv_files.md",
@@ -14101,10 +14105,6 @@
     [
       "pages/docs/current/data/csv/reading_faulty_csv_files.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/csv/reading_faulty_csv_files.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/csv/reading_faulty_csv_files.md",
@@ -14332,11 +14332,11 @@
     ],
     [
       "pages/docs/current/data/csv/tips.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/csv/tips.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/csv/tips.md",
@@ -14353,6 +14353,10 @@
     [
       "pages/docs/current/data/csv/tips.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/csv/tips.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/csv/tips.md",
@@ -14381,10 +14385,6 @@
     [
       "pages/docs/current/data/csv/tips.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/csv/tips.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/csv/tips.md",
@@ -14612,11 +14612,11 @@
     ],
     [
       "pages/docs/current/data/data_sources.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/data_sources.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/data_sources.md",
@@ -14633,6 +14633,10 @@
     [
       "pages/docs/current/data/data_sources.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/data_sources.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/data_sources.md",
@@ -14661,10 +14665,6 @@
     [
       "pages/docs/current/data/data_sources.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/data_sources.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/data_sources.md",
@@ -14892,11 +14892,11 @@
     ],
     [
       "pages/docs/current/data/insert.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/insert.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/insert.md",
@@ -14913,6 +14913,10 @@
     [
       "pages/docs/current/data/insert.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/insert.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/insert.md",
@@ -14941,10 +14945,6 @@
     [
       "pages/docs/current/data/insert.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/insert.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/insert.md",
@@ -15172,11 +15172,11 @@
     ],
     [
       "pages/docs/current/data/json/caveats.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/json/caveats.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/json/caveats.md",
@@ -15193,6 +15193,10 @@
     [
       "pages/docs/current/data/json/caveats.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/json/caveats.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/json/caveats.md",
@@ -15221,10 +15225,6 @@
     [
       "pages/docs/current/data/json/caveats.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/json/caveats.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/json/caveats.md",
@@ -15452,11 +15452,11 @@
     ],
     [
       "pages/docs/current/data/json/creating_json.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/json/creating_json.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/json/creating_json.md",
@@ -15473,6 +15473,10 @@
     [
       "pages/docs/current/data/json/creating_json.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/json/creating_json.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/json/creating_json.md",
@@ -15501,10 +15505,6 @@
     [
       "pages/docs/current/data/json/creating_json.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/json/creating_json.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/json/creating_json.md",
@@ -15732,11 +15732,11 @@
     ],
     [
       "pages/docs/current/data/json/format_settings.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/json/format_settings.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/json/format_settings.md",
@@ -15753,6 +15753,10 @@
     [
       "pages/docs/current/data/json/format_settings.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/json/format_settings.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/json/format_settings.md",
@@ -15781,10 +15785,6 @@
     [
       "pages/docs/current/data/json/format_settings.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/json/format_settings.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/json/format_settings.md",
@@ -16012,11 +16012,11 @@
     ],
     [
       "pages/docs/current/data/json/installing_and_loading.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/json/installing_and_loading.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/json/installing_and_loading.md",
@@ -16033,6 +16033,10 @@
     [
       "pages/docs/current/data/json/installing_and_loading.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/json/installing_and_loading.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/json/installing_and_loading.md",
@@ -16061,10 +16065,6 @@
     [
       "pages/docs/current/data/json/installing_and_loading.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/json/installing_and_loading.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/json/installing_and_loading.md",
@@ -16292,11 +16292,11 @@
     ],
     [
       "pages/docs/current/data/json/json_functions.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/json/json_functions.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/json/json_functions.md",
@@ -16313,6 +16313,10 @@
     [
       "pages/docs/current/data/json/json_functions.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/json/json_functions.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/json/json_functions.md",
@@ -16341,10 +16345,6 @@
     [
       "pages/docs/current/data/json/json_functions.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/json/json_functions.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/json/json_functions.md",
@@ -16572,11 +16572,11 @@
     ],
     [
       "pages/docs/current/data/json/json_type.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/json/json_type.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/json/json_type.md",
@@ -16593,6 +16593,10 @@
     [
       "pages/docs/current/data/json/json_type.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/json/json_type.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/json/json_type.md",
@@ -16621,10 +16625,6 @@
     [
       "pages/docs/current/data/json/json_type.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/json/json_type.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/json/json_type.md",
@@ -16852,11 +16852,11 @@
     ],
     [
       "pages/docs/current/data/json/loading_json.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/json/loading_json.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/json/loading_json.md",
@@ -16873,6 +16873,10 @@
     [
       "pages/docs/current/data/json/loading_json.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/json/loading_json.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/json/loading_json.md",
@@ -16901,10 +16905,6 @@
     [
       "pages/docs/current/data/json/loading_json.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/json/loading_json.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/json/loading_json.md",
@@ -17132,11 +17132,11 @@
     ],
     [
       "pages/docs/current/data/json/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/json/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/json/overview.md",
@@ -17153,6 +17153,10 @@
     [
       "pages/docs/current/data/json/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/json/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/json/overview.md",
@@ -17181,10 +17185,6 @@
     [
       "pages/docs/current/data/json/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/json/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/json/overview.md",
@@ -17412,11 +17412,11 @@
     ],
     [
       "pages/docs/current/data/json/sql_to_and_from_json.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/json/sql_to_and_from_json.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/json/sql_to_and_from_json.md",
@@ -17433,6 +17433,10 @@
     [
       "pages/docs/current/data/json/sql_to_and_from_json.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/json/sql_to_and_from_json.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/json/sql_to_and_from_json.md",
@@ -17461,10 +17465,6 @@
     [
       "pages/docs/current/data/json/sql_to_and_from_json.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/json/sql_to_and_from_json.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/json/sql_to_and_from_json.md",
@@ -17692,11 +17692,11 @@
     ],
     [
       "pages/docs/current/data/json/writing_json.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/json/writing_json.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/json/writing_json.md",
@@ -17713,6 +17713,10 @@
     [
       "pages/docs/current/data/json/writing_json.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/json/writing_json.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/json/writing_json.md",
@@ -17741,10 +17745,6 @@
     [
       "pages/docs/current/data/json/writing_json.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/json/writing_json.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/json/writing_json.md",
@@ -17972,11 +17972,11 @@
     ],
     [
       "pages/docs/current/data/multiple_files/combining_schemas.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/multiple_files/combining_schemas.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/multiple_files/combining_schemas.md",
@@ -17993,6 +17993,10 @@
     [
       "pages/docs/current/data/multiple_files/combining_schemas.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/multiple_files/combining_schemas.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/multiple_files/combining_schemas.md",
@@ -18021,10 +18025,6 @@
     [
       "pages/docs/current/data/multiple_files/combining_schemas.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/multiple_files/combining_schemas.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/multiple_files/combining_schemas.md",
@@ -18252,11 +18252,11 @@
     ],
     [
       "pages/docs/current/data/multiple_files/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/multiple_files/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/multiple_files/overview.md",
@@ -18273,6 +18273,10 @@
     [
       "pages/docs/current/data/multiple_files/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/multiple_files/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/multiple_files/overview.md",
@@ -18301,10 +18305,6 @@
     [
       "pages/docs/current/data/multiple_files/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/multiple_files/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/multiple_files/overview.md",
@@ -18532,11 +18532,11 @@
     ],
     [
       "pages/docs/current/data/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/overview.md",
@@ -18553,6 +18553,10 @@
     [
       "pages/docs/current/data/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/overview.md",
@@ -18581,10 +18585,6 @@
     [
       "pages/docs/current/data/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/overview.md",
@@ -18812,11 +18812,11 @@
     ],
     [
       "pages/docs/current/data/parquet/encryption.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/parquet/encryption.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/parquet/encryption.md",
@@ -18833,6 +18833,10 @@
     [
       "pages/docs/current/data/parquet/encryption.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/parquet/encryption.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/parquet/encryption.md",
@@ -18861,10 +18865,6 @@
     [
       "pages/docs/current/data/parquet/encryption.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/parquet/encryption.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/parquet/encryption.md",
@@ -19092,11 +19092,11 @@
     ],
     [
       "pages/docs/current/data/parquet/metadata.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/parquet/metadata.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/parquet/metadata.md",
@@ -19113,6 +19113,10 @@
     [
       "pages/docs/current/data/parquet/metadata.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/parquet/metadata.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/parquet/metadata.md",
@@ -19141,10 +19145,6 @@
     [
       "pages/docs/current/data/parquet/metadata.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/parquet/metadata.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/parquet/metadata.md",
@@ -19372,11 +19372,11 @@
     ],
     [
       "pages/docs/current/data/parquet/overview.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/parquet/overview.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/parquet/overview.md",
@@ -19393,6 +19393,10 @@
     [
       "pages/docs/current/data/parquet/overview.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/parquet/overview.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/parquet/overview.md",
@@ -19421,10 +19425,6 @@
     [
       "pages/docs/current/data/parquet/overview.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/parquet/overview.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/parquet/overview.md",
@@ -19652,11 +19652,11 @@
     ],
     [
       "pages/docs/current/data/parquet/tips.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/parquet/tips.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/parquet/tips.md",
@@ -19673,6 +19673,10 @@
     [
       "pages/docs/current/data/parquet/tips.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/parquet/tips.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/parquet/tips.md",
@@ -19701,10 +19705,6 @@
     [
       "pages/docs/current/data/parquet/tips.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/parquet/tips.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/parquet/tips.md",
@@ -19932,11 +19932,11 @@
     ],
     [
       "pages/docs/current/data/partitioning/hive_partitioning.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/partitioning/hive_partitioning.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/partitioning/hive_partitioning.md",
@@ -19953,6 +19953,10 @@
     [
       "pages/docs/current/data/partitioning/hive_partitioning.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/partitioning/hive_partitioning.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/partitioning/hive_partitioning.md",
@@ -19981,10 +19985,6 @@
     [
       "pages/docs/current/data/partitioning/hive_partitioning.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/partitioning/hive_partitioning.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/partitioning/hive_partitioning.md",
@@ -20212,11 +20212,11 @@
     ],
     [
       "pages/docs/current/data/partitioning/partitioned_writes.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/data/partitioning/partitioned_writes.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/data/partitioning/partitioned_writes.md",
@@ -20233,6 +20233,10 @@
     [
       "pages/docs/current/data/partitioning/partitioned_writes.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/data/partitioning/partitioned_writes.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/data/partitioning/partitioned_writes.md",
@@ -20261,10 +20265,6 @@
     [
       "pages/docs/current/data/partitioning/partitioned_writes.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/data/partitioning/partitioned_writes.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/data/partitioning/partitioned_writes.md",
@@ -20492,11 +20492,11 @@
     ],
     [
       "pages/docs/current/lakehouse_formats.md",
-      "pages/docs/current/clients/java/functions.md"
+      "pages/docs/current/clients/java/deploy_native_image.md"
     ],
     [
       "pages/docs/current/lakehouse_formats.md",
-      "pages/docs/current/clients/java/known_issues.md"
+      "pages/docs/current/clients/java/functions.md"
     ],
     [
       "pages/docs/current/lakehouse_formats.md",
@@ -20513,6 +20513,10 @@
     [
       "pages/docs/current/lakehouse_formats.md",
       "pages/docs/current/clients/java/result_handling.md"
+    ],
+    [
+      "pages/docs/current/lakehouse_formats.md",
+      "pages/docs/current/clients/java/troubleshoot.md"
     ],
     [
       "pages/docs/current/lakehouse_formats.md",
@@ -20541,10 +20545,6 @@
     [
       "pages/docs/current/lakehouse_formats.md",
       "pages/docs/current/clients/overview.md"
-    ],
-    [
-      "pages/docs/current/lakehouse_formats.md",
-      "pages/docs/current/clients/python/overview.md"
     ],
     [
       "pages/docs/current/lakehouse_formats.md",
@@ -20728,10 +20728,10 @@
     ]
   ],
   "last_sync": {
-    "synced_at": "2026-08-24T07:05:55.162858+00:00",
-    "added": 8,
-    "changed": 50,
-    "removed": 8,
+    "synced_at": "2026-08-31T13:09:59.998718+00:00",
+    "added": 2,
+    "changed": 4,
+    "removed": 2,
     "pages": 80
   }
 }

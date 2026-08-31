@@ -1,16 +1,16 @@
 ---
 type: Web Page
 title: Appender – DuckDB
-description: 'The Appender can be used to load bulk data into a DuckDB database. It
-  is currently available in the C, C++, Go, Java and Rust APIs. The Appender is tied
-  to a connection, and will use the transaction context of that connection when appending.
-  An Appender always appends to a single table in the database file. In the C++ API,
-  the Appender works as follows: DuckDB db; Connection con(db); // create the table
-  con.Query("CREATE TABLE people (id INTEGER, name VARCHAR)"); // initialize the appender
-  Appender appender(con, "people"); The AppendRow function is the easiest way of appending
-  data. It uses recursive…'
+description: The Appender can be used to load bulk data into a DuckDB database. It
+  is available in the C, C++, Go, Java, Julia, Node.js, and Rust clients. This page
+  describes how the Appender behaves across clients and shows a minimal example in
+  each of them. For the full API of a given client, follow the links under Client
+  APIs. How It Works An Appender is tied to a single connection and always appends
+  to a single table in the database file, using that connection's transaction context.
+  Values added to the Appender are cached before being inserted into the database,
+  for…
 resource: https://duckdb.org/docs/current/data/appender
-timestamp: '2026-08-24T07:05:55.104476+00:00'
+timestamp: '2026-08-31T13:09:59.989662+00:00'
 ---
 
 - 
@@ -211,24 +211,47 @@ timestamp: '2026-08-24T07:05:55.104476+00:00'
 - 
 				 [Live Demo](https://shell.duckdb.org)
 
-The Appender can be used to load bulk data into a DuckDB database. It is currently available in the [C, C++, Go, Java and Rust APIs](#appender-support-in-other-clients). The Appender is tied to a connection, and will use the transaction context of that connection when appending. An Appender always appends to a single table in the database file.
+The Appender can be used to load bulk data into a DuckDB database. It is available in the C, C++, Go, Java, Julia, Node.js, and Rust clients. This page describes how the Appender behaves across clients and shows a minimal example in each of them. For the full API of a given client, follow the links under [Client APIs](#client-apis).
 
-In the [C++ API](/docs/current/clients/cpp.html), the Appender works as follows:
+## 
+        
+        [How It Works](#how-it-works)
+        
+      
+
+    
+An Appender is tied to a single connection and always appends to a single table in the database file, using that connection's transaction context.
+
+Values added to the Appender are cached before being inserted into the database, for performance reasons. That means that, while appending, the rows might not be immediately visible in the system. The cache is flushed automatically when the Appender is closed or goes out of scope, and it can also be flushed manually. Once the Appender has been flushed or closed, all of its data has been written to the database.
+
+Constraints such as `NOT NULL`, `PRIMARY KEY`, and `UNIQUE` are checked when the cache is flushed rather than as each row is added, so a row can be accepted but later fail at flush time. See [Handling Constraint Violations](#handling-constraint-violations).
+
+## 
+        
+        [Creating an Appender](#creating-an-appender)
+        
+      
+
+    
+Each client creates an Appender from a connection and a target table, adds rows, and then flushes. The examples below insert into a table with an integer and a string column.
+
+### 
+        
+        [C++](#c)
+        
+      
+
+    
+The `AppendRow` function is the easiest way of appending data. It uses recursive templates to allow you to put all the values of a single row within one function call:
 
 ```
 DuckDB db;
 Connection con(db);
-// create the table
 con.Query("CREATE TABLE people (id INTEGER, name VARCHAR)");
-// initialize the appender
 Appender appender(con, "people");
-```
-The `AppendRow` function is the easiest way of appending data. It uses recursive templates to allow you to put all the values of a single row within one function call, as follows:
-
-```
 appender.AppendRow(1, "Mark");
 ```
-Rows can also be individually constructed using the `BeginRow`, `EndRow` and `Append` methods. This is done internally by `AppendRow`, and hence has the same performance characteristics.
+Rows can also be individually constructed using the `BeginRow`, `EndRow`, and `Append` methods. This is done internally by `AppendRow`, and hence has the same performance characteristics:
 
 ```
 appender.BeginRow();
@@ -236,8 +259,69 @@ appender.Append<int32_t>(2);
 appender.Append<string>("Hannes");
 appender.EndRow();
 ```
-Any values added to the Appender are cached prior to being inserted into the database system
-for performance reasons. That means that, while appending, the rows might not be immediately visible in the system. The cache is automatically flushed when the Appender goes out of scope or when `appender.Close()` is called. The cache can also be manually flushed using the `appender.Flush()` method. After either `Flush` or `Close` is called, all the data has been written to the database system.
+For more information, see the [C++ client](/docs/current/clients/cpp.html).
+
+### 
+        
+        [Java (JDBC)](#java-jdbc)
+        
+      
+
+    
+An appender is created from a `DuckDBConnection` with `createAppender()`, and rows are built with `beginRow()`, `append()`, and `endRow()`. Using try-with-resources flushes and closes it at the end of the scope:
+
+```
+try (var appender = conn.createAppender(DuckDBConnection.DEFAULT_SCHEMA, "tbl")) {
+    appender.beginRow();
+    appender.append(10);
+    appender.append("hello");
+    appender.endRow();
+}
+```
+For more information, see the [Java Appender API](/docs/current/clients/java/data_import.html#appender).
+
+### 
+        
+        [Go](#go)
+        
+      
+
+    
+Obtain an appender by supplying a connection to `NewAppenderFromConn()`, then add rows with `AppendRow()`:
+
+```
+appender, err := NewAppenderFromConn(conn, "", "test")
+defer appender.Close()
+err = appender.AppendRow(1, "hello")
+// Optional, if you want to access the appended rows immediately.
+err = appender.Flush()
+```
+For more information, see the [Go Appender API](/docs/current/clients/go.html#appender).
+
+### 
+        
+        [Rust](#rust)
+        
+      
+
+    
+Create an appender from a `Connection` with `appender()`, then push rows built with the `params!` macro:
+
+```
+let mut app = conn.appender("foo")?;
+app.append_row(params![1, "hello"])?;
+app.flush()?;
+```
+For more information, see the [Rust Appender API](/docs/current/clients/rust/data_import.html#appender).
+
+### 
+        
+        [C](#c-1)
+        
+      
+
+    
+For more information, see the [C Appender API](/docs/current/clients/c/appender.html).
 
 ## 
         
@@ -246,7 +330,7 @@ for performance reasons. That means that, while appending, the rows might not be
       
 
     
-While numbers and strings are rather self-explanatory, dates, times and timestamps require some explanation. They can be directly appended using the methods provided by `duckdb::Date`, `duckdb::Time` or `duckdb::Timestamp`. They can also be appended using the internal `duckdb::Value` type, however, this adds some additional overheads and should be avoided if possible.
+While numbers and strings are rather self-explanatory, dates, times, and timestamps require some explanation. In the C++ API, they can be directly appended using the methods provided by `duckdb::Date`, `duckdb::Time` or `duckdb::Timestamp`. They can also be appended using the internal `duckdb::Value` type, however, this adds some additional overheads and should be avoided if possible.
 
 Below is a short example:
 
@@ -275,7 +359,7 @@ appender.AppendRow(
 
     
 By default, the appender performs commits every 204,800 rows.
-You can change this by explicitly using [transactions](/docs/current/sql/statements/transactions.html) and surrounding your batches of `AppendRow` calls by `BEGIN TRANSACTION` and `COMMIT` statements.
+You can change this by explicitly using [transactions](/docs/current/sql/statements/transactions.html) and surrounding your batches of appended rows by `BEGIN TRANSACTION` and `COMMIT` statements.
 
 ## 
         
@@ -294,12 +378,12 @@ In this case, the entire append operation fails and no rows are inserted.
 
 ## 
         
-        [Appender Support in Other Clients](#appender-support-in-other-clients)
+        [Client APIs](#client-apis)
         
       
 
     
-The Appender is also available in the following client APIs:
+Each client's documentation covers its full Appender API, including constructors for non-default schemas and catalogs and any client-specific features:
 
 # Citations
 

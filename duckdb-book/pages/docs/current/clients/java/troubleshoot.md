@@ -11,8 +11,8 @@ description: 'Overview This page collects common issues encountered when using t
   for jdbc:duckdb: at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:706)
   at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:252) ... And
   when trying to…'
-resource: https://duckdb.org/docs/current/clients/java/known_issues
-timestamp: '2026-08-24T07:05:55.104476+00:00'
+resource: https://duckdb.org/docs/current/clients/java/troubleshoot
+timestamp: '2026-08-31T13:09:59.989662+00:00'
 ---
 
 - 
@@ -270,28 +270,63 @@ This behavior is tracked in [duckdb-java issue #113](https://github.com/duckdb/d
 
 ## 
         
-        [GraalVM Native Image Is Not Supported](#graalvm-native-image-is-not-supported)
+        [Native Image: `NoSuchMethodError` When Opening a Connection](#native-image-nosuchmethoderror-when-opening-a-connection)
         
       
 
     
-The driver loads its JNI native library (`libduckdb_java`) from a static initializer in `org.duckdb.DuckDBNative`, which unpacks the bundled library to a temporary file and loads it at runtime. [GraalVM Native Image](https://www.graalvm.org/latest/reference-manual/native-image/) ahead-of-time (AOT) compilation does not reproduce this runtime loading step, so an AOT-compiled application fails when it opens a connection:
+`NoSuchMethodError` When Opening a Connection
+In a [GraalVM Native Image](/docs/current/clients/java/deploy_native_image.html) executable, opening the first connection may fail with:
 
 ```
-Exception in thread "main" java.lang.UnsatisfiedLinkError: Can't load library: ⟨path⟩/libduckdb_java.so_osx_universal
-    at com.oracle.svm.core.jdk.NativeLibrarySupport.loadLibraryAbsolute(NativeLibrarySupport.java:100)
-    at java.lang.ClassLoader.loadLibrary(ClassLoader.java:57)
-    at java.lang.System.load(System.java:1957)
-    at org.duckdb.DuckDBNative.<clinit>(DuckDBNative.java)
-    at org.duckdb.DuckDBConnection.newConnection(DuckDBConnection.java)
-    at org.duckdb.DuckDBDriver.connect(DuckDBDriver.java)
+Exception in thread "main" java.lang.ExceptionInInitializerError
+    ...
+Caused by: java.lang.NoSuchMethodError: ⟨class and method⟩
+    at com.oracle.svm.core.jni.functions.JNIFunctions$Support.getMethodID(JNIFunctions.java)
     ...
 ```
-The driver runs normally as an ordinary JAR; only AOT compilation is affected. It ships no Native Image reachability metadata, so an AOT build has nothing to configure the native library and reflection automatically.
+The driver resolves its entire JNI surface eagerly when its native library initializes, so a single class, method, or field missing from the reachability metadata fails the whole initialization. This indicates that the metadata compiled into the image is missing or older than the driver: upgrade to a driver version that ships its own metadata, or regenerate the metadata with the tracing agent against the exact driver version in use.
 
-The `-nolib` driver artifact loads the native library by name with `System.loadLibrary`, or from the directory alongside the JAR, instead of unpacking it from the JAR. This makes it possible to supply the library externally, but on its own it does not make an AOT build work.
+The error is sometimes wrapped in a misleading message:
 
-Native Image support is tracked in [duckdb-java issue #180](https://github.com/duckdb/duckdb-java/issues/180).
+```
+java.lang.UnsatisfiedLinkError: Unsupported JNI version 0xffffffff, required by ⟨path⟩/libduckdb_java.⟨suffix⟩
+```
+This is what the library's `JNI_OnLoad` reports when an internal lookup failed, and the cause is the same missing metadata, not a JNI version problem.
+
+## 
+        
+        [Native Image: `UnsatisfiedLinkError: Can't load library`](#native-image-unsatisfiedlinkerror-cant-load-library)
+        
+      
+
+    
+`UnsatisfiedLinkError: Can't load library`
+In a Native Image executable, the first connection may fail with:
+
+```
+java.lang.UnsatisfiedLinkError: Can't load library: duckdb_java | java.library.path = [.]
+    ...
+Caused by: java.io.FileNotFoundException: DuckDB JNI library not found, path: '⟨path⟩/libduckdb_java.⟨suffix⟩'
+```
+The shared library was neither embedded in the executable nor found next to it. Either add a resource entry for your platform's library or place the library file beside the executable. Both options are described on the [Deploy as Native Image](/docs/current/clients/java/deploy_native_image.html) page.
+
+## 
+        
+        [Warning about a Restricted Method in `java.lang.System`](#warning-about-a-restricted-method-in-javalangsystem)
+        
+      
+
+    
+`java.lang.System`
+On JDK 24 and later, loading the driver prints:
+
+```
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.duckdb.DuckDBNative ...
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+```
+This is the JDK's [native access integrity check](https://openjdk.org/jeps/472) and is harmless. Silence it by running the JVM with `--enable-native-access=ALL-UNNAMED`, or the module name of the driver if you place it on the module path. Future JDK releases will turn this warning into an error, so adding the flag is recommended.
 
 ## 
         
@@ -300,10 +335,11 @@ Native Image support is tracked in [duckdb-java issue #180](https://github.com/d
       
 
     
+- [Deploy as Native Image](/docs/current/clients/java/deploy_native_image.html) — building standalone executables with GraalVM, including both ways to provide the shared library.
 - [Java (JDBC) Client](/docs/current/clients/java/overview.html) — installing the driver from Maven Central, the fix for the driver-not-found errors above.
 - [Define Connections](/docs/current/clients/java/connecting.html) — driver registration, configuration options, and instance behavior behind many connection-time errors.
 - [Parquet Files](/docs/current/data/parquet/overview.html) — the`binary_as_string` setting and other options for reading Parquet string columns correctly.
 
 # Citations
 
-1. Source page: https://duckdb.org/docs/current/clients/java/known_issues
+1. Source page: https://duckdb.org/docs/current/clients/java/troubleshoot

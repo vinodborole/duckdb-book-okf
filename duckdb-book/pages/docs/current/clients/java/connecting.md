@@ -1,6 +1,6 @@
 ---
 type: Web Page
-title: Define Connections – DuckDB
+title: Connect – DuckDB
 description: Overview Every DuckDB feature reachable from Java starts with a Connection.
   This page covers the JDBC URL forms the driver accepts, how DuckDB and driver options
   are passed and which of them win, how connections come to share (or not share) an
@@ -10,7 +10,7 @@ description: Overview Every DuckDB feature reachable from Java starts with a Con
   JVMs the driver registers itself with the DriverManager automatically when the JDBC
   JAR is on the classpath (through Java's service-provider mechanism), so…
 resource: https://duckdb.org/docs/current/clients/java/connecting
-timestamp: '2026-08-24T07:05:55.104476+00:00'
+timestamp: '2026-08-31T13:09:59.989662+00:00'
 ---
 
 ## 
@@ -36,6 +36,8 @@ On modern JVMs the driver registers itself with the `DriverManager` automaticall
 Class.forName("org.duckdb.DuckDBDriver");
 Connection conn = DriverManager.getConnection("jdbc:duckdb:");
 ```
+In [GraalVM Native Image](/docs/current/clients/java/deploy_native_image.html) executables, always use this explicit load: the service-provider discovery is not reliably visible to Native Image's static analysis.
+
 To create a DuckDB connection, call `DriverManager` with the `jdbc:duckdb:` JDBC URL prefix, like so:
 
 ```
@@ -349,7 +351,7 @@ Repeatedly opening and closing the last connection to a database means starting 
 - [Handle Results](/docs/current/clients/java/result_handling.html) — the`jdbc_stream_results` option and other result-handling choices set at connection time.
 - [Configuration](/docs/current/configuration/overview.html) — the full list of DuckDB settings that can be passed as connection options.
 - [Files Created by DuckDB](/docs/current/operations_manual/footprint_of_duckdb/files_created_by_duckdb.html) — the database, WAL, and temporary files that connection shutdown checkpoints and cleans up.
-- [Troubleshoot](/docs/current/clients/java/known_issues.html) — workarounds for common connection and driver problems.
+- [Troubleshoot](/docs/current/clients/java/troubleshoot.html) — workarounds for common connection and driver problems.
 
 # Citations
 
